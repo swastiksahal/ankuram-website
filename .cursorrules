@@ -1,0 +1,43 @@
+# Ankuram Tuition Centre - Website Project Rules
+
+## Brand
+- Name: Ankuram Tuition Centre
+- Location: Jubilee Hills, Hyderabad
+- Phone: 7396669430
+- Tagline: "Foundations First. Results Follow."
+
+## Tech Stack
+- Next.js 14 with App Router
+- TypeScript
+- Tailwind CSS
+- Static export (output: 'export' in next.config)
+
+## Design Guidelines
+- Premium, minimalist, typography-driven
+- No stock photos — use icons, gradients, geometric patterns, whitespace
+- Mobile-first responsive design
+- Colors: Deep navy (#0f1d3d), Accent blue (#1e40af), White, Light gray (#f8fafc)
+- Fonts: System fonts (Inter or similar sans-serif)
+- Cards with subtle borders, not heavy shadows
+
+## CTAs (Every Page)
+- Primary: "Schedule Diagnostic Assessment" → WhatsApp link (https://wa.me/917396669430?text=Hi%20I%20want%20to%20book%20a%20diagnostic%20assessment)
+- Secondary: "Call Us" → tel:+917396669430
+- No contact forms anywhere
+
+## Content Rules
+- Speak to parents, not students
+- Tone: Confident, empathetic, professional — not salesy
+- Highlight: diagnostic-first approach, small batches (3-5), 13+ years experience
+- Never include Swastik's educational background (degrees, colleges, Amazon) on the website
+
+## SEO
+- Every page must have unique title, meta description, H1
+- Add FAQ schema on pages that have FAQs
+- Add LocalBusiness schema on homepage
+- Semantic HTML throughout
+
+## File Structure
+- Pages in /app directory
+- Reusable components in /components
+- Keep components modular and reusable
