@@ -15,12 +15,8 @@ export const metadata: Metadata = {
   description:
     "Expert Maths & Physics tuition for Grades 8-12 in Jubilee Hills, Hyderabad. Diagnostic-first approach with small batches of 3-5 students.",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png" }],
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
