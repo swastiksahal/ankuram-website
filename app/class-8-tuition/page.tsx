@@ -62,14 +62,19 @@ const class8Data: GradePageData = {
   ],
   faqs: [
     {
-      question: "Is Class 8 too early for tuition?",
+      question: "My child is only in Class 8. Do they really need tuition?",
       answer:
-        "Class 8 is actually the ideal time. Foundations built now prevent struggles in Class 9\u201310. Fixing gaps later takes 3x longer.",
+        "This is actually the best time. Gaps that form now compound into Class 10\u201312. Fixing them early means smoother boards later.",
     },
     {
       question: "Which curricula do you cover for Class 8?",
       answer:
         "CBSE, ICSE, IB MYP, and IGCSE. The diagnostic identifies gaps regardless of which board your child follows.",
+    },
+    {
+      question: "Do you teach both Maths and Science?",
+      answer:
+        "Maths and Physics. For Chemistry and Biology, we can recommend trusted teachers.",
     },
   ],
 };

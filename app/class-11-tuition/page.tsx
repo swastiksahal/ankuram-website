@@ -63,15 +63,14 @@ const class11Data: GradePageData = {
         "The difficulty jump is 3\u20134x, but study habits don\u2019t change. Add new concepts like calculus, and it\u2019s overwhelming without support.",
     },
     {
-      question:
-        "Should I worry if my child\u2019s Class 11 marks drop?",
+      question: "Can you help with JEE/NEET preparation?",
       answer:
-        "A drop is common and not permanent \u2014 if addressed. Ignoring it leads to Class 12 disaster. Early intervention is key.",
+        "We focus on board-level mastery. For competitive exam coaching, specialized institutes are better. However, strong boards foundation helps competitive prep significantly.",
     },
     {
-      question: "Do you cover JEE/NEET preparation?",
+      question: "Should I worry if my child\u2019s Class 11 marks drop?",
       answer:
-        "Our focus is board curriculum mastery. Strong boards create the foundation for competitive exams, but we don\u2019t do dedicated JEE/NEET coaching.",
+        "A drop is common and not permanent \u2014 if addressed. Ignoring it leads to Class 12 disaster. Early intervention is key.",
     },
   ],
 };

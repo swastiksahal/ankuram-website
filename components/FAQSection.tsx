@@ -18,11 +18,11 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
-          <p className="mt-3 text-base leading-relaxed text-[var(--muted)]">{subtitle}</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy">{title}</h2>
+          <p className="mt-3 text-base leading-relaxed text-gray-600">{subtitle}</p>
         </div>
 
         <div className="mt-8 grid gap-3">
@@ -32,8 +32,8 @@ export default function FAQSection({
               <div
                 key={item.q}
                 className={[
-                  "rounded-2xl border border-[var(--border)] overflow-hidden transition",
-                  isOpen ? "bg-[var(--surface)]" : "bg-white hover:bg-black/[0.02]",
+                  "rounded-xl border border-gray-100 overflow-hidden transition-colors duration-200",
+                  isOpen ? "bg-gray-50" : "bg-white hover:bg-gray-50/50",
                 ].join(" ")}
               >
                 <button
@@ -41,10 +41,10 @@ export default function FAQSection({
                   onClick={() => setOpenIndex((v) => (v === i ? null : i))}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
-                  <span className="text-base font-semibold text-[var(--text)] sm:text-lg">{item.q}</span>
+                  <span className="text-base font-semibold text-navy sm:text-lg">{item.q}</span>
                   <span
                     className={[
-                      "grid h-9 w-9 flex-shrink-0 place-items-center rounded-xl border border-[var(--border)] bg-white text-[var(--text)] transition-transform duration-200",
+                      "grid h-9 w-9 flex-shrink-0 place-items-center rounded-xl border border-gray-100 bg-white text-accent transition-transform duration-200",
                       isOpen ? "rotate-45" : "rotate-0",
                     ].join(" ")}
                   >
@@ -54,11 +54,18 @@ export default function FAQSection({
                   </span>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 pb-5">
-                    <p className="text-base leading-relaxed text-[var(--muted)]">{item.a}</p>
+                <div
+                  className={[
+                    "grid transition-all duration-200 ease-in-out",
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                  ].join(" ")}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-5">
+                      <p className="text-base leading-relaxed text-gray-600">{item.a}</p>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

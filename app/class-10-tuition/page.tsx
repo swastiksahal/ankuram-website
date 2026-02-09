@@ -67,19 +67,19 @@ const class10Data: GradePageData = {
   ],
   faqs: [
     {
-      question: "My child\u2019s boards are in 3 months. Is there time?",
+      question: "Boards are in a few months. Can you still help?",
       answer:
-        "Yes \u2014 if we\u2019re strategic. The diagnostic identifies highest-impact areas. We focus on what moves your score most, not everything equally.",
+        "The diagnostic will tell us. If gaps are manageable, yes. If they\u2019re too deep, we\u2019ll tell you honestly rather than waste your money.",
+    },
+    {
+      question: "Do you teach both Maths and Science?",
+      answer:
+        "Maths and Physics. For Chemistry and Biology, we can recommend trusted teachers.",
     },
     {
       question: "Do you do board exam preparation specifically?",
       answer:
         "Yes. After foundations are solid, we practice board-pattern questions, previous years, and time management.",
-    },
-    {
-      question: "What about practicals and projects?",
-      answer:
-        "We focus on theory and problem-solving. For practicals, school guidance is usually sufficient.",
     },
   ],
 };

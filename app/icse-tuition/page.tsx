@@ -95,14 +95,9 @@ const icseData: CurriculumPageData = {
   faqHeading: "Common Questions from ICSE Parents",
   faqs: [
     {
-      question: "Is ICSE really harder than CBSE?",
+      question: "ICSE syllabus is vast. How do you manage?",
       answer:
-        "Yes \u2014 ICSE goes deeper into concepts and tests application, not just recall. The marking is also stricter on working and presentation. We prepare students for this actual difficulty level.",
-    },
-    {
-      question: "How do you handle commercial maths (GST, banking, shares)?",
-      answer:
-        "These topics are unique to ICSE and have no prior foundation to build on. We break them into simple, logical steps with real-world examples so they make intuitive sense.",
+        "We prioritize understanding over coverage. When foundations are strong, students learn faster. We identify what\u2019s actually causing confusion and fix that first.",
     },
     {
       question: "My child is switching from CBSE to ICSE. Can you help?",
@@ -110,9 +105,9 @@ const icseData: CurriculumPageData = {
         "Yes. We assess their current level and create a bridge plan. ICSE has topics and depth that CBSE doesn\u2019t cover, so we fill those gaps before moving to current content.",
     },
     {
-      question: "How big are the batches?",
+      question: "Do you cover Physics too?",
       answer:
-        "Maximum 3\u20135 students per batch. This ensures every student gets individual attention, can ask questions freely, and receives real-time correction on their working.",
+        "Yes. Maths and Physics for classes 8\u201310. Same foundation-first approach.",
     },
   ],
 };

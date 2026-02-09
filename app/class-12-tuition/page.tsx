@@ -57,20 +57,19 @@ const class12Data: GradePageData = {
   ],
   faqs: [
     {
-      question: "Can you help with both boards and competitive exams?",
+      question: "Can you help with JEE/NEET preparation?",
       answer:
-        "We focus on board mastery. Strong board preparation helps competitive exams, but dedicated JEE/NEET coaching is a different track.",
+        "We focus on board-level mastery. For competitive exam coaching, specialized institutes are better. However, strong boards foundation helps competitive prep significantly.",
     },
     {
-      question:
-        "My child is struggling with calculus. Is it too late?",
+      question: "My child is struggling with calculus. Is it too late?",
       answer:
         "Not if we act now. Calculus can be rebuilt faster than you\u2019d think with focused, gap-targeted work.",
     },
     {
-      question: "What about practical exams?",
+      question: "Boards are in a few months. Can you still help?",
       answer:
-        "We focus on theory and numericals. School practical preparation is usually sufficient.",
+        "The diagnostic will tell us. If gaps are manageable, yes. If they\u2019re too deep, we\u2019ll tell you honestly rather than waste your money.",
     },
   ],
 };

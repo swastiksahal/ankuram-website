@@ -92,19 +92,14 @@ const igcseData: CurriculumPageData = {
   faqHeading: "Common Questions from IGCSE Parents",
   faqs: [
     {
-      question: "Should my child take Core or Extended?",
+      question: "Extended or Core \u2014 which should my child take?",
       answer:
-        "Extended is required for grades A*\u2013A and is necessary if your child plans to take A-Level Maths. Core has a ceiling of grade C. We assess and advise based on current ability and goals.",
+        "Extended is required for grades A*\u2013A and necessary if your child plans to take A-Level Maths. Core caps at grade C. We assess and advise based on current ability and goals.",
     },
     {
       question: "How do you prepare for Cambridge exams?",
       answer:
-        "Extensive past paper practice, mark scheme analysis, and timed conditions. We teach students exactly how Cambridge allocates marks so nothing is left to chance.",
-    },
-    {
-      question: "Is IGCSE harder than CBSE?",
-      answer:
-        "IGCSE Extended is more challenging, particularly in problem-solving and multi-step reasoning. Core is roughly comparable. The real difference is in how answers must be presented.",
+        "We focus on understanding, not just past paper drilling. Once concepts are solid, we train exam technique \u2014 time management, mark scheme patterns, and common traps.",
     },
     {
       question: "Can you help improve predicted grades?",

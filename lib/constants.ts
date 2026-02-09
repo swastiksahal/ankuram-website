@@ -133,27 +133,27 @@ export const TESTIMONIALS = [
 // Homepage FAQs
 export const HOMEPAGE_FAQS = [
   {
-    question: "How is this different from regular tuition?",
-    answer: "Regular tuition starts teaching the current chapter. We start by finding out WHY the current chapter isn't making sense. The diagnostic assessment identifies gaps — often from years earlier — and we fix those first. Once the foundation is solid, the current syllabus moves faster.",
+    question: "Which grades and curricula do you teach?",
+    answer: "We teach Mathematics and Physics for grades 6\u201312 across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One expert teacher, all curricula \u2014 no rotating junior tutors.",
+  },
+  {
+    question: "How is Ankuram different from other tuition centres?",
+    answer: "We don\u2019t start with the current chapter. We start with a diagnostic assessment to find exactly where your child\u2019s understanding broke down \u2014 often 2\u20133 grades back. We fix those gaps first, then the current syllabus clicks into place.",
   },
   {
     question: "What happens in the diagnostic assessment?",
-    answer: "It's a 40-60 minute one-on-one session where we evaluate your child's conceptual understanding across key topics. We don't just check if they get the right answer — we analyse how they approach problems to find the exact logic gaps.",
+    answer: "It\u2019s a 60-minute one-on-one session with a qualified teacher (not a PDF test). We test across foundational concepts, identify specific gaps, and create a personalized learning plan. Fee: \u20B9750.",
   },
   {
-    question: "What grades and subjects do you teach?",
-    answer: "Mathematics and Physics for Grades 6-12 across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. Our sweet spot is Maths for Grades 8-10 across all curricula.",
+    question: "My child practices a lot but still struggles. Can you help?",
+    answer: "This is exactly what we specialize in. Practice without understanding just reinforces wrong methods. We rebuild the foundation so practice actually works.",
   },
   {
-    question: "How big are the batches?",
-    answer: "Maximum 3-5 students. This ensures every student gets individual attention, can ask questions freely, and receives real-time correction.",
+    question: "What\u2019s the batch size?",
+    answer: "3\u20135 students maximum. Your child gets heard, asks questions freely, and gets corrected in real-time.",
   },
   {
-    question: "Do you offer online classes?",
-    answer: "Yes. We offer offline (Jubilee Hills, Hyderabad), online, and hybrid formats. The diagnostic assessment can also be done online.",
-  },
-  {
-    question: "Which curricula do you cover?",
-    answer: "CBSE, ICSE, IB MYP (Grades 6-10), IB DP (Grades 11-12), IGCSE (Grades 9-10), and Cambridge AS & A-Levels (Grades 11-12). One expert teacher across all boards.",
+    question: "Where are you located?",
+    answer: "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad. We also offer online sessions for students outside Hyderabad.",
   },
 ];

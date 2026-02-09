@@ -61,15 +61,19 @@ const class9Data: GradePageData = {
   ],
   faqs: [
     {
-      question: "How important is Class 9 for boards?",
+      question: "My child is only in Class 9. Do they really need tuition?",
       answer:
-        "Extremely. About 40% of Class 10 board content builds directly on Class 9 concepts. Weak Class 9 = struggling Class 10.",
+        "This is actually the best time. Gaps that form now compound into Class 10\u201312. Fixing them early means smoother boards later.",
     },
     {
-      question:
-        "My child did well in Class 8 but is struggling now. Why?",
+      question: "My child did well in Class 8 but is struggling now. Why?",
       answer:
         "Class 9 is a significant jump in abstraction and pace. It\u2019s common \u2014 and fixable with the right support.",
+    },
+    {
+      question: "Do you teach both Maths and Science?",
+      answer:
+        "Maths and Physics. For Chemistry and Biology, we can recommend trusted teachers.",
     },
   ],
 };

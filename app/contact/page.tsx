@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_URL, WHATSAPP_URL, ADDRESS, GOOGLE_MAPS_EMBED } from "@/lib/constants";
+import FAQSection from "@/components/FAQSection";
 
 export const metadata: Metadata = {
   title: "Contact Ankuram Tuition | Jubilee Hills, Hyderabad",
@@ -133,7 +134,7 @@ export default function ContactPage() {
       {/* Areas We Serve */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4">
             Areas We Serve
           </h2>
           <p className="text-lg text-gray-600 mb-8">
@@ -154,55 +155,16 @@ export default function ContactPage() {
       </section>
 
       {/* Quick Questions */}
-      <section className="py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-navy mb-8 text-center">
-            Quick Questions
-          </h2>
-
-          <div className="space-y-6">
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-medium text-navy mb-2">
-                What&apos;s the best way to reach you?
-              </h3>
-              <p className="text-gray-600">
-                WhatsApp is fastest. We typically respond within a few hours. 
-                For urgent enquiries, please call directly.
-              </p>
-            </div>
-
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-medium text-navy mb-2">
-                Do you offer home tuition?
-              </h3>
-              <p className="text-gray-600">
-                No, all sessions are conducted at our centre in Jubilee Hills. 
-                This allows us to maintain a focused learning environment.
-              </p>
-            </div>
-
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-medium text-navy mb-2">
-                Can I visit the centre before enrolling?
-              </h3>
-              <p className="text-gray-600">
-                Yes, we encourage it. WhatsApp or call to schedule a visit. 
-                We&apos;ll explain our approach and answer your questions.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium text-navy mb-2">
-                What are the next steps to enroll?
-              </h3>
-              <p className="text-gray-600">
-                Contact us → Schedule a diagnostic assessment → Receive gap report → 
-                Discuss if Ankuram is the right fit → Enroll if suitable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQSection
+        title="Quick Questions"
+        subtitle="Everything you need to know before getting in touch."
+        items={[
+          { q: "What\u2019s the best way to reach you?", a: "WhatsApp is fastest. We typically respond within a few hours. For urgent enquiries, please call directly." },
+          { q: "Do you offer home tuition?", a: "No, all sessions are conducted at our centre in Jubilee Hills. This allows us to maintain a focused learning environment." },
+          { q: "Can I visit the centre before enrolling?", a: "Yes, we encourage it. WhatsApp or call to schedule a visit. We\u2019ll explain our approach and answer your questions." },
+          { q: "What are the next steps to enroll?", a: "Contact us \u2192 Schedule a diagnostic assessment \u2192 Receive gap report \u2192 Discuss if Ankuram is the right fit \u2192 Enroll if suitable." },
+        ]}
+      />
 
     </>
   );

@@ -96,25 +96,19 @@ const cbseData: CurriculumPageData = {
   faqHeading: "Common Questions from CBSE Parents",
   faqs: [
     {
-      question:
-        "My child is in Class 10. Is there time to fix gaps before boards?",
+      question: "How do you teach CBSE Maths differently?",
       answer:
-        "Yes \u2014 if we start now. The diagnostic identifies exactly what needs fixing, and we prioritize ruthlessly. Many students see significant improvement in 2\u20133 months.",
+        "We don\u2019t just solve NCERT questions. We ensure every concept is understood deeply \u2014 so your child isn\u2019t memorizing steps, they\u2019re understanding why. By boards, they know the material, not cramming it.",
     },
     {
-      question: "Do you follow NCERT exactly?",
+      question: "My child is in Class 10 and boards are coming. Is it too late?",
       answer:
-        "Yes, we follow NCERT completely because CBSE boards are based on it. We supplement with additional problems for deeper understanding, but NCERT mastery is the foundation.",
+        "It depends on how deep the gaps are. The diagnostic will tell us exactly where they stand and whether we can realistically help before boards. We\u2019ll be honest with you.",
     },
     {
-      question: "How big are the batches?",
+      question: "Do you cover Physics too?",
       answer:
-        "Maximum 3\u20135 students per batch. This ensures every student gets individual attention, can ask questions freely, and receives real-time correction.",
-    },
-    {
-      question: "Do you teach Physics as well?",
-      answer:
-        "Yes. We teach both Maths and Physics for Classes 11\u201312. Our teacher has an MSc in Physics, so the subject is taught with real depth and understanding.",
+        "Yes. Maths and Physics for classes 8\u201312. Same foundation-first approach.",
     },
   ],
 };

@@ -90,19 +90,14 @@ const aLevelsData: CurriculumPageData = {
   faqHeading: "Common Questions from A-Level Parents",
   faqs: [
     {
-      question: "Is A-Level Maths necessary for engineering?",
+      question: "A-Level Maths is very hard. Can you actually help?",
       answer:
-        "Essential. Top universities require it for all STEM courses. Further Maths strengthens applications significantly, especially for Oxbridge and top-tier universities.",
+        "A-Level is hard because it assumes perfect IGCSE foundations. We check those foundations first. If gaps exist, we fix them \u2014 that\u2019s often why students struggle.",
     },
     {
-      question: "How difficult is the jump from IGCSE to A-Level?",
+      question: "Do you teach Further Maths?",
       answer:
-        "Substantial. A-Level introduces abstract reasoning, formal proofs, and calculus depth that IGCSE doesn\u2019t touch. Students who scored A* at IGCSE can still struggle without the right preparation.",
-    },
-    {
-      question: "Do you teach both AS and A2?",
-      answer:
-        "Yes. We teach AS (Year 12) and A2 (Year 13), building properly from foundations. Many students join us in A2 after struggling in AS \u2014 we go back and fix AS gaps first.",
+        "Yes, both A-Level Maths and Further Maths.",
     },
     {
       question: "Can your physics background help with Mechanics?",

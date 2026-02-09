@@ -94,19 +94,14 @@ const ibDpData: CurriculumPageData = {
   faqHeading: "Common Questions from IB DP Parents",
   faqs: [
     {
-      question: "Should my child take AA or AI?",
+      question: "AA or AI \u2014 which is right for my child?",
       answer:
-        "AA is better for mathematics, physics, and engineering paths. AI suits social sciences, medicine, and business. We help decide based on your child\u2019s strengths and university plans.",
+        "AA (Analysis & Approaches) is for students strong in algebra heading toward STEM. AI (Applications & Interpretation) suits those going into business/social sciences. We teach both and can advise based on your child\u2019s goals.",
     },
     {
-      question: "Can you help with the Internal Assessment?",
+      question: "Can you help with IA (Internal Assessment)?",
       answer:
-        "Yes. We guide the entire process \u2014 topic selection, mathematical exploration, personal engagement, and criterion alignment. The IA is 20% of the grade and often the easiest place to gain marks.",
-    },
-    {
-      question: "Is IB DP HL Maths really that difficult?",
-      answer:
-        "It\u2019s rigorous and requires genuine mathematical maturity. With proper foundations and the right guidance, it\u2019s manageable. Without them, it\u2019s a struggle. That\u2019s exactly what the diagnostic checks.",
+        "Yes. We guide topic selection, methodology, and ensure mathematical rigor \u2014 without doing the work for them.",
     },
     {
       question: "Do you teach IB Physics as well?",

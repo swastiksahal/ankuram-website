@@ -93,24 +93,19 @@ const ibMypData: CurriculumPageData = {
   faqHeading: "Common Questions from IB MYP Parents",
   faqs: [
     {
-      question: "Do you understand how IB MYP is assessed?",
+      question: "Do you understand criterion-based assessment?",
       answer:
-        "Yes. MYP uses four criteria \u2014 Knowing & Understanding, Investigating Patterns, Communicating, and Applying Mathematics in Real-Life Contexts. We teach and assess using all four, not just the first.",
+        "We\u2019ve been teaching IB MYP since 2017. We train students across all four criteria \u2014 especially Investigating and Communicating, where most marks are lost.",
     },
     {
-      question: "Can you help with MYP investigations and tasks?",
+      question: "Can you help with the eAssessment?",
       answer:
-        "Absolutely. We guide students through the open-ended investigation process \u2014 from choosing an approach to presenting findings in a way that meets criterion expectations.",
+        "Yes. For MYP 5, we specifically prepare for the on-screen exam format with its unique question types and time pressure.",
     },
     {
-      question: "How do you prepare for the MYP 5 eAssessment?",
+      question: "My child\u2019s school doesn\u2019t teach properly. Can you cover the full syllabus?",
       answer:
-        "We familiarise students with the on-screen format, practise with past papers and specimen papers, and build the quick conceptual thinking the exam rewards.",
-    },
-    {
-      question: "My child\u2019s school uses IB but they\u2019re still struggling. Why?",
-      answer:
-        "IB\u2019s spiral curriculum revisits topics at increasing depth each year. If the foundation from an earlier year is weak, the current year feels impossible. Our diagnostic finds exactly where the chain broke.",
+        "Absolutely. Many IB students come to us because school teaching is inconsistent. We ensure conceptual clarity across all MYP strands.",
     },
   ],
 };
