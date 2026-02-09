@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { WHATSAPP_URL, PHONE_URL } from "@/lib/constants";
 import FAQSection from "./FAQSection";
 import CTABanner from "./CTABanner";
+import StepCard from "./StepCard";
 
 export interface CurriculumPageData {
   heroTitle: string;
@@ -107,17 +108,12 @@ export default function CurriculumPageTemplate({ data }: { data: CurriculumPageD
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {data.approachSteps.map((step, i) => (
-              <div key={i} className="relative">
-                <span className="text-sm font-mono text-accent font-medium mb-4 block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-xl font-semibold text-navy mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
+              <StepCard
+                key={i}
+                stepNumber={String(i + 1).padStart(2, "0")}
+                title={step.title}
+                description={step.description}
+              />
             ))}
           </div>
         </div>

@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { WHATSAPP_NUMBER, PHONE_URL, EXPERIENCE_YEARS, BATCH_SIZE, CURRICULA } from "@/lib/constants";
 import FAQSection from "./FAQSection";
 import CTABanner from "./CTABanner";
+import StepCard from "./StepCard";
 
 export interface GradePageData {
   gradeNumber: number;
@@ -175,17 +176,12 @@ export default function GradePageTemplate({ data }: { data: GradePageData }) {
                   "Once foundations are solid, we build speed, accuracy, and paper-solving strategy for exams.",
               },
             ].map((step, i) => (
-              <div key={i} className="relative">
-                <span className="text-sm font-mono text-accent font-medium mb-4 block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-xl font-semibold text-navy mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
+              <StepCard
+                key={i}
+                stepNumber={String(i + 1).padStart(2, "0")}
+                title={step.title}
+                description={step.description}
+              />
             ))}
           </div>
         </div>

@@ -31,6 +31,7 @@ import {
 import TestimonialCard from "@/components/TestimonialCard";
 import FAQSection from "@/components/FAQSection";
 import JourneySection from "@/components/JourneySection";
+import StepCard from "@/components/StepCard";
 
 export default function Home() {
   return (
@@ -307,18 +308,13 @@ export default function Home() {
                 description: "We fix the root, then the current syllabus moves 2x faster. Everything becomes an equation.",
               },
             ].map((item) => (
-              <div key={item.step} className="relative">
-                <span className="text-sm font-mono text-accent font-medium mb-4 block">
-                  {item.step}
-                </span>
-                <div className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center mb-5">
-                  <item.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-navy mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
-              </div>
+              <StepCard
+                key={item.step}
+                stepNumber={item.step}
+                title={item.title}
+                description={item.description}
+                icon={item.icon}
+              />
             ))}
           </div>
         </div>
