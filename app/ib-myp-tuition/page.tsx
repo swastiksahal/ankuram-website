@@ -86,9 +86,11 @@ const ibMypData: CurriculumPageData = {
   ],
   gradesHeading: "IB MYP Grades We Teach",
   grades: [
-    { name: "Class 8", href: "/class-8-tuition" },
-    { name: "Class 9", href: "/class-9-tuition" },
-    { name: "Class 10", href: "/class-10-tuition", highlight: "MYP 5" },
+    { name: "Grade 6", href: "/ib-myp-tuition", highlight: "MYP 1" },
+    { name: "Grade 7", href: "/ib-myp-tuition", highlight: "MYP 2" },
+    { name: "Grade 8", href: "/class-8-tuition", highlight: "MYP 3" },
+    { name: "Grade 9", href: "/class-9-tuition", highlight: "MYP 4" },
+    { name: "Grade 10", href: "/class-10-tuition", highlight: "MYP 5" },
   ],
   faqHeading: "Common Questions from IB MYP Parents",
   faqs: [
