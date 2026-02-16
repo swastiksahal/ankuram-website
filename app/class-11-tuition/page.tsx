@@ -3,11 +3,19 @@ import GradePageTemplate from "@/components/GradePageTemplate";
 import type { GradePageData } from "@/components/GradePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Class 11 Tuition in Jubilee Hills, Hyderabad | Ankuram",
+  title: "Class 11 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Expert Class 11 Maths & Physics tuition in Jubilee Hills, Hyderabad. Calculus, trigonometry, mechanics. CBSE, ISC, IB, A-Levels. Book a diagnostic assessment.",
+    "Class 11 Maths & Physics tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Navigate the toughest academic year. Call +91 7396669430",
   alternates: {
-    canonical: "/class-11-tuition",
+    canonical: "https://ankuramtuition.in/class-11-tuition",
+  },
+  openGraph: {
+    title: "Class 11 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
+    description:
+      "Class 11 Maths & Physics tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Navigate the toughest academic year. Call +91 7396669430",
+    url: "https://ankuramtuition.in/class-11-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

@@ -5,9 +5,17 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "Cambridge A-Level Maths & Physics Tuition in Jubilee Hills | Ankuram",
   description:
-    "Expert Cambridge A-Level Maths & Physics tuition in Jubilee Hills, Hyderabad. Pure, Mechanics, Statistics, Practicals. Small batches of 3\u20135. Book a diagnostic assessment.",
+    "Cambridge AS & A Level Maths (9709) and Physics (9702) tuition in Jubilee Hills. Pure Maths, Mechanics, Statistics. Small batches. Call +91 7396669430",
   alternates: {
-    canonical: "/a-levels-tuition",
+    canonical: "https://ankuramtuition.in/a-levels-maths-tuition",
+  },
+  openGraph: {
+    title: "Cambridge A-Level Maths & Physics Tuition in Jubilee Hills | Ankuram",
+    description:
+      "Cambridge AS & A Level Maths (9709) and Physics (9702) tuition in Jubilee Hills. Pure Maths, Mechanics, Statistics. Small batches. Call +91 7396669430",
+    url: "https://ankuramtuition.in/a-levels-maths-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

@@ -3,11 +3,19 @@ import CurriculumPageTemplate from "@/components/CurriculumPageTemplate";
 import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 
 export const metadata: Metadata = {
-  title: "IB DP Maths & Science Tuition in Jubilee Hills | Ankuram",
+  title: "IB DP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "Expert IB DP Maths AA/AI & Science tuition in Jubilee Hills, Hyderabad. SL & HL, IA guidance, Physics & Chemistry. Book a diagnostic assessment.",
+    "IB DP Maths AA & AI tuition (SL/HL) in Jubilee Hills. IA guidance, exam prep, predicted grade support. Small batches. Call +91 7396669430",
   alternates: {
-    canonical: "/ib-dp-tuition",
+    canonical: "https://ankuramtuition.in/ib-dp-maths-tuition",
+  },
+  openGraph: {
+    title: "IB DP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
+    description:
+      "IB DP Maths AA & AI tuition (SL/HL) in Jubilee Hills. IA guidance, exam prep, predicted grade support. Small batches. Call +91 7396669430",
+    url: "https://ankuramtuition.in/ib-dp-maths-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

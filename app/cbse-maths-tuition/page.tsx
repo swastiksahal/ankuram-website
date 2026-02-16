@@ -3,11 +3,19 @@ import CurriculumPageTemplate from "@/components/CurriculumPageTemplate";
 import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 
 export const metadata: Metadata = {
-  title: "CBSE Maths & Science Tuition in Jubilee Hills | Ankuram",
+  title: "CBSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "Expert CBSE Maths & Science tuition for Grades 1–12 in Jubilee Hills, Hyderabad. Diagnostic-first approach, small batches of 3–5. Book a diagnostic assessment.",
+    "Expert CBSE Maths tuition for Class 8-12 in Jubilee Hills. NCERT-first approach, small batches of 3-5. Foundation-first methodology. Call +91 7396669430",
   alternates: {
-    canonical: "/cbse-tuition",
+    canonical: "https://ankuramtuition.in/cbse-maths-tuition",
+  },
+  openGraph: {
+    title: "CBSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
+    description:
+      "Expert CBSE Maths tuition for Class 8-12 in Jubilee Hills. NCERT-first approach, small batches of 3-5. Foundation-first methodology. Call +91 7396669430",
+    url: "https://ankuramtuition.in/cbse-maths-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

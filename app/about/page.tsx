@@ -12,9 +12,20 @@ import {
 import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
 export const metadata: Metadata = {
-  title: "About Ankuram | Diagnostic-First Maths Tuition in Jubilee Hills",
+  title: "About Ankuram Tuition Centre | Jubilee Hills, Hyderabad",
   description:
-    "Ankuram is a diagnostic-driven maths tuition centre in Jubilee Hills, Hyderabad. 13+ years experience, small batches of 3-5, all major curricula.",
+    "13+ years of expert Maths & Physics teaching. Foundation-first methodology. Small batches of 3-5 students in Jubilee Hills, Hyderabad.",
+  alternates: {
+    canonical: "https://ankuramtuition.in/about",
+  },
+  openGraph: {
+    title: "About Ankuram Tuition Centre | Jubilee Hills, Hyderabad",
+    description:
+      "13+ years of expert Maths & Physics teaching. Foundation-first methodology. Small batches of 3-5 students in Jubilee Hills, Hyderabad.",
+    url: "https://ankuramtuition.in/about",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

@@ -34,12 +34,12 @@ export default function Footer() {
           <div>
             <div className="text-xs font-semibold text-accent uppercase tracking-wider">Curricula</div>
             <ul className="mt-4 grid gap-2 text-sm">
-              <li><Link className="hover:text-white transition-colors" href="/cbse-tuition">CBSE</Link></li>
-              <li><Link className="hover:text-white transition-colors" href="/icse-tuition">ICSE</Link></li>
-              <li><Link className="hover:text-white transition-colors" href="/ib-myp-tuition">IB MYP</Link></li>
-              <li><Link className="hover:text-white transition-colors" href="/ib-dp-tuition">IB DP</Link></li>
-              <li><Link className="hover:text-white transition-colors" href="/igcse-tuition">IGCSE</Link></li>
-              <li><Link className="hover:text-white transition-colors" href="/a-levels-tuition">A-Levels</Link></li>
+              <li><Link className="hover:text-white transition-colors" href="/cbse-maths-tuition">CBSE</Link></li>
+              <li><Link className="hover:text-white transition-colors" href="/icse-maths-tuition">ICSE</Link></li>
+              <li><Link className="hover:text-white transition-colors" href="/ib-myp-maths-tuition">IB MYP</Link></li>
+              <li><Link className="hover:text-white transition-colors" href="/ib-dp-maths-tuition">IB DP</Link></li>
+              <li><Link className="hover:text-white transition-colors" href="/igcse-maths-tuition">IGCSE</Link></li>
+              <li><Link className="hover:text-white transition-colors" href="/a-levels-maths-tuition">A-Levels</Link></li>
             </ul>
           </div>
 

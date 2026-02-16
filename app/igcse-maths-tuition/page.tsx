@@ -3,11 +3,19 @@ import CurriculumPageTemplate from "@/components/CurriculumPageTemplate";
 import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 
 export const metadata: Metadata = {
-  title: "IGCSE Maths & Science Tuition in Jubilee Hills | Ankuram",
+  title: "IGCSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "Expert Cambridge IGCSE Maths & Science tuition in Jubilee Hills, Hyderabad. Core & Extended, past paper mastery, small batches of 3\u20135. Book a diagnostic assessment.",
+    "Cambridge IGCSE Maths tuition (0580) in Jubilee Hills. Core & Extended preparation. Step-marking expertise. Small batches. Call +91 7396669430",
   alternates: {
-    canonical: "/igcse-tuition",
+    canonical: "https://ankuramtuition.in/igcse-maths-tuition",
+  },
+  openGraph: {
+    title: "IGCSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
+    description:
+      "Cambridge IGCSE Maths tuition (0580) in Jubilee Hills. Core & Extended preparation. Step-marking expertise. Small batches. Call +91 7396669430",
+    url: "https://ankuramtuition.in/igcse-maths-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

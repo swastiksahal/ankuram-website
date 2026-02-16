@@ -21,9 +21,20 @@ import {
 import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
 export const metadata: Metadata = {
-  title: "Diagnostic Assessment | Find Your Child's Gaps in 60 Minutes | Ankuram",
+  title: "Book a Diagnostic Assessment | Ankuram Tuition Centre, Jubilee Hills",
   description:
-    "Book a 60-minute diagnostic assessment at Ankuram Tuition Centre, Jubilee Hills. Expert-led gap analysis, written report, personalised recovery plan. ₹750, fully credited when you enroll.",
+    "Find out exactly where your child stands in Maths & Physics. 45-60 minute diagnostic assessment at our Jubilee Hills centre. Call +91 7396669430",
+  alternates: {
+    canonical: "https://ankuramtuition.in/diagnostic",
+  },
+  openGraph: {
+    title: "Book a Diagnostic Assessment | Ankuram Tuition Centre, Jubilee Hills",
+    description:
+      "Find out exactly where your child stands in Maths & Physics. 45-60 minute diagnostic assessment at our Jubilee Hills centre. Call +91 7396669430",
+    url: "https://ankuramtuition.in/diagnostic",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
+  },
 };
 
 export default function DiagnosticPage() {

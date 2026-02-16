@@ -3,11 +3,19 @@ import GradePageTemplate from "@/components/GradePageTemplate";
 import type { GradePageData } from "@/components/GradePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Class 12 Tuition in Jubilee Hills, Hyderabad | Ankuram",
+  title: "Class 12 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Expert Class 12 Maths & Physics tuition in Jubilee Hills, Hyderabad. Board exam preparation, integration, electrostatics, optics. Book a diagnostic assessment.",
+    "Class 12 board exam tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Board prep, IA support, university readiness. Call +91 7396669430",
   alternates: {
-    canonical: "/class-12-tuition",
+    canonical: "https://ankuramtuition.in/class-12-tuition",
+  },
+  openGraph: {
+    title: "Class 12 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
+    description:
+      "Class 12 board exam tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Board prep, IA support, university readiness. Call +91 7396669430",
+    url: "https://ankuramtuition.in/class-12-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

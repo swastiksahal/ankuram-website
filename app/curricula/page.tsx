@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: "Curricula We Cover | Ankuram Tuition Centre",
   description:
     "Expert Maths & Physics tuition across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One centre, every board.",
+  alternates: {
+    canonical: "https://ankuramtuition.in/curricula",
+  },
+  openGraph: {
+    title: "Curricula We Cover | Ankuram Tuition Centre",
+    description:
+      "Expert Maths & Physics tuition across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One centre, every board.",
+    url: "https://ankuramtuition.in/curricula",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
+  },
 };
 
 export default function CurriculaPage() {

@@ -3,11 +3,19 @@ import CurriculumPageTemplate from "@/components/CurriculumPageTemplate";
 import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 
 export const metadata: Metadata = {
-  title: "IB MYP Maths & Science Tuition in Jubilee Hills | Ankuram",
+  title: "IB MYP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "Expert IB MYP Maths & Sciences tuition in Jubilee Hills, Hyderabad. Criterion-based assessment, investigation skills, small batches of 3\u20135. Book a diagnostic assessment.",
+    "IB MYP Maths tuition for Years 1-5 in Jubilee Hills. Criterion-based preparation (A,B,C,D). eAssessment ready. Small batches. Call +91 7396669430",
   alternates: {
-    canonical: "/ib-myp-tuition",
+    canonical: "https://ankuramtuition.in/ib-myp-maths-tuition",
+  },
+  openGraph: {
+    title: "IB MYP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
+    description:
+      "IB MYP Maths tuition for Years 1-5 in Jubilee Hills. Criterion-based preparation (A,B,C,D). eAssessment ready. Small batches. Call +91 7396669430",
+    url: "https://ankuramtuition.in/ib-myp-maths-tuition",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
   },
 };
 

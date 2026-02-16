@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
-
+Disallow: /api/
+Disallow: /_next/
+Disallow: /thank-you
 Sitemap: https://ankuramtuition.in/sitemap.xml

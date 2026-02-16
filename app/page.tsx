@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   MessageCircle,
@@ -19,9 +20,80 @@ import TestimonialCard from "@/components/TestimonialCard";
 import FAQSection from "@/components/FAQSection";
 import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
+export const metadata: Metadata = {
+  title: "Tuition Centre Near Me in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
+  description:
+    "Expert Maths & Physics tuition for Grades 6-12 in Jubilee Hills, Hyderabad. CBSE, ICSE, IB MYP, IB DP, IGCSE, A-Levels. Small batches of 3-5 students. Foundation-first methodology. 13+ years experience. Call +91 7396669430",
+  alternates: {
+    canonical: "https://ankuramtuition.in",
+  },
+  openGraph: {
+    title: "Tuition Centre Near Me in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
+    description:
+      "Expert Maths & Physics tuition for Grades 6-12 in Jubilee Hills, Hyderabad. CBSE, ICSE, IB MYP, IB DP, IGCSE, A-Levels. Small batches of 3-5 students. Foundation-first methodology. 13+ years experience. Call +91 7396669430",
+    url: "https://ankuramtuition.in",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "EducationalOrganization"],
+  name: "Ankuram Tuition Centre",
+  description:
+    "Expert Maths & Physics tuition for Grades 6-12 in Jubilee Hills, Hyderabad",
+  url: "https://ankuramtuition.in",
+  telephone: "+917396669430",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Plot 229, Road No. 72, Prashasan Nagar",
+    addressLocality: "Jubilee Hills",
+    addressRegion: "Telangana",
+    postalCode: "500033",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 17.4325,
+    longitude: 78.4073,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ],
+    opens: "09:00",
+    closes: "21:00",
+  },
+  priceRange: "₹₹₹",
+  areaServed: [
+    "Jubilee Hills",
+    "Banjara Hills",
+    "Gachibowli",
+    "Financial District",
+    "HITEC City",
+    "Kondapur",
+    "Madhapur",
+    "Manikonda",
+    "Narsingi",
+  ],
+  subjects: ["Mathematics", "Physics"],
+  sameAs: [],
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ─── SECTION 1: DARK HERO ─── */}
       <section className="relative bg-navy py-20 lg:py-32 overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(212,168,83,0.08),transparent_60%)]" />

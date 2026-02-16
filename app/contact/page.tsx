@@ -5,9 +5,20 @@ import FAQSection from "@/components/FAQSection";
 import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
 export const metadata: Metadata = {
-  title: "Contact Ankuram Tuition | Jubilee Hills, Hyderabad",
+  title: "Contact Ankuram Tuition Centre | Jubilee Hills, Hyderabad",
   description:
-    "Contact Ankuram Tuition in Jubilee Hills, Hyderabad. WhatsApp or call to book a diagnostic assessment.",
+    "Visit us at Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad. Call +91 7396669430 or WhatsApp us.",
+  alternates: {
+    canonical: "https://ankuramtuition.in/contact",
+  },
+  openGraph: {
+    title: "Contact Ankuram Tuition Centre | Jubilee Hills, Hyderabad",
+    description:
+      "Visit us at Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad. Call +91 7396669430 or WhatsApp us.",
+    url: "https://ankuramtuition.in/contact",
+    siteName: "Ankuram Tuition Centre",
+    type: "website",
+  },
 };
 
 const areas = [
