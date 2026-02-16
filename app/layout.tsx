@@ -1,22 +1,52 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID;
-const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+import GoogleAnalytics from "@/components/tracking/GoogleAnalytics";
 
 export const metadata: Metadata = {
-  title: "Ankuram Tuition Centre | Maths & Physics | Jubilee Hills",
+  title: {
+    default: "Ankuram Tuition Centre | Maths & Physics | Jubilee Hills, Hyderabad",
+    template: "%s | Ankuram Tuition Centre",
+  },
   description:
-    "Expert Maths & Physics tuition for Grades 8-12 in Jubilee Hills, Hyderabad. Diagnostic-first approach with small batches of 3-5 students.",
+    "Expert Maths & Physics tuition for Classes 8-12 in Jubilee Hills, Hyderabad. Diagnostic-first approach with small batches of 3-5 students. CBSE, ICSE, IB, IGCSE, A-Levels.",
+  metadataBase: new URL("https://ankuramtuition.in"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://ankuramtuition.in",
+    siteName: "Ankuram Tuition Centre",
+    title: "Ankuram Tuition Centre | Maths & Physics Tuition in Jubilee Hills",
+    description:
+      "Diagnostic-first maths & physics tuition for Classes 8-12. Small batches of 3-5 students. CBSE, ICSE, IB, IGCSE, A-Levels. 13+ years experience. 4.8★ on Google.",
+    images: [
+      {
+        url: "/images/logo.avif",
+        width: 120,
+        height: 48,
+        alt: "Ankuram Tuition Centre",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Ankuram Tuition Centre | Maths & Physics | Jubilee Hills",
+    description:
+      "Diagnostic-first maths & physics tuition for Classes 8-12. Small batches of 3-5 students. 13+ years experience.",
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -27,37 +57,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}');
-                ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
-              `}
-            </Script>
-          </>
-        )}
-        {CLARITY_ID && (
-          <Script id="clarity-init" strategy="afterInteractive">
-            {`
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window,document,"clarity","script","${CLARITY_ID}");
-            `}
-          </Script>
-        )}
-      </head>
       <body className="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
+        <GoogleAnalytics />
         <Header />
         <main className="pb-28 sm:pb-0">{children}</main>
         <Footer />

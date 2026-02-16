@@ -1,148 +1,167 @@
+import React from "react";
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Phone } from "lucide-react";
-import { WHATSAPP_URL, PHONE_URL } from "@/lib/constants";
+import { ArrowRight, MessageCircle, Phone, AlertCircle } from "lucide-react";
+import { WHATSAPP_NUMBER, PHONE_URL } from "@/lib/constants";
 import FAQSection from "./FAQSection";
 import CTABanner from "./CTABanner";
-import StepCard from "./StepCard";
+import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
 export interface CurriculumPageData {
+  curriculumName: string;
   heroTitle: string;
   heroSubtitle: string;
-  trustBadges: string[];
-  challengeHeading: string;
-  challenges: { title: string; description: string }[];
-  approachHeading: string;
-  approachSteps: { title: string; description: string }[];
-  subjectsHeading: string;
-  subjects: { name: string; topics: string[] }[];
-  gradesHeading: string;
-  grades: { name: string; href: string; highlight?: string }[];
-  faqHeading: string;
+  heroBadge: string;
+  painPoints: string[];
+  howWeTeachHeading: string;
+  howWeTeachContent: React.ReactNode;
+  whatMakesDifferentHeading: string;
+  whatMakesDifferentContent: React.ReactNode;
+  commonGaps: { category: string; items: string[] }[];
+  diagnosticContent: React.ReactNode;
+  subjectsContent: React.ReactNode;
   faqs: { question: string; answer: string }[];
 }
 
-export default function CurriculumPageTemplate({ data }: { data: CurriculumPageData }) {
+export default function CurriculumPageTemplate({
+  data,
+}: {
+  data: CurriculumPageData;
+}) {
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    `Hi, I want to book a diagnostic assessment for my child studying ${data.curriculumName}`
+  )}`;
+
   return (
     <>
-      {/* Hero */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. Hero */}
+      <section className="py-16 lg:py-24 bg-navy relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(212,168,83,0.08),transparent_60%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-navy mb-6"
+              className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white mb-6 transition-colors"
             >
               &larr; Back to Home
             </Link>
 
-            <h1 className="text-4xl lg:text-5xl font-bold text-navy mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               {data.heroTitle}
             </h1>
 
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl leading-relaxed">
+            <p className="text-lg text-white/60 mb-6 max-w-2xl leading-relaxed">
               {data.heroSubtitle}
             </p>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500 mb-8">
-              {data.trustBadges.map((badge, i) => (
-                <span key={i} className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-accent" />
-                  {badge}
-                </span>
-              ))}
+            <div className="mb-8">
+              <span className="inline-block bg-accent/15 text-accent text-sm font-medium px-4 py-1.5 rounded-full">
+                {data.heroBadge}
+              </span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={WHATSAPP_URL}
+              <TrackedCTALink trackingType="whatsapp"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-navy text-white px-6 py-4 rounded-lg font-medium hover:bg-navy-light transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-navy px-8 py-4 rounded-xl font-semibold hover:bg-accent-light transition-colors shadow-lg"
               >
                 <MessageCircle className="w-5 h-5" />
                 Book Diagnostic Assessment
-              </a>
-              <a
+              </TrackedCTALink>
+              <TrackedCTALink trackingType="phone"
                 href={PHONE_URL}
-                className="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy px-6 py-4 rounded-lg font-medium hover:bg-navy hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white px-6 py-4 rounded-xl font-semibold hover:bg-white/5 transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 Call Us
-              </a>
+              </TrackedCTALink>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Challenge */}
-      <section className="py-16 lg:py-20 bg-white">
+      {/* 2. Is This Your Child? */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy text-center mb-12">
-            {data.challengeHeading}
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {data.challenges.map((item, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 p-6 lg:p-8 rounded-xl border border-gray-100"
-              >
-                <h3 className="text-xl font-semibold text-navy mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <p className="section-label mb-4 text-center">Sound Familiar?</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy text-center mb-12">
+              Is This Your Child?
+            </h2>
+            <div className="space-y-4">
+              {data.painPoints.map((point, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-4 bg-gray-50 p-5 sm:p-6 rounded-2xl border border-gray-100"
+                >
+                  <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-600 leading-relaxed">{point}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Approach (Ankuram Method) */}
-      <section className="py-16 lg:py-20 bg-gray-50">
+      {/* 3. How We Teach */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gray-50 animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-12 text-center">
-            {data.approachHeading}
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {data.approachSteps.map((step, i) => (
-              <StepCard
-                key={i}
-                stepNumber={String(i + 1).padStart(2, "0")}
-                title={step.title}
-                description={step.description}
-              />
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <p className="section-label mb-4">Our Method</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-10">
+              {data.howWeTeachHeading}
+            </h2>
+            <div>{data.howWeTeachContent}</div>
           </div>
         </div>
       </section>
 
-      {/* Subjects */}
-      <section className="py-16 lg:py-20 bg-white">
+      {/* 4. What Makes Different */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-10">
-            {data.subjectsHeading}
-          </h2>
+          <div className="max-w-3xl mx-auto">
+            <p className="section-label mb-4">The Difference</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-10">
+              {data.whatMakesDifferentHeading}
+            </h2>
+            <div>{data.whatMakesDifferentContent}</div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {data.subjects.map((subject, i) => (
+      {/* 5. Common Gaps We Fix */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gray-50 animate-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="section-label mb-4 text-center">What We Fix</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy text-center mb-14">
+            Common Gaps We Fix
+          </h2>
+          <div
+            className={`grid gap-6 lg:gap-8 ${
+              data.commonGaps.length === 3
+                ? "md:grid-cols-2 lg:grid-cols-3"
+                : data.commonGaps.length >= 2
+                ? "md:grid-cols-2"
+                : ""
+            }`}
+          >
+            {data.commonGaps.map((gap, i) => (
               <div
                 key={i}
-                className="bg-gray-50 p-6 lg:p-8 rounded-xl border border-gray-100"
+                className="bg-white p-8 rounded-2xl border border-gray-100"
               >
-                <h3 className="text-xl font-semibold text-navy mb-4">
-                  {subject.name}
+                <h3 className="text-xl font-semibold text-navy mb-5">
+                  {gap.category}
                 </h3>
-                <ul className="space-y-2">
-                  {subject.topics.map((topic, j) => (
+                <ul className="space-y-3">
+                  {gap.items.map((item, j) => (
                     <li
                       key={j}
-                      className="flex items-start gap-2 text-gray-600"
+                      className="flex items-start gap-3 text-gray-500"
                     >
                       <ArrowRight className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
-                      <span>{topic}</span>
+                      <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -152,40 +171,45 @@ export default function CurriculumPageTemplate({ data }: { data: CurriculumPageD
         </div>
       </section>
 
-      {/* Grades */}
-      <section className="py-16 lg:py-20 bg-gray-50">
+      {/* 6. The Diagnostic */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-10 text-center">
-            {data.gradesHeading}
-          </h2>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {data.grades.map((grade, i) => (
-              <Link
-                key={i}
-                href={`${grade.href}/`}
-                className="group bg-white p-6 rounded-xl border border-gray-100 hover:border-accent/30 hover:shadow-md transition-all text-center"
-              >
-                <h3 className="text-lg font-semibold text-navy mb-1">
-                  {grade.name}
-                </h3>
-                {grade.highlight && (
-                  <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-2 py-0.5 rounded-full">
-                    {grade.highlight}
-                  </span>
-                )}
-                <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-accent mx-auto mt-3 transition-colors" />
-              </Link>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <p className="section-label mb-4 text-center">Day 1</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy text-center mb-10">
+              The Diagnostic
+            </h2>
+            <div className="bg-gray-50 p-8 lg:p-10 rounded-2xl border border-gray-100">
+              {data.diagnosticContent}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <FAQSection title={data.faqHeading} items={data.faqs.map(f => ({ q: f.question, a: f.answer }))} />
+      {/* 7. Subjects & Grades */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gray-50 animate-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <p className="section-label mb-4">What We Teach</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-10">
+              Subjects & Grades
+            </h2>
+            <div>{data.subjectsContent}</div>
+          </div>
+        </div>
+      </section>
 
-      {/* CTA */}
-      <CTABanner />
+      {/* 8. FAQ */}
+      <FAQSection
+        title={`Common Questions from ${data.curriculumName} Parents`}
+        items={data.faqs.map((f) => ({ q: f.question, a: f.answer }))}
+      />
+
+      {/* 9. Final CTA */}
+      <CTABanner
+        title="Start With a Diagnostic"
+        subtitle="A 45-60 minute assessment that finds exactly where your child stands — and what to do about it. ₹750, fully credited when you enroll."
+      />
     </>
   );
 }

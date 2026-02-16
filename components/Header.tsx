@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
+import { trackWhatsAppClick, trackPhoneCall } from "@/lib/tracking";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -39,7 +40,7 @@ export default function Header() {
                 href={l.href}
                 className={[
                   "rounded-xl px-3 py-2 text-sm font-medium transition",
-                  active ? "bg-[rgba(48,112,240,0.10)] text-[var(--text)]" : "text-[var(--muted)] hover:bg-black/5 hover:text-[var(--text)]",
+                  active ? "bg-accent/10 text-navy" : "text-gray-500 hover:bg-gray-50 hover:text-navy",
                 ].join(" ")}
               >
                 {l.label}
@@ -51,13 +52,14 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-2">
           <a
             href={BRAND.phoneHref}
-            className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-[var(--text)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            onClick={trackPhoneCall}
+            className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-navy shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
             Call
           </a>
           <Link
             href="/diagnostic"
-            className="inline-flex items-center justify-center rounded-xl bg-[var(--brand)] px-4 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+            className="inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-navy shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:bg-accent-light"
           >
             Book Diagnostic
           </Link>
@@ -94,7 +96,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                     className={[
                       "rounded-xl px-3 py-2 text-sm font-semibold transition",
-                      active ? "bg-[rgba(48,112,240,0.10)]" : "hover:bg-black/5",
+                      active ? "bg-accent/10 text-navy" : "hover:bg-gray-50",
                     ].join(" ")}
                   >
                     {l.label}
@@ -105,14 +107,15 @@ export default function Header() {
             <div className="mt-3 grid grid-cols-2 gap-2">
               <a
                 href={BRAND.whatsappHref}
-                className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-[var(--text)] shadow-sm"
+                onClick={trackWhatsAppClick}
+                className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm font-semibold text-navy shadow-sm"
               >
                 WhatsApp
               </a>
               <Link
                 href="/diagnostic"
                 onClick={() => setOpen(false)}
-                className="inline-flex items-center justify-center rounded-xl bg-[var(--brand)] px-3 py-2 text-sm font-semibold text-white shadow-sm"
+                className="inline-flex items-center justify-center rounded-xl bg-accent px-3 py-2 text-sm font-semibold text-navy shadow-sm"
               >
                 Book Diagnostic
               </Link>

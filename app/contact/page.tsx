@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_URL, WHATSAPP_URL, ADDRESS, GOOGLE_MAPS_EMBED } from "@/lib/constants";
 import FAQSection from "@/components/FAQSection";
+import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
 export const metadata: Metadata = {
   title: "Contact Ankuram Tuition | Jubilee Hills, Hyderabad",
@@ -30,87 +31,93 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 bg-navy relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(212,168,83,0.08),transparent_60%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
+              <p className="section-label mb-6">Contact</p>
+              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                 Get in Touch
               </h1>
-              <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-                Have questions about tuition? Want to book a diagnostic assessment? 
+              <p className="text-lg text-white/60 mb-10 leading-relaxed">
+                Have questions about tuition? Want to book a diagnostic assessment?
                 Reach out via WhatsApp or call—we respond within 24 hours.
               </p>
 
-              <div className="space-y-6 mb-10">
-                <a
+              <p className="text-sm text-accent/80 bg-accent/10 border border-accent/20 px-4 py-3 rounded-xl mb-10 leading-relaxed">
+                Not sure if your child needs this? WhatsApp us your child&apos;s grade and curriculum &mdash; we&apos;ll tell you honestly whether the diagnostic makes sense.
+              </p>
+
+              <div className="space-y-4 mb-10">
+                <TrackedCTALink trackingType="whatsapp"
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors border border-gray-100"
+                  className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
                 >
-                  <div className="w-12 h-12 bg-navy rounded-lg flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <MessageCircle className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <p className="font-medium text-navy">WhatsApp</p>
-                    <p className="text-gray-500">{PHONE_DISPLAY}</p>
+                    <p className="font-medium text-white">WhatsApp</p>
+                    <p className="text-white/50">{PHONE_DISPLAY}</p>
                   </div>
-                </a>
+                </TrackedCTALink>
 
-                <a
+                <TrackedCTALink trackingType="phone"
                   href={PHONE_URL}
-                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors border border-gray-100"
+                  className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors border border-white/10"
                 >
-                  <div className="w-12 h-12 bg-navy rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <p className="font-medium text-navy">Phone</p>
-                    <p className="text-gray-500">{PHONE_DISPLAY}</p>
+                    <p className="font-medium text-white">Phone</p>
+                    <p className="text-white/50">{PHONE_DISPLAY}</p>
                   </div>
-                </a>
+                </TrackedCTALink>
 
-                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="w-12 h-12 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
+                <div className="flex items-start gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <p className="font-medium text-navy">Location</p>
-                    <p className="text-gray-500">{ADDRESS}</p>
+                    <p className="font-medium text-white">Location</p>
+                    <p className="text-white/50">{ADDRESS}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="w-12 h-12 bg-navy rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-white" />
+                <div className="flex items-start gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <p className="font-medium text-navy">Hours</p>
-                    <p className="text-gray-500">Monday - Saturday</p>
-                    <p className="text-gray-500 text-sm">Timings vary by batch</p>
+                    <p className="font-medium text-white">Hours</p>
+                    <p className="text-white/50">Monday - Saturday</p>
+                    <p className="text-white/40 text-sm">Timings vary by batch</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
+                <TrackedCTALink trackingType="whatsapp"
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-medium hover:bg-navy-light transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-accent text-navy px-8 py-4 rounded-xl font-semibold hover:bg-accent-light transition-colors shadow-lg"
                 >
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp Us
-                </a>
-                <a
+                </TrackedCTALink>
+                <TrackedCTALink trackingType="phone"
                   href={PHONE_URL}
-                  className="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy px-6 py-3 rounded-lg font-medium hover:bg-navy hover:text-white transition-colors"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white px-6 py-4 rounded-xl font-semibold hover:bg-white/5 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   Call Us
-                </a>
+                </TrackedCTALink>
               </div>
             </div>
 
@@ -132,12 +139,13 @@ export default function ContactPage() {
       </section>
 
       {/* Areas We Serve */}
-      <section className="py-16 lg:py-20 bg-white">
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="section-label mb-4">Service Area</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4">
             Areas We Serve
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-lg text-gray-500 mb-10">
             Located in Jubilee Hills, we serve students from across Hyderabad, primarily within a 5km radius.
           </p>
 
@@ -145,7 +153,7 @@ export default function ContactPage() {
             {areas.map((area) => (
               <span
                 key={area}
-                className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700"
+                className="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm text-gray-600"
               >
                 {area}
               </span>
@@ -165,7 +173,6 @@ export default function ContactPage() {
           { q: "What are the next steps to enroll?", a: "Contact us \u2192 Schedule a diagnostic assessment \u2192 Receive gap report \u2192 Discuss if Ankuram is the right fit \u2192 Enroll if suitable." },
         ]}
       />
-
     </>
   );
 }
