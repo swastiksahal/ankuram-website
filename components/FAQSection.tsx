@@ -18,28 +18,29 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 lg:py-20">
+    <section className="py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
+          <p className="section-label mb-4">FAQ</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy">{title}</h2>
-          <p className="mt-3 text-base leading-relaxed text-gray-600">{subtitle}</p>
+          <p className="mt-3 text-base leading-relaxed text-gray-500">{subtitle}</p>
         </div>
 
-        <div className="mt-8 grid gap-3">
+        <div className="mt-10 grid gap-3">
           {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
               <div
                 key={item.q}
                 className={[
-                  "rounded-xl border border-gray-100 overflow-hidden transition-colors duration-200",
+                  "rounded-2xl border border-gray-100 overflow-hidden transition-colors duration-200",
                   isOpen ? "bg-gray-50" : "bg-white hover:bg-gray-50/50",
                 ].join(" ")}
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex((v) => (v === i ? null : i))}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 >
                   <span className="text-base font-semibold text-navy sm:text-lg">{item.q}</span>
                   <span
@@ -61,8 +62,8 @@ export default function FAQSection({
                   ].join(" ")}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-5 pb-5">
-                      <p className="text-base leading-relaxed text-gray-600">{item.a}</p>
+                    <div className="px-6 pb-6">
+                      <p className="text-base leading-relaxed text-gray-500">{item.a}</p>
                     </div>
                   </div>
                 </div>

@@ -3,111 +3,354 @@ import CurriculumPageTemplate from "@/components/CurriculumPageTemplate";
 import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 
 export const metadata: Metadata = {
-  title: "IB MYP Maths Tuition in Jubilee Hills | Ankuram",
+  title: "IB MYP Maths & Science Tuition in Jubilee Hills | Ankuram",
   description:
-    "Expert IB MYP Maths tuition in Jubilee Hills, Hyderabad. Inquiry-based learning, criterion-aligned teaching, small batches of 3\u20135 students. Book a diagnostic assessment.",
+    "Expert IB MYP Maths & Sciences tuition in Jubilee Hills, Hyderabad. Criterion-based assessment, investigation skills, small batches of 3\u20135. Book a diagnostic assessment.",
   alternates: {
     canonical: "/ib-myp-tuition",
   },
 };
 
 const ibMypData: CurriculumPageData = {
-  heroTitle: "IB MYP Maths Tuition",
+  curriculumName: "IB MYP",
+  heroTitle: "IB MYP Maths & Science Tuition in Jubilee Hills",
   heroSubtitle:
-    "IB MYP doesn\u2019t just test answers \u2014 it tests thinking. We teach the mathematical reasoning that MYP actually assesses.",
-  trustBadges: [
-    "13+ Years Teaching IB",
-    "3\u20135 Students Per Batch",
-    "MYP Years 1\u20135",
+    "MYP doesn\u2019t test what your child memorised. It tests whether they can investigate, apply, communicate, and reflect. That\u2019s a different kind of preparation.",
+  heroBadge: "IB MYP \u2022 Years 1\u20135 \u2022 Maths & Sciences",
+
+  painPoints: [
+    "Gets decent marks on Criterion A (knowledge) but struggles with Criterion B (investigations) and D (real-life application)",
+    "Can solve problems but can\u2019t explain their reasoning in writing \u2014 Criterion C (communication) scores are low",
+    "Doesn\u2019t understand what the teacher wants in an investigation task \u2014 keeps getting \u201cdeveloping\u201d or \u201capproaching\u201d on rubrics",
+    "Studies hard before summatives but the criterion-based marking feels unpredictable",
+    "Finds it hard to connect maths or science to the \u201cglobal context\u201d or \u201cstatement of inquiry\u201d \u2014 it feels like a forced exercise",
   ],
-  challengeHeading: "Why IB MYP Students Struggle",
-  challenges: [
+
+  howWeTeachHeading: "How We Teach IB MYP",
+  howWeTeachContent: (
+    <>
+      <p className="text-gray-600 leading-relaxed mb-6">
+        MYP is criterion-based. That means your child isn&rsquo;t just graded on
+        &ldquo;right or wrong&rdquo; &mdash; they&rsquo;re assessed on four
+        separate criteria, each measuring a different skill. We train all four.
+      </p>
+
+      <div className="grid md:grid-cols-2 gap-4 mb-8">
+        <div className="bg-white p-6 rounded-xl border border-gray-100">
+          <h3 className="font-semibold text-navy mb-3">MYP Maths Criteria</h3>
+          <ul className="space-y-2 text-gray-600 text-sm">
+            <li>
+              <strong className="text-navy">A:</strong> Knowing &
+              Understanding
+            </li>
+            <li>
+              <strong className="text-navy">B:</strong> Investigating Patterns
+            </li>
+            <li>
+              <strong className="text-navy">C:</strong> Communicating
+            </li>
+            <li>
+              <strong className="text-navy">D:</strong> Applying in Real-Life
+            </li>
+          </ul>
+        </div>
+        <div className="bg-white p-6 rounded-xl border border-gray-100">
+          <h3 className="font-semibold text-navy mb-3">
+            MYP Sciences Criteria
+          </h3>
+          <ul className="space-y-2 text-gray-600 text-sm">
+            <li>
+              <strong className="text-navy">A:</strong> Knowing &
+              Understanding
+            </li>
+            <li>
+              <strong className="text-navy">B:</strong> Inquiring & Designing
+            </li>
+            <li>
+              <strong className="text-navy">C:</strong> Processing & Evaluating
+            </li>
+            <li>
+              <strong className="text-navy">D:</strong> Reflecting on Impacts
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p className="section-label mb-6">Our approach</p>
+
+      <div className="space-y-4">
+        <div className="bg-white p-6 rounded-xl border border-gray-100">
+          <h3 className="font-semibold text-navy mb-2">
+            Foundation First, Then Criteria Training
+          </h3>
+          <p className="text-gray-600 leading-relaxed">
+            Most MYP students who score low on investigations (B) or
+            communication (C) actually have concept gaps in A. You can&rsquo;t
+            investigate a pattern you don&rsquo;t understand. We fix the concept
+            base, then build criterion-specific skills on top.
+          </p>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl border border-gray-100">
+          <h3 className="font-semibold text-navy mb-2">
+            We Teach Criteria as Skills, Not Mysteries
+          </h3>
+          <ul className="space-y-2 text-gray-600">
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1.5">&bull;</span>
+              <span>
+                <strong className="text-navy">Criterion B:</strong> We teach the
+                investigation cycle &mdash; notice &rarr; conjecture &rarr; test
+                &rarr; generalise &rarr; justify &rarr; reflect
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1.5">&bull;</span>
+              <span>
+                <strong className="text-navy">Criterion C:</strong> We teach
+                explanation frames &mdash; &ldquo;because / therefore /
+                if...then&rdquo; + proper notation + representation switching
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1.5">&bull;</span>
+              <span>
+                <strong className="text-navy">Criterion D:</strong> We teach
+                modelling &mdash; define variables &rarr; choose model &rarr;
+                solve &rarr; interpret &rarr; validate assumptions
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl border border-gray-100">
+          <h3 className="font-semibold text-navy mb-2">
+            Year-by-Year Progression
+          </h3>
+          <ul className="space-y-2 text-gray-600">
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1.5">&bull;</span>
+              <span>
+                <strong className="text-navy">Years 1&ndash;2:</strong> Build
+                routines, representations, MYP vocabulary, and the &ldquo;how to
+                write for each criterion&rdquo; habit
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1.5">&bull;</span>
+              <span>
+                <strong className="text-navy">Year 3:</strong> Consolidate
+                conceptual understanding + investigation independence
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-accent mt-1.5">&bull;</span>
+              <span>
+                <strong className="text-navy">Years 4&ndash;5:</strong> Increase
+                rigour, extended responses, modelling, evaluation &mdash;
+                eAssessment preparation where relevant
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
+  ),
+
+  whatMakesDifferentHeading: "What Makes Our IB MYP Teaching Different",
+  whatMakesDifferentContent: (
+    <>
+      <div className="bg-accent/5 border border-accent/20 p-6 rounded-xl mb-8">
+        <p className="text-gray-700 leading-relaxed">
+          MYP isn&rsquo;t about right answers. It&rsquo;s about mathematical
+          thinking. We teach your child to investigate, communicate
+          mathematically, and apply concepts to unfamiliar situations &mdash;
+          because that&rsquo;s what criteria B, C, and D actually test. We
+          understand what 7-8 level work looks like across all four criteria:
+          Knowing & Understanding (A), Investigating Patterns (B),
+          Communicating (C), and Applying in Real-Life (D). We train students to
+          meet each criterion&rsquo;s demands.
+        </p>
+      </div>
+
+      <p className="text-lg font-semibold text-navy mb-4">
+        It&rsquo;s not harder &mdash; it&rsquo;s different.
+      </p>
+      <p className="text-gray-600 leading-relaxed mb-6">
+        MYP doesn&rsquo;t ask &ldquo;can you solve this equation?&rdquo; It
+        asks &ldquo;can you investigate a pattern, generalise a rule, prove it
+        works, and explain why it matters in a real context?&rdquo; That requires
+        a different kind of preparation than traditional boards.
+      </p>
+
+      <p className="text-gray-600 leading-relaxed mb-3">
+        <strong className="text-navy">Key things parents should know:</strong>
+      </p>
+      <ul className="space-y-2 mb-6 text-gray-600">
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            Each criterion is assessed on a 1&ndash;8 scale. Your child can
+            score 7 on A but 4 on C &mdash; the criteria are independent.
+          </span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            All four criteria must be assessed at least twice per year with
+            evidence across all strands.
+          </span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            Summative tasks usually target 1&ndash;2 criteria deeply (not all
+            four at once).
+          </span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            MYP Sciences can be integrated or separate
+            (Biology/Chemistry/Physics) depending on the school.
+          </span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            If your school does eAssessment (Years 4&ndash;5), the on-screen
+            exam format samples across all criteria and branches.
+          </span>
+        </li>
+      </ul>
+
+      <p className="text-gray-600 leading-relaxed">
+        <strong className="text-navy">The ACT/SAT connection:</strong> MYP Maths
+        builds strong algebraic reasoning, pattern recognition, and data
+        interpretation &mdash; all of which directly support SAT and Pre-SAT
+        preparation. We can align practice accordingly for students planning
+        these tests.
+      </p>
+    </>
+  ),
+
+  commonGaps: [
     {
-      title: "Four Criteria, Not Just Answers",
-      description:
-        "MYP assesses Knowing, Investigating, Communicating, and Applying. Most students only practise the first. The other three require a completely different skill set.",
-    },
-    {
-      title: "Investigations Are Open-Ended",
-      description:
-        "There\u2019s no single right answer in an MYP investigation. Students trained on textbook problems freeze when they have to design their own approach.",
-    },
-    {
-      title: "Gaps Hide Behind the Inquiry Model",
-      description:
-        "IB\u2019s spiral curriculum revisits topics at increasing depth. If a student missed the foundation in Year 1, the Year 4 version becomes impossible \u2014 and it\u2019s not obvious why.",
-    },
-  ],
-  approachHeading: "The Ankuram Approach for IB MYP",
-  approachSteps: [
-    {
-      title: "Diagnostic First",
-      description:
-        "We assess across MYP strands to find where conceptual understanding broke down \u2014 not just what the student can\u2019t do, but why.",
-    },
-    {
-      title: "Fix the Gaps",
-      description:
-        "Before touching current units, we rebuild the missing foundations so the spiral curriculum starts making sense again.",
-    },
-    {
-      title: "Criterion Mastery",
-      description:
-        "We train students in all four criteria \u2014 especially Investigating and Communicating, where most marks are lost.",
-    },
-    {
-      title: "eAssessment Ready",
-      description:
-        "For MYP 5, we prepare for the on-screen exam format with its unique question types and time pressure.",
-    },
-  ],
-  subjectsHeading: "Mathematics Across MYP Years",
-  subjects: [
-    {
-      name: "MYP 1\u20133 (Grades 6\u20138)",
-      topics: [
-        "Number Systems & Operations",
-        "Algebraic Thinking & Patterns",
-        "Geometry Fundamentals",
-        "Data Handling & Statistics",
-        "Ratio, Proportion & Percentages",
+      category: "Maths",
+      items: [
+        "Weak algebraic foundations that make Year 4\u20135 MYP feel impossible",
+        "Can\u2019t structure an investigation \u2014 doesn\u2019t know what \u201cgeneralise and justify\u201d actually means",
+        "Communication is vague \u2014 missing logical connectors, unclear steps, no interpretation of results",
+        "Real-life application tasks feel \u201cfake\u201d \u2014 student doesn\u2019t know how to model or evaluate assumptions",
       ],
     },
     {
-      name: "MYP 4\u20135 (Grades 9\u201310)",
-      topics: [
-        "Linear & Quadratic Functions",
-        "Systems of Equations",
-        "Trigonometry",
-        "Probability",
-        "eAssessment Preparation",
+      category: "Sciences",
+      items: [
+        "Investigation design is mechanical \u2014 lists variables but can\u2019t justify controls or method choices",
+        "Data processing stops at \u201cdraw the graph\u201d \u2014 no interpretation, no evaluation of limitations",
+        "Scientific vocabulary is memorised but not used correctly in context",
+        "Criterion D (impacts/reflection) answers are shallow \u2014 \u201cscience is useful to society\u201d level responses",
       ],
     },
   ],
-  gradesHeading: "IB MYP Grades We Teach",
-  grades: [
-    { name: "Grade 6", href: "/ib-myp-tuition", highlight: "MYP 1" },
-    { name: "Grade 7", href: "/ib-myp-tuition", highlight: "MYP 2" },
-    { name: "Grade 8", href: "/class-8-tuition", highlight: "MYP 3" },
-    { name: "Grade 9", href: "/class-9-tuition", highlight: "MYP 4" },
-    { name: "Grade 10", href: "/class-10-tuition", highlight: "MYP 5" },
-  ],
-  faqHeading: "Common Questions from IB MYP Parents",
+
+  diagnosticContent: (
+    <>
+      <p className="text-gray-600 leading-relaxed mb-3">
+        MYP students need a different kind of diagnostic. We assess:
+      </p>
+      <ul className="space-y-2 mb-4 text-gray-600">
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            <strong className="text-navy">
+              Foundational maths/science concepts
+            </strong>{" "}
+            (is the base solid?)
+          </span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            <strong className="text-navy">Criterion-specific skills</strong>{" "}
+            (can they write an investigation? Can they communicate reasoning?)
+          </span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-accent mt-1.5">&bull;</span>
+          <span>
+            <strong className="text-navy">
+              Where in the Year 1&ndash;5 progression they actually sit
+            </strong>{" "}
+            (which may be different from what year they&rsquo;re enrolled in)
+          </span>
+        </li>
+      </ul>
+      <p className="text-gray-600 leading-relaxed mb-6">
+        45&ndash;60 minutes. Independent work. Then we solve together and show
+        them what criterion-level performance looks like.
+      </p>
+      <p className="text-lg font-semibold text-accent">
+        ₹750 &mdash; fully credited on enrollment.
+      </p>
+    </>
+  ),
+
+  subjectsContent: (
+    <div className="space-y-4">
+      <div className="bg-white p-6 rounded-xl border border-gray-100">
+        <p className="text-gray-700 leading-relaxed">
+          <strong className="text-navy">MYP Mathematics:</strong> Years
+          1&ndash;5 (Standard and Extended where applicable)
+        </p>
+      </div>
+      <div className="bg-white p-6 rounded-xl border border-gray-100">
+        <p className="text-gray-700 leading-relaxed">
+          <strong className="text-navy">MYP Sciences:</strong> Years 1&ndash;5
+          (Integrated and Separate sciences)
+        </p>
+      </div>
+      <p className="text-gray-500 text-sm mt-6">
+        Small batches of 3&ndash;5 students. Online, offline, and hybrid. We
+        work with students from schools following the full MYP framework in
+        Hyderabad and internationally.
+      </p>
+      <p className="text-gray-500 text-sm">
+        <strong className="text-navy">Schools we support students from:</strong>{" "}
+        Oakridge, Indus International, Sri Ram Universal, Pathways, and other IB
+        schools in Hyderabad.
+      </p>
+    </div>
+  ),
+
   faqs: [
     {
-      question: "Do you understand criterion-based assessment?",
+      question:
+        "My child\u2019s school teaches MYP but I don\u2019t understand the grading. Can you explain?",
       answer:
-        "We\u2019ve been teaching IB MYP since 2017. We train students across all four criteria \u2014 especially Investigating and Communicating, where most marks are lost.",
+        "MYP uses criterion-based assessment (A, B, C, D) \u2014 each scored 1\u20138. Your child\u2019s final grade comes from these criteria, not from a single exam score. We help parents understand what each criterion measures and what \u201cmoving from a 5 to a 7\u201d actually requires.",
     },
     {
-      question: "Can you help with the eAssessment?",
+      question: "Do you help with MYP eAssessment?",
       answer:
-        "Yes. For MYP 5, we specifically prepare for the on-screen exam format with its unique question types and time pressure.",
+        "Yes. For students in Year 4\u20135 whose schools participate in eAssessment, we prepare for the on-screen exam format \u2014 which samples across criteria and mathematical branches. We also build the investigation and modelling skills that eAssessment specifically tests.",
     },
     {
-      question: "My child\u2019s school doesn\u2019t teach properly. Can you cover the full syllabus?",
+      question: "Can you help with the Personal Project (Year 5)?",
       answer:
-        "Absolutely. Many IB students come to us because school teaching is inconsistent. We ensure conceptual clarity across all MYP strands.",
+        "Our focus is Maths and Sciences. If the Personal Project involves a mathematical or scientific component, we can guide that aspect.",
+    },
+    {
+      question:
+        "My child is doing well on tests but poorly on investigations and applications. Why?",
+      answer:
+        "Tests usually measure Criterion A (knowledge). Investigations (B), communication (C), and real-life application (D) are separate skills that must be taught separately. Most students who score well on A but poorly on B\u2013D have never been explicitly trained on investigation structure, explanation writing, or modelling. We teach these as concrete, learnable skills.",
+    },
+    {
+      question: "How does MYP preparation help with IB DP later?",
+      answer:
+        "MYP builds the habits DP demands \u2014 structured reasoning, investigation skills, mathematical communication, and reflective evaluation. Students who are strong across all four MYP criteria transition to DP much more smoothly. We also align Year 4\u20135 preparation with DP readiness.",
     },
   ],
 };

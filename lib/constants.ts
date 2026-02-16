@@ -6,7 +6,7 @@ export const BRAND = {
   name: "Ankuram",
   phoneDisplay: "+91 73966 69430",
   phoneHref: "tel:+917396669430",
-  whatsappHref: "https://wa.me/917396669430?text=Hi%20I%27m%20interested%20in%20tuition",
+  whatsappHref: "https://wa.me/917396669430?text=Hi%20I%20want%20to%20book%20a%20diagnostic%20assessment",
   email: "hello@ankuramtuition.in",
   city: "Jubilee Hills, Hyderabad",
 } as const;
@@ -16,7 +16,7 @@ export const PHONE = "+917396669430";
 export const PHONE_DISPLAY = "+91 73966 69430";
 export const WHATSAPP_NUMBER = "917396669430";
 export const PHONE_URL = `tel:${PHONE}`;
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20I%27m%20interested%20in%20tuition`;
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20I%20want%20to%20book%20a%20diagnostic%20assessment`;
 export const WHATSAPP_ENQUIRY_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20I%20want%20to%20enquire%20about%20tuition`;
 
 // Location
@@ -49,8 +49,15 @@ export const CURRICULA = [
     name: "ICSE",
     slug: "icse-tuition",
     fullName: "Indian Certificate of Secondary Education",
-    shortDesc: "Grades 8-10. Application-heavy syllabus, concept-first approach.",
-    grades: "8-10",
+    shortDesc: "Grades 6-10. Application-heavy syllabus, concept-first approach.",
+    grades: "6-10",
+  },
+  {
+    name: "ISC",
+    slug: "isc-tuition",
+    fullName: "Indian School Certificate",
+    shortDesc: "Grades 11-12. Derivations, proofs, project work guidance.",
+    grades: "11-12",
   },
   {
     name: "IB MYP",
@@ -134,26 +141,26 @@ export const TESTIMONIALS = [
 export const HOMEPAGE_FAQS = [
   {
     question: "Which grades and curricula do you teach?",
-    answer: "We teach Mathematics and Physics for grades 6\u201312 across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One expert teacher, all curricula \u2014 no rotating junior tutors.",
+    answer: "Mathematics and Physics for grades 6\u201312 across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One expert teacher handles all curricula \u2014 no rotating junior tutors.",
   },
   {
     question: "How is Ankuram different from other tuition centres?",
-    answer: "We don\u2019t start with the current chapter. We start with a diagnostic assessment to find exactly where your child\u2019s understanding broke down \u2014 often 2\u20133 grades back. We fix those gaps first, then the current syllabus clicks into place.",
+    answer: "We don\u2019t start with the current chapter. Every student begins with a diagnostic assessment that traces gaps back to their root \u2014 often 2\u20133 grades earlier. We fix those foundations first, then the current syllabus falls into place naturally.",
   },
   {
     question: "What happens in the diagnostic assessment?",
-    answer: "It\u2019s a 60-minute one-on-one session with a qualified teacher (not a PDF test). We test across foundational concepts, identify specific gaps, and create a personalized learning plan. Fee: \u20B9750.",
+    answer: "A 60-minute one-on-one session with a qualified teacher. We assess conceptual understanding across foundational topics, identify specific gaps, and create a personalised recovery plan. Fee: \u20B9750, fully credited when you enroll.",
   },
   {
     question: "My child practices a lot but still struggles. Can you help?",
-    answer: "This is exactly what we specialize in. Practice without understanding just reinforces wrong methods. We rebuild the foundation so practice actually works.",
+    answer: "This is exactly what we specialise in. Practice without understanding reinforces wrong methods. We rebuild the foundation so practice actually works.",
   },
   {
     question: "What\u2019s the batch size?",
-    answer: "3\u20135 students maximum. Your child gets heard, asks questions freely, and gets corrected in real-time.",
+    answer: "3\u20135 students maximum. Your child gets heard, asks questions freely, and receives corrections in real time \u2014 not a face in a crowd.",
   },
   {
     question: "Where are you located?",
-    answer: "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad. We also offer online sessions for students outside Hyderabad.",
+    answer: "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad 500096. We also offer online sessions for students outside Hyderabad.",
   },
 ];
