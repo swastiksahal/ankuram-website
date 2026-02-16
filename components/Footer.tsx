@@ -58,7 +58,7 @@ export default function Footer() {
             <div className="text-xs font-semibold text-accent uppercase tracking-wider">Contact</div>
             <ul className="mt-4 grid gap-2 text-sm">
               <li><TrackedCTALink trackingType="phone" className="hover:text-white transition-colors" href={BRAND.phoneHref}>{BRAND.phoneDisplay}</TrackedCTALink></li>
-              <li><a className="hover:text-white transition-colors" href={`mailto:${BRAND.email}`}>{BRAND.email}</a></li>
+
               <li className="text-white/50">{BRAND.city}</li>
             </ul>
           </div>

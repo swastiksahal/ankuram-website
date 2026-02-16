@@ -7,7 +7,7 @@ export const BRAND = {
   phoneDisplay: "+91 73966 69430",
   phoneHref: "tel:+917396669430",
   whatsappHref: "https://wa.me/917396669430?text=Hi%20I%20want%20to%20book%20a%20diagnostic%20assessment",
-  email: "hello@ankuramtuition.in",
+
   city: "Jubilee Hills, Hyderabad",
 } as const;
 
