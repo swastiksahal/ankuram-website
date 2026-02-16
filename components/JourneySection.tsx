@@ -23,7 +23,7 @@ export default function JourneySection() {
         <div className="relative group">
           <Image
             src="/images/journey-before-after.png"
-            alt="Before and after learning journey showing student confusion transforming to confidence and improving grades"
+            alt="Student learning journey at Ankuram Tuition Centre Jubilee Hills showing diagnostic assessment leading to improved grades in Maths and Physics"
             width={1400}
             height={700}
             className="rounded-2xl shadow-lg mx-auto"

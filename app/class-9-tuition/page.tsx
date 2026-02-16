@@ -5,14 +5,14 @@ import type { GradePageData } from "@/components/GradePageTemplate";
 export const metadata: Metadata = {
   title: "Class 9 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Class 9 Maths & Physics tuition in Jubilee Hills. CBSE, ICSE, IB MYP, IGCSE. Real foundation for board exams starts here. Call +91 7396669430",
+    "Class 9 Maths & Physics tuition in Jubilee Hills, Hyderabad. CBSE, ICSE, IB MYP, IGCSE. The real foundation for board exams starts here. Book a diagnostic assessment. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/class-9-tuition",
   },
   openGraph: {
     title: "Class 9 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
     description:
-      "Class 9 Maths & Physics tuition in Jubilee Hills. CBSE, ICSE, IB MYP, IGCSE. Real foundation for board exams starts here. Call +91 7396669430",
+      "Class 9 Maths & Physics tuition in Jubilee Hills, Hyderabad. CBSE, ICSE, IB MYP, IGCSE. The real foundation for board exams starts here. Book a diagnostic assessment. Call +91 7396669430",
     url: "https://ankuramtuition.in/class-9-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const class9Data: GradePageData = {
   gradeNumber: 9,
-  heroTitle: "Class 9 Tuition in Jubilee Hills, Hyderabad",
+  heroTitle: "Class 9 Tuition Near Me in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "The real foundation year for board exams. What happens in Class 9 determines Class 10 results.",
+    "Searching for class 9 tuition near me? At our Jubilee Hills centre in Hyderabad, we provide expert Maths & Physics tuition for CBSE, ICSE, IB MYP, and IGCSE Class 9 students. The real foundation year for board exams starts here.",
 
   whyItMatters: (
     <div className="space-y-4">

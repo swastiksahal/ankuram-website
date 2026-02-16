@@ -5,14 +5,14 @@ import type { GradePageData } from "@/components/GradePageTemplate";
 export const metadata: Metadata = {
   title: "Class 11 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Class 11 Maths & Physics tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Navigate the toughest academic year. Call +91 7396669430",
+    "Class 11 Maths & Physics tuition in Jubilee Hills, Hyderabad. CBSE, ISC, IB DP, A-Levels. Navigate the toughest academic year. Book a diagnostic assessment. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/class-11-tuition",
   },
   openGraph: {
     title: "Class 11 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
     description:
-      "Class 11 Maths & Physics tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Navigate the toughest academic year. Call +91 7396669430",
+      "Class 11 Maths & Physics tuition in Jubilee Hills, Hyderabad. CBSE, ISC, IB DP, A-Levels. Navigate the toughest academic year. Book a diagnostic assessment. Call +91 7396669430",
     url: "https://ankuramtuition.in/class-11-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const class11Data: GradePageData = {
   gradeNumber: 11,
-  heroTitle: "Class 11 Tuition in Jubilee Hills, Hyderabad",
+  heroTitle: "Class 11 Tuition Near Me in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "The most difficult academic year. The jump from Class 10 to Class 11 is the steepest in a student\u2019s life.",
+    "Looking for class 11 tuition near me in Hyderabad? Our Jubilee Hills centre specialises in Maths & Physics for CBSE, ISC, IB DP, and Cambridge A-Level Class 11 students. The most difficult academic year \u2014 the jump from Class 10 is the steepest.",
 
   whyItMatters: (
     <div className="space-y-4">

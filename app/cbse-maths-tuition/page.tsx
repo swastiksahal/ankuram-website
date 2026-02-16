@@ -5,14 +5,14 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "CBSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "Expert CBSE Maths tuition for Class 8-12 in Jubilee Hills. NCERT-first approach, small batches of 3-5. Foundation-first methodology. Call +91 7396669430",
+    "Expert CBSE Maths tuition for Class 8-12 in Jubilee Hills, Hyderabad. NCERT-first approach, small batches of 3-5. Foundation-first methodology. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/cbse-maths-tuition",
   },
   openGraph: {
     title: "CBSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
     description:
-      "Expert CBSE Maths tuition for Class 8-12 in Jubilee Hills. NCERT-first approach, small batches of 3-5. Foundation-first methodology. Call +91 7396669430",
+      "Expert CBSE Maths tuition for Class 8-12 in Jubilee Hills, Hyderabad. NCERT-first approach, small batches of 3-5. Foundation-first methodology. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/cbse-maths-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const cbseData: CurriculumPageData = {
   curriculumName: "CBSE",
-  heroTitle: "CBSE Maths & Science Tuition in Jubilee Hills",
+  heroTitle: "CBSE Maths Tuition in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "Most CBSE students don\u2019t have a \u201csyllabus problem\u201d \u2014 they have gaps from two grades ago that nobody fixed. We find those gaps first.",
+    "Looking for a CBSE tuition centre near me? Ankuram in Jubilee Hills offers expert CBSE Maths tuition for Class 8\u201312. Most CBSE students don\u2019t have a \u2018syllabus problem\u2019 \u2014 they have gaps from two grades ago that nobody fixed. We find those gaps first.",
   heroBadge: "CBSE \u2022 Grades 1\u201312 \u2022 Maths & Science",
 
   painPoints: [

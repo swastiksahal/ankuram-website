@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Phone, AlertCircle } from "lucide-react";
-import { WHATSAPP_NUMBER, PHONE_URL } from "@/lib/constants";
+import { WHATSAPP_NUMBER, PHONE_URL, CURRICULA, GRADES } from "@/lib/constants";
 import FAQSection from "./FAQSection";
 import CTABanner from "./CTABanner";
 import TrackedCTALink from "@/components/tracking/TrackedCTALink";
@@ -199,7 +199,47 @@ export default function CurriculumPageTemplate({
         </div>
       </section>
 
-      {/* 8. FAQ */}
+      {/* 8. Related Grade Pages */}
+      {(() => {
+        const curriculum = CURRICULA.find((c) => c.name === data.curriculumName);
+        if (!curriculum) return null;
+        const [min, max] = curriculum.grades.split("-").map(Number);
+        const relevantGrades = GRADES.filter(
+          (g) => g.grade >= min && g.grade <= max
+        );
+        if (relevantGrades.length === 0) return null;
+        return (
+          <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <p className="section-label mb-4 text-center">By Grade</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
+                {data.curriculumName} Tuition by Grade
+              </h2>
+              <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
+                Looking for {data.curriculumName} tuition near me for a specific grade? Explore our grade-specific pages for detailed information on how we teach each level.
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+                {relevantGrades.map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`/${g.slug}/`}
+                    className="group flex flex-col items-center p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-accent/30 hover:shadow-md transition-all"
+                  >
+                    <span className="text-2xl font-bold text-navy group-hover:text-accent transition-colors">
+                      Class {g.grade}
+                    </span>
+                    <span className="text-sm text-gray-400 mt-1">
+                      {g.subjects.join(" & ")}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
+      {/* 9. FAQ */}
       <FAQSection
         title={`Common Questions from ${data.curriculumName} Parents`}
         items={data.faqs.map((f) => ({ q: f.question, a: f.answer }))}

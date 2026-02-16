@@ -5,14 +5,14 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "IB MYP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "IB MYP Maths tuition for Years 1-5 in Jubilee Hills. Criterion-based preparation (A,B,C,D). eAssessment ready. Small batches. Call +91 7396669430",
+    "IB MYP Maths tuition for Years 1-5 in Jubilee Hills, Hyderabad. Criterion-based preparation (A,B,C,D). eAssessment ready. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/ib-myp-maths-tuition",
   },
   openGraph: {
     title: "IB MYP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
     description:
-      "IB MYP Maths tuition for Years 1-5 in Jubilee Hills. Criterion-based preparation (A,B,C,D). eAssessment ready. Small batches. Call +91 7396669430",
+      "IB MYP Maths tuition for Years 1-5 in Jubilee Hills, Hyderabad. Criterion-based preparation (A,B,C,D). eAssessment ready. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/ib-myp-maths-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const ibMypData: CurriculumPageData = {
   curriculumName: "IB MYP",
-  heroTitle: "IB MYP Maths & Science Tuition in Jubilee Hills",
+  heroTitle: "IB MYP Maths Tuition in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "MYP doesn\u2019t test what your child memorised. It tests whether they can investigate, apply, communicate, and reflect. That\u2019s a different kind of preparation.",
+    "Looking for IB MYP tuition near me? Ankuram in Jubilee Hills, Hyderabad offers expert IB tuition that trains all four MYP criteria. MYP doesn\u2019t test what your child memorised \u2014 it tests investigation, application, and communication. That\u2019s what we prepare.",
   heroBadge: "IB MYP \u2022 Years 1\u20135 \u2022 Maths & Sciences",
 
   painPoints: [

@@ -140,27 +140,31 @@ export const TESTIMONIALS = [
 // Homepage FAQs
 export const HOMEPAGE_FAQS = [
   {
-    question: "Which grades and curricula do you teach?",
-    answer: "Mathematics and Physics for grades 6\u201312 across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One expert teacher handles all curricula \u2014 no rotating junior tutors.",
+    question: "Which is the best tuition centre near me in Hyderabad?",
+    answer: "Ankuram Tuition Centre in Jubilee Hills is rated 4.8\u2605 on Google with 465+ reviews. We offer diagnostic-first Maths and Physics tuition for Grades 6\u201312 across CBSE, ICSE, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. Small batches of 3\u20135 students with one expert teacher \u2014 no rotating juniors. Students from Jubilee Hills, Banjara Hills, Gachibowli, HITEC City, Kondapur, and Madhapur attend our centre.",
   },
   {
-    question: "How is Ankuram different from other tuition centres?",
-    answer: "We don\u2019t start with the current chapter. Every student begins with a diagnostic assessment that traces gaps back to their root \u2014 often 2\u20133 grades earlier. We fix those foundations first, then the current syllabus falls into place naturally.",
+    question: "Do you offer home tuition near me?",
+    answer: "We don\u2019t offer home tuition. All classes are conducted at our Jubilee Hills centre (Plot 229, Road No. 72, Prashasan Nagar, Hyderabad 500096). Centre-based tuition with small batches of 3\u20135 students allows real-time interaction, whiteboard teaching, and peer learning that home tuition cannot replicate. We also offer live online classes for students who cannot commute.",
+  },
+  {
+    question: "Which grades and curricula do you teach?",
+    answer: "Mathematics and Physics for Grades 6\u201312 across CBSE, ICSE, ISC, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. One expert teacher handles all curricula \u2014 no rotating junior tutors.",
+  },
+  {
+    question: "How is Ankuram different from other tuition centres near me?",
+    answer: "We don\u2019t start with the current chapter. Every student begins with a diagnostic assessment that traces gaps back to their root \u2014 often 2\u20133 grades earlier. We fix those foundations first, then the current syllabus falls into place naturally. That\u2019s why parents searching for the best tuition centre near me in Hyderabad choose Ankuram.",
   },
   {
     question: "What happens in the diagnostic assessment?",
-    answer: "A 60-minute one-on-one session with a qualified teacher. We assess conceptual understanding across foundational topics, identify specific gaps, and create a personalised recovery plan. Fee: \u20B9750, fully credited when you enroll.",
+    answer: "A 45\u201360 minute one-on-one session with a qualified teacher at our Jubilee Hills centre. We assess conceptual understanding across foundational topics, identify specific gaps, and create a personalised recovery plan. Fee: \u20B9750, fully credited when you enroll.",
   },
   {
-    question: "My child practices a lot but still struggles. Can you help?",
-    answer: "This is exactly what we specialise in. Practice without understanding reinforces wrong methods. We rebuild the foundation so practice actually works.",
+    question: "How are your batches structured?",
+    answer: "3\u20135 students maximum per batch. Your child gets heard, asks questions freely, and receives corrections in real time \u2014 not a face in a crowd of 20\u201330. This is what makes us different from large coaching centres near me.",
   },
   {
-    question: "What\u2019s the batch size?",
-    answer: "3\u20135 students maximum. Your child gets heard, asks questions freely, and receives corrections in real time \u2014 not a face in a crowd.",
-  },
-  {
-    question: "Where are you located?",
-    answer: "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad 500096. We also offer online sessions for students outside Hyderabad.",
+    question: "Where is your tuition centre located?",
+    answer: "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad 500096. We\u2019re easily accessible from Banjara Hills, Film Nagar, Gachibowli, Financial District, HITEC City, Kondapur, Madhapur, Manikonda, Narsingi, Shaikpet, Tolichowki, and Yousufguda. We also offer online sessions for students outside Hyderabad.",
   },
 ];

@@ -23,7 +23,7 @@ export default function Header() {
         <Link href="/">
           <Image
             src="/images/logo.avif"
-            alt="Ankuram Tuition Centre"
+            alt="Ankuram Tuition Centre Jubilee Hills Hyderabad"
             width={120}
             height={48}
             className="h-10 w-auto sm:h-12"

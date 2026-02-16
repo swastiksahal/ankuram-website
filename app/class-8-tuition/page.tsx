@@ -5,14 +5,14 @@ import type { GradePageData } from "@/components/GradePageTemplate";
 export const metadata: Metadata = {
   title: "Class 8 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Class 8 Maths & Physics tuition in Jubilee Hills. CBSE, ICSE, IB, IGCSE. The foundation year that decides Classes 9-12 success. Call +91 7396669430",
+    "Class 8 Maths & Physics tuition in Jubilee Hills, Hyderabad. CBSE, ICSE, IB MYP, IGCSE. The foundation year that decides Classes 9\u201312 success. Book a diagnostic assessment. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/class-8-tuition",
   },
   openGraph: {
     title: "Class 8 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
     description:
-      "Class 8 Maths & Physics tuition in Jubilee Hills. CBSE, ICSE, IB, IGCSE. The foundation year that decides Classes 9-12 success. Call +91 7396669430",
+      "Class 8 Maths & Physics tuition in Jubilee Hills, Hyderabad. CBSE, ICSE, IB MYP, IGCSE. The foundation year that decides Classes 9\u201312 success. Book a diagnostic assessment. Call +91 7396669430",
     url: "https://ankuramtuition.in/class-8-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const class8Data: GradePageData = {
   gradeNumber: 8,
-  heroTitle: "Class 8 Tuition in Jubilee Hills, Hyderabad",
+  heroTitle: "Class 8 Tuition Near Me in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "The year that decides whether your child will love Maths & Science \u2014 or fear it.",
+    "Looking for class 8 tuition near me in Hyderabad? Ankuram offers expert Maths & Physics tuition in Jubilee Hills for CBSE, ICSE, IB MYP, and IGCSE students. The foundation year that decides Classes 9\u201312 success.",
 
   whyItMatters: (
     <div className="space-y-4">

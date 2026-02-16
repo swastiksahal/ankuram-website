@@ -5,14 +5,14 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "IB DP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "IB DP Maths AA & AI tuition (SL/HL) in Jubilee Hills. IA guidance, exam prep, predicted grade support. Small batches. Call +91 7396669430",
+    "IB DP Maths AA & AI tuition (SL/HL) in Jubilee Hills, Hyderabad. IA guidance, exam prep, predicted grade support. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/ib-dp-maths-tuition",
   },
   openGraph: {
     title: "IB DP Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
     description:
-      "IB DP Maths AA & AI tuition (SL/HL) in Jubilee Hills. IA guidance, exam prep, predicted grade support. Small batches. Call +91 7396669430",
+      "IB DP Maths AA & AI tuition (SL/HL) in Jubilee Hills, Hyderabad. IA guidance, exam prep, predicted grade support. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/ib-dp-maths-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const ibDpData: CurriculumPageData = {
   curriculumName: "IB DP",
-  heroTitle: "IB DP Maths & Science Tuition in Jubilee Hills",
+  heroTitle: "IB DP Maths & Physics Tuition in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "DP isn\u2019t about covering the syllabus. It\u2019s about building conceptual models, solving multi-step problems under pressure, and communicating your reasoning precisely. That\u2019s what we train.",
+    "Expert IB DP tuition in Jubilee Hills, Hyderabad. DP isn\u2019t about covering the syllabus \u2014 it\u2019s about building conceptual models, solving multi-step problems under pressure, and communicating reasoning precisely. AA & AI pathways, IA guidance included.",
   heroBadge: "IB DP \u2022 Maths AA/AI \u2022 Physics \u2022 Chemistry",
 
   painPoints: [

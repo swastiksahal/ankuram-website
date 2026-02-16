@@ -5,14 +5,14 @@ import type { GradePageData } from "@/components/GradePageTemplate";
 export const metadata: Metadata = {
   title: "Class 12 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Class 12 board exam tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Board prep, IA support, university readiness. Call +91 7396669430",
+    "Class 12 Maths & Physics board exam tuition in Jubilee Hills, Hyderabad. CBSE, ISC, IB DP, A-Levels. Board prep, IA support, university readiness. Book a diagnostic assessment. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/class-12-tuition",
   },
   openGraph: {
     title: "Class 12 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
     description:
-      "Class 12 board exam tuition in Jubilee Hills. CBSE, ISC, IB DP, A-Levels. Board prep, IA support, university readiness. Call +91 7396669430",
+      "Class 12 Maths & Physics board exam tuition in Jubilee Hills, Hyderabad. CBSE, ISC, IB DP, A-Levels. Board prep, IA support, university readiness. Book a diagnostic assessment. Call +91 7396669430",
     url: "https://ankuramtuition.in/class-12-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const class12Data: GradePageData = {
   gradeNumber: 12,
-  heroTitle: "Class 12 Tuition in Jubilee Hills, Hyderabad",
+  heroTitle: "Class 12 Tuition Near Me in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "Board exams, university applications, competitive exams \u2014 Class 12 demands everything. We make sure your child is ready.",
+    "Searching for class 12 tuition near me for board exam preparation? Ankuram in Jubilee Hills, Hyderabad offers expert Maths & Physics tuition for CBSE, ISC, IB DP, and Cambridge A-Level Class 12 students. Board exams, university applications \u2014 we make sure your child is ready.",
   badge: "Board Year",
 
   whyItMatters: (

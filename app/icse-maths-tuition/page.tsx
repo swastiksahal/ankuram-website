@@ -5,14 +5,14 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "ICSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "ICSE & ISC Maths tuition for Class 8-12 in Jubilee Hills. Method-focused teaching, step-marking expertise. Small batches. Call +91 7396669430",
+    "ICSE Maths tuition for Class 6-10 in Jubilee Hills, Hyderabad. Method-focused teaching, step-marking expertise, small batches of 3-5. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/icse-maths-tuition",
   },
   openGraph: {
     title: "ICSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
     description:
-      "ICSE & ISC Maths tuition for Class 8-12 in Jubilee Hills. Method-focused teaching, step-marking expertise. Small batches. Call +91 7396669430",
+      "ICSE Maths tuition for Class 6-10 in Jubilee Hills, Hyderabad. Method-focused teaching, step-marking expertise, small batches of 3-5. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/icse-maths-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const icseData: CurriculumPageData = {
   curriculumName: "ICSE",
-  heroTitle: "ICSE Maths & Science Tuition in Jubilee Hills",
+  heroTitle: "ICSE Maths Tuition in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "ICSE doesn\u2019t just test whether your child knows the answer. It tests whether they can show their work, explain their reasoning, and present it clearly. We train all three.",
+    "Searching for ICSE tuition near me in Hyderabad? At our Jubilee Hills centre, we don\u2019t just teach ICSE \u2014 we train method, presentation, and concept depth. Your child learns to show their work, explain their reasoning, and present it the way examiners reward.",
   heroBadge: "ICSE \u2022 Grades 6\u201310 \u2022 Maths & Science",
 
   painPoints: [

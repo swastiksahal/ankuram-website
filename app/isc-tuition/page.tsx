@@ -3,16 +3,16 @@ import CurriculumPageTemplate from "@/components/CurriculumPageTemplate";
 import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 
 export const metadata: Metadata = {
-  title: "ISC Maths & Physics Tuition in Jubilee Hills | Ankuram Tuition Centre",
+  title: "ISC Maths & Physics Tuition in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Expert ISC Maths & Physics tuition for Grades 11-12 in Jubilee Hills, Hyderabad. Derivations, proofs, project work guidance, small batches of 3-5. Book a diagnostic assessment.",
+    "Expert ISC Maths & Physics tuition for Grades 11-12 in Jubilee Hills, Hyderabad. Derivations, proofs, project work guidance, small batches of 3-5. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/isc-tuition",
   },
   openGraph: {
-    title: "ISC Maths & Physics Tuition in Jubilee Hills | Ankuram Tuition Centre",
+    title: "ISC Maths & Physics Tuition in Jubilee Hills, Hyderabad | Ankuram",
     description:
-      "Expert ISC Maths & Physics tuition for Grades 11-12 in Jubilee Hills, Hyderabad. Derivations, proofs, project work guidance, small batches of 3-5. Book a diagnostic assessment.",
+      "Expert ISC Maths & Physics tuition for Grades 11-12 in Jubilee Hills, Hyderabad. Derivations, proofs, project work guidance, small batches of 3-5. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/isc-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const iscData: CurriculumPageData = {
   curriculumName: "ISC",
-  heroTitle: "ISC Maths & Physics Tuition in Jubilee Hills",
+  heroTitle: "ISC Maths & Physics Tuition in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "ISC isn\u2019t ICSE with harder questions. It\u2019s a different kind of thinking \u2014 derivations, proofs, structured reasoning, and real application. The jump catches most students off guard.",
+    "Expert ISC tuition in Jubilee Hills, Hyderabad. ISC isn\u2019t ICSE with harder questions \u2014 it\u2019s a different kind of thinking. Derivations, proofs, structured reasoning, and real application. The jump catches most students off guard.",
   heroBadge: "ISC \u2022 Grades 11\u201312 \u2022 Maths & Physics",
 
   painPoints: [

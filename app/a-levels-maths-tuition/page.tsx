@@ -5,14 +5,14 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "Cambridge A-Level Maths & Physics Tuition in Jubilee Hills | Ankuram",
   description:
-    "Cambridge AS & A Level Maths (9709) and Physics (9702) tuition in Jubilee Hills. Pure Maths, Mechanics, Statistics. Small batches. Call +91 7396669430",
+    "Cambridge AS & A Level Maths (9709) and Physics (9702) tuition in Jubilee Hills, Hyderabad. Pure Maths, Mechanics, Statistics. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/a-levels-maths-tuition",
   },
   openGraph: {
     title: "Cambridge A-Level Maths & Physics Tuition in Jubilee Hills | Ankuram",
     description:
-      "Cambridge AS & A Level Maths (9709) and Physics (9702) tuition in Jubilee Hills. Pure Maths, Mechanics, Statistics. Small batches. Call +91 7396669430",
+      "Cambridge AS & A Level Maths (9709) and Physics (9702) tuition in Jubilee Hills, Hyderabad. Pure Maths, Mechanics, Statistics. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/a-levels-maths-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -23,7 +23,7 @@ const aLevelsData: CurriculumPageData = {
   curriculumName: "A-Levels",
   heroTitle: "Cambridge A-Level Maths & Physics Tuition in Jubilee Hills",
   heroSubtitle:
-    "A-Levels demand more than IGCSE with harder numbers. They demand multi-step reasoning, mathematical modelling, and the ability to link ideas across topics. That\u2019s a different skill \u2014 and we teach it.",
+    "Expert A-Levels tuition in Jubilee Hills, Hyderabad. Cambridge A-Levels demand multi-step reasoning, mathematical modelling, and the ability to link ideas across topics. Pure Maths, Mechanics, Statistics, and Physics \u2014 taught with depth, not shortcuts.",
   heroBadge: "Cambridge AS & A Level \u2022 Maths (9709) \u2022 Physics (9702)",
 
   painPoints: [

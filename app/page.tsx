@@ -6,6 +6,7 @@ import {
   ArrowRight,
   CheckCircle2,
   X,
+  MapPin,
 } from "lucide-react";
 import {
   WHATSAPP_URL,
@@ -13,6 +14,7 @@ import {
   EXPERIENCE_YEARS,
   DIAGNOSTIC_FEE,
   CURRICULA,
+  GRADES,
   TESTIMONIALS,
   HOMEPAGE_FAQS,
 } from "@/lib/constants";
@@ -101,10 +103,10 @@ export default function Home() {
           <p className="section-label mb-6">Jubilee Hills, Hyderabad</p>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 text-balance">
-            Your Child Doesn&apos;t Need More Practice. They Need the Right Diagnosis.
+            Tuition Centre Near Me in Jubilee Hills, Hyderabad
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Diagnostic-first maths &amp; physics tuition for classes 8–12. Small batches of 3–5. CBSE, ICSE, IB, IGCSE &amp; A-Levels. {EXPERIENCE_YEARS} years of experience. One expert teacher — no rotating juniors.
+            Looking for the best tuition centre near me in Hyderabad? Ankuram offers diagnostic-first Maths &amp; Physics tuition for Classes 8–12 in Jubilee Hills. Small batches of 3–5 students across CBSE, ICSE, IB MYP, IB DP, IGCSE &amp; Cambridge A-Levels. {EXPERIENCE_YEARS} years of experience. One expert teacher — no rotating juniors.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -285,9 +287,12 @@ export default function Home() {
       <section className="py-16 sm:py-20 lg:py-28 bg-gray-50 animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="section-label mb-4 text-center">Curricula</p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-14 text-center">
-            All Major Boards. One Expert Centre.
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
+            All Major Boards. One Expert Tuition Centre.
           </h2>
+          <p className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">
+            We offer expert <Link href="/cbse-maths-tuition" className="text-accent hover:underline">CBSE maths tuition</Link>, <Link href="/icse-maths-tuition" className="text-accent hover:underline">ICSE tuition</Link>, <Link href="/ib-myp-maths-tuition" className="text-accent hover:underline">IB MYP tuition</Link>, <Link href="/ib-dp-maths-tuition" className="text-accent hover:underline">IB DP tuition</Link>, <Link href="/igcse-maths-tuition" className="text-accent hover:underline">IGCSE tuition</Link>, and <Link href="/a-levels-maths-tuition" className="text-accent hover:underline">A-Levels tuition</Link> in Jubilee Hills, Hyderabad.
+          </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {CURRICULA.map((c) => (
@@ -312,12 +317,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── SECTION 5b: GRADES ─── */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="section-label mb-4 text-center">Grades</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
+            Maths &amp; Physics Tuition Near Me for Every Grade
+          </h2>
+          <p className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">
+            Whether your child is in <Link href="/class-8-tuition" className="text-accent hover:underline">Class 8</Link> building foundations or in <Link href="/class-12-tuition" className="text-accent hover:underline">Class 12</Link> preparing for boards, we have a proven approach for every grade.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {GRADES.map((g) => (
+              <Link
+                key={g.slug}
+                href={`/${g.slug}/`}
+                className="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-accent/30 hover:shadow-md transition-all text-center"
+              >
+                <h3 className="text-2xl font-bold text-navy mb-1 group-hover:text-accent transition-colors">
+                  Class {g.grade}
+                </h3>
+                <p className="text-sm text-gray-400">{g.subjects.join(" & ")}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── SECTION 6: COMPARISON ─── */}
       <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="section-label mb-4 text-center">Why Ankuram</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-14 text-center">
-            Not All Tuition Is the Same
+            Not All Tuition Centres Near Me Are the Same
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
@@ -396,7 +429,42 @@ export default function Home() {
       {/* ─── SECTION 8: FAQ ─── */}
       <FAQSection items={HOMEPAGE_FAQS.map(f => ({ q: f.question, a: f.answer }))} />
 
-      {/* ─── SECTION 9: FINAL CTA ─── */}
+      {/* ─── SECTION 9: AREAS WE SERVE ─── */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white animate-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="section-label mb-4 text-center">Location</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4 text-center">
+            Nearest Tuition Centre for Students Across Hyderabad
+          </h2>
+          <p className="text-center text-gray-500 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Our tuition centre in Jubilee Hills is conveniently located for students across western and central Hyderabad. Parents looking for a coaching centre near me trust Ankuram for personalised, foundation-first maths and physics tuition.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {[
+              "Jubilee Hills", "Banjara Hills", "Gachibowli", "Financial District",
+              "HITEC City", "Kondapur", "Madhapur", "Manikonda", "Narsingi",
+              "Film Nagar", "Shaikpet", "Tolichowki", "Yousufguda", "Punjagutta",
+              "Somajiguda", "Ameerpet", "Kukatpally", "KPHB", "Kokapet", "Begumpet",
+              "Secunderabad",
+            ].map((area) => (
+              <span
+                key={area}
+                className="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-100 text-gray-600 text-sm px-4 py-2 rounded-full"
+              >
+                <MapPin className="w-3.5 h-3.5 text-accent" />
+                {area}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-gray-400 mt-8 max-w-2xl mx-auto">
+            Students from Jubilee Hills, Banjara Hills, Gachibowli, Financial District, HITEC City, Kondapur, Madhapur, Manikonda, Narsingi, Film Nagar, Shaikpet, Tolichowki, Yousufguda, Punjagutta, Somajiguda, Ameerpet, Kukatpally, KPHB, Kokapet, Begumpet, and Secunderabad attend our tuition centre. We also offer live online tuition classes for students outside Hyderabad.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── SECTION 10: FINAL CTA ─── */}
       <section className="py-16 sm:py-20 lg:py-28 bg-navy">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="section-label mb-6">Take the First Step</p>

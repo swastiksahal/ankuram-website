@@ -64,7 +64,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/30 leading-relaxed">
+          <p>
+            Ankuram Tuition Centre offers expert Maths and Physics tuition in Jubilee Hills, Hyderabad for Grades 6–12. We cover CBSE, ICSE, ISC, IB MYP, IB DP, IGCSE, and Cambridge A-Levels. Small batches of 3–5 students with personalised attention. Serving students from Jubilee Hills, Banjara Hills, Gachibowli, Financial District, HITEC City, Kondapur, Madhapur, Manikonda, and Narsingi. Best tuition centre near me for Maths and Physics.
+          </p>
+        </div>
+
+        <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <div>&copy; {new Date().getFullYear()} Ankuram Tuition Centre. All rights reserved.</div>
         </div>
       </div>

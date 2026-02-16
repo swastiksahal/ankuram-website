@@ -5,14 +5,14 @@ import type { CurriculumPageData } from "@/components/CurriculumPageTemplate";
 export const metadata: Metadata = {
   title: "IGCSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
   description:
-    "Cambridge IGCSE Maths tuition (0580) in Jubilee Hills. Core & Extended preparation. Step-marking expertise. Small batches. Call +91 7396669430",
+    "Cambridge IGCSE Maths tuition (0580) in Jubilee Hills, Hyderabad. Core & Extended preparation. Step-marking expertise. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/igcse-maths-tuition",
   },
   openGraph: {
     title: "IGCSE Maths Tuition in Jubilee Hills, Hyderabad | Ankuram Tuition Centre",
     description:
-      "Cambridge IGCSE Maths tuition (0580) in Jubilee Hills. Core & Extended preparation. Step-marking expertise. Small batches. Call +91 7396669430",
+      "Cambridge IGCSE Maths tuition (0580) in Jubilee Hills, Hyderabad. Core & Extended preparation. Step-marking expertise. Small batches of 3-5. Book a diagnostic. Call +91 7396669430",
     url: "https://ankuramtuition.in/igcse-maths-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const igcseData: CurriculumPageData = {
   curriculumName: "IGCSE",
-  heroTitle: "IGCSE Maths & Science Tuition in Jubilee Hills",
+  heroTitle: "IGCSE Maths Tuition in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "IGCSE isn\u2019t about memorising content. It\u2019s about precise methods, clean working, and the discipline to show every step \u2014 because every step earns marks.",
+    "Searching for IGCSE tuition near me? Our Cambridge tuition centre in Jubilee Hills, Hyderabad specialises in IGCSE Maths & Science. Core & Extended preparation with step-marking expertise \u2014 because every step earns marks.",
   heroBadge: "Cambridge IGCSE \u2022 Grades 9\u201310 \u2022 Maths & Sciences",
 
   painPoints: [

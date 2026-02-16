@@ -5,14 +5,14 @@ import type { GradePageData } from "@/components/GradePageTemplate";
 export const metadata: Metadata = {
   title: "Class 10 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
   description:
-    "Class 10 board exam preparation in Jubilee Hills. CBSE, ICSE, IGCSE, IB MYP. Foundation-first approach for 90+ scores. Call +91 7396669430",
+    "Class 10 Maths & Physics board exam preparation in Jubilee Hills, Hyderabad. CBSE, ICSE, IGCSE, IB MYP. Foundation-first approach for 90+ scores. Book a diagnostic assessment. Call +91 7396669430",
   alternates: {
     canonical: "https://ankuramtuition.in/class-10-tuition",
   },
   openGraph: {
     title: "Class 10 Tuition Near Me in Jubilee Hills, Hyderabad | Ankuram",
     description:
-      "Class 10 board exam preparation in Jubilee Hills. CBSE, ICSE, IGCSE, IB MYP. Foundation-first approach for 90+ scores. Call +91 7396669430",
+      "Class 10 Maths & Physics board exam preparation in Jubilee Hills, Hyderabad. CBSE, ICSE, IGCSE, IB MYP. Foundation-first approach for 90+ scores. Book a diagnostic assessment. Call +91 7396669430",
     url: "https://ankuramtuition.in/class-10-tuition",
     siteName: "Ankuram Tuition Centre",
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
 const class10Data: GradePageData = {
   gradeNumber: 10,
-  heroTitle: "Class 10 Tuition in Jubilee Hills, Hyderabad",
+  heroTitle: "Class 10 Tuition Near Me in Jubilee Hills, Hyderabad",
   heroSubtitle:
-    "Board exam year. The difference between scoring 70% and 95% is almost always foundation \u2014 not effort.",
+    "Need class 10 tuition near me for board exam preparation? Our Jubilee Hills centre in Hyderabad offers expert Maths & Physics tuition for CBSE, ICSE, IGCSE, and IB MYP Class 10 students. The difference between 70% and 95% is almost always foundation \u2014 not effort.",
   badge: "Board Year",
 
   whyItMatters: (
