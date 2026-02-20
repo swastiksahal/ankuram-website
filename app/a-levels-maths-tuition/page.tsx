@@ -349,7 +349,7 @@ const aLevelsData: CurriculumPageData = {
         45&ndash;60 minutes. Independent. Then we solve everything together.
       </p>
       <p className="text-lg font-semibold text-accent">
-        ₹750 &mdash; fully credited on enrollment.
+        Rs. 750 &mdash; fully credited on enrollment.
       </p>
     </>
   ),

@@ -280,7 +280,7 @@ const igcseData: CurriculumPageData = {
         &mdash; teaching starts on Day 1.
       </p>
       <p className="text-lg font-semibold text-accent">
-        ₹750 &mdash; fully credited on enrollment.
+        Rs. 750 &mdash; fully credited on enrollment.
       </p>
     </>
   ),

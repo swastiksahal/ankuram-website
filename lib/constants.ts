@@ -27,7 +27,7 @@ export const GOOGLE_MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m1
 // Business Info
 export const EXPERIENCE_YEARS = "13+";
 export const BATCH_SIZE = "3-5";
-export const DIAGNOSTIC_FEE = "₹750";
+export const DIAGNOSTIC_FEE = "Rs. 750";
 
 // Navigation
 export const NAV_LINKS = [
@@ -157,7 +157,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     question: "What happens in the diagnostic assessment?",
-    answer: "A 45\u201360 minute one-on-one session with a qualified teacher at our Jubilee Hills centre. We assess conceptual understanding across foundational topics, identify specific gaps, and create a personalised recovery plan. Fee: \u20B9750, fully credited when you enroll.",
+    answer: "A 45\u201360 minute one-on-one session with a qualified teacher at our Jubilee Hills centre. We assess conceptual understanding across foundational topics, identify specific gaps, and create a personalised recovery plan. Fee: Rs. 750, fully credited when you enroll.",
   },
   {
     question: "How are your batches structured?",

@@ -9,7 +9,7 @@ import GoogleAnalytics from "@/components/tracking/GoogleAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   variable: "--font-inter",
 });
 
@@ -65,9 +65,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.clarity.ms" crossOrigin="" />
       </head>
       <body className="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
         <GoogleAnalytics />

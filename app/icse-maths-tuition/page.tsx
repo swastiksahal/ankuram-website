@@ -236,7 +236,7 @@ const icseData: CurriculumPageData = {
         You get a clear gap map and a plan.
       </p>
       <p className="text-lg font-semibold text-accent">
-        ₹750 &mdash; fully credited when you enroll.
+        Rs. 750 &mdash; fully credited when you enroll.
       </p>
     </>
   ),

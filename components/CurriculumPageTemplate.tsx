@@ -248,7 +248,7 @@ export default function CurriculumPageTemplate({
       {/* 9. Final CTA */}
       <CTABanner
         title="Start With a Diagnostic"
-        subtitle="A 45-60 minute assessment that finds exactly where your child stands — and what to do about it. ₹750, fully credited when you enroll."
+        subtitle="A 45-60 minute assessment that finds exactly where your child stands — and what to do about it. Rs. 750, fully credited when you enroll."
       />
     </>
   );

@@ -206,7 +206,7 @@ const cbseData: CurriculumPageData = {
         here&rsquo;s what needs work, here&rsquo;s the plan.
       </p>
       <p className="text-lg font-semibold text-accent">
-        ₹750 &mdash; fully credited when you enroll.
+        Rs. 750 &mdash; fully credited when you enroll.
       </p>
     </>
   ),

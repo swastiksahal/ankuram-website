@@ -136,9 +136,9 @@ const class12Data: GradePageData = {
     },
     {
       question:
-        "Is \u20B9750 for the diagnostic worth it this late in Class 12?",
+        "Is Rs. 750 for the diagnostic worth it this late in Class 12?",
       answer:
-        "If your child is struggling, \u20B9750 for an honest, precise assessment of where they stand is one of the cheapest investments you can make. Even in the final months, knowing exactly what to focus on \u2014 instead of panicking about everything \u2014 changes the outcome.",
+        "If your child is struggling, Rs. 750 for an honest, precise assessment of where they stand is one of the cheapest investments you can make. Even in the final months, knowing exactly what to focus on \u2014 instead of panicking about everything \u2014 changes the outcome.",
     },
   ],
 };
