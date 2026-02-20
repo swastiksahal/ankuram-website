@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -24,10 +22,8 @@ export default function LocalBusinessSchema() {
   };
 
   return (
-    <Script
-      id="local-business-schema"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );

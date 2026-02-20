@@ -15,11 +15,11 @@ export default function GoogleAnalytics() {
       {/* Load gtag.js — keyed to the Ads ID so conversions fire immediately */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
 
       {/* Initialise dataLayer, configure Ads + GA4 + phone call tracking */}
-      <Script id="gtag-init" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -33,7 +33,7 @@ export default function GoogleAnalytics() {
       </Script>
 
       {/* Microsoft Clarity */}
-      <Script id="clarity-init" strategy="afterInteractive">
+      <Script id="clarity-init" strategy="lazyOnload">
         {`
           (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

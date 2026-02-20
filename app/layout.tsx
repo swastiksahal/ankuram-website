@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import GoogleAnalytics from "@/components/tracking/GoogleAnalytics";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +63,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+      </head>
       <body className="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
         <GoogleAnalytics />
         <Header />

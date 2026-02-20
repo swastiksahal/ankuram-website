@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   MessageCircle,
   Phone,
@@ -19,7 +20,7 @@ import {
   HOMEPAGE_FAQS,
 } from "@/lib/constants";
 import TestimonialCard from "@/components/TestimonialCard";
-import FAQSection from "@/components/FAQSection";
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: true });
 import TrackedCTALink from "@/components/tracking/TrackedCTALink";
 
 export const metadata: Metadata = {
