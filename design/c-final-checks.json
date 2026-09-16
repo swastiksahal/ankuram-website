@@ -1,0 +1,95 @@
+{
+  "shots": [
+    {
+      "file": "design/screens/c-final-390.png",
+      "bytes": 2148719
+    },
+    {
+      "file": "design/screens/c-final-390-top.png",
+      "bytes": 79774
+    },
+    {
+      "file": "design/screens/c-diagram-390.png",
+      "bytes": 59784
+    },
+    {
+      "file": "design/screens/c-final-1440.png",
+      "bytes": 2413713
+    },
+    {
+      "file": "design/screens/c-final-1440-top.png",
+      "bytes": 146252
+    },
+    {
+      "file": "design/screens/c-diagram-1440.png",
+      "bytes": 53281
+    }
+  ],
+  "scroll": [
+    {
+      "width": 360,
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "overflow": 0
+    }
+  ],
+  "nav@360": {
+    "desktop": "none",
+    "mobile": "block"
+  },
+  "diagram@360": {
+    "direction": "column",
+    "captionPx": 16,
+    "loopH": "none",
+    "loopV": "block"
+  },
+  "nav@390": {
+    "desktop": "none",
+    "mobile": "block"
+  },
+  "diagram@390": {
+    "direction": "column",
+    "captionPx": 16,
+    "loopH": "none",
+    "loopV": "block"
+  },
+  "nav@768": {
+    "desktop": "flex",
+    "mobile": "none"
+  },
+  "diagram@768": {
+    "direction": "row",
+    "captionPx": 14.08,
+    "loopH": "block",
+    "loopV": "none"
+  },
+  "nav@1440": {
+    "desktop": "flex",
+    "mobile": "none"
+  },
+  "diagram@1440": {
+    "direction": "row",
+    "captionPx": 14.08,
+    "loopH": "block",
+    "loopV": "none"
+  },
+  "lighthouse": {
+    "performance": 98,
+    "accessibility": 100,
+    "bestPractices": 75,
+    "seo": 50,
+    "lcpMs": 901,
+    "cls": 0,
+    "totalBytes": 422104
+  }
+}

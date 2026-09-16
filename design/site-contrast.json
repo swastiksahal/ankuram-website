@@ -1,0 +1,146 @@
+[
+  {
+    "label": "Body text",
+    "fg": "#454F5E",
+    "bg": "#F7F8FA",
+    "on": "ground",
+    "ratio": 7.8,
+    "rating": "AAA"
+  },
+  {
+    "label": "Body text",
+    "fg": "#454F5E",
+    "bg": "#FFFFFF",
+    "on": "sheet",
+    "ratio": 8.29,
+    "rating": "AAA"
+  },
+  {
+    "label": "Body text",
+    "fg": "#454F5E",
+    "bg": "#E8EEF7",
+    "on": "blue-soft panel",
+    "ratio": 7.11,
+    "rating": "AAA"
+  },
+  {
+    "label": "Headings",
+    "fg": "#14181F",
+    "bg": "#F7F8FA",
+    "on": "ground",
+    "ratio": 16.75,
+    "rating": "AAA"
+  },
+  {
+    "label": "Headings",
+    "fg": "#14181F",
+    "bg": "#FFFFFF",
+    "on": "sheet",
+    "ratio": 17.79,
+    "rating": "AAA"
+  },
+  {
+    "label": "Link / accent",
+    "fg": "#1B3A6B",
+    "bg": "#F7F8FA",
+    "on": "ground",
+    "ratio": 10.6,
+    "rating": "AAA"
+  },
+  {
+    "label": "Link / accent",
+    "fg": "#1B3A6B",
+    "bg": "#FFFFFF",
+    "on": "sheet",
+    "ratio": 11.27,
+    "rating": "AAA"
+  },
+  {
+    "label": "Diagram title",
+    "fg": "#12294C",
+    "bg": "#E8EEF7",
+    "on": "step card",
+    "ratio": 12.44,
+    "rating": "AAA"
+  },
+  {
+    "label": "Diagram title (step 4)",
+    "fg": "#12294C",
+    "bg": "#D5E2F3",
+    "on": "step 4 card",
+    "ratio": 11.06,
+    "rating": "AAA"
+  },
+  {
+    "label": "Primary button",
+    "fg": "#FFFFFF",
+    "bg": "#1B3A6B",
+    "on": "blue",
+    "ratio": 11.27,
+    "rating": "AAA"
+  },
+  {
+    "label": "Ghost button",
+    "fg": "#1B3A6B",
+    "bg": "#F7F8FA",
+    "on": "ground",
+    "ratio": 10.6,
+    "rating": "AAA"
+  },
+  {
+    "label": "WhatsApp button",
+    "fg": "#FFFFFF",
+    "bg": "#0B6B4F",
+    "on": "green",
+    "ratio": 6.5,
+    "rating": "AA"
+  },
+  {
+    "label": "Step number badge",
+    "fg": "#FFFFFF",
+    "bg": "#1B3A6B",
+    "on": "blue",
+    "ratio": 11.27,
+    "rating": "AAA"
+  },
+  {
+    "label": "Step label pill",
+    "fg": "#1B3A6B",
+    "bg": "#E8EEF7",
+    "on": "blue-soft",
+    "ratio": 9.66,
+    "rating": "AAA"
+  },
+  {
+    "label": "CTA band text",
+    "fg": "#D3DEEE",
+    "bg": "#1B3A6B",
+    "on": "blue",
+    "ratio": 8.29,
+    "rating": "AAA"
+  },
+  {
+    "label": "CTA band heading",
+    "fg": "#FFFFFF",
+    "bg": "#1B3A6B",
+    "on": "blue",
+    "ratio": 11.27,
+    "rating": "AAA"
+  },
+  {
+    "label": "Stars",
+    "fg": "#8A6212",
+    "bg": "#FFFFFF",
+    "on": "sheet",
+    "ratio": 5.47,
+    "rating": "AA"
+  },
+  {
+    "label": "Mono table key",
+    "fg": "#1B3A6B",
+    "bg": "#FFFFFF",
+    "on": "sheet",
+    "ratio": 11.27,
+    "rating": "AAA"
+  }
+]
