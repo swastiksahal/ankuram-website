@@ -1,0 +1,1675 @@
+{
+  "source": "public_html/index.html",
+  "extractedAt": "2026-09-16T17:57:08.714Z",
+  "header": {
+    "nav": [
+      {
+        "text": "Home",
+        "href": "#home"
+      },
+      {
+        "text": "How We Teach",
+        "href": "/how-we-teach"
+      },
+      {
+        "text": "Online Classes",
+        "href": "/online-maths-tuition"
+      },
+      {
+        "text": "Curricula",
+        "href": "#curricula"
+      },
+      {
+        "text": "About",
+        "href": "#about"
+      },
+      {
+        "text": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "phone": {
+      "display": "+91 73966 69430",
+      "tel": "+917396669430"
+    }
+  },
+  "whatsapp": "https://wa.me/917396669430",
+  "hero": {
+    "h1": "Tuition for Grades 1–12 in Jubilee Hills, Hyderabad",
+    "paras": [
+      "Small‑batch classes (3–5 students) with a foundation‑first approach across CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels and State Board.",
+      "At ANKURAM, we focus on concept clarity, step‑by‑step problem solving, and consistent practice—so students improve marks and confidence.",
+      "CBSE • IB MYP • IGCSE • ICSE • IB DP • AS & A Levels • State Board"
+    ],
+    "ctas": [
+      {
+        "text": "Book Diagnostic Test",
+        "href": "#"
+      },
+      {
+        "text": "Call: 73966 69430",
+        "href": "tel:+917396669430"
+      }
+    ]
+  },
+  "trust": [
+    "✓ 13+ Years Experience",
+    "✓ All Major Curricula"
+  ],
+  "rating": {
+    "value": "4.8",
+    "businessName": "Ankuram Tuition Centre | Math Tuition | Science Tuition",
+    "reviewCount": "516 Reviews",
+    "stars": 5
+  },
+  "sections": [
+    {
+      "id": "",
+      "cls": "why-choose-us",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Why Choose Ankuram Tuition Centre?"
+        },
+        {
+          "t": "h3",
+          "v": "Small Batches (3–5 students)"
+        },
+        {
+          "t": "p",
+          "v": "Personal attention in every class. We track errors, build strong basics, and help students improve steadily—without stress."
+        },
+        {
+          "t": "h3",
+          "v": "All Curricula Supported"
+        },
+        {
+          "t": "p",
+          "v": "CBSE, ICSE, ISC, IGCSE, IB MYP/DP, AS & A Levels, and Telangana/Andhra State Board—taught with the right syllabus + exam approach."
+        },
+        {
+          "t": "h3",
+          "v": "Foundation‑First Learning"
+        },
+        {
+          "t": "p",
+          "v": "We fix conceptual gaps before moving ahead. Clear methods, structured practice, and zero rote‑learning shortcuts."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "cls": "subjects-section",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Subjects We Teach"
+        },
+        {
+          "t": "h3",
+          "v": "Maths Tuition Jubilee Hills"
+        },
+        {
+          "t": "p",
+          "v": "Comprehensive mathematics coaching from basics to advanced concepts. We cover algebra, geometry, trigonometry, calculus, and more."
+        },
+        {
+          "t": "h3",
+          "v": "Physics Tuition Hyderabad"
+        },
+        {
+          "t": "p",
+          "v": "Expert physics tuition covering mechanics, thermodynamics, electromagnetism, optics, and modern physics for Classes 11-12."
+        },
+        {
+          "t": "h3",
+          "v": "Mathematics Coaching Hyderabad"
+        },
+        {
+          "t": "p",
+          "v": "From foundational number sense to advanced problem-solving. We build strong mathematical thinking and exam confidence."
+        }
+      ]
+    },
+    {
+      "id": "hybrid-classes",
+      "cls": "hybrid-section",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Students From Across Hyderabad"
+        },
+        {
+          "t": "p",
+          "v": "Quality tuition without the daily commute. Online classes on weekdays, in-person sessions on weekends."
+        },
+        {
+          "t": "p",
+          "v": "Students from across Hyderabad learn with us — from Gachibowli to KPHB, Financial District to Secunderabad. Our hybrid model combines the convenience of online classes with the depth of weekend sessions at our Jubilee Hills centre. No more choosing between quality tuition and a 2-hour daily commute."
+        },
+        {
+          "t": "h3",
+          "v": "How It Works"
+        },
+        {
+          "t": "text",
+          "v": "Step 1"
+        },
+        {
+          "t": "h4",
+          "v": "Weekday Online Classes"
+        },
+        {
+          "t": "p",
+          "v": "Live small-batch sessions from home. Students solve problems, photograph their work, share via WhatsApp, and get real-time corrections. Same personal attention as sitting in a classroom — without the travel."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "3-5 students per batch",
+            "Interactive, not lecture",
+            "Instant doubt clearing"
+          ]
+        },
+        {
+          "t": "text",
+          "v": "+"
+        },
+        {
+          "t": "text",
+          "v": "Step 2"
+        },
+        {
+          "t": "h4",
+          "v": "Weekend Offline Sessions"
+        },
+        {
+          "t": "p",
+          "v": "Extended in-person classes at our Jubilee Hills centre every Saturday and Sunday. Deeper practice, doubt-clearing, tests, and focused revision. This is where concepts really solidify."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Saturday & Sunday",
+            "Extended sessions",
+            "In-person attention"
+          ]
+        },
+        {
+          "t": "text",
+          "v": "+"
+        },
+        {
+          "t": "text",
+          "v": "Step 3"
+        },
+        {
+          "t": "h4",
+          "v": "Flexible Based on Need"
+        },
+        {
+          "t": "p",
+          "v": "Students with weaker foundations start with more offline sessions (2 weekdays + weekends). As confidence builds, they transition to the online + weekend model. We adapt to what each student needs."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Personalized approach",
+            "Adapts to student needs",
+            "Builds confidence gradually"
+          ]
+        },
+        {
+          "t": "h3",
+          "v": "Why Online Classes Work"
+        },
+        {
+          "t": "text",
+          "v": "👥"
+        },
+        {
+          "t": "h4",
+          "v": "Same Attention, No Commute"
+        },
+        {
+          "t": "p",
+          "v": "Small batches of 3-5 students mean everyone gets personal attention — whether in our classroom or on screen. We don't run large online lectures; this is interactive, guided practice."
+        },
+        {
+          "t": "text",
+          "v": "📸"
+        },
+        {
+          "t": "h4",
+          "v": "Real-Time Problem Correction"
+        },
+        {
+          "t": "p",
+          "v": "Here's how it works: Student solves a problem → takes a photo → sends on WhatsApp → teacher checks immediately → corrects mistakes then and there. Faster feedback than waiting for homework to be checked next class."
+        },
+        {
+          "t": "text",
+          "v": "🖥️"
+        },
+        {
+          "t": "h4",
+          "v": "Proper Digital Setup"
+        },
+        {
+          "t": "p",
+          "v": "We've invested in the right setup — clear audio, good video, screen sharing for explanations. Students can see problems being solved step-by-step, ask questions, and interact naturally."
+        },
+        {
+          "t": "text",
+          "v": "📚"
+        },
+        {
+          "t": "h4",
+          "v": "Weekend Depth"
+        },
+        {
+          "t": "p",
+          "v": "Online handles regular practice. Weekends at the centre handle the deep work — tests, intensive revision, in-person doubt sessions, and exam preparation. The combination is stronger than either alone."
+        },
+        {
+          "t": "h3",
+          "v": "Students From Across Hyderabad"
+        },
+        {
+          "t": "h4",
+          "v": "West Hyderabad"
+        },
+        {
+          "t": "h5",
+          "v": "Gachibowli"
+        },
+        {
+          "t": "p",
+          "v": "Students from Gachibowli — near DLF, Wipro Circle, and the IT corridor — join online classes on weekdays and travel to our Jubilee Hills centre (20-25 mins) for intensive weekend sessions. Several students from Oakridge, DPS, and Gachibowli schools learn with us."
+        },
+        {
+          "t": "h5",
+          "v": "Financial District"
+        },
+        {
+          "t": "p",
+          "v": "The Financial District (Nanakramguda, Raheja Mindspace area) is a 25-minute drive to our centre. Students from this area prefer our hybrid model — online during the busy weekdays, offline on weekends when roads are clearer."
+        },
+        {
+          "t": "h5",
+          "v": "Kondapur"
+        },
+        {
+          "t": "p",
+          "v": "Kondapur students — from areas near Botanical Garden, Kondapur Junction, and Kothaguda — combine weekday online sessions with weekend classes. The 15-20 minute weekend commute works well for families here."
+        },
+        {
+          "t": "h5",
+          "v": "Madhapur"
+        },
+        {
+          "t": "p",
+          "v": "Madhapur (Hitech City, Cyber Towers area) is close enough for some students to attend offline regularly. Others prefer the hybrid model for flexibility. Either way, we make it work."
+        },
+        {
+          "t": "h5",
+          "v": "KPHB (Kukatpally Housing Board)"
+        },
+        {
+          "t": "p",
+          "v": "KPHB Colony, JNTU area, and Kukatpally students often find daily travel to Jubilee Hills difficult. Our online classes solve this — students attend from home on weekdays and make the 30-40 minute trip on weekends only."
+        },
+        {
+          "t": "h5",
+          "v": "Kukatpally"
+        },
+        {
+          "t": "p",
+          "v": "From Kukatpally (Balanagar, Moosapet, Allwyn Colony areas), weekend-only travel to Jubilee Hills is practical. Students join online batches during the week and attend in-person sessions on Saturdays and Sundays."
+        },
+        {
+          "t": "h5",
+          "v": "Lingampally"
+        },
+        {
+          "t": "p",
+          "v": "Lingampally, near the MMTS station and Nallagandla, is on the western edge of Hyderabad. Students from here do online classes throughout the week and join weekend sessions at our centre — making quality tuition accessible despite the distance."
+        },
+        {
+          "t": "h5",
+          "v": "Tellapur"
+        },
+        {
+          "t": "p",
+          "v": "Tellapur (Osman Sagar Road, Mokila area) students would face a 45+ minute commute daily. With our hybrid model, they attend online classes from home and travel to Jubilee Hills only on weekends for focused practice sessions."
+        },
+        {
+          "t": "h4",
+          "v": "South-West Hyderabad"
+        },
+        {
+          "t": "h5",
+          "v": "Kokapet"
+        },
+        {
+          "t": "p",
+          "v": "Kokapet (near Narsingi, ORR Exit 13) is growing fast with new residential projects. Students from here join our online batches on weekdays. The 20-minute weekend drive to Jubilee Hills works well for intensive sessions."
+        },
+        {
+          "t": "h5",
+          "v": "Khajaguda"
+        },
+        {
+          "t": "p",
+          "v": "Khajaguda, between Gachibowli and Financial District, has easy weekend access to our centre. Students combine online weekday classes with Saturday-Sunday sessions for a balanced learning schedule."
+        },
+        {
+          "t": "h5",
+          "v": "Manikonda"
+        },
+        {
+          "t": "p",
+          "v": "Manikonda (near Lanco Hills, Puppalaguda) students prefer the hybrid model. Online classes during school days, offline sessions on weekends. The 15-20 minute drive makes weekend attendance convenient."
+        },
+        {
+          "t": "h5",
+          "v": "Narsingi"
+        },
+        {
+          "t": "p",
+          "v": "From Narsingi (ORR, Waverock area), daily commute isn't practical. Our model works well here — students learn online during the week and attend weekend sessions at Jubilee Hills for in-person doubt-clearing and practice."
+        },
+        {
+          "t": "h5",
+          "v": "Bandlaguda Jagir"
+        },
+        {
+          "t": "p",
+          "v": "Bandlaguda Jagir (near Attapur, Rajendranagar side) students find our hybrid model ideal. Online classes eliminate the weekday commute, while weekend sessions at our centre provide the in-person attention they need."
+        },
+        {
+          "t": "h4",
+          "v": "Central Hyderabad (Near Our Centre)"
+        },
+        {
+          "t": "h5",
+          "v": "Jubilee Hills"
+        },
+        {
+          "t": "p",
+          "v": "Our centre is in Jubilee Hills (Prashasan Nagar, Rd Number 72). Students from Jubilee Hills can attend both weekday and weekend sessions offline — or choose online for convenience. Walking distance for many families here."
+        },
+        {
+          "t": "h5",
+          "v": "Banjara Hills"
+        },
+        {
+          "t": "p",
+          "v": "Banjara Hills (Road No. 1 to Road No. 14, KBR Park area) is 5-10 minutes from our centre. Most students from here attend offline regularly, though online options are available for flexibility."
+        },
+        {
+          "t": "h5",
+          "v": "Film Nagar"
+        },
+        {
+          "t": "p",
+          "v": "Film Nagar (Filmnagar, Journalist Colony area) students are close to our Jubilee Hills centre — a 10-minute drive. Many attend offline classes, while some opt for the hybrid model based on their schedule."
+        },
+        {
+          "t": "h5",
+          "v": "Somajiguda"
+        },
+        {
+          "t": "p",
+          "v": "Somajiguda (Raj Bhavan Road, Greenlands area) students can reach our centre in 10-15 minutes. Both offline-only and hybrid options work well from here."
+        },
+        {
+          "t": "h5",
+          "v": "Punjagutta"
+        },
+        {
+          "t": "p",
+          "v": "Punjagutta (Ameerpet Road, Erramanzil area) is centrally located, about 15 minutes from Jubilee Hills. Students from this area have the flexibility to choose fully offline or hybrid classes."
+        },
+        {
+          "t": "h5",
+          "v": "Ameerpet"
+        },
+        {
+          "t": "p",
+          "v": "Ameerpet students can reach our Jubilee Hills centre in 15-20 minutes. Depending on their schedule and traffic preferences, they choose between regular offline attendance or the hybrid model."
+        },
+        {
+          "t": "h4",
+          "v": "North & East Hyderabad"
+        },
+        {
+          "t": "h5",
+          "v": "Secunderabad"
+        },
+        {
+          "t": "p",
+          "v": "Secunderabad (Paradise, Clock Tower, Trimulgherry areas) is 30-40 minutes from Jubilee Hills. Students from here do online classes on weekdays and attend weekend sessions at our centre — making quality tuition accessible across the city."
+        },
+        {
+          "t": "h5",
+          "v": "Marredpally"
+        },
+        {
+          "t": "p",
+          "v": "Marredpally (East and West, near Karkhana) students face similar distances. Our hybrid model works well — online during the week, offline on weekends when traffic is lighter."
+        },
+        {
+          "t": "h5",
+          "v": "Begumpet"
+        },
+        {
+          "t": "p",
+          "v": "Begumpet (near Airport Road, old airport area) is about 20 minutes from our centre. Students can attend offline or opt for the hybrid model based on convenience."
+        },
+        {
+          "t": "h5",
+          "v": "Sainikpuri"
+        },
+        {
+          "t": "p",
+          "v": "Sainikpuri and Kapra students are on the northern edge of Hyderabad. For them, our online classes are a game-changer — quality tuition without 45+ minute daily commutes. Weekend sessions complete the experience."
+        },
+        {
+          "t": "h3",
+          "v": "Students Learn With Us From"
+        },
+        {
+          "t": "h4",
+          "v": "Near Our Centre 5-15 min"
+        },
+        {
+          "t": "text",
+          "v": "Jubilee Hills"
+        },
+        {
+          "t": "text",
+          "v": "Banjara Hills"
+        },
+        {
+          "t": "text",
+          "v": "Film Nagar"
+        },
+        {
+          "t": "text",
+          "v": "Somajiguda"
+        },
+        {
+          "t": "text",
+          "v": "Punjagutta"
+        },
+        {
+          "t": "text",
+          "v": "Ameerpet"
+        },
+        {
+          "t": "p",
+          "v": "Regular offline classes or hybrid — your choice."
+        },
+        {
+          "t": "h4",
+          "v": "West Hyderabad 15-30 min"
+        },
+        {
+          "t": "text",
+          "v": "Gachibowli"
+        },
+        {
+          "t": "text",
+          "v": "Madhapur"
+        },
+        {
+          "t": "text",
+          "v": "Kondapur"
+        },
+        {
+          "t": "text",
+          "v": "Financial District"
+        },
+        {
+          "t": "text",
+          "v": "Khajaguda"
+        },
+        {
+          "t": "text",
+          "v": "Manikonda"
+        },
+        {
+          "t": "text",
+          "v": "Kokapet"
+        },
+        {
+          "t": "text",
+          "v": "Narsingi"
+        },
+        {
+          "t": "p",
+          "v": "Hybrid model popular here — online weekdays, offline weekends."
+        },
+        {
+          "t": "h4",
+          "v": "Extended Hyderabad 30-45 min"
+        },
+        {
+          "t": "text",
+          "v": "KPHB"
+        },
+        {
+          "t": "text",
+          "v": "Kukatpally"
+        },
+        {
+          "t": "text",
+          "v": "Tellapur"
+        },
+        {
+          "t": "text",
+          "v": "Lingampally"
+        },
+        {
+          "t": "text",
+          "v": "Secunderabad"
+        },
+        {
+          "t": "text",
+          "v": "Marredpally"
+        },
+        {
+          "t": "text",
+          "v": "Begumpet"
+        },
+        {
+          "t": "text",
+          "v": "Bandlaguda"
+        },
+        {
+          "t": "p",
+          "v": "Online classes make it possible. Weekend sessions complete the experience."
+        },
+        {
+          "t": "p",
+          "v": "Live far from Jubilee Hills? Our online + weekend model makes quality tuition accessible."
+        },
+        {
+          "t": "p",
+          "v": "Start with a diagnostic test to see if we're the right fit."
+        },
+        {
+          "t": "link",
+          "v": "Check If This Works For You",
+          "href": "#contact"
+        },
+        {
+          "t": "p",
+          "v": "Just 10-15 minutes away? Attend offline classes regularly, or choose our flexible hybrid model."
+        },
+        {
+          "t": "link",
+          "v": "Contact Us",
+          "href": "#contact"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "cls": "quick-finder",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Find Your Program"
+        },
+        {
+          "t": "p",
+          "v": "Select your Grade, Subject, and Curriculum to check current batch availability. If you're looking for \"maths tuition near me\" in Jubilee Hills or nearby areas, our small‑batch format ensures personal attention from day one."
+        },
+        {
+          "t": "text",
+          "v": "Grade"
+        },
+        {
+          "t": "options",
+          "items": [
+            "Select Grade",
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Grade 6",
+            "Grade 7",
+            "Grade 8",
+            "Grade 9",
+            "Grade 10",
+            "Grade 11",
+            "Grade 12"
+          ]
+        },
+        {
+          "t": "text",
+          "v": "Subject"
+        },
+        {
+          "t": "options",
+          "items": [
+            "Select Subject",
+            "All Subjects",
+            "School Homework",
+            "Maths",
+            "English",
+            "Science"
+          ]
+        },
+        {
+          "t": "text",
+          "v": "Curriculum"
+        },
+        {
+          "t": "options",
+          "items": [
+            "Select Curriculum",
+            "IB PYP",
+            "CBSE",
+            "IB MYP",
+            "IGCSE",
+            "ICSE",
+            "ISC",
+            "IB DP",
+            "AS Levels",
+            "A Levels",
+            "State Board",
+            "Other"
+          ]
+        },
+        {
+          "t": "button",
+          "v": "Check Availability"
+        },
+        {
+          "t": "p",
+          "v": "Not sure what to choose? Call/WhatsApp us and we'll recommend the right plan in 2 minutes."
+        },
+        {
+          "t": "text",
+          "v": "✓"
+        },
+        {
+          "t": "h4",
+          "v": "Class Details"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Session duration: 60 minutes",
+            "Classes per week: 3-5 based on student needs (determined after assessment)",
+            "Batch size: 3 students (for foundational support) to 5 students (for confident learners)",
+            "Centre timings: Mon-Fri: 5 AM – 10 PM | Sat: 10 AM – 9 PM | Sun: 11 AM – 7 PM",
+            "Batch timing: Decided after initial assessment to find what works best"
+          ]
+        },
+        {
+          "t": "p",
+          "v": "Book a diagnostic test to get started"
+        },
+        {
+          "t": "link",
+          "v": "Book Diagnostic Test (₹750)",
+          "href": "#"
+        },
+        {
+          "t": "link",
+          "v": "Call Now",
+          "href": "tel:+917396669430"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "cls": "how-we-work",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "How We Work"
+        },
+        {
+          "t": "text",
+          "v": "01"
+        },
+        {
+          "t": "h3",
+          "v": "Diagnostic Test (₹750)"
+        },
+        {
+          "t": "p",
+          "v": "A 60-minute assessment to understand your child's current level — strengths, conceptual gaps, and learning patterns. This helps us create the right plan."
+        },
+        {
+          "t": "text",
+          "v": "02"
+        },
+        {
+          "t": "h3",
+          "v": "Personalised Plan"
+        },
+        {
+          "t": "p",
+          "v": "Based on the diagnostic test results, we decide batch size (3-5 students), class frequency (3-5 per week), and timing."
+        },
+        {
+          "t": "text",
+          "v": "03"
+        },
+        {
+          "t": "h3",
+          "v": "Consistent Support"
+        },
+        {
+          "t": "p",
+          "v": "60-minute sessions focused on building foundations. Regular feedback to parents on progress."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "cls": "what-we-offer",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "What We Offer"
+        },
+        {
+          "t": "h3",
+          "v": "Grades 1–5"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "All subjects + daily homework support (English & Maths focus)",
+            "Strong basics in reading, writing, spellings, and grammar",
+            "Number sense, tables, mental maths, and step‑wise learning habits",
+            "Homework help + regular review so learning stays consistent",
+            "Confidence building through short, achievable goals"
+          ]
+        },
+        {
+          "t": "h3",
+          "v": "Grades 6–10"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Maths primarily (Science optional)",
+            "Concepts taught clearly with worked examples",
+            "Regular practice to improve speed + accuracy",
+            "Problem‑solving, application questions, and exam‑pattern readiness",
+            "Special support for Class 9 & Class 10 foundation + board preparation"
+          ]
+        },
+        {
+          "t": "h3",
+          "v": "Grades 11–12"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Maths, Physics, Chemistry",
+            "Strong fundamentals + advanced problem practice",
+            "Structured notes + formula revision systems",
+            "Topic tests and cumulative revision for board exam readiness",
+            "Doubt‑clearing and guidance to reduce last‑minute pressure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "",
+      "cls": "how-we-teach",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "How We Teach at ANKURAM"
+        },
+        {
+          "t": "p",
+          "v": "At Ankuram Tuition Centre in Jubilee Hills, our teaching is built around one goal: deep understanding + reliable exam performance. Every student follows a simple learning cycle:"
+        },
+        {
+          "t": "text",
+          "v": "1"
+        },
+        {
+          "t": "h3",
+          "v": "Diagnose"
+        },
+        {
+          "t": "p",
+          "v": "Quick check of basics and current level"
+        },
+        {
+          "t": "text",
+          "v": "2"
+        },
+        {
+          "t": "h3",
+          "v": "Explain"
+        },
+        {
+          "t": "p",
+          "v": "Concepts taught step-by-step (no rushing)"
+        },
+        {
+          "t": "text",
+          "v": "3"
+        },
+        {
+          "t": "h3",
+          "v": "Practice Together"
+        },
+        {
+          "t": "p",
+          "v": "We solve together, correct mistakes immediately"
+        },
+        {
+          "t": "text",
+          "v": "4"
+        },
+        {
+          "t": "h3",
+          "v": "Practice Alone"
+        },
+        {
+          "t": "p",
+          "v": "Students solve with structured homework"
+        },
+        {
+          "t": "text",
+          "v": "5"
+        },
+        {
+          "t": "h3",
+          "v": "Review + Improve"
+        },
+        {
+          "t": "p",
+          "v": "Weekly revision, error-tracking, targeted re-teaching"
+        },
+        {
+          "t": "h3",
+          "v": "Grade‑wise approach"
+        },
+        {
+          "t": "button",
+          "v": "Grades 1-5"
+        },
+        {
+          "t": "button",
+          "v": "Grades 6-10"
+        },
+        {
+          "t": "button",
+          "v": "Grades 11-12"
+        },
+        {
+          "t": "p",
+          "v": "Short, focused sessions with repetition in different formats. Strong emphasis on English + Maths fundamentals."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Short, focused sessions with repetition",
+            "English + Maths fundamentals emphasis",
+            "Daily homework support, reading habits",
+            "Confidence through small wins"
+          ]
+        },
+        {
+          "t": "p",
+          "v": "Concept clarity first, then problem sets that increase in difficulty. Mixed practice to improve retention."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Concept clarity first, then increasing difficulty",
+            "Mixed practice (old + new topics)",
+            "Exam-style questions, time management",
+            "Focus on algebra, geometry, word problems"
+          ]
+        },
+        {
+          "t": "p",
+          "v": "Topic-wise mastery with cumulative revision planning. Formula and method-based learning for exam confidence."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Topic-wise mastery + cumulative revision",
+            "Formula and method-based learning",
+            "Error logs to reduce repeated mistakes",
+            "Exam strategy coaching near boards"
+          ]
+        },
+        {
+          "t": "h3",
+          "v": "Curriculum‑specific teaching (what changes by board)"
+        },
+        {
+          "t": "h4",
+          "v": "CBSE"
+        },
+        {
+          "t": "p",
+          "v": "NCERT alignment, step marking, board focus"
+        },
+        {
+          "t": "link",
+          "v": "Learn more →",
+          "href": "/cbse-tuition-jubilee-hills"
+        },
+        {
+          "t": "h4",
+          "v": "ICSE/ISC"
+        },
+        {
+          "t": "p",
+          "v": "Deep explanation, strong presentation"
+        },
+        {
+          "t": "link",
+          "v": "Learn more →",
+          "href": "/icse-tuition-hyderabad"
+        },
+        {
+          "t": "h4",
+          "v": "IGCSE"
+        },
+        {
+          "t": "p",
+          "v": "Concept + application, command words"
+        },
+        {
+          "t": "link",
+          "v": "Learn more →",
+          "href": "/igcse-tuition-jubilee-hills"
+        },
+        {
+          "t": "h4",
+          "v": "IB MYP/DP"
+        },
+        {
+          "t": "p",
+          "v": "Criterion-based, clear communication"
+        },
+        {
+          "t": "link",
+          "v": "Learn more →",
+          "href": "/ib-myp-tuition-hyderabad"
+        },
+        {
+          "t": "h4",
+          "v": "AS & A Levels"
+        },
+        {
+          "t": "p",
+          "v": "Method marks, rigorous practice"
+        },
+        {
+          "t": "link",
+          "v": "Learn more →",
+          "href": "/a-level-tuition-hyderabad"
+        },
+        {
+          "t": "h4",
+          "v": "State Board"
+        },
+        {
+          "t": "p",
+          "v": "Clear basics, Telugu medium available"
+        },
+        {
+          "t": "link",
+          "v": "Learn more →",
+          "href": "/state-board-tuition-hyderabad"
+        }
+      ]
+    },
+    {
+      "id": "curricula",
+      "cls": "curricula",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Curricula We Support"
+        },
+        {
+          "t": "p",
+          "v": "We support major Indian and international curricula so students can get the right teaching style for their board—while still building strong fundamentals that work everywhere."
+        },
+        {
+          "t": "link",
+          "v": "CBSE",
+          "href": "/cbse-tuition-jubilee-hills"
+        },
+        {
+          "t": "link",
+          "v": "ICSE",
+          "href": "/icse-tuition-hyderabad"
+        },
+        {
+          "t": "link",
+          "v": "ISC",
+          "href": "/isc-tuition-hyderabad"
+        },
+        {
+          "t": "link",
+          "v": "IGCSE",
+          "href": "/igcse-tuition-jubilee-hills"
+        },
+        {
+          "t": "link",
+          "v": "IB MYP",
+          "href": "/ib-myp-tuition-hyderabad"
+        },
+        {
+          "t": "link",
+          "v": "IB DP",
+          "href": "/ib-dp-tuition-hyderabad"
+        },
+        {
+          "t": "link",
+          "v": "AS & A Levels",
+          "href": "/a-level-tuition-hyderabad"
+        },
+        {
+          "t": "link",
+          "v": "State Board",
+          "href": "/state-board-tuition-hyderabad"
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "cls": "about-section",
+      "blocks": [
+        {
+          "t": "text",
+          "v": "13+"
+        },
+        {
+          "t": "text",
+          "v": "Years Teaching"
+        },
+        {
+          "t": "text",
+          "v": "3-5"
+        },
+        {
+          "t": "text",
+          "v": "Students per Batch"
+        },
+        {
+          "t": "h2",
+          "v": "About ANKURAM"
+        },
+        {
+          "t": "p",
+          "v": "Students learn best when fundamentals are strong and teaching is personal."
+        },
+        {
+          "t": "p",
+          "v": "With 13+ years of teaching experience, an academic background in MSc Physics and BE Mechanical Engineering, and experience as a former Amazon software engineer, our teaching combines clarity, structure, and analytical problem-solving."
+        },
+        {
+          "t": "h4",
+          "v": "Diagnose First"
+        },
+        {
+          "t": "p",
+          "v": "We identify gaps early before teaching new concepts"
+        },
+        {
+          "t": "h4",
+          "v": "No Rushing"
+        },
+        {
+          "t": "p",
+          "v": "Concepts taught step-by-step until truly understood"
+        },
+        {
+          "t": "h4",
+          "v": "Structured Practice"
+        },
+        {
+          "t": "p",
+          "v": "Regular revision, error tracking, and feedback loops"
+        },
+        {
+          "t": "h4",
+          "v": "Small Batches"
+        },
+        {
+          "t": "p",
+          "v": "3-5 students only — everyone gets attention"
+        },
+        {
+          "t": "p",
+          "v": "One-on-one tuition available on a pro-rata basis for students who need extra attention."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "cls": "contact-section",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Get in Touch"
+        },
+        {
+          "t": "p",
+          "v": "Have questions about grade, curriculum, or schedule? We'll help you find the right fit."
+        },
+        {
+          "t": "text",
+          "v": "Phone"
+        },
+        {
+          "t": "link",
+          "v": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        },
+        {
+          "t": "text",
+          "v": "WhatsApp"
+        },
+        {
+          "t": "link",
+          "v": "Message Us",
+          "href": "https://wa.me/917396669430?text=Hi%2C%20I%27m%20interested%20in%20tuition"
+        },
+        {
+          "t": "text",
+          "v": "Location"
+        },
+        {
+          "t": "text",
+          "v": "Ankuram Tuition Centre | Math Tuition | Science Tuition Plot 229, Rd Number 72 Prashasan Nagar, Jubilee Hills Hyderabad, Telangana 500096"
+        },
+        {
+          "t": "text",
+          "v": "Timings"
+        },
+        {
+          "t": "text",
+          "v": "Mon – Fri: 5 AM – 10 PM"
+        },
+        {
+          "t": "text",
+          "v": "Saturday: 10 AM – 9 PM"
+        },
+        {
+          "t": "text",
+          "v": "Sunday: 11 AM – 7 PM"
+        },
+        {
+          "t": "link",
+          "v": "Call Now",
+          "href": "tel:+917396669430"
+        },
+        {
+          "t": "link",
+          "v": "WhatsApp",
+          "href": "https://wa.me/917396669430"
+        },
+        {
+          "t": "link",
+          "v": "Get Directions",
+          "href": "https://www.google.com/maps/dir//Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition,+Plot+229,+Road+Number+72,+Prashashan+Nagar,+Jubilee+Hills,+Hyderabad,+Telangana+500096/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0"
+        },
+        {
+          "t": "p",
+          "v": "Share your student's grade and current curriculum (IB, IGCSE, Cambridge A-Levels, or CBSE). We will get back to you within 2 hours to schedule a comprehensive Diagnostic Assessment (₹750)."
+        },
+        {
+          "t": "text",
+          "v": "Name *"
+        },
+        {
+          "t": "text",
+          "v": "Phone *"
+        },
+        {
+          "t": "text",
+          "v": "Grade"
+        },
+        {
+          "t": "options",
+          "items": [
+            "Select Grade",
+            "Grades 1-5",
+            "Grades 6-10",
+            "Grades 11-12"
+          ]
+        },
+        {
+          "t": "text",
+          "v": "Curriculum"
+        },
+        {
+          "t": "options",
+          "items": [
+            "Select Curriculum",
+            "CBSE",
+            "IB MYP",
+            "IGCSE",
+            "ICSE",
+            "ISC",
+            "IB DP",
+            "AS & A Levels",
+            "State Board"
+          ]
+        },
+        {
+          "t": "text",
+          "v": "Message"
+        },
+        {
+          "t": "button",
+          "v": "Send Message"
+        }
+      ]
+    },
+    {
+      "id": "reviews",
+      "cls": "reviews-section",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Reviews"
+        },
+        {
+          "t": "p",
+          "v": "Loading reviews..."
+        },
+        {
+          "t": "p",
+          "v": "Unable to load reviews at this time."
+        },
+        {
+          "t": "link",
+          "v": "See our Google reviews →",
+          "href": "https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0"
+        },
+        {
+          "t": "link",
+          "v": "View all reviews on Google →",
+          "href": "https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "cls": "faq-section",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Frequently Asked Questions"
+        },
+        {
+          "t": "h3",
+          "v": "Do you offer tuition in Jubilee Hills for CBSE, ICSE, IGCSE and IB?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels, and State Board. Teaching style and practice are aligned to the curriculum."
+        },
+        {
+          "t": "h3",
+          "v": "What grades do you teach?"
+        },
+        {
+          "t": "p",
+          "v": "We teach Grades 1–12. Grades 1–5 include all subjects + homework help (English & Maths focus). Grades 6–10 focus mainly on Maths (Science optional). Grades 11–12 cover Maths, Physics and Chemistry."
+        },
+        {
+          "t": "h3",
+          "v": "What is your batch size?"
+        },
+        {
+          "t": "p",
+          "v": "Our classes are small batches of 3–5 students, allowing personal attention, error correction, and steady improvement."
+        },
+        {
+          "t": "h3",
+          "v": "Do you take Class 10 tuition in Hyderabad?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. We support Class 10 with concept strengthening, practice sets, and exam readiness—especially for Maths (and Science if required)."
+        },
+        {
+          "t": "h3",
+          "v": "Do you offer Class 12 Maths / Physics / Chemistry tuition in Hyderabad?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. For Grades 11–12, we teach Maths, Physics and Chemistry with structured practice and revision support."
+        },
+        {
+          "t": "h3",
+          "v": "I'm searching \"maths tuition near me\"—are you close to Banjara Hills / Film Nagar / Madhapur?"
+        },
+        {
+          "t": "p",
+          "v": "We are located in Jubilee Hills and commonly serve students from Banjara Hills, Film Nagar, Madhapur and nearby areas."
+        },
+        {
+          "t": "h3",
+          "v": "How do I know which program to choose?"
+        },
+        {
+          "t": "p",
+          "v": "Use \"Find Your Program\" to select Grade + Subject + Curriculum. Or call/WhatsApp us and we'll recommend the right batch based on current level and school syllabus."
+        },
+        {
+          "t": "h3",
+          "v": "What are the tuition timings and fees?"
+        },
+        {
+          "t": "p",
+          "v": "Timings depend on grade and current batch availability. Fees vary by grade, subject, and frequency. Contact us for the latest schedule and fee structure."
+        },
+        {
+          "t": "h3",
+          "v": "Do you offer home tuition in Hyderabad?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. We provide home tuition in select Hyderabad areas based on availability. Contact us to confirm if your location is covered."
+        },
+        {
+          "t": "h3",
+          "v": "What are the tuition fees?"
+        },
+        {
+          "t": "p",
+          "v": "Fees depend on grade, subject, curriculum, and class frequency. Contact us after the diagnostic test for a personalised quote."
+        },
+        {
+          "t": "h3",
+          "v": "Do you teach maths for Class 10 board exams?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. We support CBSE, ICSE, IGCSE, and State Board Class 10 students with concept strengthening, exam-pattern practice, and revision planning."
+        },
+        {
+          "t": "h3",
+          "v": "Do you offer IB MYP tuition in Hyderabad?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. We teach IB MYP Maths and Science with criterion-based assessment preparation and ATL skills support."
+        },
+        {
+          "t": "h3",
+          "v": "What areas do you serve from Jubilee Hills?"
+        },
+        {
+          "t": "p",
+          "v": "Our centre is in Jubilee Hills. We commonly serve students from Banjara Hills, Film Nagar, Madhapur, Gachibowli, Kondapur, and surrounding areas."
+        },
+        {
+          "t": "h3",
+          "v": "Do you teach Physics and Chemistry for Class 11-12?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. We teach Maths, Physics, and Chemistry for Grades 11-12 across CBSE, ISC, IB DP, A Levels, and State Board."
+        },
+        {
+          "t": "h3",
+          "v": "Do you offer tuition in Gachibowli?"
+        },
+        {
+          "t": "p",
+          "v": "Students from Gachibowli learn with us through online weekday classes and weekend sessions at our Jubilee Hills centre. The 20-25 minute weekend drive works well for most families."
+        },
+        {
+          "t": "h3",
+          "v": "Is there tuition available in KPHB?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. Students from KPHB attend online classes during the week and come to our Jubilee Hills centre on weekends for in-person sessions."
+        },
+        {
+          "t": "h3",
+          "v": "Do you have a branch in Financial District?"
+        },
+        {
+          "t": "p",
+          "v": "We have one centre in Jubilee Hills. Students from Financial District join online classes on weekdays and attend weekend sessions at our centre."
+        },
+        {
+          "t": "h3",
+          "v": "How do online classes work?"
+        },
+        {
+          "t": "p",
+          "v": "Live small-batch sessions (3-5 students) with real-time interaction. Students solve problems, share photos via WhatsApp, and get immediate corrections from the teacher."
+        },
+        {
+          "t": "h3",
+          "v": "Is online as good as offline?"
+        },
+        {
+          "t": "p",
+          "v": "For regular practice and concept learning, yes. Weekend offline sessions add depth — tests, intensive revision, and in-person doubt-clearing. The combination works better than either alone."
+        },
+        {
+          "t": "h3",
+          "v": "Do you offer tuition in Gachibowli?"
+        },
+        {
+          "t": "p",
+          "v": "Students from Gachibowli learn with us through online weekday classes and weekend sessions at our Jubilee Hills centre. It's a 20-25 minute drive on weekends."
+        },
+        {
+          "t": "h3",
+          "v": "Is there tuition available in KPHB?"
+        },
+        {
+          "t": "p",
+          "v": "Yes, students from KPHB attend our online classes during the week and come to our Jubilee Hills centre on weekends for in-person sessions."
+        },
+        {
+          "t": "h3",
+          "v": "Do you have a branch in Financial District?"
+        },
+        {
+          "t": "p",
+          "v": "We have one centre in Jubilee Hills. Students from Financial District join online classes on weekdays and attend weekend sessions at our centre."
+        },
+        {
+          "t": "h3",
+          "v": "Can students from Secunderabad join?"
+        },
+        {
+          "t": "p",
+          "v": "Yes. Several students from Secunderabad learn with us through our hybrid model — online during the week, offline on weekends."
+        }
+      ]
+    },
+    {
+      "id": "diagnosticModal",
+      "cls": "modal-overlay",
+      "blocks": [
+        {
+          "t": "h2",
+          "v": "Diagnostic Test"
+        },
+        {
+          "t": "p",
+          "v": "₹750 • 60 minutes"
+        },
+        {
+          "t": "h3",
+          "v": "What is the Diagnostic Test?"
+        },
+        {
+          "t": "p",
+          "v": "Before we begin teaching, we need to understand where your child stands. The diagnostic test is a 60-minute assessment that helps us identify:"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Current understanding of concepts",
+            "Gaps in foundational knowledge",
+            "Learning patterns and pace",
+            "Areas that need immediate attention"
+          ]
+        },
+        {
+          "t": "p",
+          "v": "This is not a pass/fail test. It's a detailed evaluation that helps us create the right learning plan for your child."
+        },
+        {
+          "t": "h3",
+          "v": "What happens after the test?"
+        },
+        {
+          "t": "p",
+          "v": "After the assessment, we'll have a detailed discussion with you about:"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Your child's current level",
+            "Specific gaps we identified",
+            "Our recommended plan — batch size, number of classes per week, and timing",
+            "How we'll approach the teaching"
+          ]
+        },
+        {
+          "t": "p",
+          "v": "This conversation helps you decide if we're the right fit before committing to regular classes."
+        },
+        {
+          "t": "h3",
+          "v": "Test Details"
+        },
+        {
+          "t": "text",
+          "v": "Duration:"
+        },
+        {
+          "t": "text",
+          "v": "60 minutes"
+        },
+        {
+          "t": "text",
+          "v": "Fee:"
+        },
+        {
+          "t": "text",
+          "v": "₹750 (one-time, non-refundable)"
+        },
+        {
+          "t": "text",
+          "v": "Location:"
+        },
+        {
+          "t": "text",
+          "v": "Ankuram Tuition Centre, Jubilee Hills"
+        },
+        {
+          "t": "text",
+          "v": "Timings:"
+        },
+        {
+          "t": "text",
+          "v": "By appointment (Mon-Fri: 5 AM - 10 PM | Sat: 10 AM - 9 PM | Sun: 11 AM - 7 PM)"
+        },
+        {
+          "t": "h3",
+          "v": "How to Book"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Pay ₹750 via UPI",
+            "Send payment screenshot on WhatsApp",
+            "We'll confirm your slot within 2 hours"
+          ]
+        },
+        {
+          "t": "p",
+          "v": "Pay to:"
+        },
+        {
+          "t": "p",
+          "v": "sahalswastik@okhdfcbank"
+        },
+        {
+          "t": "button",
+          "v": "Copy UPI ID"
+        },
+        {
+          "t": "link",
+          "v": "Pay via UPI & WhatsApp Confirmation",
+          "href": "https://wa.me/917396669430?text=Hi%2C%20I'd%20like%20to%20book%20a%20Diagnostic%20Test%20for%20my%20child.%20I'll%20share%20the%20payment%20screenshot%20shortly."
+        },
+        {
+          "t": "link",
+          "v": "Call to Book",
+          "href": "tel:+917396669430"
+        },
+        {
+          "t": "link",
+          "v": "I have questions",
+          "href": "https://wa.me/917396669430?text=Hi%2C%20I%20have%20some%20questions%20about%20the%20Diagnostic%20Test."
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "lines": [
+      "Ankuram Tuition Centre | Math Tuition | Science Tuition",
+      "Expert tuition for Grades 1-12 in Jubilee Hills, Hyderabad.",
+      "Quick Links",
+      "Contact",
+      "Plot 229, Rd Number 72 Prashasan Nagar, Jubilee Hills Hyderabad, Telangana 500096",
+      "&copy; 2026 Ankuram Tuition Centre. All rights reserved."
+    ],
+    "links": [
+      {
+        "text": "Home",
+        "href": "#home"
+      },
+      {
+        "text": "Curricula",
+        "href": "#curricula"
+      },
+      {
+        "text": "About",
+        "href": "#about"
+      },
+      {
+        "text": "Contact",
+        "href": "#contact"
+      },
+      {
+        "text": "Class 10 Maths Tuition",
+        "href": "/cbse-class-10-maths"
+      },
+      {
+        "text": "+91 73966 69430",
+        "href": "tel:+917396669430"
+      }
+    ]
+  }
+}

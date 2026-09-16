@@ -1,0 +1,183 @@
+{
+  "A": [
+    {
+      "label": "body text",
+      "fg": "#4A423B",
+      "bg": "#FAF6EF",
+      "ratio": 9.14,
+      "rating": "AAA"
+    },
+    {
+      "label": "body text on alt",
+      "fg": "#4A423B",
+      "bg": "#FDFCFA",
+      "ratio": 9.6,
+      "rating": "AAA"
+    },
+    {
+      "label": "headings",
+      "fg": "#1A1714",
+      "bg": "#FAF6EF",
+      "ratio": 16.57,
+      "rating": "AAA"
+    },
+    {
+      "label": "primary button",
+      "fg": "#FFFFFF",
+      "bg": "#8F4A13",
+      "ratio": 6.65,
+      "rating": "AA"
+    },
+    {
+      "label": "link",
+      "fg": "#8F4A13",
+      "bg": "#FAF6EF",
+      "ratio": 6.17,
+      "rating": "AA"
+    },
+    {
+      "label": "WhatsApp button",
+      "fg": "#FFFFFF",
+      "bg": "#0B6B4F",
+      "ratio": 6.5,
+      "rating": "AA"
+    },
+    {
+      "label": "final CTA text",
+      "fg": "#FAF6EF",
+      "bg": "#1A1714",
+      "ratio": 16.57,
+      "rating": "AAA"
+    },
+    {
+      "label": "stars accent",
+      "fg": "#C4691F",
+      "bg": "#FAF6EF",
+      "ratio": 3.62,
+      "rating": "AA (large)"
+    }
+  ],
+  "B": [
+    {
+      "label": "body text",
+      "fg": "#46536A",
+      "bg": "#FFFFFF",
+      "ratio": 7.76,
+      "rating": "AAA"
+    },
+    {
+      "label": "headings",
+      "fg": "#1A2942",
+      "bg": "#FFFFFF",
+      "ratio": 14.59,
+      "rating": "AAA"
+    },
+    {
+      "label": "hero text",
+      "fg": "#C6D0E0",
+      "bg": "#1A2942",
+      "ratio": 9.38,
+      "rating": "AAA"
+    },
+    {
+      "label": "hero headings",
+      "fg": "#FFFFFF",
+      "bg": "#1A2942",
+      "ratio": 14.59,
+      "rating": "AAA"
+    },
+    {
+      "label": "primary button",
+      "fg": "#111C2E",
+      "bg": "#D4A574",
+      "ratio": 7.67,
+      "rating": "AAA"
+    },
+    {
+      "label": "header tel link",
+      "fg": "#D4A574",
+      "bg": "#1A2942",
+      "ratio": 6.55,
+      "rating": "AA"
+    },
+    {
+      "label": "link",
+      "fg": "#7A5320",
+      "bg": "#FFFFFF",
+      "ratio": 6.81,
+      "rating": "AA"
+    },
+    {
+      "label": "final CTA text",
+      "fg": "#4A3512",
+      "bg": "#D4A574",
+      "ratio": 5.21,
+      "rating": "AA"
+    },
+    {
+      "label": "stars",
+      "fg": "#B8801F",
+      "bg": "#FFFFFF",
+      "ratio": 3.42,
+      "rating": "AA (large)"
+    }
+  ],
+  "C": [
+    {
+      "label": "body text",
+      "fg": "#454F5E",
+      "bg": "#F7F8FA",
+      "ratio": 7.8,
+      "rating": "AAA"
+    },
+    {
+      "label": "body on sheet",
+      "fg": "#454F5E",
+      "bg": "#FFFFFF",
+      "ratio": 8.29,
+      "rating": "AAA"
+    },
+    {
+      "label": "headings",
+      "fg": "#14181F",
+      "bg": "#F7F8FA",
+      "ratio": 16.75,
+      "rating": "AAA"
+    },
+    {
+      "label": "primary button",
+      "fg": "#FFFFFF",
+      "bg": "#1B3A6B",
+      "ratio": 11.27,
+      "rating": "AAA"
+    },
+    {
+      "label": "link",
+      "fg": "#1B3A6B",
+      "bg": "#F7F8FA",
+      "ratio": 10.6,
+      "rating": "AAA"
+    },
+    {
+      "label": "panel text",
+      "fg": "#1B3A6B",
+      "bg": "#E8EEF7",
+      "ratio": 9.66,
+      "rating": "AAA"
+    },
+    {
+      "label": "final CTA text",
+      "fg": "#D3DEEE",
+      "bg": "#1B3A6B",
+      "ratio": 8.29,
+      "rating": "AAA"
+    },
+    {
+      "label": "stars",
+      "fg": "#B8801F",
+      "bg": "#FFFFFF",
+      "ratio": 3.42,
+      "rating": "AA (large)"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-09-16T18:08:30.431Z",
+  "lighthouse": [
+    {
+      "dir": "a",
+      "performance": 96,
+      "accessibility": 100,
+      "bestPractices": 75,
+      "seo": 54,
+      "lcpMs": 903,
+      "cls": 0,
+      "totalBytes": 619464
+    },
+    {
+      "dir": "b",
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 79,
+      "seo": 54,
+      "lcpMs": 902,
+      "cls": 0,
+      "totalBytes": 618412
+    },
+    {
+      "dir": "c",
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 79,
+      "seo": 50,
+      "lcpMs": 901,
+      "cls": 0,
+      "totalBytes": 409170
+    }
+  ],
+  "scrollIssues": [],
+  "shots": [
+    {
+      "file": "design/screens/direction-a-390.png",
+      "bytes": 2166781,
+      "dir": "a",
+      "width": 390
+    },
+    {
+      "file": "design/screens/direction-a-1440.png",
+      "bytes": 2567927,
+      "dir": "a",
+      "width": 1440
+    },
+    {
+      "file": "design/screens/direction-b-390.png",
+      "bytes": 2161556,
+      "dir": "b",
+      "width": 390
+    },
+    {
+      "file": "design/screens/direction-b-1440.png",
+      "bytes": 2591379,
+      "dir": "b",
+      "width": 1440
+    },
+    {
+      "file": "design/screens/direction-c-390.png",
+      "bytes": 2060561,
+      "dir": "c",
+      "width": 390
+    },
+    {
+      "file": "design/screens/direction-c-1440.png",
+      "bytes": 2383794,
+      "dir": "c",
+      "width": 1440
+    }
+  ]
+}

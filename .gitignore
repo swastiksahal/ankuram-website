@@ -26,3 +26,4 @@ public_html/thank-you/index.txt
 # P0d artefacts — too large for git (index kept in baseline/screens-index.csv)
 baseline/screens/
 baseline/lighthouse/
+design/lighthouse/
