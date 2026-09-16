@@ -440,3 +440,63 @@ your call: remove the link, or write the page. See section 10.
 `G-MQRSS8DKLE` and `G-KHP2PBXF6X` are two data streams of the *same* GA4
 property (374743429), not two properties. Standardising on `G-MQRSS8DKLE` keeps
 data flowing to the same property, so no dashboard goes flat. Not a risk.
+
+---
+
+## 11. Tier A rules (added 16 Sep, from Search Console)
+
+Source: `baseline/gsc-2026-09-16.md` (property `sc-domain:ankuramtuition.com`,
+15 May 2025 – 14 Sep 2026). Tiers are built by `scripts/gsc-tiers.js` into
+`baseline/gsc-tiers.csv`, and joined onto `docs/waves.csv` as a `tier` column.
+
+Tiers use Step 7, the last 3 months (2026-06-15 to 2026-09-14):
+
+| Tier | Meaning | Pages |
+|---|---|---|
+| A | at least 1 click | 33 |
+| B | impressions, 0 clicks | 48 |
+| C | no data in the window | 12 |
+
+### The homepage is the whole site's search traffic
+
+**77.3% of all search clicks over the full 16 months** (1,416 of 1,833, apex
+plus `www`), and **67.3% over the last 3 months** (235 of 349). Both numbers are
+computed from the transcription; the 16-month figure is the 77% one.
+
+Therefore, on `index.html`:
+
+- **`<title>`, meta description, `<h1>` and JSON-LD are frozen byte-for-byte.**
+  No exceptions beyond A1 (tracking) and A2 (NAP). Not a word, not a character
+  of punctuation, not a reordering of JSON-LD keys.
+- The parity checker treats any diff in those four on the homepage as a hard
+  FAIL, not a warning, regardless of how the diff arose.
+
+### Gate before any Tier A page ships
+
+Both of these must be produced and approved before a Tier A page is deployed:
+
+1. **Side-by-side screenshot review** — old vs new, at 390 px and 1440 px, full
+   page, presented together for Swastik to compare.
+2. **Word-level diff showing zero unapproved removals** — every changed run
+   classified against APPROVED-CHANGES. Any unclassified change blocks the ship.
+
+A Tier B or C page needs the standard parity run; a Tier A page needs both of
+the above on top of it.
+
+### Two GSC rows that earn traffic but have no file
+
+From `baseline/gsc-unmapped.csv`:
+
+- **`/class-8-maths-tuition-near-me.html` — 3 clicks, 139 impressions** in the
+  last 3 months. It is a `.htaccess` 301 to
+  `/class-8-maths/class-8-maths-tuition-near-me`, not a file. It behaves like a
+  Tier A URL and must keep redirecting; do not let it 404.
+- **`/wp-content/uploads/2023/03/Topic-3.-Geometry-and-Trigonometry.pdf` — 13
+  clicks, 613 impressions**, the highest-earning non-homepage URL in the window.
+  It is a WordPress-era PDF that is no longer on the site, and `.htaccess` sends
+  `^wp-content/` to the homepage. Worth a separate decision: restore the PDF, or
+  accept that those 13 clicks land on the homepage.
+
+Also unmapped, with no traffic: `assets/images/classroom-teaching.webp` (3
+impressions, 0 clicks — relevant to A9, which removes it), plus
+`tutor.ankuramtuition.com`, `www/blogs/` and `www/class-10-tuition-center/`.
