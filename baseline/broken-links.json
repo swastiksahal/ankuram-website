@@ -1,0 +1,202 @@
+[
+  {
+    "target": "/online-tuition.html",
+    "fromPages": 24,
+    "examples": [
+      "areas/ameerpet.html",
+      "areas/banjara-hills.html",
+      "areas/begumpet.html"
+    ]
+  },
+  {
+    "target": "/areas/jubilee-hills",
+    "fromPages": 4,
+    "examples": [
+      "cbse-icse-igcse-ib-tuition-hyderabad.html",
+      "class-10-tuition-jubilee-hills.html",
+      "class-12-maths-physics-chemistry-tuition-hyderabad.html"
+    ]
+  },
+  {
+    "target": "/about.html",
+    "fromPages": 1,
+    "examples": [
+      "blog/why-your-child-forgets-maths-after-studying/index.html"
+    ]
+  },
+  {
+    "target": "/contact.html",
+    "fromPages": 1,
+    "examples": [
+      "blog/why-your-child-forgets-maths-after-studying/index.html"
+    ]
+  },
+  {
+    "target": "/curricula.html",
+    "fromPages": 1,
+    "examples": [
+      "blog/why-your-child-forgets-maths-after-studying/index.html"
+    ]
+  },
+  {
+    "target": "/online-classes.html",
+    "fromPages": 1,
+    "examples": [
+      "blog/why-your-child-forgets-maths-after-studying/index.html"
+    ]
+  },
+  {
+    "target": "/cbse",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/chemistry",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/ib",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/icse",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/igcse",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/maths",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/physics",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/topics/class-11",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/topics/motion-in-a-plane-class-11-physics",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/topics/newtons-laws-class-11-physics",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/topics/physics",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/topics/projectile-motion-class-11-physics",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/topics/work-energy-power-class-11-physics",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-class-11-physics/index.html"
+    ]
+  },
+  {
+    "target": "/approach",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/notes",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/practice",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/programmes",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/resources",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/topics/vectors",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/topics/vectors-lecture-2-components/",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/topics/vectors-lecture-3-addition/",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  },
+  {
+    "target": "/topics/vectors-practice-1/",
+    "fromPages": 1,
+    "examples": [
+      "topics/vectors-lecture-1-introduction/index.html"
+    ]
+  }
+]

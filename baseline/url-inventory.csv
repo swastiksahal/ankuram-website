@@ -1,0 +1,137 @@
+url,source_file,in_sitemap,meta_robots,canonical,http_redirect_rule_if_any
+/404,404.html,no,noindex,,
+/404/,404/index.html,no,noindex,,
+/a-level-maths-tuition-hyderabad,a-level-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/a-level-maths-tuition-hyderabad,
+/a-level-tuition-hyderabad,a-level-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/a-level-tuition-hyderabad,
+/about/,about/index.html,yes,"index, follow",https://ankuramtuition.com/about/,
+/areas/ameerpet,areas/ameerpet.html,yes,"index, follow",https://ankuramtuition.com/areas/ameerpet,
+/areas/banjara-hills,areas/banjara-hills.html,yes,"index, follow",https://ankuramtuition.com/areas/banjara-hills,
+/areas/begumpet,areas/begumpet.html,yes,"index, follow",https://ankuramtuition.com/areas/begumpet,
+/areas/film-nagar,areas/film-nagar.html,yes,"index, follow",https://ankuramtuition.com/areas/film-nagar,
+/areas/financial-district,areas/financial-district.html,yes,"index, follow",https://ankuramtuition.com/areas/financial-district,
+/areas/gachibowli,areas/gachibowli.html,yes,"index, follow",https://ankuramtuition.com/areas/gachibowli,
+/areas/hitech-city,areas/hitech-city.html,yes,"index, follow",https://ankuramtuition.com/areas/hitech-city,
+/areas/kokapet,areas/kokapet.html,yes,"index, follow",https://ankuramtuition.com/areas/kokapet,
+/areas/kondapur,areas/kondapur.html,yes,"index, follow",https://ankuramtuition.com/areas/kondapur,
+/areas/kphb,areas/kphb.html,yes,"index, follow",https://ankuramtuition.com/areas/kphb,
+/areas/kukatpally,areas/kukatpally.html,no,"index, follow",https://ankuramtuition.com/areas/kukatpally,"^areas/kukatpally/?$ -> / [L,R=301]"
+/areas/madhapur,areas/madhapur.html,yes,"index, follow",https://ankuramtuition.com/areas/madhapur,
+/areas/manikonda,areas/manikonda.html,yes,"index, follow",https://ankuramtuition.com/areas/manikonda,
+/areas/mehdipatnam,areas/mehdipatnam.html,yes,"index, follow",https://ankuramtuition.com/areas/mehdipatnam,
+/areas/miyapur,areas/miyapur.html,yes,"index, follow",https://ankuramtuition.com/areas/miyapur,
+/areas/narsingi,areas/narsingi.html,yes,"index, follow",https://ankuramtuition.com/areas/narsingi,
+/areas/neopolis,areas/neopolis.html,yes,"index, follow",https://ankuramtuition.com/areas/neopolis,
+/areas/punjagutta,areas/punjagutta.html,yes,"index, follow",https://ankuramtuition.com/areas/punjagutta,
+/areas/secunderabad,areas/secunderabad.html,yes,"index, follow",https://ankuramtuition.com/areas/secunderabad,
+/areas/shaikpet,areas/shaikpet.html,yes,"index, follow",https://ankuramtuition.com/areas/shaikpet,
+/areas/somajiguda,areas/somajiguda.html,yes,"index, follow",https://ankuramtuition.com/areas/somajiguda,
+/areas/sr-nagar,areas/sr-nagar.html,yes,"index, follow",https://ankuramtuition.com/areas/sr-nagar,
+/areas/tolichowki,areas/tolichowki.html,yes,"index, follow",https://ankuramtuition.com/areas/tolichowki,
+/areas/yousufguda,areas/yousufguda.html,yes,"index, follow",https://ankuramtuition.com/areas/yousufguda,
+/best-cbse-tuition-centre,best-cbse-tuition-centre.html,yes,"index, follow",https://ankuramtuition.com/best-cbse-tuition-centre,
+/blog/why-your-child-forgets-maths-after-studying/,blog/why-your-child-forgets-maths-after-studying/index.html,yes,,https://www.ankuramtuition.com/blog/why-your-child-forgets-maths-after-studying,
+/cbse-class-10-maths,cbse-class-10-maths.html,yes,"index, follow",https://ankuramtuition.com/cbse-class-10-maths,
+/cbse-class-10-maths/,cbse-class-10-maths/index.html,yes,"index, follow",https://ankuramtuition.com/cbse-class-10-maths/,
+/cbse-class-10-online-tuition,cbse-class-10-online-tuition.html,yes,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",https://ankuramtuition.com/cbse-class-10-online-tuition,
+/cbse-class-10-science/,cbse-class-10-science/index.html,yes,"index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",https://ankuramtuition.com/cbse-class-10-science/,
+/cbse-class-10/,cbse-class-10/index.html,yes,"index, follow",https://ankuramtuition.com/cbse-class-10/,
+/cbse-icse-igcse-ib-tuition-hyderabad,cbse-icse-igcse-ib-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/cbse-icse-igcse-ib-tuition-hyderabad,
+/cbse-tuition-jubilee-hills,cbse-tuition-jubilee-hills.html,yes,"index, follow",https://ankuramtuition.com/cbse-tuition-jubilee-hills,
+/class-10-maths-basic-vs-standard/,class-10-maths-basic-vs-standard/index.html,yes,"index, follow",https://ankuramtuition.com/class-10-maths-basic-vs-standard/,
+/class-10-maths-tuition-hyderabad,class-10-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-10-maths-tuition-hyderabad,
+/class-10-maths-tuition,class-10-maths-tuition.html,yes,"index, follow",https://ankuramtuition.com/class-10-maths-tuition,
+/class-10-online-vs-offline-tuition/,class-10-online-vs-offline-tuition/index.html,yes,"index, follow",https://ankuramtuition.com/class-10-online-vs-offline-tuition/,
+/class-10-science-tuition-hyderabad,class-10-science-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-10-science-tuition-hyderabad,
+/class-10-tuition-jubilee-hills,class-10-tuition-jubilee-hills.html,yes,"index, follow",https://ankuramtuition.com/class-10-tuition-jubilee-hills,
+/class-10-tuition-jubilee-hills/,class-10-tuition-jubilee-hills/index.html,yes,"index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",https://ankuramtuition.com/class-10-tuition-jubilee-hills/,
+/class-11-tuition/,class-11-tuition/index.html,yes,"index, follow",https://ankuramtuition.com/class-11-tuition,
+/class-12-maths-physics-chemistry-tuition-hyderabad,class-12-maths-physics-chemistry-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-12-maths-physics-chemistry-tuition-hyderabad,
+/class-12-maths-tuition-hyderabad,class-12-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-12-maths-tuition-hyderabad,
+/class-12-physics-tuition-hyderabad,class-12-physics-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-12-physics-tuition-hyderabad,
+/class-8-maths-tuition-hyderabad,class-8-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-8-maths-tuition-hyderabad,
+/class-8-maths/class-8-maths-tuition-near-me,class-8-maths/class-8-maths-tuition-near-me.html,yes,"index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",https://ankuramtuition.com/class-8-maths-tuition-near-me.html,
+/class-8-maths/,class-8-maths/index.html,yes,"index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",https://ankuramtuition.com/,
+/class-8-maths/privacy-policy,class-8-maths/privacy-policy.html,yes,"index,follow",https://ankuramtuition.com/privacy-policy.html,
+/class-8-maths/terms,class-8-maths/terms.html,yes,"index,follow",https://ankuramtuition.com/terms.html,
+/class-8-maths/thank-you,class-8-maths/thank-you.html,no,"noindex,nofollow",,
+/class-8-science-tuition-hyderabad,class-8-science-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-8-science-tuition-hyderabad,
+/class-9-maths-tuition-hyderabad,class-9-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-9-maths-tuition-hyderabad,
+/class-9-science-tuition-hyderabad,class-9-science-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/class-9-science-tuition-hyderabad,
+/class-9-tuition/,class-9-tuition/index.html,yes,"index, follow",https://ankuramtuition.com/class-9-tuition,
+/contact/,contact/index.html,yes,"index, follow",https://ankuramtuition.com/contact/,
+/diagnostic-assessment,diagnostic-assessment.html,yes,"index, follow",https://ankuramtuition.com/diagnostic-assessment,
+/electrochemistry-class-12-cbse/,electrochemistry-class-12-cbse/index.html,yes,,https://ankuramtuition.com/electrochemistry-class-12-cbse,
+/home-tuition-hyderabad,home-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/home-tuition-hyderabad,
+/home-tutor-hyderabad/,home-tutor-hyderabad/index.html,no,"noindex, nofollow",https://ankuramtuition.com/home-tutor-hyderabad/,
+/how-we-teach,how-we-teach.html,yes,"index, follow",https://ankuramtuition.com/how-we-teach,
+/hybrid-tuition-hyderabad,hybrid-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/hybrid-tuition-hyderabad,
+/ib-dp-tuition-hyderabad,ib-dp-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/ib-dp-tuition-hyderabad,
+/ib-maths-tuition-hyderabad,ib-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/ib-maths-tuition-hyderabad,
+/ib-myp-tuition-hyderabad,ib-myp-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/ib-myp-tuition-hyderabad,
+/ib-pyp-tuition-hyderabad,ib-pyp-tuition-hyderabad.html,no,"index, follow",https://ankuramtuition.com/ib-pyp-tuition-hyderabad,"^ib-pyp-tuition-hyderabad/?$ -> /ib-myp-tuition-hyderabad [L,R=301]"
+/ib-tuition-hyderabad,ib-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/ib-tuition-hyderabad,
+/icse-maths-tuition-hyderabad,icse-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/icse-maths-tuition-hyderabad,
+/icse-tuition-hyderabad,icse-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/icse-tuition-hyderabad,
+/igcse-maths-tuition-hyderabad,igcse-maths-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/igcse-maths-tuition-hyderabad,
+/igcse-tuition-jubilee-hills,igcse-tuition-jubilee-hills.html,yes,"index, follow",https://ankuramtuition.com/igcse-tuition-jubilee-hills,
+/,index.html,yes,"index, follow",https://ankuramtuition.com/,
+/isc-tuition-hyderabad,isc-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/isc-tuition-hyderabad,
+/maths-tuition-jubilee-hills,maths-tuition-jubilee-hills.html,yes,"index, follow",https://ankuramtuition.com/maths-tuition-jubilee-hills,
+/online-class-10-tuition,online-class-10-tuition.html,yes,"index, follow",https://ankuramtuition.com/online-class-10-tuition,
+/online-maths-tuition-class-10-cbse/,online-maths-tuition-class-10-cbse/index.html,yes,"index, follow",https://ankuramtuition.com/online-maths-tuition-class-10-cbse/,
+/online-maths-tuition-class-10-icse/,online-maths-tuition-class-10-icse/index.html,yes,"index, follow",https://ankuramtuition.com/online-maths-tuition-class-10-icse/,
+/online-maths-tuition,online-maths-tuition.html,yes,"index, follow",https://ankuramtuition.com/online-maths-tuition,
+/online-science-tuition-class-10-cbse/,online-science-tuition-class-10-cbse/index.html,yes,"index, follow",https://ankuramtuition.com/online-science-tuition-class-10-cbse/,
+/online-tuition-class-10-cbse/,online-tuition-class-10-cbse/index.html,yes,"index, follow",https://ankuramtuition.com/online-tuition-class-10-cbse/,
+/physics-tuition-hyderabad,physics-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/physics-tuition-hyderabad,
+/privacy-policy/,privacy-policy/index.html,yes,"index, follow",https://ankuramtuition.com/privacy-policy/,
+/science-tuition-jubilee-hills,science-tuition-jubilee-hills.html,yes,"index, follow",https://ankuramtuition.com/science-tuition-jubilee-hills,
+/state-board-tuition-hyderabad,state-board-tuition-hyderabad.html,yes,"index, follow",https://ankuramtuition.com/state-board-tuition-hyderabad,
+/terms/,terms/index.html,yes,"index, follow",https://ankuramtuition.com/terms/,
+/thank-you,thank-you.html,no,"noindex, nofollow",,
+/thank-you/,thank-you/index.html,no,"index, follow",,
+/topics/vectors-class-11-physics/,topics/vectors-class-11-physics/index.html,yes,,https://ankuramtuition.com/topics/vectors-class-11-physics/,
+/topics/vectors-lecture-1-introduction/,topics/vectors-lecture-1-introduction/index.html,yes,,https://ankuramtuition.com/topics/vectors-introduction/,
+/index(\.html)?,(redirect only — .htaccess line 23),no,,,"^index(\.html)?$ -> / [L,R=301]"
+/cbsetuitioncentrejubileehillshyderabad,(redirect only — .htaccess line 33),no,,,"^cbsetuitioncentrejubileehillshyderabad/?$ -> /cbse-tuition-jubilee-hills [L,R=301]"
+/best-icse-tuition-centre,(redirect only — .htaccess line 34),no,,,"^best-icse-tuition-centre/?$ -> /icse-tuition-hyderabad [L,R=301]"
+/best-igcse-tuition-centre,(redirect only — .htaccess line 35),no,,,"^best-igcse-tuition-centre/?$ -> /igcse-tuition-jubilee-hills [L,R=301]"
+/ibmyp-year-4-and-5-crash-course,(redirect only — .htaccess line 36),no,,,"^ibmyp-year-4-and-5-crash-course/?$ -> /ib-myp-tuition-hyderabad [L,R=301]"
+/ib-landing-page,(redirect only — .htaccess line 37),no,,,"^ib-landing-page/?$ -> /ib-myp-tuition-hyderabad [L,R=301]"
+/study-materials/ib,(redirect only — .htaccess line 38),no,,,"^study-materials/ib/?$ -> /ib-myp-tuition-hyderabad [L,R=301]"
+/ib-pyp-tuition-hyderabad,(redirect only — .htaccess line 39),no,,,"^ib-pyp-tuition-hyderabad/?$ -> /ib-myp-tuition-hyderabad [L,R=301]"
+/class-12-tuition,(redirect only — .htaccess line 40),no,,,"^class-12-tuition/?$ -> /class-11-tuition [L,R=301]"
+/class-10-tuition-center,(redirect only — .htaccess line 43),no,,,"^class-10-tuition-center/?$ -> /online-class-10-tuition [L,R=301]"
+/tuition-classes-for-10th,(redirect only — .htaccess line 44),no,,,"^tuition-classes-for-10th/?$ -> /online-class-10-tuition [L,R=301]"
+/class-10-maths-tuition-how-tuitions-can-help-you-achieve-success,(redirect only — .htaccess line 45),no,,,"^class-10-maths-tuition-how-tuitions-can-help-you-achieve-success/?$ -> /online-class-10-tuition [L,R=301]"
+/class-8-maths-tuition-near-me,(redirect only — .htaccess line 46),no,,,"^class-8-maths-tuition-near-me/?$ -> /class-8-maths/class-8-maths-tuition-near-me [L,R=301]"
+/tuition-classes,(redirect only — .htaccess line 49),no,,,"^tuition-classes/?$ -> / [L,R=301]"
+/blogs,(redirect only — .htaccess line 50),no,,,"^blogs/?$ -> / [L,R=301]"
+/products,(redirect only — .htaccess line 51),no,,,"^products/?$ -> / [L,R=301]"
+/curriculums,(redirect only — .htaccess line 52),no,,,"^curriculums/?$ -> / [L,R=301]"
+/ankuram-tuition-centre-pictures,(redirect only — .htaccess line 53),no,,,"^ankuram-tuition-centre-pictures/?$ -> / [L,R=301]"
+/top-tuition-centre-near-me,(redirect only — .htaccess line 54),no,,,"^top-tuition-centre-near-me/?$ -> / [L,R=301]"
+/how-ankuram-tuition-centre-building-strong-foundations-and-cultivating-critical-thinking-skills-in-math,(redirect only — .htaccess line 57),no,,,"^how-ankuram-tuition-centre-building-strong-foundations-and-cultivating-critical-thinking-skills-in-math/?$ -> /how-we-teach [L,R=301]"
+/the-importance-of-enrolling-in-a-nearby-tuition-centre,(redirect only — .htaccess line 58),no,,,"^the-importance-of-enrolling-in-a-nearby-tuition-centre/?$ -> / [L,R=301]"
+/excel-in-icse-and-igcse-with-the-help-of-ankuram-tuition-centre,(redirect only — .htaccess line 59),no,,,"^excel-in-icse-and-igcse-with-the-help-of-ankuram-tuition-centre/?$ -> / [L,R=301]"
+/online-classes-vs-offline-classes,(redirect only — .htaccess line 60),no,,,"^online-classes-vs-offline-classes/?$ -> / [L,R=301]"
+/areas/kukatpally,(redirect only — .htaccess line 63),no,,,"^areas/kukatpally/?$ -> / [L,R=301]"
+/tuition-center-in-saroornagar,(redirect only — .htaccess line 68),no,,,"^tuition-center-in-saroornagar/?$ -> / [L,R=301]"
+/tuition-center-in-saroor-nagar,(redirect only — .htaccess line 69),no,,,"^tuition-center-in-saroor-nagar/?$ -> / [L,R=301]"
+/maths-tuition-centre-near-me-in-saroornagar,(redirect only — .htaccess line 70),no,,,"^maths-tuition-centre-near-me-in-saroornagar/?$ -> / [L,R=301]"
+/tuition-center-in-jubilee-hills,(redirect only — .htaccess line 71),no,,,"^tuition-center-in-jubilee-hills/?$ -> / [L,R=301]"
+/best-tuition-centre-in-financial-district,(redirect only — .htaccess line 72),no,,,"^best-tuition-centre-in-financial-district/?$ -> / [L,R=301]"
+/best-tuition-centre-in-gachibowli,(redirect only — .htaccess line 73),no,,,"^best-tuition-centre-in-gachibowli/?$ -> / [L,R=301]"
+/best-tuition-centre-in-hitec-city,(redirect only — .htaccess line 74),no,,,"^best-tuition-centre-in-hitec-city/?$ -> / [L,R=301]"
+/best-maths-tutor-in-texas,(redirect only — .htaccess line 75),no,,,"^best-maths-tutor-in-texas/?$ -> / [L,R=301]"
+/wp-content/,(redirect only — .htaccess line 78),no,,,"^wp-content/ -> / [L,R=301]"
+/wp-admin,(redirect only — .htaccess line 79),no,,,"^wp-admin/?$ -> / [L,R=301]"
+/wp-login\.php,(redirect only — .htaccess line 80),no,,,"^wp-login\.php$ -> / [L,R=301]"
+/wp-includes/,(redirect only — .htaccess line 81),no,,,"^wp-includes/ -> / [L,R=301]"
+/wp-json/,(redirect only — .htaccess line 82),no,,,"^wp-json/ -> / [L,R=301]"
+/xmlrpc\.php,(redirect only — .htaccess line 83),no,,,"^xmlrpc\.php$ -> / [L,R=301]"
+/feed,(redirect only — .htaccess line 84),no,,,"^feed/?$ -> / [L,R=301]"
+/category/,(redirect only — .htaccess line 85),no,,,"^category/ -> / [L,R=301]"
+/tag/,(redirect only — .htaccess line 86),no,,,"^tag/ -> / [L,R=301]"
+/author/,(redirect only — .htaccess line 87),no,,,"^author/ -> / [L,R=301]"
+/page/,(redirect only — .htaccess line 88),no,,,"^page/ -> / [L,R=301]"
