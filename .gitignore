@@ -22,3 +22,7 @@ public_html/topics/htaccess (1)
 public_html/class-11-tuition/index.txt
 public_html/class-9-tuition/index.txt
 public_html/thank-you/index.txt
+
+# P0d artefacts — too large for git (index kept in baseline/screens-index.csv)
+baseline/screens/
+baseline/lighthouse/

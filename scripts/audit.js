@@ -71,11 +71,27 @@ for (const u of orphanSitemap) {
   });
 }
 
+/**
+ * Turn a RewriteRule pattern into the plain URL path a visitor would type.
+ * Anchors, optional groups and backslash escapes are regex syntax, not part of
+ * the path — leaving them in produced rows like `/index(\.html)?` that are not
+ * real URLs and 404 when tested.
+ */
+function patternToPath(pattern) {
+  let p = pattern.replace(/^\^/, '').replace(/\$$/, '');
+  p = p.replace(/\([^()]*\)\?/g, ''); // optional group: (\.html)? -> ''
+  p = p.replace(/\/\?$/, ''); // optional trailing slash
+  p = p.replace(/\\(.)/g, '$1'); // unescape \. \- etc
+  return '/' + p;
+}
+
+const REGEX_METACHARS = /[\\^$()[\]{}|*+?]/;
+
 // Redirect-only URLs declared in .htaccess (they are public URLs too).
 const redirectRows = rules
   .filter((r) => /R=30\d/i.test(r.flags) && !r.conditional)
   .map((r) => ({
-    url: '/' + r.pattern.replace(/^\^/, '').replace(/\/\?\$$|\$$/, ''),
+    url: patternToPath(r.pattern),
     source_file: '(redirect only — .htaccess line ' + r.line + ')',
     in_sitemap: 'no',
     meta_robots: '',
@@ -84,6 +100,13 @@ const redirectRows = rules
   }));
 
 const allRows = [...rows, ...redirectRows];
+
+// Guard: no row may carry regex syntax into the inventory.
+const malformed = allRows.filter((r) => REGEX_METACHARS.test(r.url));
+if (malformed.length) {
+  console.error('MALFORMED URL ROWS:', malformed.map((r) => r.url).join(', '));
+  process.exitCode = 1;
+}
 
 function csvCell(v) {
   const s = String(v == null ? '' : v);

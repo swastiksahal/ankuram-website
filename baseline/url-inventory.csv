@@ -92,7 +92,7 @@ url,source_file,in_sitemap,meta_robots,canonical,http_redirect_rule_if_any
 /thank-you/,thank-you/index.html,no,"index, follow",,
 /topics/vectors-class-11-physics/,topics/vectors-class-11-physics/index.html,yes,,https://ankuramtuition.com/topics/vectors-class-11-physics/,
 /topics/vectors-lecture-1-introduction/,topics/vectors-lecture-1-introduction/index.html,yes,,https://ankuramtuition.com/topics/vectors-introduction/,
-/index(\.html)?,(redirect only — .htaccess line 23),no,,,"^index(\.html)?$ -> / [L,R=301]"
+/index,(redirect only — .htaccess line 23),no,,,"^index(\.html)?$ -> / [L,R=301]"
 /cbsetuitioncentrejubileehillshyderabad,(redirect only — .htaccess line 33),no,,,"^cbsetuitioncentrejubileehillshyderabad/?$ -> /cbse-tuition-jubilee-hills [L,R=301]"
 /best-icse-tuition-centre,(redirect only — .htaccess line 34),no,,,"^best-icse-tuition-centre/?$ -> /icse-tuition-hyderabad [L,R=301]"
 /best-igcse-tuition-centre,(redirect only — .htaccess line 35),no,,,"^best-igcse-tuition-centre/?$ -> /igcse-tuition-jubilee-hills [L,R=301]"
@@ -126,10 +126,10 @@ url,source_file,in_sitemap,meta_robots,canonical,http_redirect_rule_if_any
 /best-maths-tutor-in-texas,(redirect only — .htaccess line 75),no,,,"^best-maths-tutor-in-texas/?$ -> / [L,R=301]"
 /wp-content/,(redirect only — .htaccess line 78),no,,,"^wp-content/ -> / [L,R=301]"
 /wp-admin,(redirect only — .htaccess line 79),no,,,"^wp-admin/?$ -> / [L,R=301]"
-/wp-login\.php,(redirect only — .htaccess line 80),no,,,"^wp-login\.php$ -> / [L,R=301]"
+/wp-login.php,(redirect only — .htaccess line 80),no,,,"^wp-login\.php$ -> / [L,R=301]"
 /wp-includes/,(redirect only — .htaccess line 81),no,,,"^wp-includes/ -> / [L,R=301]"
 /wp-json/,(redirect only — .htaccess line 82),no,,,"^wp-json/ -> / [L,R=301]"
-/xmlrpc\.php,(redirect only — .htaccess line 83),no,,,"^xmlrpc\.php$ -> / [L,R=301]"
+/xmlrpc.php,(redirect only — .htaccess line 83),no,,,"^xmlrpc\.php$ -> / [L,R=301]"
 /feed,(redirect only — .htaccess line 84),no,,,"^feed/?$ -> / [L,R=301]"
 /category/,(redirect only — .htaccess line 85),no,,,"^category/ -> / [L,R=301]"
 /tag/,(redirect only — .htaccess line 86),no,,,"^tag/ -> / [L,R=301]"

@@ -543,3 +543,95 @@ explicitly listed.
 The local `./public_html` snapshot still contains all 6 files (they are
 gitignored), so it no longer mirrors the server exactly — it is the pre-H1
 baseline by design.
+
+---
+
+# P0d baseline — visual and performance
+
+Read-only against the live site. Tooling installed at the project root as
+devDependencies (`package.json`), never inside `public_html`: Playwright 1.63.0
+(Chromium headless shell 153.0.8010.12) and Lighthouse 12.8.2 driving system
+Chrome.
+
+## Inventory generator fix
+
+`scripts/audit.js` now converts a RewriteRule pattern to a path via
+`patternToPath()`: it strips `^`/`$`, drops optional groups `(...)?`, drops an
+optional trailing `/?`, and unescapes backslashes. A guard fails the run if any
+row still contains regex syntax.
+
+Regenerated `baseline/url-inventory.csv`: **12 diff lines, 3 rows changed**, row
+count unchanged at 136.
+
+```
+< /index(\.html)?    > /index
+< /wp-login\.php     > /wp-login.php
+< /xmlrpc\.php       > /xmlrpc.php
+```
+
+## Screenshots
+
+**164 PNGs, 130 MB**, in `baseline/screens/` (gitignored). Index with per-file
+byte sizes: `baseline/screens-index.csv` (164 rows + header). Every capture
+returned HTTP 200 — no failures, no timeouts.
+
+82 distinct pages × 2 widths (390 px and 1440 px), full page, `networkidle`,
+one page at a time. 83 sitemap URLs produce 82 pages because
+`/topics/vectors-lecture-1-introduction/` resolves to `/` (the P0c finding) and
+was deduped against the homepage — **that sitemap URL has no page of its own to
+screenshot.**
+
+## Lighthouse
+
+Homepage, the 4 paid pages, and the 5 largest pages by bytes (the homepage is
+also in the largest-5, so 9 distinct pages × 2 modes = 18 audits). JSON in
+`baseline/lighthouse/` (gitignored); scores in `baseline/lighthouse-summary.json`.
+
+| URL | why | mode | perf | a11y | BP | SEO | LCP ms | CLS | bytes |
+|---|---|---|---|---|---|---|---|---|---|
+| `/` | homepage | mobile | **63** | 94 | 75 | 100 | **8501** | 0 | 813,884 |
+| `/` | homepage | desktop | 100 | 94 | 74 | 100 | 568 | 0.016 | 788,930 |
+| `/online-tuition-class-10-cbse/` | paid | mobile | 87 | 100 | 75 | 100 | 3308 | 0.003 | 451,251 |
+| `/online-tuition-class-10-cbse/` | paid | desktop | 99 | 100 | 74 | 100 | 825 | 0.002 | 451,239 |
+| `/online-maths-tuition-class-10-cbse/` | paid | mobile | 95 | 100 | 75 | 100 | 2704 | 0.003 | 451,270 |
+| `/online-maths-tuition-class-10-cbse/` | paid | desktop | 98 | 100 | 74 | 100 | 838 | 0.002 | 451,260 |
+| `/online-science-tuition-class-10-cbse/` | paid | mobile | 95 | 100 | 75 | 100 | 2701 | 0.003 | 451,259 |
+| `/online-science-tuition-class-10-cbse/` | paid | desktop | 99 | 100 | 74 | 100 | 823 | 0.002 | 451,244 |
+| `/cbse-class-10/` | paid | mobile | 97 | 96 | 79 | 100 | 924 | 0 | 407,006 |
+| `/cbse-class-10/` | paid | desktop | 100 | 100 | 78 | 100 | 404 | 0 | 434,622 |
+| `/electrochemistry-class-12-cbse/` | largest | mobile | 85 | 98 | 100 | 100 | 3033 | 0 | 410,810 |
+| `/electrochemistry-class-12-cbse/` | largest | desktop | 98 | 87 | 100 | 100 | 1089 | 0.004 | 410,318 |
+| `/topics/vectors-class-11-physics/` | largest | mobile | 98 | 94 | 100 | 100 | 2066 | 0.021 | 140,315 |
+| `/topics/vectors-class-11-physics/` | largest | desktop | 100 | 94 | 100 | 100 | 597 | 0.001 | 140,343 |
+| `/blog/why-your-child-forgets-maths-after-studying/` | largest | mobile | 94 | 85 | 100 | 100 | 2882 | 0.015 | 342,232 |
+| `/blog/why-your-child-forgets-maths-after-studying/` | largest | desktop | 97 | 85 | 100 | 100 | 1009 | 0.001 | 342,125 |
+| `/class-8-maths/` | largest | mobile | 98 | 95 | 79 | 92 | 1383 | 0.003 | 495,751 |
+| `/class-8-maths/` | largest | desktop | **79** | 95 | 78 | 92 | 361 | **0.51** | 495,696 |
+
+## Worst 5 for mobile performance (of the 9 audited)
+
+| # | URL | perf | LCP | CLS | bytes |
+|---|---|---|---|---|---|
+| 1 | `/` | **63** | **8501 ms** | 0 | 813,884 |
+| 2 | `/electrochemistry-class-12-cbse/` | 85 | 3033 ms | 0 | 410,810 |
+| 3 | `/online-tuition-class-10-cbse/` | 87 | 3308 ms | 0.003 | 451,251 |
+| 4 | `/blog/why-your-child-forgets-maths-after-studying/` | 94 | 2882 ms | 0.015 | 342,232 |
+| 5 | `/online-maths-tuition-class-10-cbse/` | 95 | 2704 ms | 0.003 | 451,270 |
+
+## Three things to carry into the rebuild
+
+1. **The homepage is the weak point: mobile performance 63, LCP 8.5 s** on the
+   heaviest page on the site (814 KB). Invariant 11 says the rebuild must be
+   `>=` baseline, so 63 is the number to beat — a low bar, and the one page
+   where a redesign has the most to gain.
+2. **`/class-8-maths/` desktop CLS is 0.51** — five times the `< 0.1` ceiling in
+   invariant 11. The baseline already fails that invariant on this page. Mobile
+   CLS on the same page is 0.003, so it is a desktop-layout problem. Flagging
+   rather than fixing: CLS is not in APPROVED-CHANGES, and fixing it may need a
+   layout change to a page that is also the only page scoring 92 on SEO.
+3. **Best-practices sits at 74–79 on every page except `/topics/*` and
+   `/electrochemistry-*` (100).** Whatever those two pages do differently is
+   worth copying; the rebuild should not inherit the 74.
+
+Paid pages are in good shape: mobile performance 87–97, accessibility 96–100,
+SEO 100, CLS at or below 0.003 everywhere.

@@ -1,0 +1,16 @@
+{
+  "name": "ankuramtuition-com-baseline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local audit tooling for the ankuramtuition.com rebuild. Never deployed; public_html is the only thing that ships.",
+  "scripts": {
+    "fingerprint": "node scripts/fingerprint.js public_html baseline/seo-fingerprint.json",
+    "audit": "node scripts/audit.js public_html baseline/seo-fingerprint.json baseline",
+    "screens": "node scripts/screenshots.js",
+    "lighthouse": "node scripts/lighthouse-run.js"
+  },
+  "devDependencies": {
+    "lighthouse": "^12.2.1",
+    "playwright": "^1.48.2"
+  }
+}
