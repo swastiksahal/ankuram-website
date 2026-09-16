@@ -23,7 +23,7 @@ A supervisor (Claude, in the project chat) reviews every phase before anything g
    extension-less URLs served from .html files by .htaccess.
 2. .htaccess, robots.txt and sitemap.xml are unchanged unless Swastik approves a
    specific, separate change.
-3. Per page, byte-identical unless separately approved: <title>, meta description,
+3. Per page, byte-identical unless listed in docs/APPROVED-CHANGES.md: <title>, meta description,
    canonical, meta robots, JSON-LD, hreflang, og:/twitter: tags.
 4. H1 text identical. Every H2/H3 text retained (reordering or wrapping allowed).
 5. Visible body word count >= 95% of the baseline for that page. No content deleted
@@ -34,12 +34,18 @@ A supervisor (Claude, in the project chat) reviews every phase before anything g
    Never Disallow it in robots.txt.
 9. NAP identical everywhere: Ankuram Tuition Centre · Plot 229, Road No 72,
    Prashasan Nagar, Jubilee Hills, Hyderabad, Telangana 500096 · +91 73966 69430.
-10. Tracking: copy the GA4, Google Ads, Clarity and conversion snippets VERBATIM from
-    the live files. Never retype an ID from documentation (the docs disagree on the
-    GA4 ID). Every WhatsApp/tel link keeps its event wiring.
+10. Tracking and NAP follow docs/APPROVED-CHANGES.md A1 and A2 exactly. Never copy IDs
+    from old pages and never retype them from memory; use the values in that file.
 11. Page weight and mobile Lighthouse (performance, SEO, accessibility) are >= baseline.
     CLS < 0.1. No new JavaScript libraries. No client-side framework.
 12. Output is plain static files at the same paths. Any build tool runs locally only.
+13. PAID PAGES — /online-tuition-class-10-cbse/, /online-maths-tuition-class-10-cbse/,
+    /online-science-tuition-class-10-cbse/, /cbse-class-10/ are live Google Ads landing
+    pages. They are rebuilt LAST, one at a time, with explicit approval each. Their URLs
+    never redirect. /cbse-class-10/ must keep id=subjects, id=pricing, id=faq,
+    id=diagnostic and id=reviews (Ads sitelinks point to them).
+14. Never change a page's wording. Layout, structure and styling may change; words may
+    not, except under APPROVED-CHANGES.
 
 ## Copy rules
 "Maths" not "Math" · "Google Meet" never Zoom · "13+ years" never 14 · no exclamation
