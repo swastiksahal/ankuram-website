@@ -19,7 +19,7 @@ A6 CTA — header gets the approved small WhatsApp + call link. Sticky bars, pop
 NOT approved (need a separate decision — do not change):
 - Any URL, redirect, .htaccess, robots.txt or sitemap.xml change
 - /cbse-class-10-online-tuition indexing status
-- Any wording, price, batch size, badge or offer text (including /cbse-class-10/ "Batch of 5 students", "Most Popular", "45-minute" diagnostic copy)
+- Any wording, price, batch size or offer text (including /cbse-class-10/ "Batch of 5 students", "45-minute" diagnostic copy)
 - Removing unreachable files (cbse-class-10-maths.html, areas/kukatpally.html, ib-pyp-tuition-hyderabad.html, class-8-maths/sitemap.xml and robots.txt)
 
 A3 decisions (link-map approved, 16 Sep):
@@ -36,3 +36,24 @@ A7 /cbse-class-10/ (paid page, last wave, Swastik's decisions 16 Sep):
   (a) Diagnostic pricing card, after "Detailed gap analysis report": "Full worked solutions to every question, written by Swastik"
   (b) "How it works" step 2, after the existing sentence ending "...reviews results with you and your child" (unchanged), a new sentence: "You also receive Swastik's full worked solutions to every question, including the ones your child answered correctly."
 - Do NOT add these to the FAQ or JSON-LD; FAQ JSON-LD stays byte-identical.
+
+A8 /cbse-class-10-online-tuition, applied when its wave ships:
+- set meta robots to "noindex, follow"
+- remove its <url> entry from sitemap.xml (the only approved sitemap edit)
+- never Disallow it in robots.txt
+- evidence: 16 impressions, 0 clicks in 16 months; not used by Ads
+
+A9 NO PHOTOS OF THE CENTRE (Swastik, 16 Sep):
+- remove every photograph of the premises/classroom site-wide, including assets/images/classroom-teaching.webp wherever it is used
+- remove the <img> together with its alt text, and log each removal per page as an A9 exception to invariant 7
+- no replacement photo; visuals are diagrams, worked-maths graphics and typography only
+- do not delete the file from the server; it simply stops being referenced
+
+A10 METHOD DIAGRAM CAPTIONS (final wording approved on screenshot before any deploy):
+- the diagram keeps its four existing titles exactly; add one caption under each, exactly:
+  1 Diagnostic Test — "A test on last year's topics shows exactly where your child stands."
+  2 Gaps in foundational knowledge — "Swastik solves every question and marks the exact gaps behind each mistake."
+  3 Foundation-First Learning — "Weak basics are re-taught first, then the current syllabus is built on top."
+  4 improve marks and confidence — "Regular practice and tests in small batches of 3–5, until the topic holds."
+- add a loop arrow from step 4 back to step 2, labelled: "Tested again — any gap found is fixed again."
+- these captions go in the diagram only, never in JSON-LD, title, meta or H1; the word-count check must allow exactly these added words
