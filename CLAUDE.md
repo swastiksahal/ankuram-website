@@ -1,0 +1,68 @@
+# ankuramtuition.com — rules for every session
+
+## What this is
+Live site of Ankuram Tuition Centre (Jubilee Hills, Hyderabad). Static HTML migrated
+from WordPress, on Hostinger shared hosting. It is linked from the Google Business
+Profile (518+ reviews) and is the landing domain for Google Ads CID 786-647-2391.
+Goal: a complete visual redesign with ZERO loss of rankings, tracking or conversions.
+A supervisor (Claude, in the project chat) reviews every phase before anything goes live.
+
+## Server
+- SSH: ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4
+- Web root: ~/domains/ankuramtuition.com/public_html
+- Server has bash, no python, no ImageMagick (gm exists). Process substitution <(...) fails silently.
+- Always `cd <dir> && <cmd>`. One command at a time.
+- Never write to the server without Swastik's explicit OK in this session.
+- Never use `rsync --delete` against production.
+- Before any production write, take a timestamped tar backup on the server.
+- After every deploy, Swastik clears the Hostinger cache (hPanel → Clear cache).
+- Verify on the server with grep, not over HTTP (the CDN caches).
+
+## URL and SEO invariants — breaking any of these is a failed build
+1. No URL changes. Every existing URL returns 200 with the same path, including
+   extension-less URLs served from .html files by .htaccess.
+2. .htaccess, robots.txt and sitemap.xml are unchanged unless Swastik approves a
+   specific, separate change.
+3. Per page, byte-identical unless separately approved: <title>, meta description,
+   canonical, meta robots, JSON-LD, hreflang, og:/twitter: tags.
+4. H1 text identical. Every H2/H3 text retained (reordering or wrapping allowed).
+5. Visible body word count >= 95% of the baseline for that page. No content deleted
+   without a listed, approved reason.
+6. Every internal link in the baseline still exists on that page (same href).
+7. Every image keeps its alt text. New decorative SVGs use aria-hidden="true".
+8. /cbse-class-10-online-tuition stays noindex,follow and stays out of the sitemap.
+   Never Disallow it in robots.txt.
+9. NAP identical everywhere: Ankuram Tuition Centre · Plot 229, Road No 72,
+   Prashasan Nagar, Jubilee Hills, Hyderabad, Telangana 500096 · +91 73966 69430.
+10. Tracking: copy the GA4, Google Ads, Clarity and conversion snippets VERBATIM from
+    the live files. Never retype an ID from documentation (the docs disagree on the
+    GA4 ID). Every WhatsApp/tel link keeps its event wiring.
+11. Page weight and mobile Lighthouse (performance, SEO, accessibility) are >= baseline.
+    CLS < 0.1. No new JavaScript libraries. No client-side framework.
+12. Output is plain static files at the same paths. Any build tool runs locally only.
+
+## Copy rules
+"Maths" not "Math" · "Google Meet" never Zoom · "13+ years" never 14 · no exclamation
+marks · no guarantees or result promises · no "free" anything (the diagnostic is paid,
+standalone, not credited) · no pricing in title/meta/H1 · no competitor names · no
+invented testimonials, statistics or student counts · banned words: unlock, empower,
+holistic, world-class, passionate about education, best in Hyderabad · small batch
+= 3–5, never another number · never add offers, sections or content Swastik did not
+ask for · no internal codes visible to parents.
+
+## CTA
+One main CTA block at the bottom of each page. A small WhatsApp + call link in the
+header bar is approved. No sticky bars, pop-ups, or hero/mid-page CTA banners.
+
+## Design
+No stock photography. Diagram-driven and editorial: inline SVG diagrams, strong type
+scale, display numerals, warm paper palette, <details>/<summary> for progressive
+reveal. Never two consecutive sections with the same layout. Any text block over ~60
+words is broken up, restructured, or given a visual. System fonts or one self-hosted
+subset font only.
+
+## Working style
+- Work in phases. At each STOP, write the report in the format asked, commit, push to
+  origin ankuramtuition-com, and wait.
+- Never mark a check passed without running it. Quote real command output.
+- Swastik is teaching while this runs: keep reports short and exact, full lists where asked.

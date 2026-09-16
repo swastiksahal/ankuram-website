@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrochemistry Class 12 CBSE Notes | Best CBSE Tuition Centre in Hyderabad</title>
+    <meta name="description" content="Complete interactive Electrochemistry notes for Class 12 CBSE. Prepared by Swastik Sahal at Ankuram Tuition Centre, top chemistry tuition centre in Hyderabad, Jubilee Hills.">
+    <meta name="keywords" content="electrochemistry class 12, CBSE tuition centre Hyderabad, best class 12 tuition, chemistry tuition centre, top tuition centre in Hyderabad, Nernst equation, Kohlrausch law, Faraday's law">
+    <link rel="canonical" href="https://ankuramtuition.com/electrochemistry-class-12-cbse">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Electrochemistry Class 12 CBSE Complete Notes",
+      "author": {"@type": "Person", "name": "Swastik Sahal"},
+      "publisher": {"@type": "Organization", "name": "Ankuram Tuition Centre"},
+      "educationalLevel": "Grade 12",
+      "about": "Electrochemistry",
+      "url": "https://ankuramtuition.com/electrochemistry-class-12-cbse"
+    }
+    </script>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --sidebar-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --accent-primary: #3b82f6;
+            --accent-hover: #2563eb;
+            --card-essential: #fef2f2;
+            --border-essential: #fca5a5;
+            --card-checkpoint: #f0f9ff;
+            --border-checkpoint: #bae6fd;
+            --card-textbook: #f0fdf4;
+            --border-textbook: #bbf7d0;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; display: flex; height: 100vh; overflow: hidden; }
+
+        /* Sidebar */
+        .sidebar { width: 300px; min-width: 300px; background: var(--sidebar-bg); border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; overflow-y: auto; transition: transform 0.3s ease; z-index: 100; }
+        .sidebar-brand { padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid #e2e8f0; }
+        .brand-name { font-size: 1rem; font-weight: 700; color: #0f172a; }
+        .brand-sub { font-size: 0.75rem; color: #64748b; margin-top: 3px; }
+        .sidebar-nav { padding: 1rem 1rem; }
+        .sidebar-nav h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 0.75rem 0.5rem; }
+        .nav-list { list-style: none; padding: 0; margin: 0; }
+        .nav-list li { padding: 0.55rem 1rem; margin-bottom: 0.15rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.2s; font-weight: 500; font-size: 0.85rem; line-height: 1.4; }
+        .nav-list li:hover { background: #f1f5f9; }
+        .nav-list li.active { background: #eff6ff; color: var(--accent-primary); font-weight: 600; }
+
+        /* Hamburger */
+        .hamburger { display: none; position: fixed; top: 1rem; left: 1rem; z-index: 200; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.5rem; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .hamburger span { display: block; width: 22px; height: 2px; background: #334155; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 90; }
+
+        /* Main Content */
+        .main-content { flex: 1; padding: 3rem 4rem; overflow-y: auto; }
+        .section-container { display: none; animation: fadeIn 0.35s ease-in-out; max-width: 860px; margin: 0 auto; }
+        .section-container.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .page-title { font-size: 2.2rem; font-weight: 700; color: #0f172a; margin-bottom: 2rem; line-height: 1.2; }
+
+        /* Cards */
+        .card { background: #ffffff; border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid transparent; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        .card h3 { margin-top: 0; font-size: 1.05rem; margin-bottom: 0.9rem; }
+        .card h4 { font-size: 0.95rem; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .card p, .card li { line-height: 1.75; }
+        .card.essential { background: var(--card-essential); border-left-color: var(--border-essential); }
+        .card.essential h3 { color: #b91c1c; }
+        .card.checkpoint { background: var(--card-checkpoint); border-left-color: var(--border-checkpoint); }
+        .card.checkpoint h3 { color: #0369a1; }
+        .card.textbook { background: var(--card-textbook); border-left-color: var(--border-textbook); }
+        .card.textbook h3 { color: #15803d; }
+
+        /* Tags */
+        .tag { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .tag-essential { background: #fee2e2; color: #991b1b; }
+        .tag-checkpoint { background: #dbeafe; color: #1e40af; }
+
+        /* Interactive */
+        .toggle-btn { background: var(--accent-primary); color: white; border: none; padding: 0.45rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; cursor: pointer; margin-top: 1rem; transition: background 0.2s; }
+        .toggle-btn:hover { background: var(--accent-hover); }
+        .solution-block { display: none; margin-top: 1.25rem; padding: 1rem 1.25rem; border-top: 1px solid rgba(0,0,0,0.08); background-color: #f8fafc; border-radius: 8px; line-height: 1.8; }
+
+        /* Worksheets */
+        .worksheet-section { margin-top: 2.5rem; padding-top: 2rem; border-top: 2px dashed #cbd5e1; }
+        .worksheet-section h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem; color: #0f172a; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0; flex-wrap: wrap; }
+        .tab-btn { background: none; border: none; font-size: 0.9rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 0.5rem 0.75rem; margin-bottom: -2px; border-bottom: 2px solid transparent; transition: color 0.2s; }
+        .tab-btn:hover { color: var(--accent-primary); }
+        .tab-btn.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.25s ease-in-out; }
+
+        /* Lists */
+        .question-list { padding-left: 1.5rem; margin: 0; }
+        .question-list li { margin-bottom: 1.5rem; line-height: 1.7; }
+        .options { list-style-type: upper-alpha; padding-left: 1.5rem; margin-top: 0.5rem; }
+        .options li { margin-bottom: 0.4rem; }
+
+        /* Table */
+        .compare-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+        .compare-table th { background: #f1f5f9; padding: 0.75rem 1rem; text-align: left; border-bottom: 2px solid #cbd5e1; font-weight: 600; }
+        .compare-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+        .compare-table tr:last-child td { border-bottom: none; }
+
+        /* Diagram placeholder */
+        .image-placeholder { text-align: center; margin: 1.25rem 0; padding: 1.5rem; background: #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.85rem; font-style: italic; border: 1px dashed #94a3b8; }
+
+        /* Info box */
+        .info-box { padding: 0.9rem 1.1rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid; }
+        .info-box.green { background: #f0fdf4; border-color: #15803d; }
+        .info-box.blue { background: #f0f9ff; border-color: #0369a1; }
+        .info-box.red { background: #fef2f2; border-color: #b91c1c; }
+
+        /* Formula highlight */
+        .formula-center { text-align: center; font-size: 1.15rem; font-weight: 700; margin: 1.25rem 0; }
+
+        /* A/R directions box */
+        .ar-directions { background: #e2e8f0; padding: 0.9rem 1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1.25rem; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            body { display: block; overflow: auto; height: auto; }
+            .sidebar { position: fixed; left: 0; top: 0; height: 100vh; transform: translateX(-100%); width: 280px; }
+            .sidebar.open { transform: translateX(0); }
+            .overlay.open { display: block; }
+            .hamburger { display: block; }
+            .main-content { padding: 1.5rem 1.25rem; padding-top: 4rem; min-height: 100vh; }
+            .page-title { font-size: 1.6rem; }
+            .tabs { gap: 0.25rem; }
+            .tab-btn { font-size: 0.8rem; padding: 0.4rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+</button>
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+        <div class="brand-name">Ankuram Tuition Centre</div>
+        <div class="brand-sub">Jubilee Hills, Hyderabad</div>
+        <div class="brand-sub">Prepared by Swastik Sahal</div>
+    </div>
+    <div class="sidebar-nav">
+        <h2>Table of Contents</h2>
+        <ul class="nav-list" id="navMenu">
+            <li data-target="sec-1" class="active">1. Exam Strategy</li>
+            <li data-target="sec-2">2. Chapter Mindmap</li>
+            <li data-target="sec-3">3. Electrochemical Cells</li>
+            <li data-target="sec-4">4. Galvanic Cells</li>
+            <li data-target="sec-5">5. Standard Electrode Potential</li>
+            <li data-target="sec-6">6. Nernst Equation</li>
+            <li data-target="sec-7">7. Equilibrium Constant</li>
+            <li data-target="sec-8">8. Gibbs Energy</li>
+            <li data-target="sec-9">9. Conductance</li>
+            <li data-target="sec-10">10. Variation of Conductivity</li>
+            <li data-target="sec-11">11. Kohlrausch Law</li>
+            <li data-target="sec-12">12. Electrolysis</li>
+            <li data-target="sec-13">13. Batteries</li>
+            <li data-target="sec-14">14. Fuel Cells</li>
+            <li data-target="sec-15">15. Corrosion</li>
+            <li data-target="sec-16">16. NCERT Intext</li>
+            <li data-target="sec-17">17. Solved Exercises</li>
+            <li data-target="sec-18">18. Standard Question Bank</li>
+            <li data-target="sec-19">19. Section A: MCQ (1 Mark)</li>
+            <li data-target="sec-20">20. Section B: Short Answer (2 Marks)</li>
+            <li data-target="sec-21">21. Section C: Long Answer (3+ Marks)</li>
+        </ul>
+    </div>
+</aside>
+
+<main class="main-content">
+
+<!-- ============================================================ -->
+<!-- SECTION 1: EXAM STRATEGY -->
+<!-- ============================================================ -->
+<div id="sec-1" class="section-container active">
+    <h1 class="page-title">1. Exam Strategy</h1>
+    <div class="card essential">
+        <span class="tag tag-essential">Last-Day Revision</span>
+        <h3>High-Priority Topics (Must Know)</h3>
+        <ul>
+            <li><strong>Nernst Equation numericals</strong> — relationship between E°cell, Ecell, Q, and Kc. Expect 1–2 numericals every year.</li>
+            <li><strong>Kohlrausch Law calculation</strong> — finding Λ°m for weak electrolytes using strong electrolyte data, then calculating α and Ka.</li>
+            <li><strong>Faraday's Laws numericals</strong> — mass deposited, time, current, charge calculations.</li>
+            <li><strong>Galvanic vs Electrolytic cell</strong> — differences in anode/cathode polarity, ΔG signs, spontaneity.</li>
+            <li><strong>Lead storage battery</strong> — complete reactions during charging and discharging.</li>
+            <li><strong>Corrosion mechanism</strong> — electrochemical explanation of rusting.</li>
+        </ul>
+    </div>
+    <div class="card checkpoint">
+        <h3>Formula Quick-Reference</h3>
+        <ul>
+            <li>Nernst: \(E_{cell} = E^\circ_{cell} - \frac{0.0591}{n}\log Q\)</li>
+            <li>Equilibrium: \(E^\circ_{cell} = \frac{0.0591}{n}\log K_c\)</li>
+            <li>Gibbs Energy: \(\Delta_r G^\circ = -nFE^\circ_{cell}\)</li>
+            <li>Molar Conductivity: \(\Lambda_m = \frac{\kappa \times 1000}{M}\)</li>
+            <li>Degree of dissociation: \(\alpha = \frac{\Lambda_m}{\Lambda^\circ_m}\)</li>
+            <li>Dissociation constant: \(K_a = \frac{c\alpha^2}{1-\alpha}\)</li>
+            <li>Faraday's Law: \(m = \frac{M \times I \times t}{n \times F}\)</li>
+        </ul>
+    </div>
+    <div class="card textbook">
+        <h3>Exam Technique Tips</h3>
+        <ul>
+            <li>Always write the half-reactions before calculating n (electrons transferred).</li>
+            <li>For Nernst: identify what goes in numerator vs denominator of log Q (products over reactants, omit pure solids/liquids).</li>
+            <li>In conductivity problems: check units carefully — κ in S cm⁻¹ and M in mol L⁻¹ give Λm in S cm² mol⁻¹.</li>
+            <li>For batteries: remember discharging = Galvanic cell; charging = Electrolytic cell.</li>
+            <li>Assertion-Reasoning: Always read both statements independently before deciding.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: CHAPTER MINDMAP -->
+<!-- ============================================================ -->
+<div id="sec-2" class="section-container">
+    <h1 class="page-title">2. Chapter Mindmap</h1>
+    <div class="card textbook">
+        <h3>Electrochemistry — Big Picture</h3>
+        <p>The chapter revolves around two central themes:</p>
+        <ul>
+            <li><strong>Electrochemical Cells</strong> → Galvanic (chemical → electrical) and Electrolytic (electrical → chemical)</li>
+            <li><strong>Electrolytic Conduction</strong> → how ions carry current in solutions</li>
+        </ul>
+    </div>
+    <div class="card checkpoint">
+        <h3>Branch 1: Electrochemical Cells</h3>
+        <ul>
+            <li>Galvanic Cells → Daniell Cell → Standard Electrode Potential (SHE) → Electrochemical Series</li>
+            <li>Nernst Equation → Ecell at non-standard conditions → Equilibrium Constant Kc → Gibbs Energy ΔG</li>
+            <li>Electrolytic Cells → Faraday's Laws → Products of electrolysis → Commercial cells (Batteries, Fuel Cells)</li>
+            <li>Applications → Corrosion (rusting = electrochemical process)</li>
+        </ul>
+    </div>
+    <div class="card checkpoint">
+        <h3>Branch 2: Electrolytic Conduction</h3>
+        <ul>
+            <li>Resistance → Resistivity → Conductance → Conductivity (κ)</li>
+            <li>Cell Constant → Molar Conductivity (Λm)</li>
+            <li>Variation with concentration: Strong vs Weak electrolytes</li>
+            <li>Kohlrausch Law → Λ°m for weak electrolytes → Degree of dissociation (α) → Ka</li>
+        </ul>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Key Connections</span>
+        <h3>How Everything Connects</h3>
+        <p>\(E^\circ_{cell}\) connects to \(\Delta G^\circ\) and \(K_c\) through:</p>
+        <p class="formula-center">\(\Delta_r G^\circ = -nFE^\circ_{cell} = -RT\ln K_c\)</p>
+        <p>Conductivity connects to dissociation:</p>
+        <p class="formula-center">\(\alpha = \frac{\Lambda_m}{\Lambda^\circ_m} \rightarrow K_a = \frac{c\alpha^2}{1-\alpha}\)</p>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: ELECTROCHEMICAL CELLS -->
+<!-- ============================================================ -->
+<div id="sec-3" class="section-container">
+    <h1 class="page-title">3. Electrochemical Cells</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>Electrochemistry is the study of the production of electricity from the energy released during spontaneous chemical reactions, and the use of electrical energy to bring about non-spontaneous chemical transformations.</p>
+        <p>An <strong>Electrochemical Cell</strong> is the device used to perform these conversions. They are broadly classified into two main types based on the direction of energy transfer.</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Distinction</span>
+        <h3>Galvanic vs. Electrolytic Cells</h3>
+        <table class="compare-table">
+            <thead>
+                <tr><th>Feature</th><th>Galvanic (Voltaic) Cell</th><th>Electrolytic Cell</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Energy Conversion</strong></td><td>Chemical → Electrical</td><td>Electrical → Chemical</td></tr>
+                <tr><td><strong>Reaction Type</strong></td><td>Spontaneous (ΔG &lt; 0)</td><td>Non-Spontaneous (ΔG &gt; 0)</td></tr>
+                <tr><td><strong>Anode Polarity</strong></td><td>Negative (−)</td><td>Positive (+)</td></tr>
+                <tr><td><strong>Cathode Polarity</strong></td><td>Positive (+)</td><td>Negative (−)</td></tr>
+                <tr><td><strong>Setup</strong></td><td>Two half-cells + salt bridge</td><td>One container, external power supply</td></tr>
+                <tr><td><strong>E°cell</strong></td><td>Positive</td><td>Applied voltage needed</td></tr>
+            </tbody>
+        </table>
+        <div class="info-box green" style="margin-top:1rem;">
+            <strong>Universal Rule:</strong> Oxidation always at Anode; Reduction always at Cathode — regardless of cell type. (Remember: <strong>A</strong>node–<strong>O</strong>xidation, <strong>C</strong>athode–<strong>R</strong>eduction — AN OX, RED CAT)
+        </div>
+    </div>
+    <div class="worksheet-section" id="sec3-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec3-mcq','sec3-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec3-short','sec3-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec3-long','sec3-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec3-ar','sec3-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec3-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>In an electrolytic cell, the cathode is:
+                    <ul class="options"><li>Positively charged; oxidation occurs here</li><li>Negatively charged; reduction occurs here</li><li>Positively charged; reduction occurs here</li><li>Negatively charged; oxidation occurs here</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> In an electrolytic cell, the cathode is connected to the negative terminal of the external power source, and reduction always occurs at the cathode.</div>
+                </li>
+                <li>Which thermodynamic condition is true for a functioning Galvanic cell?
+                    <ul class="options"><li>ΔG &gt; 0</li><li>ΔG = 0</li><li>ΔG &lt; 0</li><li>ΔS = 0</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> Galvanic cells run on spontaneous redox reactions. For any spontaneous process at constant T and P, ΔG must be negative.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec3-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>What is the fundamental difference in energy conversion between a Galvanic cell and an Electrolytic cell?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">A Galvanic cell converts chemical energy into electrical energy. An electrolytic cell uses electrical energy to drive a non-spontaneous chemical reaction.</div>
+                </li>
+                <li>State the polarity of the anode in both types of electrochemical cells and explain the reason.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Galvanic cell:</strong> Anode is negative — it is the source of electrons produced by spontaneous oxidation.<br><strong>Electrolytic cell:</strong> Anode is positive — it is connected to the positive terminal of the external battery to forcefully strip electrons from ions.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec3-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Discuss the role of ΔG° in defining the two main types of electrochemical cells. Give one real-world example of each.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Role of ΔG°:</strong> If ΔG° &lt; 0, the reaction is spontaneous → Galvanic cell (energy is released as electrical work). If ΔG° &gt; 0, the reaction is non-spontaneous → Electrolytic cell (external electrical energy must be supplied to force the reaction).<br><br><strong>Galvanic example:</strong> AA alkaline battery in a flashlight — spontaneous reaction generates current.<br><strong>Electrolytic example:</strong> Electroplating chrome onto a steel bumper — external power forces reduction of chromium ions onto the steel surface.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec3-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Oxidation always takes place at the anode, regardless of whether it is a Galvanic or electrolytic cell.<br><strong>Reason (R):</strong> The anode is always the negative terminal in any electrochemical cell.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> A is true, but R is false. While oxidation always happens at the anode, the anode is positive in an electrolytic cell and negative in a Galvanic cell.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: GALVANIC CELLS -->
+<!-- ============================================================ -->
+<div id="sec-4" class="section-container">
+    <h1 class="page-title">4. Galvanic Cells</h1>
+    <div class="card textbook">
+        <h3>The Daniell Cell</h3>
+        <p>The Daniell Cell is the classic example of a Galvanic cell. It consists of two half-cells:</p>
+        <ul>
+            <li><strong>Anode (Zinc half-cell):</strong> Zinc rod in ZnSO₄ solution. Oxidation: Zn(s) → Zn²⁺(aq) + 2e⁻</li>
+            <li><strong>Cathode (Copper half-cell):</strong> Copper rod in CuSO₄ solution. Reduction: Cu²⁺(aq) + 2e⁻ → Cu(s)</li>
+        </ul>
+        <p><strong>Overall reaction:</strong> \(Zn(s) + Cu^{2+}(aq) \rightarrow Zn^{2+}(aq) + Cu(s)\)</p>
+        <p><strong>Cell Notation:</strong> Zn(s) | Zn²⁺(aq) || Cu²⁺(aq) | Cu(s)</p>
+        <div class="image-placeholder">[Diagram: Daniell Cell with Zn anode, Cu cathode, salt bridge, voltmeter, and electron flow direction]</div>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Must Know</span>
+        <h3>Salt Bridge — Purpose and Function</h3>
+        <ul>
+            <li>Prevents direct mixing of the two electrolyte solutions</li>
+            <li>Maintains electrical neutrality in both half-cells by allowing migration of ions (KCl, KNO₃, NH₄NO₃ in agar-agar gel)</li>
+            <li>Without a salt bridge, the cell stops working quickly as charge builds up</li>
+        </ul>
+    </div>
+    <div class="card checkpoint">
+        <h3>Cell Notation Convention</h3>
+        <p>Single vertical line (|) = phase boundary (e.g., solid | solution)</p>
+        <p>Double vertical line (||) = salt bridge</p>
+        <p>Anode written on LEFT; Cathode written on RIGHT</p>
+        <p>Example: Zn(s) | Zn²⁺(1M) || Cu²⁺(1M) | Cu(s) → E°cell = +1.10 V</p>
+    </div>
+    <div class="worksheet-section" id="sec4-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec4-mcq','sec4-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec4-short','sec4-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec4-long','sec4-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec4-ar','sec4-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec4-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>In a standard Galvanic cell, electrons flow through the external circuit from:
+                    <ul class="options"><li>Cathode to anode</li><li>Anode to cathode</li><li>Positive to negative terminal</li><li>Salt bridge to anode</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Electrons are produced at the anode (by oxidation) and flow through the external circuit to the cathode (where they are consumed by reduction).</div>
+                </li>
+                <li>What is the primary function of the salt bridge in a Daniell cell?
+                    <ul class="options"><li>To allow electrons to flow between half-cells</li><li>To prevent the reaction from occurring</li><li>To maintain electrical neutrality in both half-cells</li><li>To increase the EMF of the cell</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> The salt bridge allows migration of ions (NOT electrons) to maintain electrical neutrality as ions are consumed/produced in each half-cell. Electrons flow through the external wire.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec4-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Write the cell notation for the Daniell cell and identify the anode and cathode.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Cell notation: Zn(s) | Zn²⁺(aq, 1M) || Cu²⁺(aq, 1M) | Cu(s)<br>Anode (left): Zinc — undergoes oxidation (Zn → Zn²⁺ + 2e⁻)<br>Cathode (right): Copper — undergoes reduction (Cu²⁺ + 2e⁻ → Cu)</div>
+                </li>
+                <li>What happens to the mass of the zinc electrode and the blue colour of the copper sulphate solution in a Daniell cell as the cell operates?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">The <strong>zinc electrode loses mass</strong> because Zn is oxidized and dissolves as Zn²⁺ ions into the solution. The <strong>blue colour of CuSO₄ fades</strong> because Cu²⁺ ions are reduced to Cu metal which deposits on the copper electrode, reducing the concentration of Cu²⁺ in solution.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec4-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Describe the working of a Daniell cell. How is electrical energy generated from this device? Include all half-reactions and the overall cell reaction.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Construction:</strong> A zinc rod is dipped in ZnSO₄ solution (anode half-cell) and a copper rod is dipped in CuSO₄ solution (cathode half-cell). The two half-cells are connected by a salt bridge (KCl in agar-agar) and an external wire with a voltmeter.<br><br><strong>Working:</strong> Zinc is more reactive than copper. It spontaneously oxidizes at the anode, releasing electrons. These electrons flow through the external circuit to the copper cathode, where Cu²⁺ ions gain electrons and are reduced to Cu metal.<br><br><strong>Anode:</strong> Zn(s) → Zn²⁺(aq) + 2e⁻<br><strong>Cathode:</strong> Cu²⁺(aq) + 2e⁻ → Cu(s)<br><strong>Overall:</strong> Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s), E°cell = +1.10 V<br><br>The salt bridge allows K⁺ ions to migrate towards the cathode half-cell (where anions are depleted) and Cl⁻ ions towards the anode half-cell (where cations are increasing), maintaining electrical neutrality.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec4-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> The blue colour of CuSO₄ solution fades as the Daniell cell operates.<br><strong>Reason (R):</strong> Cu²⁺ ions are deposited as copper metal at the cathode, reducing their concentration in solution.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both A and R are true, and R correctly explains A. The blue colour of CuSO₄ is due to Cu²⁺ ions; as they are reduced at the cathode, their concentration falls and the solution becomes less blue.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: STANDARD ELECTRODE POTENTIAL -->
+<!-- ============================================================ -->
+<div id="sec-5" class="section-container">
+    <h1 class="page-title">5. Standard Electrode Potential</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>When a metal electrode is dipped into a solution containing its own ions, a potential difference develops at the interface. This is the <strong>electrode potential</strong>.</p>
+        <p>If all species are at standard conditions (1 mol L⁻¹ concentration, 1 bar pressure, 298 K), the potential is called the <strong>Standard Electrode Potential (E°)</strong>.</p>
+        <div class="info-box blue">
+            <strong>IUPAC Convention:</strong> Standard electrode potentials are always listed as Standard Reduction Potentials. Higher (more positive) E° = stronger tendency to be reduced = stronger oxidizing agent.
+        </div>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Reference</span>
+        <h3>The Standard Hydrogen Electrode (SHE)</h3>
+        <div class="image-placeholder">[Diagram: SHE — Pt electrode in 1M HCl with H₂ gas at 1 bar bubbling, E° = 0.00 V]</div>
+        <ul>
+            <li>Platinum foil coated with platinum black (catalyst), dipped in 1M H⁺ solution</li>
+            <li>Pure H₂ gas at 1 bar bubbled through</li>
+            <li>Assigned E° = <strong>0.00 V</strong> at all temperatures by convention</li>
+            <li>All other electrode potentials are measured relative to the SHE</li>
+        </ul>
+        <p><strong>Half-Reaction:</strong> H⁺(aq) + e⁻ → ½H₂(g), E° = 0.00 V</p>
+    </div>
+    <div class="card checkpoint">
+        <h3>The Electrochemical Series</h3>
+        <p>Electrodes arranged in order of increasing standard reduction potential:</p>
+        <ul>
+            <li><strong>Li⁺/Li:</strong> −3.05 V — strongest reducing agent (most easily oxidized)</li>
+            <li><strong>Zn²⁺/Zn:</strong> −0.76 V</li>
+            <li><strong>H⁺/H₂ (SHE):</strong> 0.00 V</li>
+            <li><strong>Cu²⁺/Cu:</strong> +0.34 V</li>
+            <li><strong>Ag⁺/Ag:</strong> +0.80 V</li>
+            <li><strong>F₂/F⁻:</strong> +2.87 V — strongest oxidizing agent (most easily reduced)</li>
+        </ul>
+        <p><strong>Calculating E°cell:</strong> \(E^\circ_{cell} = E^\circ_{cathode} - E^\circ_{anode}\)</p>
+    </div>
+    <div class="worksheet-section" id="sec5-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec5-mcq','sec5-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec5-short','sec5-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec5-long','sec5-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec5-ar','sec5-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec5-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Given E°: K⁺/K = −2.93V, Ag⁺/Ag = +0.80V, Hg²⁺/Hg = +0.79V, Mg²⁺/Mg = −2.37V. The strongest reducing agent is:
+                    <ul class="options"><li>Ag</li><li>Hg</li><li>Mg</li><li>K</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D) K.</strong> The lowest (most negative) reduction potential means the highest tendency to be oxidized. The substance most easily oxidized is the strongest reducing agent.</div>
+                </li>
+                <li>The standard electrode potential of the SHE is exactly zero:
+                    <ul class="options"><li>Only at 298 K</li><li>Only at 0°C</li><li>At all temperatures</li><li>Because hydrogen is a gas</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> It is arbitrarily assigned 0.00 V at all temperatures as a universal baseline by convention.</div>
+                </li>
+                <li>Standard conditions for measuring E° include all EXCEPT:
+                    <ul class="options"><li>1 M concentration for solutions</li><li>1 atm pressure for gases</li><li>1 bar pressure for gases</li><li>298 K temperature</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Modern IUPAC standard pressure is 1 bar, not 1 atm (though very close).</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec5-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Why is platinum used in the Standard Hydrogen Electrode?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Platinum is chemically inert — it does not participate in the reaction. It provides a conducting surface for electron transfer and adsorbs hydrogen gas, facilitating the H⁺/H₂ equilibrium without contaminating the system.</div>
+                </li>
+                <li>Can a copper vessel be used to store ZnSO₄ solution? (E°Cu²⁺/Cu = +0.34V, E°Zn²⁺/Zn = −0.76V)
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Yes. Copper has a higher reduction potential (+0.34V) than zinc (−0.76V). This means copper prefers to remain as solid metal. Copper cannot displace zinc ions from ZnSO₄ solution, so no reaction occurs and the vessel is safe.</div>
+                </li>
+                <li>What happens to E° if the half-reaction stoichiometry is multiplied by 2?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">E° remains unchanged. Standard electrode potential is an intensive property — it depends on the nature of the species, not the quantity involved.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec5-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Detail the experimental setup to determine E° for the Zn²⁺/Zn half-cell. Include cell notation.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Setup:</strong> Zinc rod dipped in 1M ZnSO₄ (298K) connected via salt bridge and external voltmeter to a SHE (Pt electrode in 1M HCl, H₂ at 1 bar).<br><br><strong>Observation:</strong> Voltmeter reads 0.76V. Electrons flow from Zn to SHE → Zn is anode.<br><br><strong>Calculation:</strong> E°cell = E°cathode − E°anode → 0.76 = 0.00 − E°Zn²⁺/Zn → E°Zn²⁺/Zn = −0.76V<br><br><strong>Cell Notation:</strong> Zn(s) | Zn²⁺(aq, 1M) || H⁺(aq, 1M) | H₂(g, 1bar) | Pt(s)</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec5-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Absolute electrode potential of a single half-cell cannot be measured.<br><strong>Reason (R):</strong> A half-cell reaction cannot occur independently; it needs another half-cell to complete the circuit.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both A and R true; R correctly explains A. A voltmeter requires a complete circuit and measures the difference between two potentials.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> Standard reduction potential of F₂ is highest in the electrochemical series.<br><strong>Reason (R):</strong> F₂ gas is the strongest reducing agent.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> A is true, R is false. Because F₂ has the highest reduction potential, it is the strongest <em>oxidizing</em> agent, not reducing agent.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: NERNST EQUATION -->
+<!-- ============================================================ -->
+<div id="sec-6" class="section-container">
+    <h1 class="page-title">6. Nernst Equation</h1>
+    <div class="card textbook">
+        <h3>Why We Need the Nernst Equation</h3>
+        <p>E°cell is measured at standard conditions (all concentrations = 1M, 298K). In reality, concentrations are rarely 1M. The Nernst equation allows us to calculate the actual cell potential (Ecell) at any concentration.</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Formula</span>
+        <h3>Nernst Equation at 298 K</h3>
+        <p class="formula-center">\(E_{cell} = E^\circ_{cell} - \frac{0.0591}{n}\log Q\)</p>
+        <p>Where:</p>
+        <ul>
+            <li>\(E_{cell}\) = actual cell potential at given conditions</li>
+            <li>\(E^\circ_{cell}\) = standard cell potential</li>
+            <li>\(n\) = number of electrons transferred in the balanced reaction</li>
+            <li>\(Q\) = reaction quotient = [products]/[reactants] (omit pure solids and liquids)</li>
+        </ul>
+        <p><strong>General form (any temperature):</strong> \(E_{cell} = E^\circ_{cell} - \frac{RT}{nF}\ln Q\)</p>
+        <div class="info-box red">
+            <strong>Common exam trap:</strong> For the Daniell cell, \(Q = \frac{[Zn^{2+}]}{[Cu^{2+}]}\). Students often invert this. Always write products over reactants.
+        </div>
+    </div>
+    <div class="card checkpoint">
+        <h3>What Happens to Ecell When Concentration Changes?</h3>
+        <ul>
+            <li>Increasing [products] → Q increases → log Q increases → Ecell decreases</li>
+            <li>Increasing [reactants] → Q decreases → log Q decreases → Ecell increases</li>
+            <li>Diluting product → Ecell increases</li>
+            <li>At equilibrium: Ecell = 0, Q = Kc</li>
+        </ul>
+    </div>
+    <div class="worksheet-section" id="sec6-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec6-mcq','sec6-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec6-short','sec6-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec6-long','sec6-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec6-ar','sec6-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec6-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>If concentration of products increases, cell potential:
+                    <ul class="options"><li>Increases</li><li>Decreases</li><li>Remains same</li><li>Becomes zero</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Increasing [products] increases Q. Since Ecell = E°cell − (0.0591/n)logQ, a larger Q means a larger value is subtracted, so Ecell decreases.</div>
+                </li>
+                <li>For the cell Zn|Zn²⁺(0.01M)||Cu²⁺(1M)|Cu, the Ecell compared to E°cell will be:
+                    <ul class="options"><li>Equal to E°cell</li><li>Greater than E°cell</li><li>Less than E°cell</li><li>Negative</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Q = [Zn²⁺]/[Cu²⁺] = 0.01/1 = 0.01 &lt; 1. So logQ &lt; 0, meaning the subtracted term is negative, making Ecell &gt; E°cell.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec6-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>For the cell Mg(s)|Mg²⁺(0.1M)||Cu²⁺(0.001M)|Cu(s), calculate Ecell given E°cell = 2.70V at 298K.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Reaction: Mg + Cu²⁺ → Mg²⁺ + Cu, n = 2<br>Q = [Mg²⁺]/[Cu²⁺] = 0.1/0.001 = 100<br>Ecell = 2.70 − (0.0591/2)log(100) = 2.70 − (0.02955)(2) = 2.70 − 0.0591 = <strong>2.641 V</strong></div>
+                </li>
+                <li>Write the Nernst equation for the half-cell reaction: Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">\(E = E^\circ - \frac{0.0591}{6}\log\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}][H^+]^{14}}\)</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec6-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Calculate the potential of a hydrogen electrode in contact with a solution of pH = 10.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Half-reaction: H⁺(aq) + e⁻ → ½H₂(g), E° = 0.00V, n = 1<br>pH = 10 → [H⁺] = 10⁻¹⁰ M<br>Q = 1/[H⁺] (H₂ at 1 bar = pure gas, omitted from Q)<br>E = 0 − (0.0591/1)log(1/10⁻¹⁰) = −0.0591 × 10 = <strong>−0.591 V</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec6-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> The Ecell of a Galvanic cell decreases over time as the cell operates.<br><strong>Reason (R):</strong> As the reaction proceeds, reactants are consumed and products accumulate, increasing Q.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true and R correctly explains A via the Nernst equation: as Q increases, the subtracted term increases and Ecell falls.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: EQUILIBRIUM CONSTANT -->
+<!-- ============================================================ -->
+<div id="sec-7" class="section-container">
+    <h1 class="page-title">7. Equilibrium Constant from Nernst Equation</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>As a Galvanic cell operates, reactant concentration decreases and product concentration increases. The cell potential (Ecell) steadily decreases. At equilibrium, no net change occurs — the cell potential drops to zero and Q = Kc.</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Derivation</span>
+        <h3>Mathematical Relationship</h3>
+        <p>At equilibrium: Ecell = 0 and Q = Kc. Substituting into the Nernst equation:</p>
+        <p class="formula-center">\(0 = E^\circ_{cell} - \frac{0.0591}{n}\log K_c\)</p>
+        <p class="formula-center">\(E^\circ_{cell} = \frac{0.0591}{n}\log K_c\)</p>
+        <p>Rearranging: \(\log K_c = \frac{n \times E^\circ_{cell}}{0.0591}\)</p>
+        <div class="info-box green">This equation is powerful — it lets you calculate equilibrium constants (often very difficult to measure directly) simply by measuring the standard cell voltage.</div>
+    </div>
+    <div class="worksheet-section" id="sec7-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec7-mcq','sec7-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec7-short','sec7-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec7-long','sec7-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec7-ar','sec7-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec7-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>When a Galvanic cell reaches chemical equilibrium, which is true?
+                    <ul class="options"><li>E°cell = 0</li><li>Ecell = 0</li><li>Kc = 0</li><li>Q = 1</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> The actual cell potential (Ecell) drops to zero. E°cell is a fixed constant and does not change.</div>
+                </li>
+                <li>For n = 2 and E°cell = 0.0591V at 298K, the value of log Kc is:
+                    <ul class="options"><li>1</li><li>2</li><li>10</li><li>100</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B) 2.</strong> logKc = nE°/(0.0591) = 2×0.0591/0.0591 = 2.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec7-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Calculate Kc for the Daniell cell reaction, given E°cell = 1.10V.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">n = 2. logKc = (2 × 1.10)/0.0591 = 37.22. Kc = 10³⁷·²² ≈ 1.6 × 10³⁷. (Very large — reaction is essentially irreversible.)</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec7-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Calculate E°cell and Kc for: 2Fe³⁺(aq) + 2I⁻(aq) → 2Fe²⁺(aq) + I₂(s). Given E°Fe³⁺/Fe²⁺ = 0.77V, E°I₂/I⁻ = 0.54V.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Anode:</strong> 2I⁻ → I₂ + 2e⁻ (n = 2)<br><strong>Cathode:</strong> 2Fe³⁺ + 2e⁻ → 2Fe²⁺<br>E°cell = 0.77 − 0.54 = <strong>0.23V</strong><br>logKc = (2 × 0.23)/0.0591 = 7.78<br>Kc = 10⁷·⁷⁸ = <strong>6.0 × 10⁷</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec7-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> When a cell reaction reaches equilibrium, the voltmeter reading drops to zero.<br><strong>Reason (R):</strong> At equilibrium, the standard cell potential (E°cell) becomes zero.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> A is true but R is false. At equilibrium, Ecell (actual voltage) = 0. E°cell is a thermodynamic constant and does not change.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: GIBBS ENERGY -->
+<!-- ============================================================ -->
+<div id="sec-8" class="section-container">
+    <h1 class="page-title">8. Electrochemical Cell and Gibbs Energy</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>The reversible work done by a Galvanic cell equals the decrease in its Gibbs energy (ΔG). If n moles of electrons are transferred, the total charge passed is nF (F = Faraday's constant ≈ 96487 C mol⁻¹).</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Formulas</span>
+        <h3>Mathematical Relationships</h3>
+        <h4>General Condition:</h4>
+        <p class="formula-center">\(\Delta_r G = -nFE_{cell}\)</p>
+        <h4>Standard Condition (all concentrations = 1M):</h4>
+        <p class="formula-center">\(\Delta_r G^\circ = -nFE^\circ_{cell}\)</p>
+        <h4>Relationship with Equilibrium Constant:</h4>
+        <p class="formula-center">\(\Delta_r G^\circ = -RT\ln K_c\)</p>
+        <div class="info-box red">
+            <strong>Crucial distinction:</strong> E°cell is <em>intensive</em> (independent of stoichiometry). ΔG° is <em>extensive</em> (depends on n). If you double the cell reaction, E°cell stays same but ΔG° doubles.
+        </div>
+    </div>
+    <div class="worksheet-section" id="sec8-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec8-mcq','sec8-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec8-short','sec8-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec8-long','sec8-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec8-ar','sec8-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec8-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>For a spontaneous electrochemical cell reaction, the signs of ΔG and Ecell are respectively:
+                    <ul class="options"><li>Negative, Negative</li><li>Positive, Positive</li><li>Negative, Positive</li><li>Positive, Negative</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> For spontaneous reaction, ΔG must be negative. Since ΔG = −nFEcell, Ecell must be positive.</div>
+                </li>
+                <li>If the stoichiometry of a cell reaction is multiplied by 2:
+                    <ul class="options"><li>Both E°cell and ΔG° are doubled</li><li>E°cell doubled, ΔG° same</li><li>E°cell same, ΔG° doubled</li><li>Both remain same</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> E°cell is intensive (stays same). ΔG° is extensive — doubling n doubles ΔG°.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec8-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Calculate ΔG° for the Daniell cell: Zn + Cu²⁺ → Zn²⁺ + Cu. E°cell = 1.10V.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">n = 2, F = 96487 C mol⁻¹<br>ΔG° = −nFE°cell = −2 × 96487 × 1.10 = −212,271 J mol⁻¹ = <strong>−212.27 kJ mol⁻¹</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec8-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Calculate E°cell and maximum work for: 2Cr(s) + 3Cd²⁺(aq) → 2Cr³⁺(aq) + 3Cd(s). E°Cr³⁺/Cr = −0.74V, E°Cd²⁺/Cd = −0.40V.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Anode: 2Cr → 2Cr³⁺ + 6e⁻; Cathode: 3Cd²⁺ + 6e⁻ → 3Cd. So n = 6.<br>E°cell = −0.40 − (−0.74) = <strong>+0.34V</strong><br>ΔG° = −6 × 96487 × 0.34 = −196,834 J mol⁻¹ = <strong>−196.83 kJ mol⁻¹</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec8-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> If half-reactions are multiplied by 2, E°cell doubles but ΔG° remains constant.<br><strong>Reason (R):</strong> E°cell is an extensive property while ΔG° is intensive.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D)</strong> Both A and R are completely false. It is the exact opposite — E°cell is intensive (stays same) and ΔG° is extensive (doubles).</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 9: CONDUCTANCE -->
+<!-- ============================================================ -->
+<div id="sec-9" class="section-container">
+    <h1 class="page-title">9. Conductance in Electrolytic Solutions</h1>
+    <div class="card textbook">
+        <h3>Fundamental Definitions</h3>
+        <ul>
+            <li><strong>Resistance (R):</strong> Hindrance to current flow. Measured in Ω. \(R = \rho\frac{l}{A}\)</li>
+            <li><strong>Conductance (G):</strong> Inverse of resistance. Measured in Siemens (S). \(G = \frac{1}{R}\)</li>
+            <li><strong>Conductivity/Specific Conductance (κ):</strong> Conductance of 1 cm³ of solution. Measured in S cm⁻¹. \(\kappa = \frac{1}{\rho} = G\frac{l}{A}\)</li>
+        </ul>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Measurement</span>
+        <h3>Cell Constant & Molar Conductivity</h3>
+        <div class="image-placeholder">[Diagram: Conductivity cell with two Pt electrodes, showing l (length) and A (area)]</div>
+        <h4>Cell Constant (G*):</h4>
+        <p>\(G^* = \frac{l}{A} = R\kappa\)  (units: cm⁻¹)</p>
+        <p><em>G* is determined by calibrating with KCl of known conductivity.</em></p>
+        <h4>Molar Conductivity (Λm):</h4>
+        <p class="formula-center">\(\Lambda_m = \frac{\kappa \times 1000}{M}\)</p>
+        <p><em>Units: S cm² mol⁻¹ (when κ in S cm⁻¹ and M in mol L⁻¹)</em></p>
+    </div>
+    <div class="worksheet-section" id="sec9-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec9-mcq','sec9-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec9-short','sec9-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec9-long','sec9-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec9-ar','sec9-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec9-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>The correct unit for molar conductivity (Λm) is:
+                    <ul class="options"><li>S cm⁻¹</li><li>S cm² mol⁻¹</li><li>S cm⁻² mol</li><li>Ω cm</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> S cm² mol⁻¹</div>
+                </li>
+                <li>The cell constant of a conductivity cell:
+                    <ul class="options"><li>Changes with the electrolyte</li><li>Changes with concentration</li><li>Remains constant for a particular cell</li><li>Changes with temperature</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> G* = l/A is a geometric property of the physical electrodes and does not depend on the solution inside.</div>
+                </li>
+                <li>Which expression correctly relates κ, G, and G*?
+                    <ul class="options"><li>κ = G × G*</li><li>G = κ × G*</li><li>G* = κ × G</li><li>κ = G / G*</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> κ = G × (l/A) and G* = l/A, so κ = G × G*.</div>
+                </li>
+                <li>When a solution is diluted, its specific conductivity (κ):
+                    <ul class="options"><li>Increases</li><li>Decreases</li><li>Remains same</li><li>Increases then decreases</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Specific conductivity is the conductance of 1 cm³. On dilution, ions per cm³ decrease, so κ decreases.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec9-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>A conductivity cell has R = 100Ω with a solution of κ = 1.29×10⁻² S cm⁻¹. Calculate the cell constant.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">G* = R × κ = 100 × 1.29×10⁻² = <strong>1.29 cm⁻¹</strong></div>
+                </li>
+                <li>Why does Λm increase on dilution even though κ decreases?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Λm = κ × V (where V = volume holding 1 mole of electrolyte). On dilution, κ decreases but V increases at a much faster rate. The net product κ × V increases, so Λm increases.</div>
+                </li>
+                <li>Why is AC used instead of DC to measure resistance of electrolytic solutions?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">DC causes electrolysis of the solution, changing its composition and altering the resistance being measured. AC reverses direction rapidly, preventing electrolysis and maintaining stable solution composition.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec9-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>A column of 0.05 mol L⁻¹ NaOH (diameter 1 cm, length 50 cm) has resistance 5.55×10³ Ω. Calculate resistivity, conductivity, and molar conductivity.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>1. Area:</strong> A = π(0.5)² = 0.785 cm², l = 50 cm<br><strong>2. Resistivity:</strong> ρ = R×A/l = 5550×0.785/50 = 87.14 Ω cm<br><strong>3. Conductivity:</strong> κ = 1/ρ = 1/87.14 = 0.01148 S cm⁻¹<br><strong>4. Molar Conductivity:</strong> Λm = (0.01148×1000)/0.05 = <strong>229.6 S cm² mol⁻¹</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec9-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> The specific conductivity of all electrolytes decreases on dilution.<br><strong>Reason (R):</strong> On dilution, the number of ions per unit volume decreases.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both A and R true, R correctly explains A.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> The cell constant depends on the nature of the electrolyte filling it.<br><strong>Reason (R):</strong> Cell constant is defined as l/A.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D)</strong> A is false — cell constant is a purely physical dimension of the electrodes independent of the solution. R is true.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 10: VARIATION OF CONDUCTIVITY -->
+<!-- ============================================================ -->
+<div id="sec-10" class="section-container">
+    <h1 class="page-title">10. Variation of Conductivity with Concentration</h1>
+    <div class="card textbook">
+        <h3>1. Specific Conductivity (κ) on Dilution</h3>
+        <p>Specific conductivity <strong>always decreases</strong> with dilution for both strong and weak electrolytes. Reason: fewer ions per unit volume as solution expands.</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Distinction</span>
+        <h3>2. Molar Conductivity (Λm) on Dilution</h3>
+        <p>Λm always <strong>increases</strong> with dilution, but the reasons differ:</p>
+        <div class="image-placeholder">[Graph: Λm vs √c — straight line for strong electrolytes (e.g., KCl, HCl) extrapolating to Λ°m; steep curve for weak electrolytes (e.g., CH₃COOH) that becomes asymptotic near zero]</div>
+        <h4>A. Strong Electrolytes (e.g., KCl, HCl)</h4>
+        <p>Already 100% dissociated at all concentrations. Increase in Λm is gradual — due to reduced interionic attractions (ions move faster with more separation). Follows the <strong>Debye-Hückel-Onsager equation</strong>:</p>
+        <p class="formula-center">\(\Lambda_m = \Lambda^\circ_m - A\sqrt{c}\)</p>
+        <p>The straight line can be extrapolated to find Λ°m.</p>
+        <h4>B. Weak Electrolytes (e.g., CH₃COOH)</h4>
+        <p>Only partially dissociated. On dilution, degree of dissociation (α) increases dramatically → massive increase in ion count → steep rise in Λm near infinite dilution. <strong>Cannot extrapolate</strong> to find Λ°m — use Kohlrausch Law instead.</p>
+    </div>
+    <div class="worksheet-section" id="sec10-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec10-mcq','sec10-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec10-short','sec10-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec10-long','sec10-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec10-ar','sec10-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec10-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Upon dilution, the specific conductivity of CH₃COOH:
+                    <ul class="options"><li>Increases</li><li>Decreases</li><li>Remains unchanged</li><li>First increases, then decreases</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Specific conductivity always decreases on dilution for both strong and weak electrolytes — ions per cm³ decrease.</div>
+                </li>
+                <li>For a strong electrolyte, the Λm vs √c plot is:
+                    <ul class="options"><li>A parabola</li><li>A steep curve asymptotic to y-axis</li><li>A straight line with negative slope</li><li>A straight line with positive slope</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> The Debye-Hückel-Onsager equation Λm = Λ°m − A√c is a straight line with negative slope.</div>
+                </li>
+                <li>Why does Λm of a strong electrolyte increase upon dilution?
+                    <ul class="options"><li>Degree of dissociation increases</li><li>Volume of solution decreases</li><li>Interionic attractions decrease, increasing ion mobility</li><li>New ions are generated by solvent</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> Strong electrolytes are already fully dissociated. Ions move faster as separation increases and interionic attraction decreases.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec10-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>State the Debye-Hückel-Onsager equation and define all terms.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">\(\Lambda_m = \Lambda^\circ_m - A\sqrt{c}\)<br>Λm = molar conductivity at concentration c; Λ°m = limiting molar conductivity (y-intercept); A = constant depending on temperature, solvent nature, and charge on ions; c = concentration.</div>
+                </li>
+                <li>Can you find Λ°m of NH₄OH by plotting Λm vs √c? Give a reason.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">No. NH₄OH is a weak electrolyte. Its Λm vs √c plot becomes steep and asymptotic to the y-axis near zero concentration — the curve never cleanly intersects the y-axis, so Λ°m cannot be extrapolated. Kohlrausch Law must be used.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec10-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Λm = κ × 1000/M. We know κ decreases on dilution. Comprehensively explain why Λm still increases.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Λm = κ × V, where V = volume containing 1 mole of electrolyte. On dilution: (1) κ decreases (fewer ions per cm³), but (2) V increases much faster. The product κ×V increases overall. Physically: while each cm³ carries less current, you have vastly more cm³ per mole. For strong electrolytes, reduced interionic friction speeds up individual ions. For weak electrolytes, the much higher degree of dissociation generates far more ions per mole.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec10-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Λm of CH₃COOH increases steeply at high dilutions.<br><strong>Reason (R):</strong> At high dilutions, degree of dissociation of weak electrolytes approaches 100%, generating many more ions.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both A and R true; R is the exact chemical reason for the steep curve.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> Λ°m for strong electrolytes can be determined by extrapolating the Λm vs √c graph.<br><strong>Reason (R):</strong> Strong electrolytes follow Λm = Λ°m − A√c at all concentrations.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> A is true but R is false. The Debye-Hückel-Onsager equation holds only at low concentrations, not all concentrations.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 11: KOHLRAUSCH LAW -->
+<!-- ============================================================ -->
+<div id="sec-11" class="section-container">
+    <h1 class="page-title">11. Kohlrausch Law</h1>
+    <div class="card textbook">
+        <h3>Why We Need Kohlrausch Law</h3>
+        <p>For weak electrolytes (like CH₃COOH), we cannot find Λ°m by extrapolation. Kohlrausch Law provides an algebraic method using data from strong electrolytes.</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Law</span>
+        <h3>Law of Independent Migration of Ions</h3>
+        <p>At infinite dilution, each ion makes a definite, independent contribution to the molar conductivity regardless of the nature of the other ion.</p>
+        <p class="formula-center">\(\Lambda^\circ_m = \nu_+\lambda^\circ_+ + \nu_-\lambda^\circ_-\)</p>
+        <p>Where ν₊ and ν₋ are the stoichiometric numbers of cations and anions, and λ° are the limiting molar conductivities of individual ions.</p>
+    </div>
+    <div class="card checkpoint">
+        <h3>Applications of Kohlrausch Law</h3>
+        <p><strong>1. Finding Λ°m for CH₃COOH:</strong></p>
+        <p>\(\Lambda^\circ_m(CH_3COOH) = \Lambda^\circ_m(HCl) + \Lambda^\circ_m(CH_3COONa) - \Lambda^\circ_m(NaCl)\)</p>
+        <p><strong>2. Degree of dissociation:</strong> \(\alpha = \frac{\Lambda_m}{\Lambda^\circ_m}\)</p>
+        <p><strong>3. Dissociation constant:</strong> \(K_a = \frac{c\alpha^2}{1-\alpha}\)</p>
+    </div>
+    <div class="worksheet-section" id="sec11-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec11-mcq','sec11-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec11-short','sec11-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec11-long','sec11-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec11-ar','sec11-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec11-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Λ°m of electrolyte AxBy is given by:
+                    <ul class="options"><li>xλ°A + yλ°B</li><li>yλ°A + xλ°B</li><li>(x+y)(λ°A + λ°B)</li><li>xλ°A − yλ°B</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Kohlrausch law: each ion contributes proportionally to its stoichiometric number.</div>
+                </li>
+                <li>If Λ°m for BaCl₂, H₂SO₄, and HCl are x₁, x₂, x₃ respectively, then Λ°m for BaSO₄ is:
+                    <ul class="options"><li>x₁ + x₂ − x₃</li><li>x₁ + x₂ − 2x₃</li><li>x₁ + x₂ + 2x₃</li><li>x₁ − x₂ + 2x₃</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> BaCl₂ + H₂SO₄ → BaSO₄ + 2HCl. So Λ°m(BaSO₄) = x₁ + x₂ − 2x₃.</div>
+                </li>
+                <li>Degree of dissociation (α) of a weak electrolyte equals:
+                    <ul class="options"><li>Λ°m / Λm</li><li>Λm / Λ°m</li><li>Λm × Λ°m</li><li>Λm − Λ°m</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> α = Λm/Λ°m</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec11-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Given λ°(H⁺) = 350, λ°(CH₃COO⁻) = 40, λ°(Na⁺) = 50, λ°(Cl⁻) = 76 S cm² mol⁻¹. Calculate Λ°m(CH₃COOH).
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Λ°m(CH₃COOH) = λ°(H⁺) + λ°(CH₃COO⁻) = 350 + 40 = <strong>390 S cm² mol⁻¹</strong></div>
+                </li>
+                <li>Express Λ°m(Al₂(SO₄)₃) in terms of individual ionic conductivities.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">\(\Lambda^\circ_m(Al_2(SO_4)_3) = 2\lambda^\circ_{Al^{3+}} + 3\lambda^\circ_{SO_4^{2-}}\)</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec11-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>The conductivity of 0.001028M acetic acid is 4.95×10⁻⁵ S cm⁻¹. Calculate Ka. (Λ°m = 390.5 S cm² mol⁻¹)
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>1. Λm:</strong> (4.95×10⁻⁵ × 1000) / 0.001028 = 48.15 S cm² mol⁻¹<br><strong>2. α:</strong> 48.15/390.5 = 0.1233<br><strong>3. Ka:</strong> (0.001028 × 0.1233²)/(1 − 0.1233) = (0.001028 × 0.0152)/0.8767 = <strong>1.78×10⁻⁵ mol L⁻¹</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec11-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Λ°m of CH₃COOH can be obtained by extrapolating Λm vs √c to zero concentration.<br><strong>Reason (R):</strong> CH₃COOH is a weak electrolyte and its Λm increases steeply near infinite dilution.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D)</strong> A is false; extrapolation is impossible for weak electrolytes precisely because of the steep curve. R is true.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> Λ°m/Λm gives the degree of dissociation of a weak electrolyte.<br><strong>Reason (R):</strong> At infinite dilution, dissociation of a weak electrolyte is 100%.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D)</strong> A is false (it should be Λm/Λ°m, not the inverse). R is true.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 12: ELECTROLYSIS -->
+<!-- ============================================================ -->
+<div id="sec-12" class="section-container">
+    <h1 class="page-title">12. Electrolysis &amp; Electrolytic Cells</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>Unlike a Galvanic cell (spontaneous), an <strong>Electrolytic Cell</strong> uses electrical energy to drive a <em>non-spontaneous</em> chemical reaction. This process is called electrolysis.</p>
+        <div class="image-placeholder">[Diagram: Electrolytic cell — external battery connected to two inert Pt electrodes in electrolyte solution, showing cation migration to cathode and anion migration to anode]</div>
+        <ul>
+            <li><strong>Anode (+):</strong> Oxidation occurs. Anions migrate here to lose electrons.</li>
+            <li><strong>Cathode (−):</strong> Reduction occurs. Cations migrate here to gain electrons.</li>
+        </ul>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Principle</span>
+        <h3>Faraday's Laws of Electrolysis</h3>
+        <h4>First Law</h4>
+        <p>The mass of substance produced at an electrode is directly proportional to the quantity of electricity passed.</p>
+        <p class="formula-center">\(m = \frac{M \times I \times t}{n \times F}\)</p>
+        <p>Where: m = mass (g), M = molar mass, I = current (A), t = time (s), n = electrons transferred per ion, F = 96487 C mol⁻¹</p>
+        <h4>Second Law</h4>
+        <div class="image-placeholder">[Diagram: Two cells in series — same charge through each → masses deposited proportional to equivalent weights]</div>
+        <p>When the same quantity of electricity passes through different electrolytes in series, masses deposited are proportional to their equivalent weights.</p>
+        <p class="formula-center">\(\frac{m_1}{m_2} = \frac{E_1}{E_2} = \frac{M_1/n_1}{M_2/n_2}\)</p>
+    </div>
+    <div class="card checkpoint">
+        <h3>Products of Electrolysis</h3>
+        <ul>
+            <li><strong>Molten NaCl:</strong> Only Na⁺ and Cl⁻ present. Cathode: Na(s). Anode: Cl₂(g).</li>
+            <li><strong>Aqueous NaCl (brine):</strong> H₂O also present. Cathode: H₂(g) (water reduced, not Na⁺). Anode: Cl₂(g) due to overpotential.</li>
+            <li><strong>Aqueous CuSO₄ (Pt electrodes):</strong> Cathode: Cu(s). Anode: O₂(g).</li>
+            <li><strong>Aqueous AgNO₃ (Ag electrodes):</strong> Cathode: Ag(s) deposited. Anode: Ag dissolves (active electrode).</li>
+        </ul>
+    </div>
+    <div class="worksheet-section" id="sec12-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec12-mcq','sec12-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec12-short','sec12-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec12-long','sec12-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec12-ar','sec12-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec12-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>How many Faradays are required to reduce 1 mole of MnO₄⁻ to Mn²⁺?
+                    <ul class="options"><li>1 F</li><li>3 F</li><li>5 F</li><li>7 F</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C) 5 F.</strong> Mn oxidation state changes from +7 in MnO₄⁻ to +2 in Mn²⁺ — a change of 5, requiring 5 moles of electrons.</div>
+                </li>
+                <li>Three Faradays passed through molten Al₂O₃, aqueous CuSO₄, and molten NaCl. Molar ratio of Al:Cu:Na deposited is:
+                    <ul class="options"><li>1 : 1.5 : 3</li><li>3 : 2 : 1</li><li>1 : 2 : 3</li><li>1 : 1 : 1</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A) 1 : 1.5 : 3.</strong> Al³⁺ needs 3e⁻ → 1 mol; Cu²⁺ needs 2e⁻ → 1.5 mol; Na⁺ needs 1e⁻ → 3 mol. All from 3 Faradays.</div>
+                </li>
+                <li>Why is alternating current not used for electrolysis?
+                    <ul class="options"><li>AC cannot generate ions</li><li>AC reverses direction periodically, causing no net chemical reaction</li><li>AC has too high a voltage</li><li>AC dissolves the electrodes</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> AC reverses direction, alternating anode/cathode roles at each electrode — net reaction is zero.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec12-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>A current of 1.5A passes through CuSO₄ for 10 minutes. Calculate mass of copper deposited. (M(Cu) = 63.5 g/mol)
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Q = 1.5 × 600 = 900 C. Cu²⁺ + 2e⁻ → Cu. m = (63.5 × 900)/(2 × 96487) = <strong>0.296 g</strong></div>
+                </li>
+                <li>Predict products of electrolysis of aqueous CuCl₂ using Pt electrodes.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Cathode:</strong> Cu(s) deposited (Cu²⁺ has higher reduction potential than water). <strong>Anode:</strong> Cl₂(g) evolved (Cl⁻ oxidized preferentially due to overpotential of O₂ formation).</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec12-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Discuss products of electrolysis of aqueous NaCl (brine) and why they differ from molten NaCl. Explain the role of overpotential at the anode.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Molten NaCl:</strong> Only Na⁺ and Cl⁻ present. Na deposited at cathode; Cl₂ at anode. Simple and straightforward.<br><br><strong>Aqueous NaCl:</strong> Water is also present and competes.<br>Cathode: E°(H₂O) = −0.83V vs E°(Na⁺) = −2.71V. Water is reduced preferentially → <strong>H₂ gas</strong>.<br>Anode: Thermodynamically, water should oxidize to O₂ (+1.23V) before Cl⁻ oxidizes to Cl₂ (+1.36V). However, O₂ formation requires extra activation energy (overpotential). Kinetically, Cl⁻ oxidation is easier → <strong>Cl₂ gas</strong> produced.<br>Result: NaOH forms in solution (Na⁺ + OH⁻ remaining after H₂ and Cl₂ evolve).</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec12-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Electrolysis of aqueous NaCl gives H₂ at cathode and Cl₂ at anode.<br><strong>Reason (R):</strong> Na⁺ has higher standard reduction potential than water.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> A is true but R is false. Na⁺ has LOWER reduction potential (−2.71V) than water (−0.83V), which is exactly why water is reduced to H₂ instead.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> When 1 Faraday passes through Al³⁺ solution, 1 mole of Al is deposited.<br><strong>Reason (R):</strong> 1 Faraday is the charge of 1 mole of electrons.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D)</strong> A is false — Al³⁺ + 3e⁻ → Al requires 3F for 1 mole; 1F only gives ⅓ mol. R is true.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 13: BATTERIES -->
+<!-- ============================================================ -->
+<div id="sec-13" class="section-container">
+    <h1 class="page-title">13. Batteries (Commercial Cells)</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>A battery is one or more Galvanic cells connected in series. A useful commercial battery should be light, compact, and maintain stable voltage during use. Batteries are classified as Primary (non-rechargeable) or Secondary (rechargeable).</p>
+    </div>
+    <div class="card essential">
+        <h3>1. Primary Batteries (Non-Rechargeable)</h3>
+        <h4>A. Dry Cell (Leclanché Cell) — ~1.5V</h4>
+        <div class="image-placeholder">[Diagram: Dry cell cross-section — Zn casing (anode), carbon rod + MnO₂ (cathode), NH₄Cl paste electrolyte]</div>
+        <ul>
+            <li><strong>Anode:</strong> Zinc container</li>
+            <li><strong>Cathode:</strong> Graphite rod surrounded by MnO₂ + carbon powder</li>
+            <li><strong>Electrolyte:</strong> Moist paste of NH₄Cl + ZnCl₂</li>
+            <li>Anode: Zn(s) → Zn²⁺ + 2e⁻</li>
+            <li>Cathode: MnO₂ + NH₄⁺ + e⁻ → MnO(OH) + NH₃</li>
+            <li>NH₃ forms [Zn(NH₃)₄]²⁺ complex to prevent pressure buildup</li>
+        </ul>
+        <h4>B. Mercury Cell — ~1.35V (constant)</h4>
+        <ul>
+            <li><strong>Anode:</strong> Zinc-mercury amalgam; <strong>Cathode:</strong> HgO + carbon; <strong>Electrolyte:</strong> KOH + ZnO paste</li>
+            <li>Overall: Zn(Hg) + HgO(s) → ZnO(s) + Hg(l)</li>
+            <li><strong>Constant voltage</strong> because no ions in solution change concentration</li>
+        </ul>
+    </div>
+    <div class="card essential">
+        <h3>2. Secondary Batteries (Rechargeable)</h3>
+        <h4>Lead Storage Battery — ~12V (6 cells)</h4>
+        <div class="image-placeholder">[Diagram: Lead battery — Pb anode plates, PbO₂ cathode plates, H₂SO₄ electrolyte]</div>
+        <ul>
+            <li><strong>Anode:</strong> Spongy Pb; <strong>Cathode:</strong> PbO₂; <strong>Electrolyte:</strong> 38% H₂SO₄(aq)</li>
+            <li>Anode (discharge): Pb + SO₄²⁻ → PbSO₄ + 2e⁻</li>
+            <li>Cathode (discharge): PbO₂ + SO₄²⁻ + 4H⁺ + 2e⁻ → PbSO₄ + 2H₂O</li>
+            <li>Overall: Pb + PbO₂ + 2H₂SO₄ → 2PbSO₄ + 2H₂O</li>
+            <li>On charging, reactions are reversed; H₂SO₄ is regenerated (density rises)</li>
+        </ul>
+    </div>
+    <div class="worksheet-section" id="sec13-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec13-mcq','sec13-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec13-short','sec13-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec13-long','sec13-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec13-ar','sec13-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec13-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Which is true for a mercury cell?
+                    <ul class="options"><li>It is a secondary battery</li><li>Electrolyte is NH₄Cl + ZnCl₂</li><li>Cell potential remains constant during its lifetime</li><li>Cathode is purely graphite</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> Overall reaction involves only pure solids and liquids (no aqueous ions whose concentrations change), so voltage is constant at 1.35V.</div>
+                </li>
+                <li>During discharging of a lead storage battery:
+                    <ul class="options"><li>SO₂ gas is evolved</li><li>Lead is formed at the anode</li><li>Density of sulfuric acid decreases</li><li>Lead sulfate is consumed</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> H₂SO₄ is consumed and H₂O is produced during discharge, diluting the electrolyte and decreasing its density.</div>
+                </li>
+                <li>In a dry cell, Mn oxidation state changes from:
+                    <ul class="options"><li>+4 to +3</li><li>+4 to +2</li><li>+3 to +2</li><li>+2 to +4</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> MnO₂ (+4) → MnO(OH) (+3).</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec13-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Write the charging reactions for a lead storage battery.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">During charging, cell acts as electrolytic cell (reactions reversed):<br>Cathode: PbSO₄ + 2e⁻ → Pb + SO₄²⁻<br>Anode: PbSO₄ + 2H₂O → PbO₂ + SO₄²⁻ + 4H⁺ + 2e⁻</div>
+                </li>
+                <li>Why does a dry cell become dead even when not used for a long time?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">The electrolyte paste contains NH₄Cl, which is acidic. Over time, this acidic medium slowly corrodes the zinc container (anode) even without a complete circuit, eventually destroying it.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec13-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Compare the Leclanché cell and the mercury cell with respect to construction and voltage profile.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Leclanché Cell:</strong> Anode=Zn, Cathode=C+MnO₂, Electrolyte=NH₄Cl+ZnCl₂ paste. Voltage starts at 1.5V but drops gradually because NH₄⁺ ion concentration decreases as reaction proceeds.<br><br><strong>Mercury Cell:</strong> Anode=Zn-Hg amalgam, Cathode=HgO+C, Electrolyte=KOH+ZnO paste. Voltage remains constant at 1.35V throughout its life because the reaction (Zn+HgO→ZnO+Hg) involves only pure solids/liquids — no aqueous ions that change concentration.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec13-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Voltage of a mercury cell remains constant throughout its life.<br><strong>Reason (R):</strong> The overall cell reaction does not involve any ions in solution whose concentration changes.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R is the perfect thermodynamic explanation (Q remains constant, so Ecell = E°cell − 0 = constant).</div>
+                </li>
+                <li><strong>Assertion (A):</strong> When a lead storage battery is discharging, it acts as an electrolytic cell.<br><strong>Reason (R):</strong> During discharge, sulfuric acid is consumed.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (D)</strong> A is false — discharging is a spontaneous process, making it a Galvanic cell. R is true (H₂SO₄ is consumed during discharge).</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 14: FUEL CELLS -->
+<!-- ============================================================ -->
+<div id="sec-14" class="section-container">
+    <h1 class="page-title">14. Fuel Cells</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>Fuel cells convert the energy of combustion of fuels (hydrogen, methane, methanol) directly into electrical energy. Unlike batteries, they produce electricity continuously as long as fuel and oxidant are supplied — they never become "dead."</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Example</span>
+        <h3>The Hydrogen-Oxygen (H₂-O₂) Fuel Cell</h3>
+        <div class="image-placeholder">[Diagram: H₂-O₂ fuel cell — H₂ bubbled into anode, O₂ into cathode, porous carbon electrodes with Pt catalyst, KOH electrolyte, electrical output shown]</div>
+        <p><strong>Construction:</strong> Porous carbon electrodes embedded with Pt/Pd catalyst, immersed in concentrated KOH or NaOH solution.</p>
+        <ul>
+            <li><strong>Cathode (Reduction):</strong> O₂(g) + 2H₂O(l) + 4e⁻ → 4OH⁻(aq)</li>
+            <li><strong>Anode (Oxidation):</strong> 2H₂(g) + 4OH⁻(aq) → 4H₂O(l) + 4e⁻</li>
+            <li><strong>Overall:</strong> 2H₂(g) + O₂(g) → 2H₂O(l)</li>
+        </ul>
+        <p><strong>Used in Apollo space missions</strong> — water produced was condensed for drinking water.</p>
+    </div>
+    <div class="card checkpoint">
+        <h3>Advantages of Fuel Cells</h3>
+        <ul>
+            <li><strong>High efficiency (~70%)</strong> vs. thermal plants (~40%) — direct conversion bypasses heat/mechanical losses</li>
+            <li><strong>Pollution-free</strong> — only byproduct is pure water</li>
+            <li><strong>Continuous operation</strong> — never becomes dead as long as fuel supplied</li>
+        </ul>
+    </div>
+    <div class="worksheet-section" id="sec14-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec14-mcq','sec14-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec14-short','sec14-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec14-long','sec14-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec14-ar','sec14-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec14-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Only byproduct of the H₂-O₂ fuel cell is:
+                    <ul class="options"><li>CO₂</li><li>CO</li><li>Water</li><li>Ammonia</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C) Water.</strong> 2H₂ + O₂ → 2H₂O.</div>
+                </li>
+                <li>Theoretical efficiency of a fuel cell is approximately:
+                    <ul class="options"><li>30%</li><li>40%</li><li>70%</li><li>100%</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C) 70%.</strong> Much superior to thermal power plants (~40%).</div>
+                </li>
+                <li>Fuel cells differ from standard batteries because:
+                    <ul class="options"><li>They don't use electrodes</li><li>They require external power</li><li>Reactants are continuously supplied from outside</li><li>They use non-spontaneous reactions</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> Batteries have fixed internal reactants; fuel cells consume externally supplied fuel continuously.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec14-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Write electrode reactions for the H₂-O₂ fuel cell.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Cathode: O₂(g) + 2H₂O(l) + 4e⁻ → 4OH⁻(aq)<br>Anode: 2H₂(g) + 4OH⁻(aq) → 4H₂O(l) + 4e⁻</div>
+                </li>
+                <li>State two major advantages of fuel cells over thermal power plants.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">1. <strong>Higher efficiency (~70%)</strong> vs ~40% for thermal plants — no energy lost as heat in mechanical stages.<br>2. <strong>Environmentally friendly</strong> — only byproduct is water; no greenhouse gases produced.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec14-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Describe the working of a H₂-O₂ fuel cell. Why was it chosen for the Apollo space programme?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Working:</strong> Porous carbon electrodes with Pt/Pd catalyst are immersed in concentrated KOH/NaOH. H₂ is continuously supplied to the anode compartment and O₂ to the cathode. H₂ is oxidized at the anode releasing electrons; O₂ is reduced at the cathode consuming electrons. Electrons flow through the external circuit generating electrical power. The overall reaction is simply H₂ combustion producing water.<br><br><strong>Apollo Programme:</strong> Chosen for its extremely high energy-to-weight ratio (critical in space), high efficiency, and the fact that the only byproduct is pure water — which was condensed and used as the astronauts' drinking water supply, solving two problems at once.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec14-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Fuel cells produce electricity at ~70% efficiency.<br><strong>Reason (R):</strong> Chemical energy is converted directly to electrical energy without thermal and mechanical intermediate stages.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R perfectly explains why fuel cells avoid the energy losses inherent in thermal → mechanical → electrical conversion chains.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> Fuel cells never become "dead" in the way primary batteries do.<br><strong>Reason (R):</strong> Reactants are continuously supplied from an external reservoir.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R is the correct explanation. Unlike a dry cell with fixed internal reactants, fuel cells run indefinitely as long as they are fed.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 15: CORROSION -->
+<!-- ============================================================ -->
+<div id="sec-15" class="section-container">
+    <h1 class="page-title">15. Corrosion</h1>
+    <div class="card textbook">
+        <h3>What is Corrosion?</h3>
+        <p>Corrosion is the slow eating away of metals due to attack by atmospheric gases (O₂, CO₂, H₂S, SO₂) and moisture. It is essentially an electrochemical process — the metal acts as a Galvanic cell with itself.</p>
+        <p>The most common example is <strong>rusting of iron</strong>.</p>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Core Mechanism</span>
+        <h3>Electrochemical Theory of Rusting</h3>
+        <div class="image-placeholder">[Diagram: Iron surface with anode region (Zn-depleted, impure Fe), cathode region (pure Fe), water droplet, electron flow and ion migration shown]</div>
+        <p>Iron rusts in the presence of both water and oxygen. Impurities in iron (e.g., carbon particles) create small Galvanic cells on the iron surface:</p>
+        <ul>
+            <li><strong>Anode (impure/stressed region):</strong> Fe(s) → Fe²⁺(aq) + 2e⁻  (iron oxidizes)</li>
+            <li><strong>Cathode (purer region/carbon impurity):</strong> O₂(g) + 4H⁺(aq) + 4e⁻ → 2H₂O(l)</li>
+            <li><strong>Fe²⁺ ions migrate</strong> through the moisture film to the cathode region</li>
+            <li><strong>Further oxidation:</strong> 4Fe²⁺ + O₂ + 8H⁺ → 4Fe³⁺</li>
+            <li><strong>Rust forms:</strong> Fe³⁺ + 3H₂O → Fe₂O₃·3H₂O (hydrated iron(III) oxide = rust)</li>
+        </ul>
+        <div class="info-box red">Both water AND oxygen are necessary for rusting. Pure water or pure dry air alone will not cause rusting.</div>
+    </div>
+    <div class="card checkpoint">
+        <h3>Prevention of Corrosion</h3>
+        <ul>
+            <li><strong>Barrier protection:</strong> Painting, oiling, greasing, electroplating with Ni/Cr</li>
+            <li><strong>Galvanizing:</strong> Coating iron with zinc. Even if zinc layer breaks, Zn is oxidized preferentially (sacrificial anode) — iron is protected</li>
+            <li><strong>Tinning:</strong> Coating with tin. If Sn layer breaks, Fe is oxidized (tin is NOT a sacrificial anode for iron — Fe is more reactive)</li>
+            <li><strong>Sacrificial anode:</strong> Connecting iron to a more reactive metal (Mg, Zn). The reactive metal oxidizes first, protecting iron (used in ship hulls)</li>
+            <li><strong>Anti-rust solutions:</strong> Adding inhibitors that coat the metal surface</li>
+            <li><strong>Alloying:</strong> Stainless steel (Fe + Cr + Ni) — Cr forms a protective Cr₂O₃ layer</li>
+        </ul>
+    </div>
+    <div class="worksheet-section" id="sec15-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec15-mcq','sec15-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec15-short','sec15-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec15-long','sec15-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec15-ar','sec15-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec15-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Rusting of iron is enhanced in the presence of:
+                    <ul class="options"><li>Dry air only</li><li>Pure water only</li><li>Electrolytes dissolved in water</li><li>Anhydrous solvents</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C)</strong> Dissolved electrolytes (like NaCl in sea water) increase conductivity of the moisture layer, accelerating the electrochemical corrosion process dramatically.</div>
+                </li>
+                <li>Galvanized iron is iron coated with zinc. If the zinc coating is scratched:
+                    <ul class="options"><li>Iron corrodes immediately</li><li>Zinc acts as sacrificial anode, protecting iron</li><li>Tin protects iron</li><li>Iron becomes the anode</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Zn has lower reduction potential than Fe (E°Zn²⁺/Zn = −0.76V vs E°Fe²⁺/Fe = −0.44V). Zn oxidizes preferentially, acting as sacrificial anode and protecting Fe even where coating is broken.</div>
+                </li>
+                <li>In the electrochemical corrosion of iron, the cathodic reaction is:
+                    <ul class="options"><li>Fe → Fe²⁺ + 2e⁻</li><li>O₂ + 4H⁺ + 4e⁻ → 2H₂O</li><li>Fe²⁺ + 2e⁻ → Fe</li><li>2H₂O → O₂ + 4H⁺ + 4e⁻</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B)</strong> Dissolved O₂ is reduced at the cathodic region.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec15-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>What is the chemical formula of rust? Write the overall equation for its formation.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Rust is <strong>Fe₂O₃·3H₂O</strong> (hydrated iron(III) oxide).<br>Overall: 4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O</div>
+                </li>
+                <li>Why does galvanizing protect iron better than tinning when the coating is scratched?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Zinc (E° = −0.76V) is more reactive than iron (E° = −0.44V). When the Zn coating scratches, Zn acts as sacrificial anode — it oxidizes instead of Fe, protecting it. Tin (E° = −0.14V) is less reactive than iron. When Sn is scratched, Fe becomes the anode and corrodes more rapidly. So galvanizing provides cathodic protection even when scratched; tinning does not.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec15-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Explain the electrochemical theory of rusting. What conditions are necessary? How does the sacrificial anode method prevent corrosion in ship hulls?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Conditions:</strong> Both water (with dissolved electrolytes) and oxygen must be present. Presence of CO₂ or SO₂ (forming carbonic/sulfurous acid) also accelerates the process.<br><br><strong>Mechanism:</strong> Impurities in iron create microscopic Galvanic cells. The impure/stressed region acts as anode — Fe oxidizes to Fe²⁺. The purer region (or carbon particles) acts as cathode — O₂ is reduced. Fe²⁺ ions migrate to cathode region, undergo further oxidation to Fe³⁺, and combine with OH⁻ to form Fe(OH)₃, which dehydrates to rust (Fe₂O₃·3H₂O).<br><br><strong>Sacrificial anode in ships:</strong> Blocks of Mg or Zn are bolted to the steel hull below the waterline. These metals have lower reduction potential than iron, so they oxidize preferentially. The electrons generated keep the iron cathodically protected. The Mg/Zn blocks dissolve slowly and are periodically replaced.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec15-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> Iron does not rust in dry air or pure water alone.<br><strong>Reason (R):</strong> Both water and oxygen must be present simultaneously for the electrochemical corrosion process to occur.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R correctly explains A. Dry air has no water film (no electrolyte medium); pure water has no O₂ to act as cathodic reactant.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> A tin-coated iron can (food tin) corrodes faster than bare iron once the tin coating is broken.<br><strong>Reason (R):</strong> Tin has a higher reduction potential than iron, making iron the anode in the galvanic couple formed.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R correctly explains A. E°Sn²⁺/Sn = −0.14V vs E°Fe²⁺/Fe = −0.44V. Fe has lower potential, acts as anode, and corrodes rapidly once Sn is broken.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 16: NCERT INTEXT -->
+<!-- ============================================================ -->
+<div id="sec-16" class="section-container">
+    <h1 class="page-title">16. Core In-Text Conceptual Questions</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>This section focuses on fundamental conceptual questions from the NCERT chapter text — practical applications like chemical storage safety, single-electrode potential measurement, and the effect of pH on the Nernst equation.</p>
+    </div>
+    <div class="worksheet-section" id="sec16-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec16-mcq','sec16-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec16-short','sec16-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec16-long','sec16-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec16-ar','sec16-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec16-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>Calculate the potential of a hydrogen electrode in contact with a solution of pH = 10.
+                    <ul class="options"><li>0.00 V</li><li>−0.0591 V</li><li>−0.591 V</li><li>+0.591 V</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C) −0.591 V.</strong> pH = 10 → [H⁺] = 10⁻¹⁰ M. E = 0 − (0.0591/1)×log(1/10⁻¹⁰) = −0.0591 × 10 = −0.591 V.</div>
+                </li>
+                <li>Which substance can oxidize Fe²⁺ to Fe³⁺ (E°Fe³⁺/Fe²⁺ = +0.77V)?
+                    <ul class="options"><li>Zn (E° = −0.76V)</li><li>Cu (E° = +0.34V)</li><li>Cl₂ (E° = +1.36V)</li><li>Ag metal (E° = +0.80V)</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C) Cl₂.</strong> To oxidize Fe²⁺, the oxidizing agent must have E° &gt; +0.77V. Cl₂ (+1.36V) qualifies. Note: it's Ag⁺ ions (not Ag metal) that would also qualify (+0.80V).</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec16-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Can you store copper sulphate solution in a zinc pot? Explain thermodynamically.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">No. E°Zn²⁺/Zn = −0.76V, E°Cu²⁺/Cu = +0.34V. Zinc is more reactive and will spontaneously oxidize, displacing copper: Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s). E°cell = +0.34 − (−0.76) = +1.10V &gt; 0, confirming spontaneous reaction. The pot will dissolve.</div>
+                </li>
+                <li>Why does conductivity of a solution decrease with dilution?
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">Conductivity (κ) is the conductance of exactly 1 cm³ of solution. On dilution, total volume increases — the number of current-carrying ions per cm³ decreases, lowering κ.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec16-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Describe how you would determine E° for the Mg²⁺/Mg half-cell using a SHE. Include cell notation and calculation.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Setup:</strong> Mg rod in 1M MgSO₄ (298K) connected via salt bridge + voltmeter to SHE (Pt in 1M HCl, H₂ at 1 bar).<br><br><strong>Observation:</strong> Voltmeter reads 2.36V; electrons flow from Mg to SHE → Mg is the anode.<br><br><strong>Calculation:</strong> E°cell = E°cathode − E°anode → 2.36 = 0.00 − E°Mg²⁺/Mg → <strong>E°Mg²⁺/Mg = −2.36V</strong><br><br><strong>Cell Notation:</strong> Mg(s) | Mg²⁺(aq, 1M) || H⁺(aq, 1M) | H₂(g, 1bar) | Pt(s)</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec16-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> A silver vessel is safe for storing CuSO₄ solution.<br><strong>Reason (R):</strong> E°Ag⁺/Ag (+0.80V) is higher than E°Cu²⁺/Cu (+0.34V).
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R correctly explains A. Silver has higher reduction potential — it prefers to stay as solid metal and cannot displace copper from CuSO₄.</div>
+                </li>
+                <li><strong>Assertion (A):</strong> The potential of a hydrogen electrode decreases when pH is increased.<br><strong>Reason (R):</strong> Increasing pH means decreasing [H⁺], which decreases reduction potential per Nernst equation.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R correctly explains A. E = −0.0591 × pH, so higher pH → more negative voltage.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 17: SOLVED EXERCISES -->
+<!-- ============================================================ -->
+<div id="sec-17" class="section-container">
+    <h1 class="page-title">17. Comprehensive Solved Exercises</h1>
+    <div class="card textbook">
+        <h3>Concept Overview</h3>
+        <p>Advanced problems often chain multiple formulas: use resistance → find conductivity → find molar conductivity → find degree of dissociation → find Ka. Practice these multi-step chains until they feel natural.</p>
+    </div>
+    <div class="worksheet-section" id="sec17-worksheets">
+        <h2>Practice Worksheets</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'sec17-mcq','sec17-worksheets')">MCQ</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec17-short','sec17-worksheets')">Short Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec17-long','sec17-worksheets')">Long Answer</button>
+            <button class="tab-btn" onclick="switchTab(event,'sec17-ar','sec17-worksheets')">Assertion/Reasoning</button>
+        </div>
+        <div id="sec17-mcq" class="tab-content active card textbook">
+            <ol class="question-list">
+                <li>If E°cell = 0.591V for a reaction with n = 2, what is Kc?
+                    <ul class="options"><li>10¹⁰</li><li>10²⁰</li><li>10³⁰</li><li>10⁴⁰</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (B) 10²⁰.</strong> logKc = nE°/0.0591 = (2×0.591)/0.0591 = 20. Kc = 10²⁰.</div>
+                </li>
+                <li>2.0A passed for 5 hours deposits 22.2g of metal (M = 177 g/mol). Oxidation state of metal?
+                    <ul class="options"><li>+1</li><li>+2</li><li>+3</li><li>+4</li></ul>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (C) +3.</strong> Q = 2×5×3600 = 36000C. Moles of metal = 22.2/177 = 0.125. F used = 36000/96487 = 0.373. n = 0.373/0.125 ≈ 3.</div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec17-short" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>Calculate potential for: Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O. Given [Cr₂O₇²⁻] = 0.10M, [Cr³⁺] = 0.20M, [H⁺] = 1.0×10⁻⁴M, E° = 1.33V.
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block">n = 6. E = 1.33 − (0.0591/6)log{(0.20)²/[0.10×(10⁻⁴)¹⁴]} = 1.33 − 0.00985×log(4×10⁵⁵) ≈ 1.33 − 0.55 = <strong>0.78V</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec17-long" class="tab-content card textbook">
+            <ol class="question-list">
+                <li>A conductivity cell with 0.001M KCl (κ = 0.146×10⁻³ S cm⁻¹) has R = 1500Ω. The same cell with 0.001M CH₃COOH has R = 3200Ω. Find: (a) cell constant, (b) degree of dissociation of acetic acid, (c) Ka. (Λ°m = 390.5 S cm² mol⁻¹)
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>(a) Cell constant:</strong> G* = κ × R = 0.146×10⁻³ × 1500 = <strong>0.219 cm⁻¹</strong><br><br><strong>(b) Conductivity of CH₃COOH:</strong> κ = G*/R = 0.219/3200 = 6.84×10⁻⁵ S cm⁻¹<br>Λm = (6.84×10⁻⁵ × 1000)/0.001 = 68.4 S cm² mol⁻¹<br>α = Λm/Λ°m = 68.4/390.5 = <strong>0.175</strong><br><br><strong>(c) Ka:</strong> Ka = cα²/(1−α) = (0.001 × 0.0306)/0.825 = <strong>3.7×10⁻⁵ mol L⁻¹</strong></div>
+                </li>
+            </ol>
+        </div>
+        <div id="sec17-ar" class="tab-content card textbook">
+            <div class="ar-directions"><strong>Directions:</strong> (A) Both A and R true, R explains A. (B) Both true, R does NOT explain A. (C) A true, R false. (D) A false, R true.</div>
+            <ol class="question-list">
+                <li><strong>Assertion (A):</strong> The cell constant calculated using KCl is independent of the volume of KCl solution in the cell.<br><strong>Reason (R):</strong> Cell constant is a purely physical characteristic determined by electrode geometry (l/A).
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="solution-block"><strong>Answer: (A)</strong> Both true; R correctly explains A. As long as electrodes are fully submerged, l and A do not change with volume.</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 18: STANDARD QUESTION BANK -->
+<!-- ============================================================ -->
+<div id="sec-18" class="section-container">
+    <h1 class="page-title">18. Standard Question Bank</h1>
+    <div class="card textbook">
+        <h3>Overview</h3>
+        <p>This question bank is organized into three sections following the CBSE board exam pattern:</p>
+        <ul>
+            <li><strong>Section A (Section 19):</strong> MCQ — 1 mark each. Tests rapid recall, conceptual clarity, and application of formulas.</li>
+            <li><strong>Section B (Section 20):</strong> Short Answer — 2 marks each. Tests concise explanation and single-step calculations.</li>
+            <li><strong>Section C (Section 21):</strong> Long Answer — 3–5 marks each. Tests multi-step numericals and detailed conceptual explanations.</li>
+        </ul>
+    </div>
+    <div class="card essential">
+        <span class="tag tag-essential">Marking Scheme Insights</span>
+        <h3>What Examiners Look For</h3>
+        <ul>
+            <li><strong>Numericals:</strong> Always write the formula first, then substitute values with units, then calculate. Even if the final answer is wrong, formula and method marks are awarded.</li>
+            <li><strong>Reactions:</strong> Write balanced equations — unbalanced equations lose marks even if the species are correct.</li>
+            <li><strong>Definitions:</strong> Use precise scientific language — e.g., "limiting molar conductivity" not just "maximum conductivity."</li>
+            <li><strong>1-mark MCQs:</strong> No partial marks — ensure conceptual clarity.</li>
+            <li><strong>Assertion-Reasoning:</strong> Evaluate A and R independently first, then judge if R explains A.</li>
+        </ul>
+    </div>
+    <div class="card checkpoint">
+        <h3>Most Frequently Tested Topics (Last 10 Years)</h3>
+        <ul>
+            <li>Nernst equation application (every year)</li>
+            <li>Kohlrausch law + Ka calculation</li>
+            <li>Faraday's law numericals</li>
+            <li>Lead storage battery reactions</li>
+            <li>Galvanic vs. Electrolytic cell comparison</li>
+            <li>Corrosion mechanism</li>
+            <li>Fuel cell electrode reactions</li>
+            <li>ΔG° and Kc from E°cell</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 19: MCQ 1 MARK -->
+<!-- ============================================================ -->
+<div id="sec-19" class="section-container">
+    <h1 class="page-title">19. Section A: Multiple Choice Questions (1 Mark)</h1>
+    <div class="card textbook">
+        <h3>Instructions</h3>
+        <p>1-mark MCQs covering the entire chapter. Answer before revealing the solution.</p>
+    </div>
+    <div class="card essential">
+        <ol class="question-list">
+            <li>Standard reduction potentials of metals A, B, C are +0.5V, −3.0V, −1.2V. Order of reducing power:
+                <ul class="options"><li>A &gt; B &gt; C</li><li>B &gt; C &gt; A</li><li>C &gt; B &gt; A</li><li>A &gt; C &gt; B</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (B) B &gt; C &gt; A.</strong> Lower (more negative) reduction potential = stronger reducing agent.</div>
+            </li>
+            <li>Unit of cell constant (G*) is:
+                <ul class="options"><li>Ω⁻¹ cm⁻¹</li><li>cm</li><li>cm⁻¹</li><li>S cm² mol⁻¹</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (C) cm⁻¹.</strong> G* = l/A = cm/cm² = cm⁻¹.</div>
+            </li>
+            <li>For Zn|Zn²⁺||Cu²⁺|Cu, if [Cu²⁺] is increased, Ecell will:
+                <ul class="options"><li>Decrease</li><li>Increase</li><li>Remain constant</li><li>Become zero</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (B) Increase.</strong> Q = [Zn²⁺]/[Cu²⁺]. Increasing [Cu²⁺] decreases Q → smaller log Q → smaller subtracted term → higher Ecell.</div>
+            </li>
+            <li>Λ°m(NaCl) = 126.4, Λ°m(HCl) = 425.9, Λ°m(CH₃COONa) = 91.0 S cm² mol⁻¹. Λ°m(CH₃COOH) =
+                <ul class="options"><li>208.5</li><li>390.5</li><li>425.9</li><li>516.9</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (B) 390.5 S cm² mol⁻¹.</strong> 91.0 + 425.9 − 126.4 = 390.5.</div>
+            </li>
+            <li>Faradays required to reduce 1 mole of Cr₂O₇²⁻ to Cr³⁺:
+                <ul class="options"><li>3 F</li><li>4 F</li><li>5 F</li><li>6 F</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (D) 6 F.</strong> Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O. 6 moles of electrons required.</div>
+            </li>
+            <li>Electrolysis of aqueous NaCl using Pt electrodes — product at anode:
+                <ul class="options"><li>O₂ gas</li><li>H₂ gas</li><li>Cl₂ gas</li><li>Na metal</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (C) Cl₂ gas.</strong> Though thermodynamics favors O₂, the high overpotential of O₂ formation makes Cl₂ evolution kinetically preferred.</div>
+            </li>
+            <li>For spontaneous electrochemical cell reaction, signs of Ecell and ΔG:
+                <ul class="options"><li>Ecell negative, ΔG negative</li><li>Ecell positive, ΔG positive</li><li>Ecell positive, ΔG negative</li><li>Ecell negative, ΔG positive</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (C)</strong> ΔG = −nFEcell. For spontaneous process: ΔG &lt; 0 → Ecell &gt; 0.</div>
+            </li>
+            <li>On diluting a strong electrolyte, κ and Λm change as:
+                <ul class="options"><li>Both increase</li><li>κ decreases, Λm increases</li><li>κ increases, Λm decreases</li><li>Both decrease</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (B)</strong> κ decreases (fewer ions per cm³); Λm increases (volume per mole increases faster).</div>
+            </li>
+            <li>Electrolyte in lead storage battery is:
+                <ul class="options"><li>NH₄Cl + ZnCl₂ paste</li><li>Aqueous KOH</li><li>38% H₂SO₄(aq)</li><li>Molten NaCl</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (C) 38% H₂SO₄(aq).</strong> Consumed during discharge, regenerated during charging.</div>
+            </li>
+            <li>Primary advantage of H₂-O₂ fuel cell over conventional thermal power plant:
+                <ul class="options"><li>100% efficiency</li><li>Produces AC directly</li><li>Converts chemical to electrical energy at ~70% efficiency, zero pollution</li><li>Does not require refueling</li></ul>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Answer: (C).</strong> Direct conversion bypasses thermal/mechanical losses; water is the only byproduct.</div>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 20: SHORT ANSWER 2 MARKS -->
+<!-- ============================================================ -->
+<div id="sec-20" class="section-container">
+    <h1 class="page-title">20. Section B: Short Answer Questions (2 Marks)</h1>
+    <div class="card textbook">
+        <h3>Instructions</h3>
+        <p>For numerical problems, state the formula used and include units in the final answer.</p>
+    </div>
+    <div class="card essential">
+        <ol class="question-list">
+            <li><strong>Q1:</strong> Explain why specific conductivity decreases with dilution but molar conductivity increases.
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Specific conductivity (κ):</strong> = conductance of 1 cm³. On dilution, ions per cm³ decrease → κ decreases.<br><strong>Molar conductivity (Λm):</strong> = κ × V (V = volume holding 1 mole). On dilution, V increases much faster than κ decreases → net product κV increases → Λm increases.</div>
+            </li>
+            <li><strong>Q2:</strong> Calculate mass of copper deposited when 2.0A flows through CuSO₄ for 20 minutes. (M(Cu) = 63.5 g/mol, F = 96487 C mol⁻¹)
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block">Q = 2.0 × (20×60) = 2400 C. Reaction: Cu²⁺ + 2e⁻ → Cu (n=2). m = (63.5 × 2400)/(2 × 96487) = <strong>0.789 g</strong></div>
+            </li>
+            <li><strong>Q3:</strong> State Kohlrausch's law. Write its expression for Λ°m of BaCl₂.
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Law:</strong> At infinite dilution, each ion makes a definite, independent contribution to the limiting molar conductivity, irrespective of the other ion present.<br>\(\Lambda^\circ_m(BaCl_2) = \lambda^\circ_{Ba^{2+}} + 2\lambda^\circ_{Cl^-}\)</div>
+            </li>
+            <li><strong>Q4:</strong> Why does a dry cell become dead even when not in use for a long time?
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block">The NH₄Cl electrolyte paste is acidic. Even without a complete circuit, the acidic medium slowly corrodes the zinc container (anode) over time, eventually destroying it.</div>
+            </li>
+            <li><strong>Q5:</strong> Write the Nernst equation for the Daniell cell. How does Ecell change if [Zn²⁺] is increased?
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block">\(E_{cell} = E^\circ_{cell} - \frac{0.0591}{2}\log\frac{[Zn^{2+}]}{[Cu^{2+}]}\)<br>Increasing [Zn²⁺] increases the numerator of log Q, making the subtracted term larger → Ecell <strong>decreases</strong>.</div>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 21: LONG ANSWER 3+ MARKS -->
+<!-- ============================================================ -->
+<div id="sec-21" class="section-container">
+    <h1 class="page-title">21. Section C: Long Answer Questions (3+ Marks)</h1>
+    <div class="card textbook">
+        <h3>Instructions</h3>
+        <p>State your formula, show all steps, and include units. Multi-part questions — answer each part clearly labeled.</p>
+    </div>
+    <div class="card essential">
+        <ol class="question-list">
+            <li><strong>Q1: Galvanic Cell Thermodynamics</strong><br>Cell: Mg(s)|Mg²⁺(0.1M)||Cu²⁺(0.001M)|Cu(s). E°Mg²⁺/Mg = −2.36V, E°Cu²⁺/Cu = +0.34V, F = 96487 C mol⁻¹.<br>(a) Write cell reaction. (b) Calculate Ecell. (c) Calculate ΔG°.
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>(a)</strong> Mg(s) + Cu²⁺(aq) → Mg²⁺(aq) + Cu(s), n = 2<br><br><strong>(b)</strong> E°cell = 0.34 − (−2.36) = 2.70V<br>Q = [Mg²⁺]/[Cu²⁺] = 0.1/0.001 = 100<br>Ecell = 2.70 − (0.0591/2)×log100 = 2.70 − 0.0591 = <strong>2.641V</strong><br><br><strong>(c)</strong> ΔG° = −nFE°cell = −2 × 96487 × 2.70 = −521,030 J mol⁻¹ = <strong>−521.03 kJ mol⁻¹</strong></div>
+            </li>
+            <li><strong>Q2: Faraday's Laws (Series Cells)</strong><br>Two cells in series — AgNO₃ (Cell A) and CuSO₄ (Cell B). Current = 1.5A until 1.45g Ag deposits in A.<br>(a) How long did current flow? (b) Mass of Cu deposited in B? (M(Ag)=108, M(Cu)=63.5 g/mol)
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>(a)</strong> Ag⁺ + e⁻ → Ag (n=1). Moles Ag = 1.45/108 = 0.01343 mol. Q = 0.01343 × 96487 = 1295.8C. t = Q/I = 1295.8/1.5 = <strong>863.9 s ≈ 14.4 min</strong><br><br><strong>(b)</strong> Same charge (1295.8C) through CuSO₄. Cu²⁺ + 2e⁻ → Cu (n=2). m = (63.5 × 1295.8)/(2 × 96487) = <strong>0.426 g</strong></div>
+            </li>
+            <li><strong>Q3: Kohlrausch Law + Ka Calculation</strong><br>Conductivity of 0.00241M CH₃COOH = 7.896×10⁻⁵ S cm⁻¹. Λ°m = 390.5 S cm² mol⁻¹. Find Λm, α, and Ka.
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Λm</strong> = (7.896×10⁻⁵ × 1000)/0.00241 = <strong>32.76 S cm² mol⁻¹</strong><br><strong>α</strong> = 32.76/390.5 = <strong>0.0839</strong><br><strong>Ka</strong> = (0.00241 × 0.0839²)/(1 − 0.0839) = (0.00241 × 0.00704)/0.9161 = <strong>1.85×10⁻⁵ mol L⁻¹</strong></div>
+            </li>
+            <li><strong>Q4: Lead Storage Battery</strong><br>Describe construction, electrode reactions during discharge, and explain why electrolyte density drops with use.
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                <div class="solution-block"><strong>Construction:</strong> Alternating plates of spongy Pb (anode) and PbO₂ (cathode) immersed in 38% H₂SO₄(aq) electrolyte.<br><br><strong>Discharge reactions:</strong><br>Anode: Pb + SO₄²⁻ → PbSO₄(s) + 2e⁻<br>Cathode: PbO₂ + SO₄²⁻ + 4H⁺ + 2e⁻ → PbSO₄(s) + 2H₂O<br>Overall: Pb + PbO₂ + 2H₂SO₄ → 2PbSO₄ + 2H₂O<br><br><strong>Density drop:</strong> H₂SO₄ is actively consumed and water is produced during discharge, diluting the electrolyte. A hydrometer measures density; low density = low charge remaining.</div>
+            </li>
+        </ol>
+    </div>
+</div>
+
+</main>
+
+<script>
+// Sidebar Navigation
+document.querySelectorAll('#navMenu li').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelectorAll('#navMenu li').forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+        const targetId = this.getAttribute('data-target');
+        document.querySelectorAll('.section-container').forEach(s => s.classList.remove('active'));
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.classList.add('active');
+            document.querySelector('.main-content').scrollTop = 0;
+            // Re-render MathJax for new section
+            if (window.MathJax) MathJax.typesetPromise([target]).catch(err => console.log(err));
+        }
+        // Close sidebar on mobile after click
+        if (window.innerWidth <= 768) closeSidebar();
+    });
+});
+
+// Toggle Answer
+function toggleAnswer(btn) {
+    const solution = btn.nextElementSibling;
+    if (solution.style.display === 'block') {
+        solution.style.display = 'none';
+        btn.textContent = 'Show Answer';
+    } else {
+        solution.style.display = 'block';
+        btn.textContent = 'Hide Answer';
+        if (window.MathJax) MathJax.typesetPromise([solution]).catch(err => console.log(err));
+    }
+}
+
+// Worksheet Tabs (scoped to section)
+function switchTab(evt, tabId, worksheetId) {
+    const ws = document.getElementById(worksheetId);
+    if (!ws) return;
+    ws.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    ws.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    evt.currentTarget.classList.add('active');
+    const tab = document.getElementById(tabId);
+    if (tab) {
+        tab.classList.add('active');
+        if (window.MathJax) MathJax.typesetPromise([tab]).catch(err => console.log(err));
+    }
+}
+
+// Mobile Hamburger
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('open');
+}
+function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+}
+
+// Initial MathJax render
+window.addEventListener('load', function() {
+    if (window.MathJax) MathJax.typesetPromise();
+});
+</script>
+</body>
+</html>

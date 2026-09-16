@@ -1,0 +1,15 @@
+# Enable directory index
+DirectoryIndex index.html
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Force trailing slash for directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ $1/ [L,R=301]
+
+# Serve index.html for directory requests
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*)$ $1/index.html [L]
+

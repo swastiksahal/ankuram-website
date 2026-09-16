@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Vectors: Introduction - What is a Vector | Ankuram Tuition</title>
+    <meta name="description" content="Learn what vectors are, how they differ from scalars, and how to represent them. Clear explanations with solved examples for Class 11 Physics and IIT JEE preparation.">
+    <meta name="keywords" content="vectors introduction, what is a vector, vector vs scalar, class 11 physics vectors, IIT JEE vectors">
+    <link rel="canonical" href="https://ankuramtuition.com/topics/vectors-introduction/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vectors: Introduction | Ankuram Tuition">
+    <meta property="og:description" content="Learn what vectors are, how they differ from scalars, and how to represent them.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ankuramtuition.com/topics/vectors-introduction/">
+    
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            --primary: #1e3a5f;
+            --primary-rgb: 30, 58, 95;
+            --cta-primary: #f97316;
+            --cta-primary-hover: #ea580c;
+            --bg-white: #ffffff;
+            --bg-gray: #f8f9fa;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --footer-bg: #1f2937;
+            --footer-text: #d1d5db;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1152px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 640px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 640px) {
+            h2 {
+                font-size: 1.875rem;
+            }
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        @media (min-width: 1024px) {
+            .header-content {
+                height: 80px;
+            }
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        
+        .logo-link:hover {
+            opacity: 0.8;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        
+        .nav-desktop {
+            display: none;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-desktop {
+                display: flex;
+            }
+        }
+        
+        .nav-link {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.15s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+            background-color: #f9fafb;
+        }
+        
+        .header-ctas {
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .header-ctas {
+                display: flex;
+            }
+        }
+        
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        
+        .btn-outline:hover {
+            background-color: #f9fafb;
+        }
+        
+        .btn-green {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: white;
+            background: #16a34a;
+            border: none;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        
+        .btn-green:hover {
+            background: #15803d;
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: #374151;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        .mobile-menu {
+            display: none;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 0.375rem;
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--primary);
+            background-color: #f9fafb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 4rem 0;
+            }
+        }
+        
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-meta {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Navigation Box */
+        .nav-box {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .nav-box-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-box-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .nav-box-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        
+        .nav-box-link:hover {
+            color: var(--cta-primary);
+        }
+        
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        @media (min-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr 280px;
+            }
+        }
+        
+        .content-area {
+            min-width: 0;
+        }
+        
+        .content-area p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .sidebar {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .sidebar {
+                display: block;
+                position: sticky;
+                top: 100px;
+                height: calc(100vh - 120px);
+                overflow-y: auto;
+            }
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .toc h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+        
+        .toc a:hover {
+            color: var(--primary);
+        }
+        
+        /* Mobile TOC */
+        .mobile-toc {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-toc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .mobile-toc-content {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .mobile-toc.active .mobile-toc-content {
+            display: block;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            font-weight: 600;
+            background: var(--bg-gray);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--cta-primary);
+            border: none;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--cta-primary-hover);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: transparent;
+            border: 1px solid var(--primary);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-show {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            background: transparent;
+            border: 1px solid var(--primary);
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .btn-show:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Examples */
+        .example {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .example-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.125rem;
+        }
+        
+        .solution {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .solution.active {
+            display: block;
+        }
+        
+        /* Formula Box */
+        .formula-box {
+            background: var(--bg-gray);
+            border-left: 4px solid var(--primary);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .formula-box h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .formula-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .formula-box li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .formula-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gray);
+            border-radius: 0.5rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .cta-benefits {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+        }
+        
+        .cta-benefits li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cta-benefits li::before {
+            content: "✓";
+            color: var(--cta-primary);
+            font-weight: bold;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Related Topics */
+        .related-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .related-topic-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s;
+        }
+        
+        .related-topic-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-section h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--footer-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: center;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        
+        /* KaTeX adjustments */
+        .katex {
+            font-size: 1.1em;
+        }
+        
+        .katex-display {
+            margin: 1rem 0;
+        }
+        
+        /* Prose styling */
+        .content-area strong {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="https://ankuramtuition.com" class="logo-link" aria-label="Ankuram Tuition Center - Home">
+                    <picture>
+                        <source srcset="/assets/images/ankuram-logo.avif" type="image/avif">
+                        <img src="/assets/images/ankuram-logo.png" alt="Ankuram Tuition Center" class="logo" width="120" height="40" decoding="async" loading="eager">
+                    </picture>
+                </a>
+                
+                <nav class="nav-desktop">
+                    <a href="https://ankuramtuition.com/programmes" class="nav-link">Programmes</a>
+                    <a href="https://ankuramtuition.com/approach" class="nav-link">Approach</a>
+                    <a href="https://ankuramtuition.com/about" class="nav-link">About</a>
+                    <a href="https://ankuramtuition.com/resources" class="nav-link">Resources</a>
+                    <a href="https://ankuramtuition.com/contact" class="nav-link">Contact</a>
+                </nav>
+                
+                <div class="header-ctas">
+                    <a href="tel:+917396669430" class="btn-outline">Call: +91 73966 69430</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="https://ankuramtuition.com/programmes" class="mobile-nav-link">Programmes</a>
+                <a href="https://ankuramtuition.com/approach" class="mobile-nav-link">Approach</a>
+                <a href="https://ankuramtuition.com/about" class="mobile-nav-link">About</a>
+                <a href="https://ankuramtuition.com/resources" class="mobile-nav-link">Resources</a>
+                <a href="https://ankuramtuition.com/contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="https://ankuramtuition.com">Home</a> > 
+                <a href="https://ankuramtuition.com/topics">Topics</a> > 
+                <a href="https://ankuramtuition.com/topics/vectors">Vectors</a> > 
+                Introduction
+            </nav>
+            <h1>Vectors: Introduction</h1>
+            <p class="hero-subtitle">What is a vector, how to represent it, and the foundation you need before anything else</p>
+            <p class="hero-meta">Duration: ~1.5 hours | Solved Illustrations: 6</p>
+        </div>
+    </section>
+
+    <!-- Navigation Box -->
+    <div class="container">
+        <div class="nav-box">
+            <div class="nav-box-item disabled">
+                <span>← Previous</span>
+            </div>
+            <div class="nav-box-item">
+                <a href="https://ankuramtuition.com/topics/vectors-lecture-2-components/" class="nav-box-link">Next: Components & Unit Vectors →</a>
+            </div>
+            <div class="nav-box-item">
+                <a href="https://ankuramtuition.com/topics/vectors-practice-1/" class="nav-box-link">Practice Sheet 1</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-layout">
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Mobile TOC -->
+                <div class="mobile-toc" id="mobileTOC">
+                    <div class="mobile-toc-header" onclick="toggleMobileTOC()">
+                        <h3>Table of Contents</h3>
+                        <span id="mobileTOCIcon">▼</span>
+                    </div>
+                    <div class="mobile-toc-content">
+                        <ul>
+                            <li><a href="#what-is-vector">What is a Vector?</a></li>
+                            <li><a href="#definition">The Definition</a></li>
+                            <li><a href="#identify">How to Identify Vectors vs Scalars</a></li>
+                            <li><a href="#daily-life">Examples from Daily Life</a></li>
+                            <li><a href="#common">Common Vectors and Scalars</a></li>
+                            <li><a href="#represent">How Do We Represent Vectors?</a></li>
+                            <li><a href="#simple-example">A Simple Example</a></li>
+                            <li><a href="#notation">Notation — How Do We Write Vectors?</a></li>
+                            <li><a href="#position-vectors">Position Vectors</a></li>
+                            <li><a href="#equal-vectors">Equal Vectors</a></li>
+                            <li><a href="#negative-vector">Negative of a Vector</a></li>
+                            <li><a href="#zero-vector">Zero Vector</a></li>
+                            <li><a href="#illustrations">Solved Illustrations</a></li>
+                            <li><a href="#takeaways">Key Takeaways</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 1: What is a Vector? -->
+                <section id="what-is-vector">
+                    <h2>What is a Vector?</h2>
+                    <p>Let's start with a simple situation.</p>
+                    <p>Your friend calls you and asks, "When will you reach my house?"</p>
+                    <p>What do you think about before answering?</p>
+                    <p>Two things:</p>
+                    <ol>
+                        <li><strong>How fast am I going?</strong> (Are you on a bike doing 40 km/h, or stuck in traffic barely moving?)</li>
+                        <li><strong>Which direction am I heading?</strong> (Are you going towards his house, or are you on the wrong road going the opposite way?)</li>
+                    </ol>
+                    <p>If you're going 60 km/h but in the wrong direction, you're not getting any closer. In fact, you're getting farther. Your speed doesn't matter if your direction is wrong.</p>
+                    <p>So when you answer your friend, you're actually calculating two things in your head — your speed AND your direction relative to his house.</p>
+                    <p>This is the idea behind a <strong>vector</strong>.</p>
+                </section>
+
+                <!-- Section 2: The Definition -->
+                <section id="definition">
+                    <h2>The Definition</h2>
+                    <p>A <strong>vector</strong> is any quantity that has both <strong>magnitude</strong> (how much) and <strong>direction</strong> (which way).</p>
+                    <p>A <strong>scalar</strong> is a quantity that has only <strong>magnitude</strong>. Direction doesn't apply to it.</p>
+                </section>
+
+                <!-- Section 3: How to Identify -->
+                <section id="identify">
+                    <h2>How to Identify Vectors vs Scalars</h2>
+                    <p>Here's a simple test. Ask yourself: "Does it make sense to ask 'in which direction' for this quantity?"</p>
+                    <p><strong>Temperature is 30°C.</strong> In which direction? The question doesn't make sense. Temperature is just a number. → <strong>Scalar</strong></p>
+                    <p><strong>Force is 50 N.</strong> In which direction? Yes, this matters! A push to the right is different from a push to the left. → <strong>Vector</strong></p>
+                    <p><strong>Mass is 10 kg.</strong> In which direction? Meaningless. Mass is just a number. → <strong>Scalar</strong></p>
+                    <p><strong>Velocity is 20 m/s.</strong> In which direction? Absolutely matters! 20 m/s north vs 20 m/s south are completely different. → <strong>Vector</strong></p>
+                </section>
+
+                <!-- Section 4: Examples from Daily Life -->
+                <section id="daily-life">
+                    <h2>Examples from Daily Life</h2>
+                    
+                    <h3>Velocity vs Speed</h3>
+                    <p>You're driving at 50 km/h. That's your speed — just a number, a scalar.</p>
+                    <p>But if I say you're driving at 50 km/h <strong>towards Hyderabad</strong>, now I've given direction too. This is velocity — a vector.</p>
+                    
+                    <h3>Force</h3>
+                    <p>You push a heavy table with 100 N of force. But push it in which direction? Towards the wall? Away from the wall?</p>
+                    <p>If two people push the same table with equal force but in opposite directions, the table doesn't move. The forces cancel out. Direction matters.</p>
+                    
+                    <h3>Displacement vs Distance</h3>
+                    <p>You walked 2 km. But 2 km in which direction?</p>
+                    <p>If you walked 1 km north and then 1 km south, you're back where you started. Your total <em>distance</em> is 2 km, but your <em>displacement</em> is zero.</p>
+                    <p>Distance is scalar (total ground covered). Displacement is vector (where you ended up relative to where you started).</p>
+                </section>
+
+                <!-- Section 5: Common Vectors and Scalars -->
+                <section id="common">
+                    <h2>Common Vectors and Scalars</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vector Quantities</th>
+                                <th>Scalar Quantities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Displacement</td>
+                                <td>Distance</td>
+                            </tr>
+                            <tr>
+                                <td>Velocity</td>
+                                <td>Speed</td>
+                            </tr>
+                            <tr>
+                                <td>Acceleration</td>
+                                <td>Mass</td>
+                            </tr>
+                            <tr>
+                                <td>Force</td>
+                                <td>Time</td>
+                            </tr>
+                            <tr>
+                                <td>Momentum</td>
+                                <td>Temperature</td>
+                            </tr>
+                            <tr>
+                                <td>Electric field</td>
+                                <td>Energy</td>
+                            </tr>
+                            <tr>
+                                <td>Magnetic field</td>
+                                <td>Work</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Power</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Section 6: How Do We Represent Vectors? -->
+                <section id="represent">
+                    <h2>How Do We Represent Vectors?</h2>
+                    <p>A vector has magnitude and direction. We need a way to show both.</p>
+                    <p>The simplest way: <strong>an arrow</strong>.</p>
+                    <ul>
+                        <li><strong>Length of the arrow</strong> → magnitude (how much)</li>
+                        <li><strong>Where the arrow points</strong> → direction (which way)</li>
+                    </ul>
+                    <p>When you draw an arrow on paper:</p>
+                    <ul>
+                        <li>The starting point is called the <strong>tail</strong></li>
+                        <li>The ending point (the tip) is called the <strong>head</strong></li>
+                        <li>The arrow points from tail to head</li>
+                    </ul>
+                </section>
+
+                <!-- Section 7: A Simple Example -->
+                <section id="simple-example">
+                    <h2>A Simple Example</h2>
+                    <p>Suppose you walk 4 km towards the east.</p>
+                    <p>You can represent this on paper:</p>
+                    <ul>
+                        <li>Pick a scale: let's say 1 cm = 1 km</li>
+                        <li>Draw an arrow 4 cm long, pointing to the right (east)</li>
+                    </ul>
+                    <p>That arrow IS your displacement vector. It captures both the 4 km (length) and the east direction (where it points).</p>
+                    <p>Now suppose your friend walks 4 km towards the north.</p>
+                    <p>His arrow is also 4 cm long, but it points upward (north).</p>
+                    <p>Same magnitude, different direction. <strong>Two different vectors.</strong></p>
+                </section>
+
+                <!-- Section 8: Notation -->
+                <section id="notation">
+                    <h2>Notation — How Do We Write Vectors?</h2>
+                    <p>When we write vectors, we need to distinguish them from regular numbers.</p>
+                    
+                    <h3>Arrow notation:</h3>
+                    <p>$\vec{a}$ or $\vec{AB}$</p>
+                    <p>The small arrow on top tells you "this is a vector, not just a number."</p>
+                    <p>$\vec{AB}$ means "the vector going from point A to point B."</p>
+                    
+                    <h3>Bold notation:</h3>
+                    <p><strong>a</strong> or <strong>F</strong></p>
+                    <p>In printed books, vectors are often written in bold.</p>
+                    
+                    <h3>Magnitude notation:</h3>
+                    <p>$|\vec{a}|$ or just $a$</p>
+                    <p>When you want only the magnitude (without direction), you write $|\vec{a}|$ or simply $a$.</p>
+                    <p>For example:</p>
+                    <ul>
+                        <li>$\vec{F}$ = force vector (has magnitude and direction)</li>
+                        <li>$|\vec{F}|$ or $F$ = magnitude of force (just a number, like 50 N)</li>
+                    </ul>
+                </section>
+
+                <!-- Section 9: Position Vectors -->
+                <section id="position-vectors">
+                    <h2>Position Vectors</h2>
+                    <p>Suppose you have a point P somewhere in space. How do you describe where P is?</p>
+                    <p>You pick a reference point called the <strong>origin</strong> (O). Then you draw an arrow from O to P.</p>
+                    <p>This arrow is called the <strong>position vector</strong> of P.</p>
+                    <p>It tells you: starting from the origin, how far and in which direction is point P?</p>
+                    <p>We write it as $\vec{OP}$ or $\vec{r}$.</p>
+                </section>
+
+                <!-- Section 10: Equal Vectors -->
+                <section id="equal-vectors">
+                    <h2>Equal Vectors</h2>
+                    <p>Two vectors are <strong>equal</strong> if they have:</p>
+                    <ol>
+                        <li>Same magnitude</li>
+                        <li>Same direction</li>
+                    </ol>
+                    <p>They don't have to start from the same point.</p>
+                    <p>If you draw two arrows of the same length pointing the same way, but in different parts of the page, they represent the same vector.</p>
+                </section>
+
+                <!-- Section 11: Negative of a Vector -->
+                <section id="negative-vector">
+                    <h2>Negative of a Vector</h2>
+                    <p>The <strong>negative</strong> of a vector $\vec{a}$ is written as $-\vec{a}$.</p>
+                    <p>It has:</p>
+                    <ul>
+                        <li>Same magnitude as $\vec{a}$</li>
+                        <li>Opposite direction</li>
+                    </ul>
+                    <p>If $\vec{a}$ points east, then $-\vec{a}$ points west with the same length.</p>
+                </section>
+
+                <!-- Section 12: Zero Vector -->
+                <section id="zero-vector">
+                    <h2>Zero Vector</h2>
+                    <p>The <strong>zero vector</strong>, written as $\vec{0}$, has:</p>
+                    <ul>
+                        <li>Magnitude = 0</li>
+                        <li>Direction = undefined (or any direction, doesn't matter)</li>
+                    </ul>
+                    <p>It's like standing still — no displacement in any direction.</p>
+                </section>
+
+                <!-- Solved Illustrations -->
+                <section id="illustrations">
+                    <h2>Solved Illustrations</h2>
+                    
+                    <!-- Illustration 1 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Illustration 1: Identifying Vectors and Scalars</div>
+                                <p><strong>Question:</strong> Classify the following as vectors or scalars:<br>
+                                (a) 5 m/s²<br>
+                                (b) 10 N towards north<br>
+                                (c) 273 K<br>
+                                (d) 50 kg<br>
+                                (e) 30 m/s eastward</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>(a) 5 m/s² — This is just a magnitude. No direction specified. But acceleration is inherently a vector quantity. As written here, only magnitude is given, so this represents the <strong>magnitude of acceleration</strong> (scalar representation). If we say "5 m/s² downward," it becomes a vector.</p>
+                            <p>(b) 10 N towards north — Force with direction specified. <strong>Vector.</strong></p>
+                            <p>(c) 273 K — Temperature. Direction doesn't apply. <strong>Scalar.</strong></p>
+                            <p>(d) 50 kg — Mass. Direction doesn't apply. <strong>Scalar.</strong></p>
+                            <p>(e) 30 m/s eastward — Speed with direction = velocity. <strong>Vector.</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Illustration 2 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Illustration 2: Understanding Displacement vs Distance</div>
+                                <p><strong>Question:</strong> A person walks 3 km north, then 4 km east. Find:<br>
+                                (a) Total distance covered<br>
+                                (b) Magnitude of displacement<br>
+                                (c) Direction of displacement</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>(a) <strong>Distance</strong> = total path length = 3 + 4 = <strong>7 km</strong></p>
+                            <p>(b) <strong>Displacement</strong> is the straight line from start to finish.</p>
+                            <p>Draw it: 3 km north, then 4 km east forms a right angle.</p>
+                            <p>The displacement is the hypotenuse:</p>
+                            <p>\[|\vec{d}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = \textbf{5 km}\]</p>
+                            <p>(c) <strong>Direction:</strong></p>
+                            <p>\[\tan\theta = \frac{\text{east component}}{\text{north component}} = \frac{4}{3}\]</p>
+                            <p>\[\theta = \tan^{-1}(1.33) \approx 53.1°\]</p>
+                            <p>Direction: <strong>53.1° east of north</strong> (or 36.9° north of east)</p>
+                        </div>
+                    </div>
+
+                    <!-- Illustration 3 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Illustration 3: Position Vector</div>
+                                <p><strong>Question:</strong> A point P has coordinates (3, 4) in a 2D plane. Write the position vector of P with respect to origin. Also find its magnitude.</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>Position vector of P:</p>
+                            <p>\[\vec{OP} = 3\hat{i} + 4\hat{j}\]</p>
+                            <p>(We'll learn about $\hat{i}$ and $\hat{j}$ in detail in Lecture 2, but for now, $\hat{i}$ means "along x-axis" and $\hat{j}$ means "along y-axis")</p>
+                            <p><strong>Magnitude:</strong></p>
+                            <p>\[|\vec{OP}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = \textbf{5 units}\]</p>
+                        </div>
+                    </div>
+
+                    <!-- Illustration 4 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Illustration 4: Equal Vectors</div>
+                                <p><strong>Question:</strong> Vector $\vec{a}$ goes from point (1, 2) to point (4, 6). Vector $\vec{b}$ goes from point (0, 0) to point (3, 4). Are $\vec{a}$ and $\vec{b}$ equal?</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>For vectors to be equal, they must have same magnitude AND same direction.</p>
+                            <p><strong>Vector $\vec{a}$:</strong></p>
+                            <ul>
+                                <li>Components: $(4-1, 6-2) = (3, 4)$</li>
+                                <li>Magnitude: $\sqrt{3^2 + 4^2} = 5$</li>
+                                <li>Direction: $\tan^{-1}(4/3) \approx 53.1°$ with x-axis</li>
+                            </ul>
+                            <p><strong>Vector $\vec{b}$:</strong></p>
+                            <ul>
+                                <li>Components: $(3-0, 4-0) = (3, 4)$</li>
+                                <li>Magnitude: $\sqrt{3^2 + 4^2} = 5$</li>
+                                <li>Direction: $\tan^{-1}(4/3) \approx 53.1°$ with x-axis</li>
+                            </ul>
+                            <p>Same magnitude ✓<br>
+                            Same direction ✓</p>
+                            <p><strong>Yes, $\vec{a} = \vec{b}$</strong></p>
+                            <p>Note: They start from different points, but that doesn't matter for equality. Only magnitude and direction matter.</p>
+                        </div>
+                    </div>
+
+                    <!-- Illustration 5 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Illustration 5: Negative Vector</div>
+                                <p><strong>Question:</strong> If $\vec{a} = 5$ units pointing 30° above the positive x-axis, describe $-\vec{a}$.</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>$-\vec{a}$ has:</p>
+                            <ul>
+                                <li>Same magnitude: <strong>5 units</strong></li>
+                                <li>Opposite direction: <strong>30° below the negative x-axis</strong> (or equivalently, 210° from positive x-axis)</li>
+                            </ul>
+                            <p>In other words, if $\vec{a}$ points to the upper right, $-\vec{a}$ points to the lower left.</p>
+                        </div>
+                    </div>
+
+                    <!-- Illustration 6 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Illustration 6: Resultant Displacement</div>
+                                <p><strong>Question:</strong> A bird flies 100 m east, then 100 m north, then 100 m west. What is the bird's displacement from its starting point?</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>Let's track the position:</p>
+                            <ul>
+                                <li>Start: Origin (0, 0)</li>
+                                <li>After 100 m east: (100, 0)</li>
+                                <li>After 100 m north: (100, 100)</li>
+                                <li>After 100 m west: (0, 100)</li>
+                            </ul>
+                            <p>Final position: (0, 100)<br>
+                            Starting position: (0, 0)</p>
+                            <p>Displacement vector: $(0-0, 100-0) = (0, 100)$</p>
+                            <p>Magnitude: $\sqrt{0^2 + 100^2} = \textbf{100 m}$</p>
+                            <p>Direction: <strong>Due north</strong> (along positive y-axis)</p>
+                            <p>Interesting: The bird flew 300 m total (distance), but ended up only 100 m from the start (displacement).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Takeaways -->
+                <section id="takeaways">
+                    <div class="formula-box">
+                        <h3>Key Takeaways</h3>
+                        <ul>
+                            <li>A <strong>vector</strong> has both magnitude and direction. A <strong>scalar</strong> has only magnitude.</li>
+                            <li>Test: "Does 'in which direction' make sense?" If yes → vector. If no → scalar.</li>
+                            <li>Vectors are represented as <strong>arrows</strong>. Length = magnitude, arrowhead = direction.</li>
+                            <li><strong>Position vector</strong> of a point P is the arrow from origin O to P.</li>
+                            <li>Two vectors are <strong>equal</strong> if they have same magnitude AND same direction (starting point doesn't matter).</li>
+                            <li><strong>Negative of a vector</strong> has same magnitude but opposite direction.</li>
+                            <li><strong>Zero vector</strong> has zero magnitude and undefined direction.</li>
+                            <li>Distance is scalar (total path). Displacement is vector (start to end).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- What's Next -->
+                <section id="whats-next">
+                    <h2>What's Next</h2>
+                    <p>In <strong>Lecture 2</strong>, we'll learn:</p>
+                    <ul>
+                        <li>The coordinate system and unit vectors ($\hat{i}$, $\hat{j}$, $\hat{k}$)</li>
+                        <li>How to write any vector in component form</li>
+                        <li>How to find components when you know magnitude and angle (and WHY the formulas work)</li>
+                        <li>Direction cosines and direction ratios</li>
+                    </ul>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <h2>Need Help Understanding Vectors?</h2>
+                    <p>Contact us for personalized tutoring support</p>
+                    
+                    <ul class="cta-benefits">
+                        <li>One-on-one session with experienced tutor</li>
+                        <li>Personalized learning plan</li>
+                        <li>Covers all boards: CBSE, ICSE, IB, IGCSE, A-Levels</li>
+                    </ul>
+                    
+                    <div class="cta-buttons">
+                        <a href="tel:+917396669430" class="btn-primary">Call +91 73966 69430</a>
+                    </div>
+                </section>
+
+                <!-- Related Topics -->
+                <section>
+                    <h2>Related Topics</h2>
+                    <div class="related-topics">
+                        <a href="https://ankuramtuition.com/topics/vectors-lecture-2-components/" class="related-topic-card">
+                            <h3>Components & Unit Vectors</h3>
+                            <p>Next in series</p>
+                        </a>
+                        <a href="https://ankuramtuition.com/topics/vectors-lecture-3-addition/" class="related-topic-card">
+                            <h3>Vector Addition</h3>
+                            <p>Coming soon</p>
+                        </a>
+                        <a href="https://ankuramtuition.com/topics/vectors-practice-1/" class="related-topic-card">
+                            <h3>Practice Sheet 1</h3>
+                            <p>Test your understanding</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Navigation Box (Bottom) -->
+                <div class="nav-box">
+                    <div class="nav-box-item disabled">
+                        <span>← Previous</span>
+                    </div>
+                    <div class="nav-box-item">
+                        <a href="https://ankuramtuition.com/topics/vectors-lecture-2-components/" class="nav-box-link">Next: Components & Unit Vectors →</a>
+                    </div>
+                    <div class="nav-box-item">
+                        <a href="https://ankuramtuition.com/topics/vectors-practice-1/" class="nav-box-link">Practice Sheet 1</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop Sidebar -->
+            <aside class="sidebar">
+                <div class="toc">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#what-is-vector">What is a Vector?</a></li>
+                        <li><a href="#definition">The Definition</a></li>
+                        <li><a href="#identify">How to Identify Vectors vs Scalars</a></li>
+                        <li><a href="#daily-life">Examples from Daily Life</a></li>
+                        <li><a href="#common">Common Vectors and Scalars</a></li>
+                        <li><a href="#represent">How Do We Represent Vectors?</a></li>
+                        <li><a href="#simple-example">A Simple Example</a></li>
+                        <li><a href="#notation">Notation — How Do We Write Vectors?</a></li>
+                        <li><a href="#position-vectors">Position Vectors</a></li>
+                        <li><a href="#equal-vectors">Equal Vectors</a></li>
+                        <li><a href="#negative-vector">Negative of a Vector</a></li>
+                        <li><a href="#zero-vector">Zero Vector</a></li>
+                        <li><a href="#illustrations">Solved Illustrations</a></li>
+                        <li><a href="#takeaways">Key Takeaways</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Ankuram Tuition Centre provides expert tuition for Grades 8-12 in Jubilee Hills, Hyderabad.</p>
+                    <p>13+ years of teaching experience.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://ankuramtuition.com/programmes">Programmes</a></li>
+                        <li><a href="https://ankuramtuition.com/approach">Approach</a></li>
+                        <li><a href="https://ankuramtuition.com/about">About</a></li>
+                        <li><a href="https://ankuramtuition.com/resources">Resources</a></li>
+                        <li><a href="https://ankuramtuition.com/contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://ankuramtuition.com/topics">Topics</a></li>
+                        <li><a href="https://ankuramtuition.com/practice">Practice Sheets</a></li>
+                        <li><a href="https://ankuramtuition.com/notes">Study Notes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Plot 229, Road No. 72,<br>Prashasan Nagar, Jubilee Hills,<br>Hyderabad - 500033</p>
+                    <p><a href="tel:+917396669430">+91 73966 69430</a></p>
+                    <p><a href="mailto:contact@ankuramtuition.com">contact@ankuramtuition.com</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Ankuram Tuition Centre. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const isActive = mobileMenu.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isActive);
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Mobile TOC Toggle
+        function toggleMobileTOC() {
+            const toc = document.getElementById('mobileTOC');
+            const icon = document.getElementById('mobileTOCIcon');
+            toc.classList.toggle('active');
+            icon.textContent = toc.classList.contains('active') ? '▲' : '▼';
+        }
+        
+        // Toggle Solution
+        function toggleSolution(button) {
+            const solution = button.nextElementSibling;
+            const isActive = solution.classList.contains('active');
+            
+            if (isActive) {
+                solution.classList.remove('active');
+                button.textContent = 'Show Solution';
+            } else {
+                solution.classList.add('active');
+                button.textContent = 'Hide Solution';
+            }
+        }
+        
+        // Smooth Scroll for TOC links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Vectors: Introduction",
+        "description": "Learn what vectors are, how they differ from scalars, and how to represent them.",
+        "author": {
+            "@type": "Organization",
+            "name": "Ankuram Tuition Centre"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ankuram Tuition Centre",
+            "url": "https://ankuramtuition.com"
+        },
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-01-01",
+        "educationalLevel": "Grade 11",
+        "learningResourceType": "Lecture",
+        "subject": "Physics",
+        "about": {
+            "@type": "Thing",
+            "name": "Vectors"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://ankuramtuition.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Topics",
+                    "item": "https://ankuramtuition.com/topics"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Vectors: Introduction",
+                    "item": "https://ankuramtuition.com/topics/vectors-introduction/"
+                }
+            ]
+        }
+    }
+    </script>
+</body>
+</html>
+

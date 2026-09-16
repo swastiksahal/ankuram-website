@@ -1,0 +1,148 @@
+# ============================================================================
+# .htaccess for ankuramtuition.com
+# Updated: July 29, 2026
+#
+# WHAT CHANGED (vs June 29 version):
+#   - Added ib-pyp-tuition-hyderabad redirect to ib-myp-tuition-hyderabad
+#   - Added class-12-tuition redirect to class-11-tuition
+# ============================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ------------------------------------------------------------------
+  # SECTION 1: DOMAIN NORMALIZATION
+  # ------------------------------------------------------------------
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://ankuramtuition.com/$1 [L,R=301]
+
+  # ------------------------------------------------------------------
+  # SECTION 2: URL CLEANUP
+  # ------------------------------------------------------------------
+  RewriteRule ^index(\.html)?$ / [L,R=301]
+
+  RewriteCond %{THE_REQUEST} /([^.]+)\.html[\s?] [NC]
+  RewriteRule ^(.+)\.html$ /$1 [L,R=301]
+
+  # ------------------------------------------------------------------
+  # SECTION 3: OLD URL REDIRECTS (301)
+  # ------------------------------------------------------------------
+
+  # --- Curriculum/board landing pages ---
+  RewriteRule ^cbsetuitioncentrejubileehillshyderabad/?$ /cbse-tuition-jubilee-hills [L,R=301]
+  RewriteRule ^best-icse-tuition-centre/?$ /icse-tuition-hyderabad [L,R=301]
+  RewriteRule ^best-igcse-tuition-centre/?$ /igcse-tuition-jubilee-hills [L,R=301]
+  RewriteRule ^ibmyp-year-4-and-5-crash-course/?$ /ib-myp-tuition-hyderabad [L,R=301]
+  RewriteRule ^ib-landing-page/?$ /ib-myp-tuition-hyderabad [L,R=301]
+  RewriteRule ^study-materials/ib/?$ /ib-myp-tuition-hyderabad [L,R=301]
+  RewriteRule ^ib-pyp-tuition-hyderabad/?$ /ib-myp-tuition-hyderabad [L,R=301]
+  RewriteRule ^class-12-tuition/?$ /class-11-tuition [L,R=301]
+
+  # --- Class/grade pages ---
+  RewriteRule ^class-10-tuition-center/?$ /online-class-10-tuition [L,R=301]
+  RewriteRule ^tuition-classes-for-10th/?$ /online-class-10-tuition [L,R=301]
+  RewriteRule ^class-10-maths-tuition-how-tuitions-can-help-you-achieve-success/?$ /online-class-10-tuition [L,R=301]
+  RewriteRule ^class-8-maths-tuition-near-me/?$ /class-8-maths/class-8-maths-tuition-near-me [L,R=301]
+
+  # --- Old service/category pages → homepage ---
+  RewriteRule ^tuition-classes/?$ / [L,R=301]
+  RewriteRule ^blogs/?$ / [L,R=301]
+  RewriteRule ^products/?$ / [L,R=301]
+  RewriteRule ^curriculums/?$ / [L,R=301]
+  RewriteRule ^ankuram-tuition-centre-pictures/?$ / [L,R=301]
+  RewriteRule ^top-tuition-centre-near-me/?$ / [L,R=301]
+
+  # --- Old blog posts ---
+  RewriteRule ^how-ankuram-tuition-centre-building-strong-foundations-and-cultivating-critical-thinking-skills-in-math/?$ /how-we-teach [L,R=301]
+  RewriteRule ^the-importance-of-enrolling-in-a-nearby-tuition-centre/?$ / [L,R=301]
+  RewriteRule ^excel-in-icse-and-igcse-with-the-help-of-ankuram-tuition-centre/?$ / [L,R=301]
+  RewriteRule ^online-classes-vs-offline-classes/?$ / [L,R=301]
+
+  # --- Old area/location pages → homepage ---
+  RewriteRule ^areas/kukatpally/?$ / [L,R=301]
+#   RewriteRule ^areas/manikonda/?$ / [L,R=301]
+#   RewriteRule ^areas/secunderabad/?$ / [L,R=301]
+#   RewriteRule ^areas/kokapet/?$ / [L,R=301]
+#   RewriteRule ^areas/.+$ / [L,R=301]
+  RewriteRule ^tuition-center-in-saroornagar/?$ / [L,R=301]
+  RewriteRule ^tuition-center-in-saroor-nagar/?$ / [L,R=301]
+  RewriteRule ^maths-tuition-centre-near-me-in-saroornagar/?$ / [L,R=301]
+  RewriteRule ^tuition-center-in-jubilee-hills/?$ / [L,R=301]
+  RewriteRule ^best-tuition-centre-in-financial-district/?$ / [L,R=301]
+  RewriteRule ^best-tuition-centre-in-gachibowli/?$ / [L,R=301]
+  RewriteRule ^best-tuition-centre-in-hitec-city/?$ / [L,R=301]
+  RewriteRule ^best-maths-tutor-in-texas/?$ / [L,R=301]
+
+  # --- WordPress infrastructure catch-all ---
+  RewriteRule ^wp-content/ / [L,R=301]
+  RewriteRule ^wp-admin/?$ / [L,R=301]
+  RewriteRule ^wp-login\.php$ / [L,R=301]
+  RewriteRule ^wp-includes/ / [L,R=301]
+  RewriteRule ^wp-json/ / [L,R=301]
+  RewriteRule ^xmlrpc\.php$ / [L,R=301]
+  RewriteRule ^feed/?$ / [L,R=301]
+  RewriteRule ^category/ / [L,R=301]
+  RewriteRule ^tag/ / [L,R=301]
+  RewriteRule ^author/ / [L,R=301]
+  RewriteRule ^page/ / [L,R=301]
+
+  # ------------------------------------------------------------------
+  # SECTION 4: TRAILING SLASH REMOVAL
+  # ------------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [L,R=301]
+
+  # ------------------------------------------------------------------
+  # SECTION 5: CLEAN URL REWRITE — MUST BE LAST
+  # ------------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/atom+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+ErrorDocument 404 /404.html

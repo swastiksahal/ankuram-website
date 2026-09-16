@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Vectors Class 11 Physics | Formulas, Examples & Practice | Ankuram</title>
+    <meta name="description" content="Complete guide to Vectors for Class 11 Physics. Covers dot product, cross product, solved examples & curriculum-wise practice for CBSE, ICSE, IGCSE & IB. Free study material.">
+    <meta name="keywords" content="vectors class 11 physics, vectors formulas, dot product, cross product, CBSE vectors, ICSE vectors, IGCSE vectors, IB vectors, physics class 11">
+    <link rel="canonical" href="https://ankuramtuition.com/topics/vectors-class-11-physics/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vectors Class 11 Physics | Ankuram Tuition Centre">
+    <meta property="og:description" content="Complete guide to Vectors for Class 11 Physics with formulas, examples & practice questions.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ankuramtuition.com/topics/vectors-class-11-physics/">
+    
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            --primary: #1e3a5f;
+            --primary-rgb: 30, 58, 95;
+            --cta-primary: #f97316;
+            --cta-primary-hover: #ea580c;
+            --bg-white: #ffffff;
+            --bg-gray: #f8f9fa;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --footer-bg: #1f2937;
+            --footer-text: #d1d5db;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1152px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 640px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            h2 {
+                font-size: 1.875rem;
+            }
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        @media (min-width: 640px) {
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        @media (min-width: 1024px) {
+            .header-content {
+                height: 80px;
+            }
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        
+        .logo-link:hover {
+            opacity: 0.8;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        
+        .nav-desktop {
+            display: none;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-desktop {
+                display: flex;
+            }
+        }
+        
+        .nav-link {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.15s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+            background-color: #f9fafb;
+        }
+        
+        .header-ctas {
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .header-ctas {
+                display: flex;
+            }
+        }
+        
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        
+        .btn-outline:hover {
+            background-color: #f9fafb;
+        }
+        
+        .btn-green {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: white;
+            background: #16a34a;
+            border: none;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        
+        .btn-green:hover {
+            background: #15803d;
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: #374151;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        .mobile-menu {
+            display: none;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 0.375rem;
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--primary);
+            background-color: #f9fafb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 4rem 0;
+            }
+        }
+        
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-meta {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        @media (min-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr 280px;
+            }
+        }
+        
+        .content-area {
+            min-width: 0;
+        }
+        
+        .sidebar {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .sidebar {
+                display: block;
+                position: sticky;
+                top: 100px;
+                height: calc(100vh - 120px);
+                overflow-y: auto;
+            }
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .toc h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+        
+        .toc a:hover {
+            color: var(--primary);
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Accordion */
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--bg-white);
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: background 0.15s;
+        }
+        
+        .accordion-header:hover {
+            background: var(--bg-gray);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+        
+        .accordion-body {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            font-weight: 600;
+            background: var(--bg-gray);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--cta-primary);
+            border: none;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--cta-primary-hover);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: transparent;
+            border: 1px solid var(--primary);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-show {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            background: transparent;
+            border: 1px solid var(--primary);
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .btn-show:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Tabs */
+        .tabs {
+            margin: 2rem 0;
+        }
+        
+        .tabs-list {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s;
+        }
+        
+        .tab-button:hover {
+            color: var(--primary);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Formula Box */
+        .formula-box {
+            background: var(--bg-gray);
+            border-left: 4px solid var(--primary);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .formula-box h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .formula-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .formula-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Examples */
+        .example {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .example-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .solution {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .solution.active {
+            display: block;
+        }
+        
+        /* Practice Questions */
+        .question {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .question-options {
+            list-style: none;
+            margin: 0.75rem 0;
+        }
+        
+        .question-options li {
+            padding: 0.5rem 0;
+        }
+        
+        .answer {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--bg-gray);
+            border-radius: 0.375rem;
+        }
+        
+        .answer.active {
+            display: block;
+        }
+        
+        .answer-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gray);
+            border-radius: 0.5rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-benefits {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-benefits li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cta-benefits li::before {
+            content: "✓";
+            color: var(--cta-primary);
+            font-weight: bold;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Related Topics */
+        .related-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .related-topic-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s;
+        }
+        
+        .related-topic-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-section h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--footer-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: center;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        /* Mobile TOC */
+        .mobile-toc {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-toc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .mobile-toc-content {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .mobile-toc.active .mobile-toc-content {
+            display: block;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        
+        /* KaTeX adjustments */
+        .katex {
+            font-size: 1.1em;
+        }
+        
+        .katex-display {
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="https://ankuramtuition.com" class="logo-link" aria-label="Ankuram Tuition Center - Home">
+                    <picture>
+                        <source srcset="/assets/images/ankuram-logo.avif" type="image/avif">
+                        <img src="/assets/images/ankuram-logo.png" alt="Ankuram Tuition Center" class="logo" width="120" height="40" decoding="async" loading="eager">
+                    </picture>
+                </a>
+                
+                <nav class="nav-desktop">
+                    <a href="https://ankuramtuition.com" class="nav-link">Home</a>
+                    <a href="https://ankuramtuition.com/maths" class="nav-link">Maths</a>
+                    <a href="https://ankuramtuition.com/physics" class="nav-link">Physics</a>
+                    <a href="https://ankuramtuition.com/chemistry" class="nav-link">Chemistry</a>
+                    <a href="https://ankuramtuition.com/cbse" class="nav-link">CBSE</a>
+                    <a href="https://ankuramtuition.com/icse" class="nav-link">ICSE</a>
+                    <a href="https://ankuramtuition.com/igcse" class="nav-link">IGCSE</a>
+                    <a href="https://ankuramtuition.com/ib" class="nav-link">IB</a>
+                </nav>
+                
+                <div class="header-ctas">
+                    <a href="tel:+919396669430" class="btn-outline">Call</a>
+                    <a href="https://wa.me/917396669430?text=Hi%2C%20I'm%20interested%20in%20tuition%20at%20Ankuram%20for%20my%20child." class="btn-green" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="https://ankuramtuition.com" class="mobile-nav-link">Home</a>
+                <a href="https://ankuramtuition.com/maths" class="mobile-nav-link">Maths</a>
+                <a href="https://ankuramtuition.com/physics" class="mobile-nav-link">Physics</a>
+                <a href="https://ankuramtuition.com/chemistry" class="mobile-nav-link">Chemistry</a>
+                <a href="https://ankuramtuition.com/cbse" class="mobile-nav-link">CBSE</a>
+                <a href="https://ankuramtuition.com/icse" class="mobile-nav-link">ICSE</a>
+                <a href="https://ankuramtuition.com/igcse" class="mobile-nav-link">IGCSE</a>
+                <a href="https://ankuramtuition.com/ib" class="mobile-nav-link">IB</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="https://ankuramtuition.com">Home</a> > 
+                <a href="https://ankuramtuition.com/topics">Topics</a> > 
+                <a href="https://ankuramtuition.com/topics/class-11">Class 11</a> > 
+                <a href="https://ankuramtuition.com/topics/physics">Physics</a> > 
+                Vectors
+            </nav>
+            <h1>Vectors - Class 11 Physics</h1>
+            <p class="hero-subtitle">Complete guide with concepts, formulas, solved examples & practice questions</p>
+            <p class="hero-meta">CBSE, ICSE, IGCSE, IB aligned | Updated for 2025-26</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-layout">
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Mobile TOC -->
+                <div class="mobile-toc" id="mobileTOC">
+                    <div class="mobile-toc-header" onclick="toggleMobileTOC()">
+                        <h3>Table of Contents</h3>
+                        <span id="mobileTOCIcon">▼</span>
+                    </div>
+                    <div class="mobile-toc-content">
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#vector-vs-scalar">Vector vs Scalar</a></li>
+                            <li><a href="#representation">Vector Representation</a></li>
+                            <li><a href="#types">Types of Vectors</a></li>
+                            <li><a href="#addition">Vector Addition</a></li>
+                            <li><a href="#subtraction">Vector Subtraction</a></li>
+                            <li><a href="#scalar-mult">Scalar Multiplication</a></li>
+                            <li><a href="#dot-product">Dot Product</a></li>
+                            <li><a href="#cross-product">Cross Product</a></li>
+                            <li><a href="#direction-cosines">Direction Cosines</a></li>
+                            <li><a href="#formulas">Quick Formulas</a></li>
+                            <li><a href="#examples">Solved Examples</a></li>
+                            <li><a href="#practice">Practice Questions</a></li>
+                            <li><a href="#revision">Quick Revision</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Formula Reference Box -->
+                <div class="formula-box" id="formulaBox">
+                    <h3>Quick Formula Reference</h3>
+                    <div class="formula-item">
+                        <strong>Magnitude:</strong> \(|\vec{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}\)
+                    </div>
+                    <div class="formula-item">
+                        <strong>Unit Vector:</strong> \(\hat{a} = \frac{\vec{a}}{|\vec{a}|}\)
+                    </div>
+                    <div class="formula-item">
+                        <strong>Dot Product:</strong> \(\vec{a} \cdot \vec{b} = a_xb_x + a_yb_y + a_zb_z\)
+                    </div>
+                    <div class="formula-item">
+                        <strong>Angle:</strong> \(\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}\)
+                    </div>
+                    <div class="formula-item">
+                        <strong>Resultant:</strong> \(|\vec{R}| = \sqrt{A^2 + B^2 + 2AB\cos\theta}\)
+                    </div>
+                </div>
+
+                <!-- Core Concepts -->
+                <section id="core-concepts">
+                    <h2>Core Concepts</h2>
+                    
+                    <!-- Concept 1: Introduction -->
+                    <div class="accordion-item" id="introduction">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>1. Introduction to Vectors</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><strong>Definition:</strong> A vector is a mathematical quantity that has both <strong>magnitude</strong> (size) and <strong>direction</strong>. Unlike scalars, which only have magnitude, vectors are used to represent physical quantities like displacement, velocity, force, and acceleration.</p>
+                                <p>Vectors are typically represented by an arrow, where:</p>
+                                <ul>
+                                    <li>The <strong>length</strong> of the arrow represents the magnitude</li>
+                                    <li>The <strong>arrowhead</strong> indicates the direction</li>
+                                </ul>
+                                <p><strong>Examples of Vector Quantities:</strong></p>
+                                <ul>
+                                    <li>Displacement</li>
+                                    <li>Velocity</li>
+                                    <li>Acceleration</li>
+                                    <li>Force</li>
+                                    <li>Momentum</li>
+                                    <li>Electric field</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 2: Vector vs Scalar -->
+                    <div class="accordion-item" id="vector-vs-scalar">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>2. Vector vs Scalar</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Property</th>
+                                            <th>Scalar</th>
+                                            <th>Vector</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Has magnitude</td>
+                                            <td>✓</td>
+                                            <td>✓</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Has direction</td>
+                                            <td>✗</td>
+                                            <td>✓</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Examples</td>
+                                            <td>Mass, Speed, Temperature, Time, Distance</td>
+                                            <td>Force, Velocity, Displacement, Acceleration</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mathematical operations</td>
+                                            <td>Simple arithmetic</td>
+                                            <td>Vector algebra</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 3: Representation -->
+                    <div class="accordion-item" id="representation">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>3. Vector Representation & Notation</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><strong>Arrow Notation:</strong> \(\vec{a}\) or \(\overrightarrow{AB}\)</p>
+                                <p><strong>Component Form (2D):</strong></p>
+                                <p>\[\vec{a} = a_x\hat{i} + a_y\hat{j}\]</p>
+                                <p>or</p>
+                                <p>\[\vec{a} = (a_x, a_y)\]</p>
+                                <p><strong>Component Form (3D):</strong></p>
+                                <p>\[\vec{a} = a_x\hat{i} + a_y\hat{j} + a_z\hat{k}\]</p>
+                                <p>or</p>
+                                <p>\[\vec{a} = (a_x, a_y, a_z)\]</p>
+                                <p><strong>Magnitude:</strong></p>
+                                <p>\[|\vec{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}\]</p>
+                                <p><strong>Standard Unit Vectors:</strong></p>
+                                <ul>
+                                    <li>\(\hat{i} = (1, 0, 0)\) - unit vector along x-axis</li>
+                                    <li>\(\hat{j} = (0, 1, 0)\) - unit vector along y-axis</li>
+                                    <li>\(\hat{k} = (0, 0, 1)\) - unit vector along z-axis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 4: Types -->
+                    <div class="accordion-item" id="types">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>4. Types of Vectors</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><strong>1. Zero Vector (\(\vec{0}\)):</strong> Magnitude = 0, no specific direction</p>
+                                <p><strong>2. Unit Vector (\(\hat{a}\)):</strong> Magnitude = 1</p>
+                                <p>\[\hat{a} = \frac{\vec{a}}{|\vec{a}|}\]</p>
+                                <p><strong>3. Position Vector:</strong> Vector from origin to a point P(x, y, z)</p>
+                                <p>\[\vec{r} = x\hat{i} + y\hat{j} + z\hat{k}\]</p>
+                                <p><strong>4. Equal Vectors:</strong> Same magnitude and direction</p>
+                                <p><strong>5. Negative Vector (\(-\vec{a}\)):</strong> Same magnitude, opposite direction</p>
+                                <p><strong>6. Collinear Vectors:</strong> Vectors along the same line (parallel or anti-parallel)</p>
+                                <p><strong>7. Coplanar Vectors:</strong> Vectors lying in the same plane</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 5: Addition -->
+                    <div class="accordion-item" id="addition">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>5. Vector Addition</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><strong>Triangle Law:</strong> Place vectors head-to-tail. The resultant is from tail of first to head of last.</p>
+                                <p><strong>Parallelogram Law:</strong> The resultant is the diagonal of the parallelogram formed by the two vectors.</p>
+                                <p><strong>Component Method:</strong></p>
+                                <p>\[\vec{R} = \vec{a} + \vec{b} = (a_x + b_x)\hat{i} + (a_y + b_y)\hat{j} + (a_z + b_z)\hat{k}\]</p>
+                                <p><strong>Properties:</strong></p>
+                                <ul>
+                                    <li><strong>Commutative:</strong> \(\vec{a} + \vec{b} = \vec{b} + \vec{a}\)</li>
+                                    <li><strong>Associative:</strong> \((\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c})\)</li>
+                                    <li><strong>Additive Identity:</strong> \(\vec{a} + \vec{0} = \vec{a}\)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 6: Subtraction -->
+                    <div class="accordion-item" id="subtraction">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>6. Vector Subtraction</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>Vector subtraction is defined as:</p>
+                                <p>\[\vec{a} - \vec{b} = \vec{a} + (-\vec{b})\]</p>
+                                <p><strong>Component Method:</strong></p>
+                                <p>\[\vec{a} - \vec{b} = (a_x - b_x)\hat{i} + (a_y - b_y)\hat{j} + (a_z - b_z)\hat{k}\]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 7: Scalar Multiplication -->
+                    <div class="accordion-item" id="scalar-mult">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>7. Scalar Multiplication</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>Multiplying a vector by a scalar \(k\):</p>
+                                <p>\[k\vec{a} = ka_x\hat{i} + ka_y\hat{j} + ka_z\hat{k}\]</p>
+                                <p><strong>Properties:</strong></p>
+                                <ul>
+                                    <li>If \(k > 0\): Same direction, magnitude scaled by \(|k|\)</li>
+                                    <li>If \(k < 0\): Opposite direction, magnitude scaled by \(|k|\)</li>
+                                    <li>If \(k = 0\): Results in zero vector</li>
+                                </ul>
+                                <p><strong>Magnitude:</strong> \(|k\vec{a}| = |k||\vec{a}|\)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 8: Dot Product -->
+                    <div class="accordion-item" id="dot-product">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>8. Dot Product (Scalar Product)</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><strong>Definition:</strong></p>
+                                <p>\[\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta\]</p>
+                                <p>where \(\theta\) is the angle between the vectors.</p>
+                                <p><strong>Component Form:</strong></p>
+                                <p>\[\vec{a} \cdot \vec{b} = a_xb_x + a_yb_y + a_zb_z\]</p>
+                                <p><strong>Result:</strong> Scalar (number)</p>
+                                <p><strong>Key Properties:</strong></p>
+                                <ul>
+                                    <li>If \(\vec{a} \cdot \vec{b} = 0\), vectors are perpendicular</li>
+                                    <li>\(\vec{a} \cdot \vec{a} = |\vec{a}|^2\)</li>
+                                    <li>\(\hat{i} \cdot \hat{i} = \hat{j} \cdot \hat{j} = \hat{k} \cdot \hat{k} = 1\)</li>
+                                    <li>\(\hat{i} \cdot \hat{j} = \hat{j} \cdot \hat{k} = \hat{k} \cdot \hat{i} = 0\)</li>
+                                </ul>
+                                <p><strong>Application:</strong> Work done = \(\vec{F} \cdot \vec{d}\)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 9: Cross Product -->
+                    <div class="accordion-item" id="cross-product">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>9. Cross Product (Vector Product)</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><strong>Magnitude:</strong></p>
+                                <p>\[|\vec{a} \times \vec{b}| = |\vec{a}||\vec{b}|\sin\theta\]</p>
+                                <p><strong>Result:</strong> Vector perpendicular to both \(\vec{a}\) and \(\vec{b}\)</p>
+                                <p><strong>Direction:</strong> Right-hand rule</p>
+                                <p><strong>Determinant Method:</strong></p>
+                                <p>\[\vec{a} \times \vec{b} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ a_x & a_y & a_z \\ b_x & b_y & b_z \end{vmatrix}\]</p>
+                                <p><strong>Key Properties:</strong></p>
+                                <ul>
+                                    <li>\(\vec{a} \times \vec{b} = -\vec{b} \times \vec{a}\) (anti-commutative)</li>
+                                    <li>\(\vec{a} \times \vec{a} = \vec{0}\)</li>
+                                    <li>\(\hat{i} \times \hat{j} = \hat{k}\), \(\hat{j} \times \hat{k} = \hat{i}\), \(\hat{k} \times \hat{i} = \hat{j}\)</li>
+                                </ul>
+                                <p><strong>Applications:</strong></p>
+                                <ul>
+                                    <li>Torque: \(\vec{\tau} = \vec{r} \times \vec{F}\)</li>
+                                    <li>Area of parallelogram: \(|\vec{a} \times \vec{b}|\)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Concept 10: Direction Cosines -->
+                    <div class="accordion-item" id="direction-cosines">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>10. Direction Cosines</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>For a vector \(\vec{a} = a_x\hat{i} + a_y\hat{j} + a_z\hat{k}\):</p>
+                                <p><strong>Direction Cosines:</strong></p>
+                                <ul>
+                                    <li>\(\cos\alpha = \frac{a_x}{|\vec{a}|}\) (angle with x-axis)</li>
+                                    <li>\(\cos\beta = \frac{a_y}{|\vec{a}|}\) (angle with y-axis)</li>
+                                    <li>\(\cos\gamma = \frac{a_z}{|\vec{a}|}\) (angle with z-axis)</li>
+                                </ul>
+                                <p><strong>Identity:</strong></p>
+                                <p>\[\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1\]</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Solved Examples -->
+                <section id="examples" class="mt-3">
+                    <h2>Solved Examples</h2>
+                    
+                    <!-- Example 1 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Example 1: Vector Components</div>
+                                <p>A vector has magnitude 10 units at 60° above horizontal. Find its components.</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Given:</strong> Magnitude = 10 units, angle = 60°</p>
+                            <p><strong>Solution:</strong></p>
+                            <p>\[V_x = V\cos\theta = 10\cos60° = 10 \times \frac{1}{2} = 5\]</p>
+                            <p>\[V_y = V\sin\theta = 10\sin60° = 10 \times \frac{\sqrt{3}}{2} = 5\sqrt{3} \approx 8.66\]</p>
+                            <p><strong>Answer:</strong> \(V_x = 5\) units, \(V_y = 5\sqrt{3} \approx 8.66\) units</p>
+                        </div>
+                    </div>
+
+                    <!-- Example 2 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Example 2: Vector Addition</div>
+                                <p>\(\vec{A} = \langle 4, -3 \rangle\), \(\vec{B} = \langle 1, 6 \rangle\). Find \(\vec{R} = \vec{A} + \vec{B}\) and its magnitude.</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>\[\vec{R} = \vec{A} + \vec{B} = (4 + 1)\hat{i} + (-3 + 6)\hat{j} = 5\hat{i} + 3\hat{j}\]</p>
+                            <p>\[\vec{R} = \langle 5, 3 \rangle\]</p>
+                            <p><strong>Magnitude:</strong></p>
+                            <p>\[|\vec{R}| = \sqrt{5^2 + 3^2} = \sqrt{25 + 9} = \sqrt{34} \approx 5.83\]</p>
+                            <p><strong>Answer:</strong> \(\vec{R} = \langle 5, 3 \rangle\), \(|\vec{R}| = \sqrt{34} \approx 5.83\) units</p>
+                        </div>
+                    </div>
+
+                    <!-- Example 3 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Example 3: Unit Vector</div>
+                                <p>Find the unit vector in the direction of \(\vec{a} = 3\hat{i} + 4\hat{j}\).</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>\[|\vec{a}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\]</p>
+                            <p>\[\hat{a} = \frac{\vec{a}}{|\vec{a}|} = \frac{3\hat{i} + 4\hat{j}}{5} = \frac{3}{5}\hat{i} + \frac{4}{5}\hat{j}\]</p>
+                            <p><strong>Answer:</strong> \(\hat{a} = 0.6\hat{i} + 0.8\hat{j}\)</p>
+                        </div>
+                    </div>
+
+                    <!-- Example 4 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Example 4: Dot Product & Angle</div>
+                                <p>Find the angle between \(\vec{u} = \langle 1, 2, 0 \rangle\) and \(\vec{v} = \langle -2, 2, 2 \rangle\).</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>\[\vec{u} \cdot \vec{v} = (1)(-2) + (2)(2) + (0)(2) = -2 + 4 + 0 = 2\]</p>
+                            <p>\[|\vec{u}| = \sqrt{1^2 + 2^2 + 0^2} = \sqrt{5}\]</p>
+                            <p>\[|\vec{v}| = \sqrt{(-2)^2 + 2^2 + 2^2} = \sqrt{12} = 2\sqrt{3}\]</p>
+                            <p>\[\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}||\vec{v}|} = \frac{2}{\sqrt{5} \times 2\sqrt{3}} = \frac{1}{\sqrt{15}}\]</p>
+                            <p>\[\theta = \cos^{-1}\left(\frac{1}{\sqrt{15}}\right) \approx 75°\]</p>
+                            <p><strong>Answer:</strong> \(\theta \approx 75°\)</p>
+                        </div>
+                    </div>
+
+                    <!-- Example 5 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Example 5: Projection</div>
+                                <p>Find the projection of \(\vec{a} = 2\hat{i} + 3\hat{j} + 2\hat{k}\) on \(\vec{b} = \hat{i} + 2\hat{j} + \hat{k}\).</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>\[\vec{a} \cdot \vec{b} = (2)(1) + (3)(2) + (2)(1) = 2 + 6 + 2 = 10\]</p>
+                            <p>\[|\vec{b}| = \sqrt{1^2 + 2^2 + 1^2} = \sqrt{6}\]</p>
+                            <p><strong>Projection:</strong></p>
+                            <p>\[\text{Projection} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} = \frac{10}{\sqrt{6}} = \frac{10\sqrt{6}}{6} = \frac{5\sqrt{6}}{3}\]</p>
+                            <p><strong>Answer:</strong> \(\frac{5\sqrt{6}}{3}\) units</p>
+                        </div>
+                    </div>
+
+                    <!-- Example 6 -->
+                    <div class="example">
+                        <div class="example-header">
+                            <div>
+                                <div class="example-title">Example 6: Cross Product Application</div>
+                                <p>Find the area of the parallelogram with sides \(\vec{a} = 2\hat{i} + 3\hat{j}\) and \(\vec{b} = \hat{i} - 2\hat{j}\).</p>
+                            </div>
+                            <button class="btn-show" onclick="toggleSolution(this)">Show Solution</button>
+                        </div>
+                        <div class="solution">
+                            <p><strong>Solution:</strong></p>
+                            <p>\[\vec{a} \times \vec{b} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ 2 & 3 & 0 \\ 1 & -2 & 0 \end{vmatrix}\]</p>
+                            <p>\[= \hat{i}(3 \times 0 - 0 \times (-2)) - \hat{j}(2 \times 0 - 0 \times 1) + \hat{k}(2 \times (-2) - 3 \times 1)\]</p>
+                            <p>\[= \hat{k}(-4 - 3) = -7\hat{k}\]</p>
+                            <p>\[|\vec{a} \times \vec{b}| = |-7\hat{k}| = 7\]</p>
+                            <p><strong>Area of parallelogram:</strong> \(|\vec{a} \times \vec{b}| = 7\) square units</p>
+                            <p><strong>Answer:</strong> 7 square units</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Practice Questions -->
+                <section id="practice" class="mt-3">
+                    <h2>Practice Questions</h2>
+                    
+                    <div class="tabs">
+                        <div class="tabs-list">
+                            <button class="tab-button active" onclick="switchTab('cbse', this)">CBSE</button>
+                            <button class="tab-button" onclick="switchTab('icse', this)">ICSE</button>
+                            <button class="tab-button" onclick="switchTab('igcse', this)">IGCSE</button>
+                            <button class="tab-button" onclick="switchTab('ibmyp', this)">IB MYP</button>
+                            <button class="tab-button" onclick="switchTab('ibdp', this)">IB DP</button>
+                        </div>
+                        
+                        <!-- CBSE Tab -->
+                        <div id="cbse" class="tab-content active">
+                            <h3>MCQs</h3>
+                            
+                            <div class="question">
+                                <div class="question-text">1. Which is a vector quantity?</div>
+                                <ul class="question-options">
+                                    <li>a) Mass</li>
+                                    <li>b) Speed</li>
+                                    <li>c) Velocity</li>
+                                    <li>d) Temperature</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> c) Velocity
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">2. If \(|\vec{A} + \vec{B}| = |\vec{A} - \vec{B}|\), the angle between them is:</div>
+                                <ul class="question-options">
+                                    <li>a) 0°</li>
+                                    <li>b) 45°</li>
+                                    <li>c) 90°</li>
+                                    <li>d) 180°</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> c) 90°
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">3. Dot product of perpendicular vectors equals:</div>
+                                <ul class="question-options">
+                                    <li>a) 1</li>
+                                    <li>b) 0</li>
+                                    <li>c) -1</li>
+                                    <li>d) ∞</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> b) 0
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">4. \(\hat{i} \cdot \hat{j}\) equals:</div>
+                                <ul class="question-options">
+                                    <li>a) 1</li>
+                                    <li>b) 0</li>
+                                    <li>c) \(\hat{k}\)</li>
+                                    <li>d) -1</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> b) 0
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">5. Unit vector has magnitude:</div>
+                                <ul class="question-options">
+                                    <li>a) 0</li>
+                                    <li>b) 1</li>
+                                    <li>c) Variable</li>
+                                    <li>d) Undefined</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> b) 1
+                                </div>
+                            </div>
+                            
+                            <h3 class="mt-3">Short Answer Questions</h3>
+                            
+                            <div class="question">
+                                <div class="question-text">1. A hiker walks 4 km west, then 3 km north. Find the resultant displacement.</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> Resultant displacement = 5 km at 37° north of west (or 53° west of north)
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">2. Find the unit vector in the direction of \(7\hat{i} - 24\hat{j}\).</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(\hat{u} = \frac{7}{25}\hat{i} - \frac{24}{25}\hat{j}\)
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">3. Show that \(\vec{p} = \langle 2, 4, 6 \rangle\) and \(\vec{q} = \langle 1, 2, 3 \rangle\) are collinear.</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(\vec{p} = 2\vec{q}\), so they are parallel and hence collinear.
+                                </div>
+                            </div>
+                            
+                            <h3 class="mt-3">Numerical Problems</h3>
+                            
+                            <div class="question">
+                                <div class="question-text">1. Forces of 5N and 12N act at right angles. Find the resultant magnitude.</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> Resultant = \(\sqrt{5^2 + 12^2} = \sqrt{169} = 13\) N
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">2. Find the angle between \(\vec{a} = 2\hat{i} + 3\hat{j} - \hat{k}\) and \(\vec{b} = \hat{i} - 2\hat{j} + 2\hat{k}\).</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(\cos\theta = \frac{-2}{\sqrt{14} \times 3} = -\frac{2}{3\sqrt{14}}\), \(\theta \approx 98.2°\)
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">3. A force of 50N acts at 30° above horizontal. Find its components.</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(F_x = 50\cos30° = 25\sqrt{3} \approx 43.3\) N, \(F_y = 50\sin30° = 25\) N
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ICSE Tab -->
+                        <div id="icse" class="tab-content">
+                            <h3>MCQs</h3>
+                            <div class="question">
+                                <div class="question-text">1. Which is NOT a vector quantity?</div>
+                                <ul class="question-options">
+                                    <li>a) Force</li>
+                                    <li>b) Momentum</li>
+                                    <li>c) Energy</li>
+                                    <li>d) Acceleration</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> c) Energy
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">2. The magnitude of \(\vec{A} + \vec{B}\) is maximum when angle between them is:</div>
+                                <ul class="question-options">
+                                    <li>a) 0°</li>
+                                    <li>b) 45°</li>
+                                    <li>c) 90°</li>
+                                    <li>d) 180°</li>
+                                </ul>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> a) 0°
+                                </div>
+                            </div>
+                            
+                            <h3 class="mt-3">Short Answer</h3>
+                            <div class="question">
+                                <div class="question-text">1. Define vector and scalar quantities with examples.</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> Vector: Has magnitude and direction (e.g., displacement, velocity). Scalar: Has only magnitude (e.g., mass, temperature).
+                                </div>
+                            </div>
+                            
+                            <h3 class="mt-3">Numericals</h3>
+                            <div class="question">
+                                <div class="question-text">1. Two vectors of magnitude 6 and 8 units have an angle of 60° between them. Find their dot product.</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(\vec{a} \cdot \vec{b} = 6 \times 8 \times \cos60° = 48 \times 0.5 = 24\)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- IGCSE Tab -->
+                        <div id="igcse" class="tab-content">
+                            <div class="question">
+                                <div class="question-text">1. Calculate the resultant of 8N horizontal and 6N vertical forces. [4 marks]</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> Resultant = \(\sqrt{8^2 + 6^2} = \sqrt{100} = 10\) N at angle \(\theta = \tan^{-1}(6/8) = 36.9°\) above horizontal
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">2. A vector has magnitude 10 at angle 30°. Find its components. [3 marks]</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(V_x = 10\cos30° = 5\sqrt{3} \approx 8.66\), \(V_y = 10\sin30° = 5\)
+                                </div>
+                            </div>
+                            
+                            <div class="question">
+                                <div class="question-text">3. Explain the parallelogram law with a diagram. [4 marks]</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> When two vectors are represented as adjacent sides of a parallelogram, the diagonal from their common point represents the resultant vector.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- IB MYP Tab -->
+                        <div id="ibmyp" class="tab-content">
+                            <div class="question">
+                                <div class="question-text">A boat can travel 4 m/s in still water. River flows at 3 m/s.<br>
+                                a) Draw a vector diagram [2 marks]<br>
+                                b) Calculate actual velocity [3 marks]<br>
+                                c) What direction should boat point to reach directly opposite? [3 marks]</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span><br>
+                                    a) Vector diagram shows boat velocity and river velocity<br>
+                                    b) Actual velocity = \(\sqrt{4^2 + 3^2} = 5\) m/s at angle \(\theta = \tan^{-1}(3/4) = 36.9°\) downstream<br>
+                                    c) Boat should point upstream at angle \(\sin^{-1}(3/4) = 48.6°\) to the perpendicular
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- IB DP Tab -->
+                        <div id="ibdp" class="tab-content">
+                            <h3>Paper 1 Style</h3>
+                            <div class="question">
+                                <div class="question-text">Find \(|\vec{a}|\) and unit vector for \(\vec{a} = 3\hat{i} + 4\hat{j}\).</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span> \(|\vec{a}| = 5\), \(\hat{a} = \frac{3}{5}\hat{i} + \frac{4}{5}\hat{j}\)
+                                </div>
+                            </div>
+                            
+                            <h3 class="mt-3">Paper 2 Style</h3>
+                            <div class="question">
+                                <div class="question-text">Given points A(2,3,0), B(4,-1,2), C(1,0,-3):<br>
+                                a) Find vectors \(\vec{AB}\) and \(\vec{AC}\) [2 marks]<br>
+                                b) Calculate \(\vec{AB} \cdot \vec{AC}\) [2 marks]<br>
+                                c) Find the angle \(\angle BAC\) [3 marks]</div>
+                                <button class="btn-show" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="answer">
+                                    <span class="answer-label">Answer:</span><br>
+                                    a) \(\vec{AB} = \langle 2, -4, 2 \rangle\), \(\vec{AC} = \langle -1, -3, -3 \rangle\)<br>
+                                    b) \(\vec{AB} \cdot \vec{AC} = 2(-1) + (-4)(-3) + 2(-3) = -2 + 12 - 6 = 4\)<br>
+                                    c) \(|\vec{AB}| = \sqrt{24} = 2\sqrt{6}\), \(|\vec{AC}| = \sqrt{19}\), \(\cos\theta = \frac{4}{2\sqrt{6}\sqrt{19}}\), \(\theta \approx 78.5°\)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Revision -->
+                <section id="revision" class="mt-3">
+                    <h2>Quick Revision Tips</h2>
+                    <div class="card">
+                        <h3>Key Points to Remember</h3>
+                        <ul>
+                            <li>Vectors have both magnitude and direction; scalars have only magnitude</li>
+                            <li>Unit vector has magnitude 1: \(\hat{a} = \frac{\vec{a}}{|\vec{a}|}\)</li>
+                            <li>Dot product gives a scalar: \(\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta\)</li>
+                            <li>Cross product gives a vector perpendicular to both: \(|\vec{a} \times \vec{b}| = |\vec{a}||\vec{b}|\sin\theta\)</li>
+                            <li>If \(\vec{a} \cdot \vec{b} = 0\), vectors are perpendicular</li>
+                            <li>Component method is often easiest for calculations</li>
+                        </ul>
+                        
+                        <h3 class="mt-2">Common Mistakes to Avoid</h3>
+                        <ul>
+                            <li>Confusing scalar and vector quantities</li>
+                            <li>Forgetting to take square root when finding magnitude</li>
+                            <li>Mixing up dot product (scalar) and cross product (vector)</li>
+                            <li>Not using correct signs in component calculations</li>
+                            <li>Forgetting units in final answers</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <h2>Need Help Mastering Vectors?</h2>
+                    <p>Struggling with concepts like dot product, cross product, or relative velocity problems?</p>
+                    <p>Our diagnostic assessment identifies exactly where you need help.</p>
+                    
+                    <ul class="cta-benefits">
+                        <li>13+ years teaching experience</li>
+                        <li>Small batches (3-5 students)</li>
+                        <li>CBSE, ICSE, IGCSE, IB curricula</li>
+                        <li>Concept-first teaching approach</li>
+                    </ul>
+                    
+                    <div class="cta-buttons">
+                        <a href="https://ankuramtuition.com/#diagnostic" class="btn-primary">Book Diagnostic Assessment</a>
+                        <a href="https://wa.me/917396669430?text=Hi%2C%20I%20need%20help%20with%20Vectors%20in%20Class%2011%20Physics." class="btn-secondary">WhatsApp Us</a>
+                    </div>
+                </section>
+
+                <!-- Related Topics -->
+                <section class="mt-3">
+                    <h2>Related Topics</h2>
+                    <div class="related-topics">
+                        <a href="https://ankuramtuition.com/topics/motion-in-a-plane-class-11-physics" class="related-topic-card">
+                            <h3>Motion in a Plane</h3>
+                            <p>Class 11 Physics</p>
+                        </a>
+                        <a href="https://ankuramtuition.com/topics/projectile-motion-class-11-physics" class="related-topic-card">
+                            <h3>Projectile Motion</h3>
+                            <p>Class 11 Physics</p>
+                        </a>
+                        <a href="https://ankuramtuition.com/topics/newtons-laws-class-11-physics" class="related-topic-card">
+                            <h3>Newton's Laws</h3>
+                            <p>Class 11 Physics</p>
+                        </a>
+                        <a href="https://ankuramtuition.com/topics/work-energy-power-class-11-physics" class="related-topic-card">
+                            <h3>Work, Energy & Power</h3>
+                            <p>Class 11 Physics</p>
+                        </a>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Desktop Sidebar -->
+            <aside class="sidebar">
+                <div class="toc">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#vector-vs-scalar">Vector vs Scalar</a></li>
+                        <li><a href="#representation">Vector Representation</a></li>
+                        <li><a href="#types">Types of Vectors</a></li>
+                        <li><a href="#addition">Vector Addition</a></li>
+                        <li><a href="#subtraction">Vector Subtraction</a></li>
+                        <li><a href="#scalar-mult">Scalar Multiplication</a></li>
+                        <li><a href="#dot-product">Dot Product</a></li>
+                        <li><a href="#cross-product">Cross Product</a></li>
+                        <li><a href="#direction-cosines">Direction Cosines</a></li>
+                        <li><a href="#formulas">Quick Formulas</a></li>
+                        <li><a href="#examples">Solved Examples</a></li>
+                        <li><a href="#practice">Practice Questions</a></li>
+                        <li><a href="#revision">Quick Revision</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ankuram</h3>
+                    <p>Expert tuition for Grades 8-12 in Jubilee Hills, Hyderabad. 13+ years of teaching experience.</p>
+                    <p><a href="tel:+919396669430">+91 73966 69430</a></p>
+                    <p><a href="https://wa.me/917396669430?text=Hi%2C%20I'm%20interested%20in%20tuition%20at%20Ankuram%20for%20my%20child." target="_blank" rel="noopener noreferrer">WhatsApp Us</a></p>
+                    <p>Plot 229, Road No. 72,<br>Prashasan Nagar, Jubilee Hills,<br>Hyderabad - 500033</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Subjects</h4>
+                    <ul>
+                        <li><a href="https://ankuramtuition.com/maths">Mathematics</a></li>
+                        <li><a href="https://ankuramtuition.com/physics">Physics</a></li>
+                        <li><a href="https://ankuramtuition.com/chemistry">Chemistry</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Curricula</h4>
+                    <ul>
+                        <li><a href="https://ankuramtuition.com/ib">IB (MYP & DP)</a></li>
+                        <li><a href="https://ankuramtuition.com/igcse">IGCSE & A-Levels</a></li>
+                        <li><a href="https://ankuramtuition.com/cbse">CBSE</a></li>
+                        <li><a href="https://ankuramtuition.com/icse">ICSE</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Grades</h4>
+                    <ul>
+                        <li>Grade 8</li>
+                        <li>Grade 9</li>
+                        <li>Grade 10</li>
+                        <li>Grade 11 (Maths & Physics)</li>
+                        <li>Grade 12 (Maths & Physics)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Ankuram Tuition Centre. All rights reserved.</p>
+                <p>Jubilee Hills, Hyderabad</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const isActive = mobileMenu.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isActive);
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Accordion Toggle
+        function toggleAccordion(button) {
+            const item = button.closest('.accordion-item');
+            const content = item.querySelector('.accordion-content');
+            const isActive = item.classList.contains('active');
+            
+            // Close all accordions
+            document.querySelectorAll('.accordion-item').forEach(acc => {
+                acc.classList.remove('active');
+                acc.querySelector('.accordion-content').classList.remove('active');
+            });
+            
+            // Toggle clicked item
+            if (!isActive) {
+                item.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+        
+        // Mobile TOC Toggle
+        function toggleMobileTOC() {
+            const toc = document.getElementById('mobileTOC');
+            const icon = document.getElementById('mobileTOCIcon');
+            toc.classList.toggle('active');
+            icon.textContent = toc.classList.contains('active') ? '▲' : '▼';
+        }
+        
+        // Tab Switching
+        function switchTab(tabName, element) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Activate button
+            if (element) {
+                element.classList.add('active');
+            } else if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+        
+        // Toggle Solution
+        function toggleSolution(button) {
+            const solution = button.nextElementSibling;
+            const isActive = solution.classList.contains('active');
+            
+            if (isActive) {
+                solution.classList.remove('active');
+                button.textContent = 'Show Solution';
+            } else {
+                solution.classList.add('active');
+                button.textContent = 'Hide Solution';
+            }
+        }
+        
+        // Toggle Answer
+        function toggleAnswer(button) {
+            const answer = button.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            if (isActive) {
+                answer.classList.remove('active');
+                button.textContent = 'Show Answer';
+            } else {
+                answer.classList.add('active');
+                button.textContent = 'Hide Answer';
+            }
+        }
+        
+        // Smooth Scroll for TOC links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Vectors - Class 11 Physics",
+        "description": "Complete guide to Vectors for Class 11 Physics with formulas, examples & practice questions.",
+        "author": {
+            "@type": "Organization",
+            "name": "Ankuram Tuition Centre"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ankuram Tuition Centre",
+            "url": "https://ankuramtuition.com"
+        },
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-01-01",
+        "educationalLevel": "Grade 11",
+        "learningResourceType": "Tutorial",
+        "subject": "Physics",
+        "about": {
+            "@type": "Thing",
+            "name": "Vectors"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://ankuramtuition.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Topics",
+                    "item": "https://ankuramtuition.com/topics"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Vectors",
+                    "item": "https://ankuramtuition.com/topics/vectors-class-11-physics/"
+                }
+            ]
+        }
+    }
+    </script>
+</body>
+</html>
+

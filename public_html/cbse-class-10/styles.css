@@ -1,0 +1,250 @@
+/* ============================================================
+   Ankuram Class 10 Landing Page — MOBILE-FIRST CSS
+   Base styles target 375px. min-width breakpoints scale up.
+   Imports base design system from assets/styles.css.
+   ============================================================ */
+
+@import url("../assets/styles.css");
+
+/* ----- Base readability (375px+) — mobile default ----- */
+body {
+  font-size: max(16px, 1rem);
+  line-height: 1.5;
+  padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ----- Skip Link ----- */
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--brand);color:#fff;padding:8px 16px;z-index:200;border-radius:0 0 10px 10px}
+.skip-link:focus{top:0}
+
+/* ----- Landing Main ----- */
+.landing-main{padding-top:18px}
+
+/* ============================================================
+   MOBILE NAV — <details>/<summary> hamburger (visible < 768px)
+   On desktop, the base nav-links are shown inline.
+   On mobile, we hide nav-links and show the hamburger instead.
+   ============================================================ */
+.mobile-nav{order:10;width:100%}
+.mobile-nav__summary{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1.5px solid var(--brand);border-radius:var(--radius-sm,8px);font-size:.875rem;font-weight:600;color:var(--brand);cursor:pointer;list-style:none;background:var(--surface-strong,#fff)}
+.mobile-nav__summary::-webkit-details-marker{display:none}
+.mobile-nav__summary::before{content:"\2630";margin-right:8px;font-size:1rem;line-height:1}
+.mobile-nav[open] .mobile-nav__summary::before{content:"\2715"}
+.mobile-nav .nav-links{display:flex;flex-direction:column;align-items:stretch;gap:4px;width:100%;padding-top:8px;margin-top:8px;border-top:1px solid rgba(223,213,197,.5)}
+.mobile-nav .nav-links a{padding:12px 10px;font-size:.875rem;border-radius:6px}
+
+/* Hide hamburger on desktop, show inline nav */
+.nav-links{display:none}
+
+/* ===== HERO ===== */
+.hero{padding:24px 0 12px}
+.hero-content{max-width:860px;margin:0 auto;padding:24px 20px;border-radius:var(--radius-lg);background:linear-gradient(180deg,rgba(214,233,237,.42),rgba(255,255,255,.96));border:1px solid rgba(223,213,197,.92);box-shadow:var(--shadow);text-align:center}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:16px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--brand-soft);color:var(--brand-strong);font-size:.82rem;font-weight:700;max-width:100%;text-align:center}
+.badge-star{color:var(--accent)}
+.hero-eyebrow{display:block;font-size:.8125rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;line-height:1.4}
+.hero h1{margin:0 0 14px;font-size:clamp(1.5rem,4.8vw,4.1rem);line-height:1.12;letter-spacing:-.03em;overflow-wrap:anywhere;word-wrap:break-word;hyphens:manual;max-width:100%}
+.hero-sub,.section-sub{max-width:760px;margin:0 auto 24px;color:var(--muted);font-size:1.05rem;line-height:1.55}
+.hero-ctas{display:flex;flex-direction:column;align-items:stretch;width:100%;max-width:100%;gap:12px;margin-bottom:14px}
+.hero-ctas .btn{width:100%;max-width:100%;min-height:48px;box-sizing:border-box}
+.hero-micro{color:var(--muted);font-size:.9rem;margin:0;line-height:1.5}
+
+/* ===== SHARED CARD BASE ===== */
+.section-alt{background:transparent}
+.section-panel,.testimonial,.problem-card,.step,.subject-card,.pricing-card,.faq-item,.compare-table-wrap,.map-embed,.diagnostic-card{border-radius:var(--radius-md);background:var(--surface-strong);border:1px solid rgba(223,213,197,.92);box-shadow:var(--shadow)}
+
+/* ===== METRICS STRIP ===== */
+.metrics-strip{padding:2rem 0;border-bottom:1px solid rgba(223,213,197,.92);overflow-x:hidden}
+.metrics-strip .container{min-width:0}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.metric-card{background:var(--surface-strong);border:1px solid rgba(223,213,197,.92);border-radius:10px;padding:1.25rem;text-align:center;min-width:0}
+.metric-value{font-size:1.75rem;font-weight:700;color:var(--text);margin:0}
+.metric-star{color:var(--accent)}
+.metric-label{font-size:.8rem;color:var(--muted);margin:.3rem 0 0}
+
+/* ===== REVIEW SUMMARY ===== */
+.reviews-section-head{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:8px;text-align:center}
+.review-summary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid rgba(223,213,197,.92);box-shadow:var(--shadow);margin:0 0 26px}
+.review-badge{font-size:1.05rem;font-weight:800;color:var(--text)}
+.review-stars,.testimonial-stars{color:var(--accent)}
+.testimonial-stars--gold{color:#c59f2d}
+.review-score{font-size:1.2rem;font-weight:800}
+.review-count{color:var(--muted)}
+
+/* ===== GRIDS — all 1-column on mobile ===== */
+.testimonial-grid,.problem-grid,.steps,.subjects-grid,.pricing-grid,.diagnostic-details,.centre-gallery-grid{display:grid;gap:18px;grid-template-columns:1fr}
+
+/* ===== TESTIMONIALS ===== */
+.testimonial{padding:22px;display:flex;flex-direction:column}
+.testimonial-text{margin:0 0 14px;color:var(--muted);font-style:italic;flex:1;overflow-wrap:anywhere;word-break:break-word;line-height:1.55}
+.testimonial-author{margin:0;font-weight:700;text-align:right}
+.reviews-all-google{margin:22px 0 0;text-align:center}
+.reviews-all-google a{font-weight:700;color:var(--brand);text-decoration:underline;text-underline-offset:3px}
+.reviews-all-google a:hover,.reviews-all-google a:focus-visible{color:var(--brand-strong)}
+
+/* ===== PROBLEM CARDS ===== */
+.problem-card,.step,.subject-card,.pricing-card{padding:22px}
+.problem-card-title,.step-title{margin:0 0 10px;font-size:1.12rem}
+.problem-card p,.step p,.subject-card li,.pricing-features li,.faq-answer p{color:var(--muted)}
+
+/* ===== STEPS ===== */
+.step{position:relative;padding-left:64px}
+.step-num{position:absolute;left:22px;top:22px;width:30px;height:30px;display:grid;place-items:center;border-radius:999px;background:var(--brand);color:#fff;font-weight:800}
+
+/* ===== SECTION CTA ===== */
+.section-cta,.centre-gallery-section{text-align:center}
+
+/* ===== DIAGNOSTIC DETAILS ===== */
+.diagnostic-card{padding:1.25rem}
+.diagnostic-card h3{font-size:.9375rem;font-weight:700;margin-bottom:.75rem}
+.diagnostic-card p{font-size:.875rem;color:var(--muted);line-height:1.55;margin:0}
+.diagnostic-card ul{list-style:none;display:grid;gap:6px;font-size:.875rem;color:var(--muted);margin:0;padding:0}
+.diagnostic-card li{padding-left:20px;position:relative;line-height:1.45}
+.diagnostic-card li::before{content:"\2713";position:absolute;left:0;color:var(--success);font-weight:700}
+
+/* ===== COMPARE TABLE ===== */
+.compare-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  max-width:100%;
+  position:relative;
+  border-radius:var(--radius-md);
+  box-shadow:inset -24px 0 20px -16px rgba(31,41,51,.12);
+}
+.compare-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.82rem;min-width:520px}
+.compare-table th,.compare-table td{padding:12px 10px;text-align:left;vertical-align:top;word-break:break-word}
+.compare-table th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid rgba(223,213,197,.92)}
+.compare-table td{border-top:1px solid rgba(223,213,197,.65)}
+.compare-table tbody td:last-child{color:var(--brand-strong);font-weight:700}
+
+/* ===== CENTRE GALLERY ===== */
+.centre-gallery-sub{margin-bottom:24px}
+.centre-gallery-grid{max-width:760px;margin:0 auto}
+
+/* ===== TEACHER ===== */
+.teacher-layout{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+.teacher-bio{color:var(--muted)}
+.teacher-creds{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.cred-tag{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:var(--brand-soft);color:var(--brand-strong);font-size:.9rem;font-weight:700}
+.teacher-quote{margin:0;padding:18px 20px;border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;background:rgba(214,233,237,.28);color:var(--muted);font-style:italic}
+
+/* ===== SUBJECTS ===== */
+.subject-card h3,.pricing-card h3{margin-top:0;margin-bottom:14px}
+.subject-card ul,.pricing-features{margin:0;padding-left:20px;display:grid;gap:8px}
+
+/* ===== PRICING ===== */
+.pricing-card{position:relative;text-align:center}
+.pricing-card-featured{background:linear-gradient(180deg,rgba(214,233,237,.4),rgba(255,255,255,.96));border-color:rgba(15,76,92,.35)}
+.pricing-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:5px 14px;border-radius:999px;background:var(--brand);color:#fff;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.pricing-amount{margin:0 0 6px;font-size:2.2rem;font-weight:800;line-height:1;letter-spacing:-.05em}
+.pricing-period{margin:0 0 18px;color:var(--muted)}
+
+/* ===== FAQ ===== */
+.faq-list{display:grid;gap:12px}
+.faq-item{overflow:hidden}
+.faq-item summary{position:relative;display:flex;align-items:center;min-height:52px;padding:16px 48px 16px 18px;cursor:pointer;list-style:none;font-weight:700}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.4rem;font-weight:400}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-answer{padding:0 18px 18px;overflow-wrap:anywhere;word-break:break-word}
+.faq-answer p{line-height:1.55;margin:0 0 .75rem}
+.faq-answer p:last-child{margin-bottom:0}
+
+/* ===== CTA SECTION ===== */
+.cta-section{padding:12px 0 48px}
+.cta-content{max-width:860px;margin:0 auto;padding:24px 20px;border-radius:var(--radius-lg);background:linear-gradient(180deg,rgba(15,76,92,.06),rgba(255,255,255,.96));border:1px solid rgba(223,213,197,.92);box-shadow:var(--shadow);text-align:center}
+.cta-content h2{margin:0 0 10px;font-size:clamp(1.8rem,3vw,2.8rem)}
+.cta-content p{color:var(--muted)}
+
+/* ===== MOBILE STICKY BAR (<768px) — matches .sticky-mobile-cta in HTML ===== */
+.sticky-mobile-cta{
+  display:flex;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:10000;
+  min-height:56px;
+  align-items:stretch;
+  padding:0;
+  padding-bottom:env(safe-area-inset-bottom,0);
+  gap:0;
+  margin:0;
+  background:#fff;
+  border-top:1px solid #e8eaee;
+  box-shadow:0 -4px 20px rgba(0,0,0,.1);
+}
+.sticky-mobile-cta__btn{
+  flex:1 1 50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.4rem;
+  min-height:56px;
+  padding:0 .5rem;
+  border-radius:0;
+  font-size:.875rem;
+  font-weight:700;
+  text-decoration:none;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+.sticky-mobile-cta__btn--wa{background:#25d366;color:#fff}
+.sticky-mobile-cta__btn--call{background:#0f1b2d;color:#fff}
+.sticky-mobile-cta__btn svg{flex-shrink:0}
+
+/* Mobile footer spacing (sticky bar clearance); tablet/desktop override in min-width:768px */
+.site-footer{padding:28px 0 32px}
+.section-cta .btn{width:100%;max-width:100%;min-height:48px;justify-content:center}
+.reviews-all-google a{display:inline-flex;align-items:center;min-height:44px;padding:6px 0}
+
+.site-footer .footer-links a{min-height:44px;display:inline-flex;align-items:center;padding:6px 0;text-decoration:underline;text-underline-offset:3px;color:var(--brand)}
+.site-footer p a{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:var(--brand);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.faq-item,.faq-list{width:100%;max-width:100%}
+.section-title{overflow-wrap:anywhere}
+.pricing-grid .pricing-card{width:100%;max-width:100%;min-width:0}
+.btn-call-light{background:var(--brand-strong);color:#fff;border:1px solid rgba(255,255,255,.12)}
+.btn-call-light:hover,.btn-call-light:focus-visible{background:#0a3040;color:#fff}
+
+/* ===== MAP ===== */
+.map-embed iframe{width:100%;border:0;min-height:220px}
+
+/* ============================================================
+   768px+ — Tablet: 2-col grids, nav, hero row CTAs
+   ============================================================ */
+@media(min-width:768px){
+  .compare-table{min-width:0}
+  .testimonial-grid{grid-template-columns:1fr 1fr}
+  .subjects-grid{grid-template-columns:1fr 1fr}
+  .centre-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metrics-grid{grid-template-columns:repeat(4,1fr)}
+  .pricing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .diagnostic-details{grid-template-columns:repeat(3,1fr)}
+  .mobile-nav{display:none}
+  .nav-links{display:flex}
+  .hero-content,.cta-content{padding:34px 28px}
+  .hero-ctas{flex-direction:row;justify-content:center;align-items:center}
+  .hero-ctas .btn{width:auto;min-width:min(240px,100%)}
+  .section-cta .btn{width:auto;max-width:none}
+  .teacher-layout{grid-template-columns:minmax(240px,280px) minmax(0,1fr)}
+  .sticky-mobile-cta{display:none!important}
+  body{padding-bottom:0!important}
+  .site-footer{padding:28px 0 28px!important}
+}
+
+/* ============================================================
+   1024px+ — Desktop: 3-column grids, larger compare table
+   ============================================================ */
+@media(min-width:1024px){
+  .testimonial-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .problem-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .compare-table{font-size:1rem}
+  .compare-table th,.compare-table td{padding:16px}
+}
+
+/* ===== Print ===== */
+@media print{.header,.sticky-mobile-cta,.cta-section,.mobile-nav{display:none}body{padding-bottom:0!important}.site-footer{padding-bottom:0!important}}
+
+/* ===== Reduced Motion ===== */
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}

@@ -1,0 +1,30 @@
+# ankuramtuition.com robots.txt
+# Updated: 2026-06-17
+
+User-agent: *
+Allow: /
+
+# Block utility/non-content paths
+Disallow: /_next/
+Disallow: /assets.2109/
+Disallow: /thank-you/
+Disallow: /thank-you.html
+Disallow: /404/
+Disallow: /404.html
+
+# Block old WordPress infrastructure (belt-and-suspenders with .htaccess 301s)
+Disallow: /wp-content/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+
+# Block deployment artifacts
+Disallow: /ankuram-deploy.zip
+Disallow: /ankuramtuition-deployment.zip
+Disallow: /FILES_TO_UPLOAD.txt
+Disallow: /UPLOAD_CHECKLIST.md
+Disallow: /index.txt
+
+Sitemap: https://ankuramtuition.com/sitemap.xml
