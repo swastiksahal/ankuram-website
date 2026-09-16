@@ -312,3 +312,180 @@ URL is treated as settled. The sitemap lists
 `/topics/vectors-class-11-physics` without a trailing slash and
 `/topics/vectors-lecture-1-introduction/` with one; I could not resolve which
 form actually returns 200 without a request.
+
+---
+
+# P0c live results
+
+Read-only HTTP, no SSH. 304 unique URLs (every `url-inventory.csv` row, plus
+each sitemap URL in its with-slash, without-slash and `.html` form, plus the
+exposure targets). One `curl -sIL` HEAD per URL, rate limited to one request
+per second plus one extra second per redirect hop.
+
+```
+bash scripts/live-check.sh urls.txt baseline/live-http.csv    # 304 urls, 0 errors
+node scripts/compare-live.js public_html baseline/live-http.csv
+  tested 304  agree 281  differ 23
+  first-hop status tally: { '200': 96, '301': 205, '404': 3 }
+  final status tally:     { '200': 301, '404': 3 }
+```
+
+Artefacts: `baseline/live-http.csv`, `baseline/live-vs-predicted.json`.
+
+**Headline: 301 of 304 URLs end at 200. No live URL 404s.** The three 404s are
+not real URLs — see "Defect in my own CSV" below.
+
+## Where live behaviour differs from what .htaccess predicted — all 23
+
+### 17 × `.html` form of a directory-backed page — predictor wrong, site correct
+
+`/about.html` · `/blog/why-your-child-forgets-maths-after-studying.html` ·
+`/cbse-class-10-science.html` · `/cbse-class-10.html` ·
+`/class-10-maths-basic-vs-standard.html` · `/class-10-online-vs-offline-tuition.html` ·
+`/class-11-tuition.html` · `/class-8-maths.html` · `/class-9-tuition.html` ·
+`/contact.html` · `/electrochemistry-class-12-cbse.html` ·
+`/online-maths-tuition-class-10-cbse.html` · `/online-maths-tuition-class-10-icse.html` ·
+`/online-science-tuition-class-10-cbse.html` · `/online-tuition-class-10-cbse.html` ·
+`/privacy-policy.html` · `/terms.html`
+
+I predicted 404; live returns 301 to the extensionless form, then 301 to the
+trailing-slash directory, then 200. Section 2 matches on `THE_REQUEST`, so it
+strips `.html` whether or not an `X.html` file exists — my predictor required
+the file. The site is behaving correctly; these all resolve in 2 hops.
+
+### 6 × genuine differences, all under `/topics/`
+
+| URL | Predicted | Live first hop | Ends at |
+|---|---|---|---|
+| `/topics/htaccess%20(1)` | 404 | **200** | itself |
+| `/topics/vectors-class-11-physics` | 301 to slash | **200** | itself |
+| `/topics/vectors-class-11-physics/` | 200 | 200 | itself |
+| `/topics/vectors-lecture-1-introduction` | 301 to slash | **200** | itself |
+| `/topics/vectors-lecture-1-introduction/` | 200 | **301** | `https://ankuramtuition.com/` |
+| `/topics/vectors-class-11-physics.html` | 404 | 301 | `/404/` **with status 200** |
+| `/topics/vectors-lecture-1-introduction.html` | 404 | 301 | `/404/` **with status 200** |
+
+`topics/.htaccess` rewrites a directory to `index.html` internally instead of
+letting `mod_dir` add the slash, so both the slash and no-slash forms return
+200 — two URLs, one page, no redirect between them.
+
+## 2. Scheme and host normalisation
+
+| Request | Hops | Chain |
+|---|---|---|
+| `http://ankuramtuition.com/` | 1 | → `https://ankuramtuition.com/` ✅ |
+| `https://www.ankuramtuition.com/` | 1 | → `https://ankuramtuition.com/` ✅ |
+| `http://www.ankuramtuition.com/` | **2** | → `https://www.ankuramtuition.com/` → `https://ankuramtuition.com/` |
+
+All three reach `https://ankuramtuition.com/`. But `http://www.` takes two hops:
+something upstream of `.htaccess` (Hostinger's edge) forces HTTPS first and
+keeps the `www`, and only then does Section 1 strip it. The `.htaccess` header
+comment claims "always 1 hop regardless of http/https/www combination" — that
+is not what the server does.
+
+## 3. robots.txt and sitemap.xml vs the snapshot
+
+Byte-identical. Same length, same SHA-256:
+
+```
+43ed0d0e...fffe329  live robots.txt      43ed0d0e...fffe329  public_html/robots.txt      (679 B)
+6d9d9940...58a31c6b live sitemap.xml     6d9d9940...58a31c6b public_html/sitemap.xml    (6346 B)
+```
+
+The P0a snapshot is a faithful copy of both.
+
+## 4. Are the junk files publicly fetchable? Yes — all six, status 200
+
+| URL | Status |
+|---|---|
+| `/assets/Ankuram_public_html_SEO_complete_2026-07-29.zip` | **200** |
+| `/blog/Ankuram_public_html_clean.zip` | **200** |
+| `/topics/htaccess%20(1)` | **200** |
+| `/class-11-tuition/index.txt` | **200** |
+| `/class-9-tuition/index.txt` | **200** |
+| `/thank-you/index.txt` | **200** |
+
+Both full-site backup archives (3.0 MB and 2.9 MB) download to anyone with the
+URL. `/topics/htaccess%20(1)` serves the June 24 redirect map as readable text.
+robots.txt blocks none of the six. Nothing links to them, so this is
+URL-guessing exposure rather than crawlable exposure — but `Disallow` would not
+help either, since robots.txt is itself a public list of paths.
+
+## 5. P0b questions resolved with real responses
+
+**`cbse-class-10-maths.html` vs `/cbse-class-10-maths/` — the directory wins.**
+
+```
+/cbse-class-10-maths        301 -> /cbse-class-10-maths/   (200)
+/cbse-class-10-maths/       200
+/cbse-class-10-maths.html   301 -> /cbse-class-10-maths -> /cbse-class-10-maths/ (200, 2 hops)
+```
+
+`public_html/cbse-class-10-maths.html` is **unreachable**. Every route lands on
+`cbse-class-10-maths/index.html`. The root-level file is dead weight, and the
+duplicate-title pair flagged in P0b section 6 item 7 is therefore only one live
+page, not two.
+
+**`/topics/` trailing slash — inconsistent, and one sitemap URL is broken.**
+
+- `/topics/vectors-class-11-physics` → 200 and `/topics/vectors-class-11-physics/`
+  → 200. Both serve. The sitemap lists the no-slash form; the page's own
+  canonical is the **slash** form. Sitemap and canonical disagree.
+- `/topics/vectors-lecture-1-introduction` → 200.
+- **`/topics/vectors-lecture-1-introduction/` → 301 → the homepage.** This is
+  the form the sitemap lists. The sitemap is pointing Google at a URL that
+  redirects to `/`.
+- That page's canonical, `/topics/vectors-introduction/`, returns a hard **404**
+  live (checked both slash forms). Confirms P0b section 6 item 5.
+
+**`/areas/kukatpally` → 301 → `https://ankuramtuition.com/` (200).** Confirmed;
+`areas/kukatpally.html` is unreachable.
+
+**`/ib-pyp-tuition-hyderabad` → 301 → `/ib-myp-tuition-hyderabad` (200).**
+Confirmed; `ib-pyp-tuition-hyderabad.html` is unreachable.
+
+**Soft 404s.** `/topics/vectors-class-11-physics.html` and
+`/topics/vectors-lecture-1-introduction.html` 301 to `/404`, which 301s to
+`/404/`, which returns **HTTP 200**. The custom 404 page is served with a
+success status, so crawlers see a real page rather than a 404.
+
+## 6. Paid pages — all four clean
+
+Fetched with `?gad_source=1&gclid=test`:
+
+| Landing page | First hop | Redirect |
+|---|---|---|
+| `/online-tuition-class-10-cbse/` | **200** | none |
+| `/online-maths-tuition-class-10-cbse/` | **200** | none |
+| `/online-science-tuition-class-10-cbse/` | **200** | none |
+| `/cbse-class-10/` | **200** | none |
+
+No redirect at all, so no hop can drop the query string. Ad click IDs arrive intact.
+
+`/cbse-class-10/` anchor IDs, on the live response body — all five present,
+once each:
+
+```
+id="subjects"   live=1   id="pricing"  live=1   id="faq" live=1
+id="diagnostic" live=1   id="reviews"  live=1
+```
+
+The live page is byte-identical to the snapshot
+(`7079deff...fa73b2ee` both sides, 45,769 bytes).
+
+## Defect in my own CSV (not a site problem)
+
+Three rows in `baseline/url-inventory.csv` are malformed: when I derived
+redirect-only URLs from `.htaccess` patterns I stripped `^` and `$` but left
+other regex metacharacters, producing `/index(\.html)?`, `/wp-login\.php` and
+`/xmlrpc\.php`. Those are the three 404s in the tally. The real URLs
+(`/index.html`, `/wp-login.php`, `/xmlrpc.php`) are covered elsewhere in the
+sweep and behave correctly. `url-inventory.csv` is left as committed so it
+matches `live-http.csv` row for row; the generator needs a fix before the
+inventory is reused as a comparison baseline.
+
+## Still not verified
+
+Everything above is HEAD requests. Response *bodies* were fetched for only two
+URLs (`/cbse-class-10/` and the two text files compared in item 3). Page
+content, tracking snippets firing, and Lighthouse metrics are untested.

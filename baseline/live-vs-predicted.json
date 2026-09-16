@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-09-16T12:03:21.487Z",
+  "urlsTested": 304,
+  "agree": 281,
+  "differ": 23,
+  "statusTally": {
+    "200": 96,
+    "301": 205,
+    "404": 3
+  },
+  "finalTally": {
+    "200": 301,
+    "404": 3
+  },
+  "differences": [
+    {
+      "url": "/about.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/about",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/about/",
+      "hops": 2
+    },
+    {
+      "url": "/blog/why-your-child-forgets-maths-after-studying.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/blog/why-your-child-forgets-maths-after-studying",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/blog/why-your-child-forgets-maths-after-studying/",
+      "hops": 2
+    },
+    {
+      "url": "/cbse-class-10-science.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/cbse-class-10-science",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/cbse-class-10-science/",
+      "hops": 2
+    },
+    {
+      "url": "/cbse-class-10.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/cbse-class-10",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/cbse-class-10/",
+      "hops": 2
+    },
+    {
+      "url": "/class-10-maths-basic-vs-standard.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/class-10-maths-basic-vs-standard",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/class-10-maths-basic-vs-standard/",
+      "hops": 2
+    },
+    {
+      "url": "/class-10-online-vs-offline-tuition.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/class-10-online-vs-offline-tuition",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/class-10-online-vs-offline-tuition/",
+      "hops": 2
+    },
+    {
+      "url": "/class-11-tuition.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/class-11-tuition",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/class-11-tuition/",
+      "hops": 2
+    },
+    {
+      "url": "/class-8-maths.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/class-8-maths",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/class-8-maths/",
+      "hops": 2
+    },
+    {
+      "url": "/class-9-tuition.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/class-9-tuition",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/class-9-tuition/",
+      "hops": 2
+    },
+    {
+      "url": "/contact.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/contact",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/contact/",
+      "hops": 2
+    },
+    {
+      "url": "/electrochemistry-class-12-cbse.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/electrochemistry-class-12-cbse",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/electrochemistry-class-12-cbse/",
+      "hops": 2
+    },
+    {
+      "url": "/online-maths-tuition-class-10-cbse.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/online-maths-tuition-class-10-cbse",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/online-maths-tuition-class-10-cbse/",
+      "hops": 2
+    },
+    {
+      "url": "/online-maths-tuition-class-10-icse.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/online-maths-tuition-class-10-icse",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/online-maths-tuition-class-10-icse/",
+      "hops": 2
+    },
+    {
+      "url": "/online-science-tuition-class-10-cbse.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/online-science-tuition-class-10-cbse",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/online-science-tuition-class-10-cbse/",
+      "hops": 2
+    },
+    {
+      "url": "/online-tuition-class-10-cbse.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/online-tuition-class-10-cbse",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/online-tuition-class-10-cbse/",
+      "hops": 2
+    },
+    {
+      "url": "/privacy-policy.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/privacy-policy",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/privacy-policy/",
+      "hops": 2
+    },
+    {
+      "url": "/terms.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/terms",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/terms/",
+      "hops": 2
+    },
+    {
+      "url": "/topics/htaccess%20(1)",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "200",
+      "location": "",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/topics/htaccess%20(1)",
+      "hops": 0
+    },
+    {
+      "url": "/topics/vectors-class-11-physics",
+      "predicted": "301",
+      "predictedWhy": "directory -> trailing slash",
+      "actualFirst": "200",
+      "location": "",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/topics/vectors-class-11-physics",
+      "hops": 0
+    },
+    {
+      "url": "/topics/vectors-class-11-physics.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/404",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/404/",
+      "hops": 2
+    },
+    {
+      "url": "/topics/vectors-lecture-1-introduction",
+      "predicted": "301",
+      "predictedWhy": "directory -> trailing slash",
+      "actualFirst": "200",
+      "location": "",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/topics/vectors-lecture-1-introduction",
+      "hops": 0
+    },
+    {
+      "url": "/topics/vectors-lecture-1-introduction.html",
+      "predicted": "404",
+      "predictedWhy": "no file, no rule",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/404",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/404/",
+      "hops": 2
+    },
+    {
+      "url": "/topics/vectors-lecture-1-introduction/",
+      "predicted": "200",
+      "predictedWhy": "DirectoryIndex",
+      "actualFirst": "301",
+      "location": "https://ankuramtuition.com/",
+      "finalStatus": "200",
+      "finalUrl": "https://ankuramtuition.com/",
+      "hops": 1
+    }
+  ]
+}
