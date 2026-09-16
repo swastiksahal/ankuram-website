@@ -1,0 +1,262 @@
+/* ============================================================================
+   site.css — Ankuram design system, from P2 Direction C (diagram-led).
+   NEW FILE. The live styles.css is not touched by this.
+
+   Everything is scoped under .v2 on <body>, so a page that has not migrated
+   yet links only styles.css and renders exactly as it does today.
+
+   System fonts only: 0 bytes of webfont, no render-blocking font request.
+   ========================================================================= */
+
+.v2 {
+  /* ---- colour tokens ---- */
+  --ground: #F7F8FA;
+  --sheet: #FFFFFF;
+  --ink: #14181F;
+  --ink-soft: #454F5E;
+  --ink-mute: #5B6675;
+  --blue: #1B3A6B;
+  --blue-deep: #12294C;
+  --blue-soft: #E8EEF7;
+  --blue-line: #B9CAE2;
+  --line: #D8DEE7;
+  --grid: #E9EDF3;
+  --gold: #8A6212;
+  --green: #0B6B4F;
+
+  /* ---- type ---- */
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --t-xs: .78rem;
+  --t-sm: .88rem;
+  --t-base: 1rem;
+  --t-lg: 1.14rem;
+  --t-xl: 1.4rem;
+  --t-2xl: clamp(1.4rem, 3.2vw, 2.05rem);
+  --t-3xl: clamp(1.9rem, 5.2vw, 3.05rem);
+
+  /* ---- spacing ---- */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+  --s6: 32px; --s7: 44px; --s8: 56px; --s9: 72px;
+  --radius: 10px;
+  --radius-sm: 7px;
+  --wrap: 1100px;
+}
+
+.v2 *, .v2 *::before, .v2 *::after { box-sizing: border-box; }
+.v2 { margin: 0; background: var(--ground); color: var(--ink); font: 400 17px/1.64 var(--sans); overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+.v2 img { max-width: 100%; height: auto; display: block; }
+.v2 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
+.v2 .skip { position: absolute; left: -9999px; }
+.v2 .skip:focus { left: var(--s2); top: var(--s2); background: var(--blue); color: #fff; padding: var(--s2) var(--s3); z-index: 50; }
+.v2 :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+.v2 h1, .v2 h2, .v2 h3, .v2 h4 { color: var(--ink); margin: 0 0 .5em; line-height: 1.2; font-weight: 700; letter-spacing: -.012em; }
+.v2 h1 { font-size: var(--t-3xl); }
+.v2 h2 { font-size: var(--t-2xl); }
+.v2 h3 { font-size: var(--t-lg); }
+.v2 h4 { font-size: var(--t-base); }
+.v2 p { margin: 0 0 1em; color: var(--ink-soft); }
+.v2 a { color: var(--blue); }
+.v2 code { font-family: var(--mono); font-size: .92em; background: var(--blue-soft); color: var(--blue-deep); padding: 1px 5px; border-radius: 4px; }
+.v2 ul { margin: 0 0 1em; padding-left: 1.15em; }
+.v2 li { color: var(--ink-soft); margin-bottom: .3em; }
+
+/* ============================ BLOCK 1 — header ========================== */
+.v2 .site-header { background: var(--sheet); border-bottom: 1px solid var(--line); }
+.v2 .header-inner { display: flex; align-items: center; gap: var(--s4); min-height: 66px; flex-wrap: wrap; }
+.v2 .brand { font-weight: 700; letter-spacing: .16em; color: var(--blue); text-decoration: none; font-size: 1.12rem; margin-right: auto; }
+.v2 .nav-desktop { display: flex; gap: 17px; flex-wrap: wrap; order: 2; }
+.v2 .nav-desktop a { color: var(--ink-soft); text-decoration: none; font-size: var(--t-sm); }
+.v2 .nav-desktop a:hover { color: var(--blue); }
+.v2 .header-cta { display: flex; gap: var(--s2); order: 3; }
+.v2 .hcta { font-size: var(--t-sm); text-decoration: none; padding: 7px 13px; border-radius: var(--radius-sm); font-weight: 600; white-space: nowrap; }
+.v2 .hcta-wa { background: var(--green); color: #fff; }
+.v2 .hcta-tel { border: 1px solid var(--blue); color: var(--blue); }
+
+/* no-JavaScript mobile menu */
+.v2 .nav-mobile { display: none; }
+.v2 .nav-mobile > summary {
+  list-style: none; cursor: pointer; font-size: var(--t-sm); font-weight: 600;
+  color: var(--blue); border: 1px solid var(--blue); border-radius: var(--radius-sm); padding: 7px 13px;
+}
+.v2 .nav-mobile > summary::-webkit-details-marker { display: none; }
+.v2 .nav-mobile > summary::after { content: " ▾"; }
+.v2 .nav-mobile[open] > summary::after { content: " ▴"; }
+.v2 .nav-mobile-list { display: flex; flex-direction: column; gap: var(--s1); padding: var(--s3) 0 var(--s2); width: 100%; }
+.v2 .nav-mobile-list a { color: var(--ink-soft); text-decoration: none; padding: 9px 2px; border-bottom: 1px solid var(--line); font-size: var(--t-base); }
+
+/* ============================= BLOCK 2 — hero =========================== */
+.v2 .hero {
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 28px 100%,
+    var(--sheet);
+  border-bottom: 1px solid var(--line);
+  padding: var(--s8) 0 var(--s7);
+}
+.v2 .hero-inner { display: grid; grid-template-columns: 1fr; gap: var(--s6); }
+.v2 .hero-text { max-width: 62ch; }
+.v2 .lede { font-size: var(--t-lg); color: var(--ink); }
+.v2 .curricula-line { font-family: var(--mono); font-size: var(--t-xs); color: var(--blue); background: var(--blue-soft); display: inline-block; padding: 7px var(--s3); border-radius: var(--radius-sm); }
+.v2 .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin: var(--s5) 0 var(--s4); }
+.v2 .btn { display: inline-block; padding: 12px 20px; border-radius: var(--radius-sm); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.v2 .btn-primary { background: var(--blue); color: #fff; }
+.v2 .btn-ghost { border: 1px solid var(--blue); color: var(--blue); }
+
+/* ====================== BLOCK 3 — method diagram ======================== */
+.v2 .method { margin: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5) var(--s4) var(--s4); }
+.v2 .ms-flow { list-style: none; margin: 0; padding: 0; display: flex; align-items: stretch; gap: var(--s2); }
+.v2 .ms-step {
+  flex: 1 1 0; min-width: 0; background: var(--blue-soft); border: 1px solid var(--blue-line);
+  border-radius: var(--radius); padding: var(--s4) var(--s3); display: flex; flex-direction: column; gap: var(--s2);
+}
+.v2 .ms-step-final { background: #D5E2F3; border-color: #8FAAD0; }
+.v2 .ms-head { display: flex; align-items: center; gap: var(--s2); }
+.v2 .ms-num {
+  font-family: var(--mono); font-weight: 700; font-size: var(--t-sm); color: #fff; background: var(--blue);
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; flex: none;
+}
+.v2 .ic { width: 30px; height: 30px; flex: none; fill: none; stroke: var(--blue); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* A label inside the figure, not a section heading: keeping it a <p> avoids an
+   h1 -> h3 jump in the hero. Weight and size do the work instead. */
+.v2 .ms-title { font-size: var(--t-base); margin: 0; color: var(--blue-deep); line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
+/* Step 4's title is lowercase in the source copy ("improve marks and
+   confidence"). Only the FIRST letter is raised, and only in CSS — the text
+   node itself is untouched, so the wording check still sees the original. */
+.v2 .ms-title-cap::first-letter { text-transform: uppercase; }
+.v2 .ms-caption { font-size: var(--t-sm); margin: 0; color: var(--ink-soft); line-height: 1.5; }
+.v2 .ms-arrow { flex: 0 0 26px; display: grid; place-items: center; }
+.v2 .arw { fill: none; stroke: var(--blue); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .arw-h { width: 22px; height: 15px; }
+.v2 .arw-v { display: none; width: 15px; height: 22px; }
+
+.v2 .ms-loop { margin-top: var(--s2); }
+.v2 .ms-loop-line { fill: none; stroke: var(--blue); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .ms-loop-h { display: block; width: 100%; height: 46px; }
+.v2 .ms-loop-v { display: none; }
+.v2 .ms-loop-label { font-size: var(--t-sm); color: var(--blue-deep); margin: 0; text-align: center; font-weight: 600; }
+
+/* ======================= BLOCK 4 — numbered list ======================== */
+.v2 .numbered { list-style: none; margin: 0; padding: 0 0 0 var(--s1); counter-reset: n; display: grid; border-left: 2px solid var(--blue-soft); }
+.v2 .numbered > li { display: grid; grid-template-columns: 52px 1fr; gap: var(--s4); padding: 0 0 var(--s6) var(--s5); counter-increment: n; }
+.v2 .numbered > li:last-child { padding-bottom: 0; }
+.v2 .numbered > li::before { content: counter(n, decimal-leading-zero); font-family: var(--mono); font-size: .95rem; font-weight: 700; color: #fff; background: var(--blue); width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; }
+.v2 .numbered.own-nums > li::before { content: none; }
+.v2 .numbered.own-nums > li .num { font-family: var(--mono); font-size: .95rem; font-weight: 700; color: #fff; background: var(--blue); width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; }
+
+/* ========================= BLOCK 5 — card grid ========================== */
+.v2 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(252px, 1fr)); gap: var(--s4); }
+.v2 .card { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .sec:nth-of-type(even) .card { background: var(--ground); }
+.v2 .step-label {
+  display: inline-block; font-family: var(--mono); font-size: var(--t-xs); font-weight: 700;
+  color: var(--blue); background: var(--blue-soft); border-radius: 999px; padding: 3px 10px; margin-bottom: var(--s2);
+}
+.v2 .sub-card { border-top: 1px solid var(--line); padding-top: var(--s3); margin-top: var(--s3); }
+.v2 .card > .sub-card:first-of-type, .v2 .panel-item > .sub-card:first-of-type { border-top: 0; }
+
+/* ====================== BLOCK 6 — comparison table ====================== */
+.v2 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--sheet); }
+.v2 .deftable { width: 100%; border-collapse: collapse; }
+.v2 .deftable th, .v2 .deftable td { text-align: left; vertical-align: top; padding: var(--s4); border-bottom: 1px solid var(--line); }
+.v2 .deftable th { width: 30%; color: var(--blue); font-family: var(--mono); font-size: var(--t-sm); font-weight: 700; }
+.v2 .deftable tr:last-child th, .v2 .deftable tr:last-child td { border-bottom: 0; }
+.v2 .deftable p:last-child { margin-bottom: 0; }
+.v2 .intro { max-width: 66ch; margin-bottom: var(--s4); }
+
+/* =========================== BLOCK 7 — steps =========================== */
+.v2 .rows { display: grid; gap: var(--s5); }
+.v2 .row { display: grid; grid-template-columns: 240px 1fr; gap: var(--s5); background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .sec:nth-of-type(even) .row { background: var(--ground); }
+.v2 .regions { display: grid; gap: var(--s6); }
+.v2 .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: var(--s4); }
+.v2 .area { border: 1px dashed var(--line); border-radius: 8px; padding: var(--s4); background: var(--sheet); }
+.v2 .sec:nth-of-type(even) .area { background: var(--ground); }
+
+/* ======================= BLOCK 8 — FAQ accordion ======================== */
+.v2 .accordion { border: 1px solid var(--line); border-radius: var(--radius); background: var(--sheet); overflow: hidden; }
+.v2 .accordion details { border-bottom: 1px solid var(--line); }
+.v2 .accordion details:last-child { border-bottom: 0; }
+.v2 .accordion summary { cursor: pointer; padding: 15px var(--s4); font-weight: 600; color: var(--ink); }
+.v2 .accordion summary::marker { color: var(--blue); }
+.v2 .acc-body { padding: 0 var(--s4) var(--s3); }
+.v2 .acc-plain { padding: var(--s4); }
+
+/* ======================== BLOCK 9 — review band ========================= */
+.v2 .rating { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; background: var(--sheet); border: 1px solid var(--line); border-radius: 9px; padding: var(--s3) var(--s4); }
+.v2 .rating-num { font-size: 2.3rem; font-weight: 700; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
+.v2 .rating-stars { color: var(--gold); letter-spacing: 2px; }
+.v2 .rating-meta { display: flex; flex-direction: column; font-size: var(--t-xs); color: var(--ink-soft); }
+.v2 .rating-meta .rc { font-weight: 700; color: var(--ink); }
+
+/* ========================= BLOCK 10 — stat band ========================= */
+.v2 .trust, .v2 .stat-band { list-style: none; display: flex; gap: var(--s4); padding: var(--s4) 0 0; margin: 0; flex-wrap: wrap; font-size: var(--t-sm); color: var(--ink-soft); }
+.v2 .stat-band { gap: var(--s6); padding: var(--s5) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.v2 .stat { display: flex; flex-direction: column; }
+.v2 .stat-num { font-size: 1.9rem; font-weight: 700; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
+.v2 .stat-label { font-size: var(--t-xs); color: var(--ink-soft); }
+
+/* ========================== BLOCK 11 — panel ============================ */
+.v2 .panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: var(--s5); }
+.v2 .panel-item { background: var(--blue-soft); border-radius: var(--radius); padding: var(--s5); }
+.v2 .panel-item h3 { color: var(--blue-deep); }
+.v2 .prose { max-width: 66ch; }
+.v2 .opts { columns: 2; font-size: .9rem; font-family: var(--mono); }
+.v2 .pseudo-btn { display: inline-block; border: 1px solid var(--line); background: var(--sheet); padding: var(--s2) var(--s3); border-radius: var(--radius-sm); font-size: var(--t-sm); }
+
+/* ========================= BLOCK 12 — CTA band ========================== */
+.v2 .cta-band { background: var(--blue); padding: var(--s8) 0; text-align: center; }
+.v2 .cta-band h2 { color: #fff; }
+.v2 .cta-band p { color: #D3DEEE; max-width: 60ch; margin: 0 auto var(--s5); }
+.v2 .cta-row { display: flex; gap: var(--s3); justify-content: center; flex-wrap: wrap; }
+.v2 .cta-band .btn-primary { background: #fff; color: var(--blue); }
+.v2 .cta-band .btn-ghost { border-color: #90A6C6; color: #fff; }
+
+/* =========================== sections + footer ========================== */
+.v2 .sec { padding: var(--s8) 0; border-bottom: 1px solid var(--line); }
+.v2 .sec:nth-of-type(even) { background: var(--sheet); }
+.v2 .site-footer { background: var(--sheet); padding: var(--s6) 0; font-size: var(--t-sm); color: var(--ink-soft); }
+.v2 .footer-links { display: flex; gap: var(--s4); flex-wrap: wrap; margin-top: 10px; }
+
+/* ============================== responsive ============================== */
+@media (min-width: 901px) {
+  .v2 .hero-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .v2 .row { grid-template-columns: 1fr; gap: 10px; }
+}
+
+/* Diagram flips to a vertical stack below 600px, with a side bracket loop. */
+@media (max-width: 600px) {
+  .v2 .method { padding: var(--s4) var(--s3); display: grid; grid-template-columns: 34px 1fr; gap: var(--s2); }
+  .v2 .ms-flow { grid-column: 2; flex-direction: column; align-items: stretch; gap: var(--s2); }
+  .v2 .ms-step { padding: var(--s4); }
+  .v2 .ms-title { font-size: var(--t-base); }
+  .v2 .ms-caption { font-size: 16px; }            /* text stays >= 16px on mobile */
+  .v2 .ms-arrow { flex: none; height: 24px; }
+  .v2 .arw-h { display: none; }
+  .v2 .arw-v { display: block; }
+  /* display:contents lets the bracket and its label sit directly in the
+     .method grid: the bracket in the narrow gutter, the label full width
+     underneath. Nested in .ms-loop they were both trapped in the 34px column. */
+  .v2 .ms-loop { display: contents; }
+  .v2 .ms-loop-h { display: none; }
+  .v2 .ms-loop-v { display: block; grid-column: 1; grid-row: 1; width: 34px; height: 100%; align-self: stretch; }
+  .v2 .ms-loop-label { grid-column: 1 / -1; grid-row: 2; margin: var(--s4) 0 0; font-size: var(--t-sm); text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .v2 { font-size: 16px; }
+  .v2 .hero { padding: var(--s6) 0 var(--s5); }
+  .v2 .sec { padding: var(--s7) 0; }
+  .v2 .nav-desktop { display: none; }
+  .v2 .nav-mobile { display: block; order: 4; width: 100%; }
+  .v2 .brand { margin-right: auto; }
+  .v2 .numbered > li { grid-template-columns: 40px 1fr; gap: var(--s3); padding-left: 14px; }
+  .v2 .numbered > li::before, .v2 .numbered.own-nums > li .num { width: 32px; height: 32px; font-size: var(--t-sm); }
+  .v2 .deftable th { width: auto; display: block; border-bottom: 0; }
+  .v2 .deftable td { display: block; padding-top: var(--s1); }
+  .v2 .opts { columns: 1; }
+  .v2 .stat-band { gap: var(--s5); }
+}
