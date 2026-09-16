@@ -1,0 +1,29 @@
+broken_target,pages_linking,example_pages,proposed_replacement,replacement_live_status,reason
+/online-tuition.html,24,areas/ameerpet.html areas/banjara-hills.html areas/begumpet.html,/online-maths-tuition,200,"Anchor ""Learn More About Online Tuition""; nearest live general online-tuition page"
+/areas/jubilee-hills,4,cbse-icse-igcse-ib-tuition-hyderabad.html class-10-tuition-jubilee-hills.html class-12-maths-physics-chemistry-tuition-hyderabad.html,/,200,"Anchor ""Jubilee Hills""; no areas/ page for the home locality, homepage is the Jubilee Hills hub"
+/about.html,1,blog/why-your-child-forgets-maths-after-studying/index.html,/about/,200,"Same page, current path"
+/contact.html,1,blog/why-your-child-forgets-maths-after-studying/index.html,/contact/,200,"Same page, current path"
+/curricula.html,1,blog/why-your-child-forgets-maths-after-studying/index.html,/cbse-icse-igcse-ib-tuition-hyderabad,200,"Anchor ""Curricula""; this is the all-boards page"
+/online-classes.html,1,blog/why-your-child-forgets-maths-after-studying/index.html,/online-maths-tuition,200,"Anchor ""Online Classes""; nearest live online page"
+/cbse,1,topics/vectors-class-11-physics/index.html,/best-cbse-tuition-centre,200,"Anchor ""CBSE""; the live CBSE landing page"
+/chemistry,1,topics/vectors-class-11-physics/index.html,/class-12-maths-physics-chemistry-tuition-hyderabad,200,"Anchor ""Chemistry""; only live page covering chemistry"
+/ib,1,topics/vectors-class-11-physics/index.html,/ib-tuition-hyderabad,200,"Anchor ""IB (MYP & DP)""; the IB hub page"
+/icse,1,topics/vectors-class-11-physics/index.html,/icse-tuition-hyderabad,200,"Anchor ""ICSE""; the ICSE page"
+/igcse,1,topics/vectors-class-11-physics/index.html,/igcse-tuition-jubilee-hills,200,"Anchor ""IGCSE & A-Levels""; the IGCSE page"
+/maths,1,topics/vectors-class-11-physics/index.html,/maths-tuition-jubilee-hills,200,"Anchor ""Mathematics""; the maths hub page"
+/physics,1,topics/vectors-class-11-physics/index.html,/physics-tuition-hyderabad,200,"Anchor ""Physics""; the physics page"
+/topics/class-11,1,topics/vectors-class-11-physics/index.html,/class-11-tuition/,200,"Anchor ""Class 11""; the live class-11 page"
+/topics/motion-in-a-plane-class-11-physics,1,topics/vectors-class-11-physics/index.html,DECIDE,n/a,Related-topic link to an unwritten article. Remove link or write it
+/topics/newtons-laws-class-11-physics,1,topics/vectors-class-11-physics/index.html,DECIDE,n/a,Related-topic link to an unwritten article. Remove link or write it
+/topics/physics,1,topics/vectors-class-11-physics/index.html,/physics-tuition-hyderabad,200,"Anchor ""Physics""; no topics/physics index exists"
+/topics/projectile-motion-class-11-physics,1,topics/vectors-class-11-physics/index.html,DECIDE,n/a,Related-topic link to an unwritten article. Remove link or write it
+/topics/work-energy-power-class-11-physics,1,topics/vectors-class-11-physics/index.html,DECIDE,n/a,Related-topic link to an unwritten article. Remove link or write it
+/approach,1,topics/vectors-lecture-1-introduction/index.html,/how-we-teach,200,"Anchor ""Approach""; how-we-teach is the method page"
+/notes,1,topics/vectors-lecture-1-introduction/index.html,DECIDE,n/a,"Anchor ""Study Notes""; no notes section exists. Remove link or create page"
+/practice,1,topics/vectors-lecture-1-introduction/index.html,DECIDE,n/a,"Anchor ""Practice Sheets""; no practice section exists. Remove link or create page"
+/programmes,1,topics/vectors-lecture-1-introduction/index.html,/cbse-icse-igcse-ib-tuition-hyderabad,200,"Anchor ""Programmes""; the all-boards offer page"
+/resources,1,topics/vectors-lecture-1-introduction/index.html,DECIDE,n/a,"Anchor ""Resources""; no resources section exists. Remove link or create page"
+/topics/vectors,1,topics/vectors-lecture-1-introduction/index.html,/topics/vectors-class-11-physics/,200,"Anchor ""Vectors""; the live vectors topic page"
+/topics/vectors-lecture-2-components/,1,topics/vectors-lecture-1-introduction/index.html,DECIDE,n/a,"Anchor ""Next: Components & Unit Vectors""; lecture 2 not written. Remove link or write it"
+/topics/vectors-lecture-3-addition/,1,topics/vectors-lecture-1-introduction/index.html,DECIDE,n/a,"Anchor labelled ""Coming soon""; lecture 3 not written. Remove link or write it"
+/topics/vectors-practice-1/,1,topics/vectors-lecture-1-introduction/index.html,DECIDE,n/a,"Anchor ""Practice Sheet 1""; sheet not written. Remove link or write it"
