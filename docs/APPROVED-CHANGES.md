@@ -21,3 +21,18 @@ NOT approved (need a separate decision — do not change):
 - /cbse-class-10-online-tuition indexing status
 - Any wording, price, batch size, badge or offer text (including /cbse-class-10/ "Batch of 5 students", "Most Popular", "45-minute" diagnostic copy)
 - Removing unreachable files (cbse-class-10-maths.html, areas/kukatpally.html, ib-pyp-tuition-hyderabad.html, class-8-maths/sitemap.xml and robots.txt)
+
+A3 decisions (link-map approved, 16 Sep):
+- Apply docs/link-map.csv exactly as proposed for every row that has a URL.
+- The 10 DECIDE rows: remove the <a> element but keep its visible text as plain text inside body content. If the link is a navigation/menu item (e.g. "Study Notes", "Practice Sheets", "Resources") remove the whole menu item. Log each one per page in the parity report as an A3 exception to invariants 5 and 6.
+- /areas/jubilee-hills -> / and /online-tuition.html -> /online-maths-tuition are approved.
+
+A7 /cbse-class-10/ (paid page, last wave, Swastik's decisions 16 Sep):
+- KEEP the sticky mobile WhatsApp/Call bar on the 4 paid pages only (conversion exception for mobile ad traffic). All other pages follow A6.
+- KEEP fees, batch sizes, hours and timings exactly: Regular Rs 8,000/month, batch of 5, 6 hours/week, Mon–Sat 8–9 PM; Intensive Rs 14,000/month, batch of 3, 10 hours/week, Mon–Sat 6:30–8 PM + Sun test.
+- CHANGE badge text "Most Popular" to "Recommended" (visible text only).
+- KEEP "45-minute assessment + 45-minute personal review" and KEEP "We schedule your child's diagnostic within 48 hours".
+- ADD exactly:
+  (a) Diagnostic pricing card, after "Detailed gap analysis report": "Full worked solutions to every question, written by Swastik"
+  (b) "How it works" step 2, after the existing sentence ending "...reviews results with you and your child" (unchanged), a new sentence: "You also receive Swastik's full worked solutions to every question, including the ones your child answered correctly."
+- Do NOT add these to the FAQ or JSON-LD; FAQ JSON-LD stays byte-identical.

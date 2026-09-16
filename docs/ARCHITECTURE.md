@@ -414,9 +414,10 @@ your call: remove the link, or write the page. See section 10.
    locality the centre is actually in. Homepage is my proposal; a dedicated
    Jubilee Hills area page may be the better answer, but that is new content,
    not a rebuild.
-4. **Staging password** — send it outside this chat (section 7 step 4).
-5. **Old `styles.css` deletion** at the end of migration: approve now as part of
-   the plan, or as a separate decision later?
+4. ~~Staging password~~ — **ANSWERED 16 Sep.** Swastik sets it himself in hPanel.
+   Never ask for it, never print it. Section 7 step 4 is amended accordingly.
+5. ~~Old `styles.css` deletion~~ — **ANSWERED 16 Sep.** Separate decision after
+   all waves are live. Not now.
 
 **Risks I am carrying**
 
@@ -428,13 +429,14 @@ your call: remove the link, or write the page. See section 10.
 7. **Both gtag bundles are 349 KB of third-party weight.** Section 6 halves it
    by deduplicating the loader, but if homepage performance stalls below 90
    after every build-side fix, the remaining lever is a tracking decision.
-8. **Soft 404s.** `/404/` returns HTTP 200. Anything 301'd into it looks like a
-   real page to Google. Fixing it means touching `.htaccess` — not approved, and
-   I am not proposing it now, but it should be on the list eventually.
+8. ~~**Soft 404s.**~~ `/404/` returns HTTP 200, so anything 301'd into it looks
+   like a real page to Google. **DEFERRED 16 Sep** — fixing it means touching
+   `.htaccess`; separate decision after all waves are live.
 9. **CDN cache during waves.** H1 showed edge nodes serving deleted files for
    hours after a cache clear, with a 30-day `ExpiresDefault`. Each wave needs a
    cache clear plus a three-pass verification, not a single request.
-10. **Two live GA4 properties.** A1 standardises on `G-MQRSS8DKLE`, which means
-    the 7 pages currently on `G-KHP2PBXF6X` stop reporting to that property.
-    If anyone is reading dashboards built on it, they go flat on those pages the
-    day that wave ships. Worth telling whoever watches the analytics.
+
+~~10. Two live GA4 properties.~~ **WITHDRAWN 16 Sep — this was my error.**
+`G-MQRSS8DKLE` and `G-KHP2PBXF6X` are two data streams of the *same* GA4
+property (374743429), not two properties. Standardising on `G-MQRSS8DKLE` keeps
+data flowing to the same property, so no dashboard goes flat. Not a risk.
