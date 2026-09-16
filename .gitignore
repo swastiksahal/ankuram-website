@@ -2,6 +2,23 @@
 node_modules/
 *.log
 
+# --- Junk in the live web root (P0b section 3). Present on the server and in
+# --- ./public_html, deliberately kept out of the repo. Nothing is deleted on disk.
+
+# Full-site backup archives sitting in the web root
 public_html/assets/Ankuram_public_html_SEO_complete_2026-07-29.zip
 public_html/blog/Ankuram_public_html_clean.zip
-public_html/cbse-class-10-maths/index.html.bak
+
+# Editor/deploy backups: .bak, .bak2, .bak-YYYYMMDD, .bak-comp-YYYYMMDD
+*.bak
+*.bak[0-9]
+*.bak-*
+*.bak[0-9]-*
+
+# Misnamed copy of the June 24 root .htaccess (no leading dot, so not parsed)
+public_html/topics/htaccess (1)
+
+# Stray plain-text page dumps
+public_html/class-11-tuition/index.txt
+public_html/class-9-tuition/index.txt
+public_html/thank-you/index.txt
