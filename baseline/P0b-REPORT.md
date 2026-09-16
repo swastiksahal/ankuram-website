@@ -489,3 +489,57 @@ inventory is reused as a comparison baseline.
 Everything above is HEAD requests. Response *bodies* were fetched for only two
 URLs (`/cbse-class-10/` and the two text files compared in item 3). Page
 content, tracking snippets firing, and Lighthouse metrics are untested.
+
+---
+
+# H1 server change — 16 Sep 2026
+
+First and only production write so far. Approved by Swastik for these 6 files
+only. Nothing deleted: `mv -n` throughout, no `rm` at any point.
+
+**Pre-change backup** (CLAUDE.md requirement, taken before the first `mv`):
+`~/backups/public_html-pre-H1-20260916-145452.tar.gz`, 7,640,629 bytes, all 152
+files.
+
+**Moved** from `~/domains/ankuramtuition.com/public_html/` to
+`~/backups/exposed-20260916/<same subfolder>/`:
+
+| File | Bytes | Live status now |
+|---|---|---|
+| `assets/Ankuram_public_html_SEO_complete_2026-07-29.zip` | 3,158,946 | 404 |
+| `blog/Ankuram_public_html_clean.zip` | 3,086,658 | 404 |
+| `topics/htaccess (1)` | 9,660 | 404 |
+| `class-11-tuition/index.txt` | 9,373 | 404 |
+| `class-9-tuition/index.txt` | 9,346 | 404 |
+| `thank-you/index.txt` | 5,954 | 404 |
+
+Sizes and mtimes preserved exactly; all six match the P0a snapshot byte for byte.
+
+**Origin verified:** `ls` returns `No such file or directory` for all 6 under
+`public_html`; `find . -type f | wc -l` = **146** (was 152). All six parent
+directories keep their real content — `class-11-tuition/`, `class-9-tuition/`
+and `thank-you/` still serve their `index.html`.
+
+**Controls unaffected:** `/` and `/cbse-class-10/` returned 200 on every pass.
+
+**CDN cache residue.** Immediately after the cache clear, results flapped
+between 404 and 200 across three passes:
+
+```
+pass 1: 200 404 404 404 200 404
+pass 2: 404 404 404 404 200 404
+pass 3: 404 404 404 404 404 404
+```
+
+The 200s carried `age: ~10900` (about 3 hours, i.e. cached before the move) and
+`cache-control: public, max-age=2592000`. That 30-day TTL comes from
+`ExpiresDefault "access plus 1 month"` in `.htaccess`, which covers `.txt` and
+`.zip`. The origin is clean; individual edge nodes may keep serving a stale copy
+until their entry expires. Worth re-checking in a few days, and worth
+remembering that `ExpiresDefault` applies a one-month TTL to any file type not
+explicitly listed.
+
+**Not changed:** `.htaccess`, `robots.txt`, `sitemap.xml`, and every HTML file.
+The local `./public_html` snapshot still contains all 6 files (they are
+gitignored), so it no longer mirrors the server exactly — it is the pre-H1
+baseline by design.
