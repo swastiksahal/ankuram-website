@@ -108,7 +108,12 @@ const browser = await chromium.launch();
     };
   });
 
-  // one PNG per viewport, covering the whole section
+  // one PNG per viewport, covering the whole section.
+  // Clear old ones first: the section gets shorter as it is tightened, and a
+  // stale hybrid-m-N.png would misrepresent it.
+  for (const f of fs.readdirSync('design/screens')) {
+    if (/^hybrid-m-\d+\.png$/.test(f)) fs.unlinkSync(path.join('design/screens', f));
+  }
   const box = await (await page.$('.sec-week')).boundingBox();
   const shots = Math.ceil(box.height / VH);
   for (let i = 0; i < shots; i++) {
