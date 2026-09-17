@@ -49,34 +49,32 @@ const METHOD_ARIA = 'How we teach, in four steps: Diagnostic Test, then Gaps in 
 
 const A11 = {
   sectionTitle: 'How a week works',
+  swipeHint: 'Swipe →',
   d1: {
     title: 'Two routes through the week',
-    days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    chips: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    keyOnline: 'Online · Google Meet',
+    keyCentre: 'At the centre',
     routeA: 'Route A',
     routeB: 'Route B',
     routeBSub: 'Foundation support',
-    online: 'Online · Google Meet',
-    onlineShort: 'Online',
-    centre: 'At the centre',
+    badge: '+2',
+    badgeNote: 'Any 2 weekdays at the centre',
     arrow: 'As confidence builds',
-    aria: 'Two routes through the week. Route A: Monday to Friday online on Google Meet, Saturday and Sunday at the centre. Route B, foundation support: two weekdays at the centre, the other weekdays online, Saturday and Sunday at the centre. Route B moves to Route A as confidence builds.',
+    weekend: 'Weekends at the centre: doubts cleared in person · revision and practice',
+    aria: 'Two routes through the week. Route A: Monday to Friday online on Google Meet, Saturday and Sunday at the centre. Route B, foundation support: the same week with any two weekdays spent at the centre instead. Route B moves to Route A as confidence builds.',
   },
   d2: {
     title: 'A weekday online class',
     steps: [
-      'Swastik solves it live on the digital board',
-      'Your child solves the next problem on paper',
-      'A photo of the work is sent on WhatsApp',
-      'Mistakes are corrected during the class',
+      'Solved live on the digital board',
+      'Your child tries the next one',
+      'Photo sent on WhatsApp',
+      'Corrected in class',
     ],
     loop: 'Next problem',
     after: 'After class: a worksheet to practise',
-    aria: 'A weekday online class, in four steps: Swastik solves it live on the digital board, your child solves the next problem on paper, a photo of the work is sent on WhatsApp, mistakes are corrected during the class. Step four loops back to step two for the next problem.',
-  },
-  d3: {
-    title: 'Weekends at the centre',
-    blocks: ['Doubts cleared in person', 'Revision and practice'],
-    aria: 'Weekends at the centre: doubts cleared in person, and revision and practice.',
+    aria: 'A weekday online class, as a loop: solved live on the digital board, your child tries the next one, photo sent on WhatsApp, corrected in class, then back to the next problem.',
   },
 };
 
@@ -100,12 +98,12 @@ const ARROW_RIGHT = '<svg viewBox="0 0 24 16" class="arw arw-h" aria-hidden="tru
 const ARROW_DOWN = '<svg viewBox="0 0 16 24" class="arw arw-v" aria-hidden="true" focusable="false"><line x1="8" y1="1" x2="8" y2="19"/><polyline points="3,14 8,20 13,14"/></svg>';
 
 /** A four-step flow with a 4 -> 2 loop. Shared by the method diagram and D2. */
-function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote = '' }) {
+function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote = '', circleLoop = false }) {
   const cards = steps.map((s, i) => {
     const title = typeof s === 'string' ? s : s.title;
     const caption = typeof s === 'string' ? '' : s.caption;
     return `
-      <li class="ms-step${i === steps.length - 1 ? ' ms-step-final' : ''}">
+      <li class="ms-step ms-step-${i + 1}${i === steps.length - 1 ? ' ms-step-final' : ''}">
         <div class="ms-head"><span class="ms-num" aria-hidden="true">${i + 1}</span>${icons[i]}</div>
         <p class="ms-title${i === capIndex ? ' ms-title-cap' : ''}">${esc(title)}</p>
         ${caption ? `<p class="ms-caption">${esc(caption)}</p>` : ''}
@@ -113,14 +111,18 @@ function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote =
   }).join(`
       <li class="ms-arrow" aria-hidden="true">${ARROW_RIGHT}${ARROW_DOWN}</li>`);
 
-  return `
+  const openStage = circleLoop ? '<div class="ms-stage">' : '';
+  const closeStage = circleLoop ? '</div>' : '';
+  return `${openStage}
   <ol class="ms-flow">${cards}
   </ol>
   <div class="ms-loop">
     <svg class="ms-loop-line ms-loop-h" viewBox="0 0 800 46" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M770 2 L770 30 Q770 40 758 40 L222 40 Q210 40 210 30 L210 10"/><polyline points="204,16 210,6 216,16"/></svg>
-    <svg class="ms-loop-line ms-loop-v" viewBox="0 0 48 300" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M40 292 L40 286 Q40 278 30 278 L14 278 Q4 278 4 268 L4 97 Q4 87 14 87 L30 87"/><polyline points="24,81 34,87 24,93"/></svg>
+    ${circleLoop
+      ? `<svg class="ms-loop-line ms-loop-circle" viewBox="0 0 64 64" role="img" aria-label="${esc(aria)}"><path d="M52 32 a20 20 0 1 1 -6 -14"/><polyline points="46 4 46 18 32 18"/></svg>`
+      : `<svg class="ms-loop-line ms-loop-v" viewBox="0 0 48 300" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M40 292 L40 286 Q40 278 30 278 L14 278 Q4 278 4 268 L4 97 Q4 87 14 87 L30 87"/><polyline points="24,81 34,87 24,93"/></svg>`}
     <p class="ms-loop-label">${esc(loopLabel)}</p>
-  </div>${extraNote ? `\n  <p class="ms-note">${esc(extraNote)}</p>` : ''}`;
+  </div>${closeStage}${extraNote ? `\n  <p class="ms-note">${esc(extraNote)}</p>` : ''}`;
 }
 
 const methodDiagram = () => `
@@ -136,58 +138,53 @@ const methodDiagram = () => `
 // -------------------------------------------------------------- D1, D2, D3
 function diagramWeek() {
   const d = A11.d1;
-  // The day names live in the DOM (not in CSS ::before) so that what a reader
-  // sees on mobile is the same text the word-count check measures.
-  const cell = (label, days, kind) =>
-    `<div class="wk-block wk-${kind}" style="--span:${days.length}">` +
-    `<span class="wk-block-days">${days.map(esc).join(' ')}</span>` +
-    `<span class="wk-block-label">${esc(label)}</span></div>`;
-  const D = d.days;
-  return `
-<figure class="dg dg-week">
-  <figcaption class="dg-title">${esc(d.title)}</figcaption>
-  <div class="wk">
-    <div class="wk-head">
-      <span class="wk-head-spacer" aria-hidden="true"></span>
-      <div class="wk-days">${d.days.map((x) => `<span class="wk-day">${esc(x)}</span>`).join('')}</div>
-    </div>
+  // Route A: five online chips then two centre chips.
+  // Route B: the same shape, with a single "+2" badge and a note. Specific
+  // weekdays are never marked -- A11 forbids naming which two.
+  const chip = (letter, kind) => `<li class="chip chip-${kind}">${esc(letter)}</li>`;
+  const row = (kinds) => d.chips.map((c, i) => chip(c, kinds[i])).join('');
+  const A_KINDS = ['online', 'online', 'online', 'online', 'online', 'centre', 'centre'];
 
+  return `
+<figure class="dg dg-week" aria-label="${esc(d.aria)}">
+  <figcaption class="dg-title">${esc(d.title)}</figcaption>
+  <ul class="wk-key">
+    <li><span class="key-dot key-online" aria-hidden="true"></span>${esc(d.keyOnline)}</li>
+    <li><span class="key-dot key-centre" aria-hidden="true"></span>${esc(d.keyCentre)}</li>
+  </ul>
+
+  <div class="wk-strip">
     <div class="wk-row">
       <p class="wk-route">${esc(d.routeA)}</p>
-      <div class="wk-cells">${cell(d.online, D.slice(0, 5), 'online')}${cell(d.centre, D.slice(5), 'centre')}</div>
+      <ul class="wk-chips">${row(A_KINDS)}</ul>
     </div>
 
     <div class="wk-link">
-      <svg class="wk-arrow" viewBox="0 0 28 60" preserveAspectRatio="none" role="img" aria-label="${esc(d.aria)}"><path d="M14 56 L14 12"/><polyline points="7,19 14,7 21,19"/></svg>
+      <svg class="wk-arrow" viewBox="0 0 24 34" role="img" aria-label="${esc(d.aria)}"><path d="M12 32 L12 8"/><polyline points="5,15 12,4 19,15"/></svg>
       <p class="wk-arrow-label">${esc(d.arrow)}</p>
     </div>
 
     <div class="wk-row">
       <p class="wk-route">${esc(d.routeB)}<span class="wk-sub">${esc(d.routeBSub)}</span></p>
-      <div class="wk-cells">${cell(d.centre, D.slice(0, 2), 'centre')}${cell(d.onlineShort, D.slice(2, 5), 'online')}${cell(d.centre, D.slice(5), 'centre')}</div>
+      <ul class="wk-chips">${row(A_KINDS)}</ul>
+      <p class="wk-badge-note"><span class="chip-badge">${esc(d.badge)}</span>${esc(d.badgeNote)}</p>
     </div>
   </div>
+
+  <p class="wk-weekend">${esc(d.weekend)}</p>
 </figure>`;
 }
 
 const diagramClass = () => `
-<figure class="dg method" aria-label="${esc(A11.d2.aria)}">
+<figure class="dg method dg-loop" aria-label="${esc(A11.d2.aria)}">
   <figcaption class="dg-title">${esc(A11.d2.title)}</figcaption>${flowDiagram({
   steps: A11.d2.steps,
   icons: [ICONS.board, ICONS.paper, ICONS.photo, ICONS.correct],
   loopLabel: A11.d2.loop,
   aria: A11.d2.aria,
   extraNote: A11.d2.after,
+  circleLoop: true,
 })}
-</figure>`;
-
-const diagramWeekend = () => `
-<figure class="dg dg-weekend" aria-label="${esc(A11.d3.aria)}">
-  <figcaption class="dg-title">${esc(A11.d3.title)}</figcaption>
-  <div class="we-blocks">
-    <div class="we-block">${ICONS.doubts}<p class="we-label">${esc(A11.d3.blocks[0])}</p></div>
-    <div class="we-block">${ICONS.revise}<p class="we-label">${esc(A11.d3.blocks[1])}</p></div>
-  </div>
 </figure>`;
 
 // ================================================================= structure
@@ -276,6 +273,14 @@ const [pCommute, pAcross] = leadPs;
 
 const subTree = (grp) => tree(grp.blocks, grp.blocks.some((b) => b.t === 'h4') ? 'h4' : 'h5');
 
+const swipeRow = (grp, layoutClass) => {
+  const t = subTree(grp);
+  return `<div class="swipe-wrap">
+      <div class="swipe ${layoutClass}">${t.map((n) => `<article class="card">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</article>`).join('')}</div>
+      <p class="swipe-hint" aria-hidden="true">${esc(A11.swipeHint)}</p>
+    </div>`;
+};
+
 const weekSection = () => `
 <section class="sec sec-week" id="hybrid-classes">
   <div class="wrap">
@@ -283,11 +288,10 @@ const weekSection = () => `
     <p class="sec-lede">${esc(pCommute.v)}</p>
     ${diagramWeek()}
     <h3>${esc(gHow.head)}</h3>
-    ${L.cards(subTree(gHow))}
+    ${swipeRow(gHow, 'swipe-3')}
     ${diagramClass()}
     <h3>${esc(gWhy.head)}</h3>
-    ${L.panel(subTree(gWhy))}
-    ${diagramWeekend()}
+    ${swipeRow(gWhy, 'swipe-4')}
   </div>
 </section>`;
 
@@ -444,18 +448,19 @@ const methodNumerals = 4;
 const navDupe = wc(C.header.nav.map((n) => n.text).join(' ')) + 1;
 
 // day names: once in the header row, then again inside each block (7 + 7)
-const d1Words = wc([A11.d1.title, ...A11.d1.days, ...A11.d1.days, ...A11.d1.days,
-  A11.d1.routeA, A11.d1.routeB, A11.d1.routeBSub,
-  A11.d1.online, A11.d1.centre, A11.d1.centre, A11.d1.onlineShort, A11.d1.centre, A11.d1.arrow].join(' '));
+const d1 = A11.d1;
+const d1Words = wc([d1.title, ...d1.chips, d1.keyOnline, d1.keyCentre, d1.routeA, d1.routeB,
+  d1.routeBSub, d1.badge, d1.badgeNote, d1.arrow, d1.weekend,
+  ...d1.chips].join(' '));                                   // chips render on both rows
 const d2Words = wc([A11.d2.title, ...A11.d2.steps, A11.d2.loop, A11.d2.after].join(' ')) + 4; // + 1..4 badges
-const d3Words = wc([A11.d3.title, ...A11.d3.blocks].join(' '));
-const a11 = wc(A11.sectionTitle) + d1Words + d2Words + d3Words;
+const swipeWords = wc(A11.swipeHint) * 2;                    // one hint per swipe row
+const a11 = wc(A11.sectionTitle) + d1Words + d2Words + swipeWords;
 
 const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
-console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + D3 ${d3Words} = ${a11}`);
+console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + swipe hints ${swipeWords} = ${a11}`);
 console.log(`expected ${P2_WORDS} + A10 ${a10} + method titles ${methodTitles} + numerals ${methodNumerals} + nav copy ${navDupe} + A11 ${a11} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');

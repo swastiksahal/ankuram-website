@@ -1,97 +1,61 @@
 {
+  "budget": {
+    "sectionHeight": 1534,
+    "d1": 363,
+    "d2": 360,
+    "d3Removed": true,
+    "weekendLine": true,
+    "chipCount": 14,
+    "chipH": 36,
+    "badge": 1,
+    "minFont": 15,
+    "minFontSel": "sec-lede",
+    "smallTaps": [],
+    "overflowing": [],
+    "swipes": [
+      {
+        "scrollable": true,
+        "cardPct": 85
+      },
+      {
+        "scrollable": true,
+        "cardPct": 85
+      }
+    ],
+    "pageOverflow": 0,
+    "loopNoteOneLine": true
+  },
   "scroll": [
     {
       "width": 360,
-      "overflow": 0
-    },
-    {
-      "width": 390,
-      "overflow": 0
+      "overflow": 0,
+      "whyCols": 2,
+      "flow": "grid"
     },
     {
       "width": 768,
-      "overflow": 0
+      "overflow": 0,
+      "whyCols": 2,
+      "flow": "flex"
     },
     {
       "width": 1440,
-      "overflow": 0
+      "overflow": 0,
+      "whyCols": 2,
+      "flow": "flex"
     }
   ],
   "shots": [
-    "header-390.png",
-    "areas-closed-390.png",
-    "hybrid-390.png",
-    "hybrid-1440.png",
-    "c-final-1440.png"
+    "hybrid-m-1.png",
+    "hybrid-m-2.png",
+    "hybrid-1440.png"
   ],
-  "layout@360": {
-    "headerRows": 1,
-    "headerHeight": 66,
-    "headerVisibleChildren": 2,
-    "navDesktop": "none",
-    "navMobile": "block",
-    "hctaText": "none",
-    "hctaIcon": "block",
-    "weekCells": 1,
-    "blockLabelPx": 16,
-    "weLabelPx": 16,
-    "msCaptionPx": 16,
-    "areasOpen": false,
-    "diagrams": 4
-  },
-  "layout@390": {
-    "headerRows": 1,
-    "headerHeight": 66,
-    "headerVisibleChildren": 2,
-    "navDesktop": "none",
-    "navMobile": "block",
-    "hctaText": "none",
-    "hctaIcon": "block",
-    "weekCells": 1,
-    "blockLabelPx": 16,
-    "weLabelPx": 16,
-    "msCaptionPx": 16,
-    "areasOpen": false,
-    "diagrams": 4
-  },
-  "layout@768": {
-    "headerRows": 2,
-    "headerHeight": 84,
-    "headerVisibleChildren": 3,
-    "navDesktop": "flex",
-    "navMobile": "none",
-    "hctaText": "inline",
-    "hctaIcon": "none",
-    "weekCells": 7,
-    "blockLabelPx": 14.08,
-    "weLabelPx": 16,
-    "msCaptionPx": 14.08,
-    "areasOpen": false,
-    "diagrams": 4
-  },
-  "layout@1440": {
-    "headerRows": 1,
-    "headerHeight": 66,
-    "headerVisibleChildren": 3,
-    "navDesktop": "flex",
-    "navMobile": "none",
-    "hctaText": "inline",
-    "hctaIcon": "none",
-    "weekCells": 7,
-    "blockLabelPx": 14.08,
-    "weLabelPx": 16,
-    "msCaptionPx": 14.08,
-    "areasOpen": false,
-    "diagrams": 4
-  },
   "lighthouse": {
-    "performance": 97,
+    "performance": 99,
     "accessibility": 100,
-    "bestPractices": 75,
-    "seo": 63,
-    "lcpMs": 1051,
     "cls": 0,
-    "totalBytes": 452586
+    "lcpMs": 1051,
+    "totalBytes": 455488
   },
   "a11yFailures": []
 }
