@@ -4,17 +4,17 @@
     {
       "width": 360,
       "overflow": 0,
-      "height": 12447
+      "height": 12448
     },
     {
       "width": 768,
       "overflow": 0,
-      "height": 17393
+      "height": 17372
     },
     {
       "width": 1440,
       "overflow": 0,
-      "height": 15722
+      "height": 15701
     }
   ],
   "rows": [
@@ -64,11 +64,11 @@
     },
     {
       "name": "Get in Touch",
-      "h": 1783
+      "h": 1825
     },
     {
       "name": "Reviews",
-      "h": 256
+      "h": 140
     },
     {
       "name": "Students From Across Hyderabad",
@@ -76,7 +76,7 @@
     },
     {
       "name": "Frequently Asked Questions",
-      "h": 1323
+      "h": 1373
     },
     {
       "name": "Diagnostic Test",
@@ -91,7 +91,7 @@
       "h": 754
     }
   ],
-  "total": 11755,
+  "total": 11731,
   "minFont": 15,
   "minSel": "SUMMARY:Menu",
   "smallTaps": [],
@@ -131,7 +131,7 @@
     }
   ],
   "pageOverflow": 0,
-  "faqAnswers": 22,
+  "faqAnswers": 23,
   "faqClosed": true,
   "imgs": 0,
   "screens": 14,
@@ -139,8 +139,8 @@
     "performance": 96,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1651,
-    "totalBytes": 530764
+    "lcpMs": 1698,
+    "totalBytes": 534135
   },
   "a11yFailures": []
 }

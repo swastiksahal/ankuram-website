@@ -54,6 +54,12 @@ const A13 = { reviewCount: '500+ reviews' };
 // area name taken from that page's own H1.
 const A12 = { footerHeading: 'Areas we serve' };
 
+// A14: the form now hands off to WhatsApp, so it says so under the button.
+const A14 = { formNote: 'Opens WhatsApp with your details filled in.' };
+
+// A15: the broken review widget is replaced by one link to Google.
+const A15 = { reviewsButton: 'Read our reviews on Google' };
+
 const A11 = {
   sectionTitle: 'How a week works',
   swipeHint: 'Swipe →',
@@ -404,12 +410,38 @@ function renderRest() {
     if (i === faqIdx) out.push(areasDetails());      // details sits just above the FAQ
     // Interactive sections keep the live markup verbatim: real dropdowns, a
     // real form, and the containers script.js writes reviews into.
+    // A15: the reviews widget is replaced by a heading and one Google link.
+    // The rating itself (4.8, stars, business name, "500+ reviews") lives in
+    // the hero and is untouched.
+    if (sec.cls.includes('reviews-section')) {
+      out.push(`
+<section class="sec sec-reviews" id="reviews">
+  <div class="wrap">
+    <h2>${esc((sec.blocks.find((b) => b.t === 'h2') || {}).v || 'Reviews')}</h2>
+    <a class="btn btn-primary reviews-cta" href="${esc(C.reviewsLink)}" target="_blank" rel="noopener noreferrer">${esc(A15.reviewsButton)}</a>
+  </div>
+</section>`);
+      return;
+    }
+
     const rawKey = Object.keys(RAW).find((k) => sec.cls.includes(k));
-    if (rawKey) { out.push(RAW[rawKey]); if (i === 1) out.push(weekSection()); return; }
+    if (rawKey) {
+      let raw = RAW[rawKey];
+      if (rawKey === 'contact-section') {
+        // A14: one line under the submit button, inside the live form markup.
+        const btn = '<button type="submit" class="btn btn-primary">Send Message</button>';
+        if (!raw.includes(btn)) throw new Error('contact submit button markup not found');
+        raw = raw.replace(btn, btn + `<p class="form-note">${esc(A14.formNote)}</p>`);
+      }
+      out.push(raw);
+      if (i === 1) out.push(weekSection());
+      return;
+    }
 
     const h2 = (sec.blocks.find((b) => b.t === 'h2') || {}).v || '';
     let rest = sec.blocks.filter((b) => b.t !== 'h2');
-    if (sec.cls.includes('faq-section')) rest = dedupeFaq(rest);
+    // A13 FAQ de-duplication WITHDRAWN 17 Sep: the visible list must match the
+    // FAQPage JSON-LD exactly. Both will be changed together, later.
 
     if (sec.cls.includes('about-section')) {
       const { band, rest: after } = statBand(rest);
@@ -490,6 +522,7 @@ ${HEAD.og.join('\n')}
 ${HEAD.twitter.join('\n')}
 <link rel="stylesheet" href="../../css/site.css">
 <script defer src="script.js"></script>
+<script defer src="js/contact-whatsapp.js"></script>
 ${HEAD.jsonld.join('\n')}
 ${TRACKING}
 </head>
@@ -592,16 +625,22 @@ const swipeWords = wc(A11.swipeHint) * swipeRows;            // one hint per swi
 const a11 = wc(A11.sectionTitle) + d1Words + d2Words + swipeWords;
 
 const a12 = wc(A12.footerHeading) + AREAS.reduce((n, a) => n + wc(a.name), 0);
-const faqRemoved = droppedFaq.reduce((n, t) => n + wc(t), 0);
+const faqRemoved = droppedFaq.reduce((n, t) => n + wc(t), 0);   // 0 now: withdrawn
+// A15 drops the widget's four strings and adds one button label.
+const reviewsBlocks = (C.sections.find((x) => x.cls.includes('reviews-section')) || { blocks: [] }).blocks;
+const a15Removed = reviewsBlocks.filter((b) => b.t !== 'h2').reduce((n, b) => n + wc(b.v || ''), 0);
+const a15 = wc(A15.reviewsButton) - a15Removed;
+const a14 = wc(A14.formNote);
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved;
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
 console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + ${swipeRows} swipe hints ${swipeWords} = ${a11}`);
 console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
-console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQ dup ${faqRemoved} = ${expected}`);
+console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} - widget strings ${a15Removed} = ${a15}`);
+console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');
 if (/\bnull\b|\bundefined\b/.test(bodyText)) { console.log('null/undefined leaked'); process.exitCode = 1; }

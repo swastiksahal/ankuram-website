@@ -31,11 +31,14 @@ fs.writeFileSync(path.join(OUT, 'index.html'), html);
 fs.copyFileSync('css/site.css', path.join(OUT, 'css', 'site.css'));
 // script.js drives the finder, the contact form and the reviews block
 fs.copyFileSync('public_html/script.js', path.join(OUT, 'script.js'));
+// A14/A15 overrides — a separate file so script.js is never edited
+fs.mkdirSync(path.join(OUT, 'js'), { recursive: true });
+fs.copyFileSync('js/contact-whatsapp.js', path.join(OUT, 'js', 'contact-whatsapp.js'));
 
 // Any reference that is not the stylesheet, an anchor, a tel:, or an absolute
 // URL would be a file we have not shipped.
 const refs = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1]);
-const SHIPPED = ['css/site.css', 'script.js'];
+const SHIPPED = ['css/site.css', 'script.js', 'js/contact-whatsapp.js'];
 const unshipped = refs.filter((r) => !/^(#|tel:|https?:|\/)/.test(r) && !SHIPPED.includes(r));
 if (unshipped.length) throw new Error('unshipped local references: ' + unshipped.join(', '));
 

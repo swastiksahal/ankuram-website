@@ -101,6 +101,8 @@ const browser = await chromium.launch();
     if (height <= 2) break;
     await page.screenshot({ path: `design/screens/home-m-${String(i + 1).padStart(2, '0')}.png`, fullPage: true, clip: { x: 0, y, width: VW, height } });
   }
+  await (await page.$('#reviews')).screenshot({ path: 'design/screens/reviews-390.png' });
+  await (await page.$('.contact-form')).screenshot({ path: 'design/screens/contact-390.png' });
   out.screens = screens;
   await ctx.close();
 }

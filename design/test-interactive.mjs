@@ -70,23 +70,19 @@ report.selects = await page.evaluate(() => {
   });
 });
 
+report.reviewsWidgetGone = await page.evaluate(() => ({
+  loading: !!document.getElementById('reviewsLoading'),
+  error: !!document.getElementById('reviewsError'),
+  carousel: !!document.getElementById('reviewsCarousel'),
+  cta: (document.querySelector('.reviews-cta') || {}).textContent,
+  ctaHref: (document.querySelector('.reviews-cta') || {}).href,
+  sectionPresent: !!document.getElementById('reviews'),
+}));
+
 // ------------------------------------------- reviews: as-served source state
 // script.js runs on load and rewrites these, so "starts hidden" has to be
 // asserted against the served HTML, not against the live DOM after the fetch.
-{
-  const src = fs.readFileSync('design/direction-c/index.html', 'utf8');
-  const inline = (id) => {
-    const m = new RegExp('<div id="' + id + '"[^>]*>').exec(src);
-    return m ? (/style="([^"]*)"/.exec(m[0]) || [, ''])[1] : null;
-  };
-  report.reviewsSource = { loading: inline('reviewsLoading'), error: inline('reviewsError') };
-}
-
-await page.waitForTimeout(2500);   // let loadGoogleReviews() finish its fetch
-report.reviewsAfter = await page.evaluate(() => {
-  const g = (id) => { const el = document.getElementById(id); return el ? { display: getComputedStyle(el).display, text: el.textContent.replace(/\s+/g, ' ').trim().slice(0, 80) } : null; };
-  return { loading: g('reviewsLoading'), error: g('reviewsError'), carousel: g('reviewsCarousel') };
-});
+await page.waitForTimeout(2500);   // window 'load' would have called loadGoogleReviews()
 
 // ------------------------------------------------------------- the finder
 await page.selectOption('#finder-grade', '10');
@@ -110,28 +106,50 @@ report.finderResult = await page.evaluate(() => {
   };
 });
 
+// ------------------------------------------------------ invariant 15 ids
+report.anchors = await page.evaluate((ids) => ids.map((id) => {
+  const el = document.getElementById(id);
+  return { id, present: !!el, tag: el ? el.tagName.toLowerCase() : null, heading: el ? (el.querySelector('h1,h2,summary,.section-title,.reviews-title') || {}).textContent : null };
+}), ANCHORS);
+
+report.formNote = await page.evaluate(() => (document.querySelector('.form-note') || {}).textContent);
+
 // -------------------------------------------------------- the contact form
 await page.fill('#name', 'Test Parent');
 await page.fill('#phone', '9876543210');
 await page.selectOption('#grade', '6-10');
 await page.selectOption('#curriculum', 'cbse');
 await page.fill('#message', 'Test message, not a real enquiry.');
+// Wrap the page's own gtag so the conversion call is recorded. Recorded on the
+// Node side via an exposed binding: the submit navigates away, which destroys
+// the page context and with it anything kept on `window`.
+const gtagCalls = [];
+await page.exposeFunction('__recordGtag', (payload) => { gtagCalls.push(payload); });
+await page.evaluate(() => {
+  const inner = window.gtag;
+  window.gtag = function () {
+    try {
+      window.__recordGtag(JSON.stringify(Array.prototype.slice.call(arguments).map((a) =>
+        (a && typeof a === 'object' ? Object.keys(a).reduce((o, k) => { o[k] = typeof a[k] === 'function' ? '[fn]' : a[k]; return o; }, {}) : a))));
+    } catch (e) { /* ignore */ }
+    try { if (typeof inner === 'function') inner.apply(this, arguments); } catch (e) { /* ignore */ }
+    const last = arguments[2];
+    if (last && typeof last.event_callback === 'function') setTimeout(last.event_callback, 5);
+  };
+});
 const beforeUrl = page.url();
 await page.click('.contact-form button[type="submit"]');
 await page.waitForTimeout(2200);
+report.gtagCalls = gtagCalls;
+report.conversions = gtagCalls.filter((c) => c.includes('jucWCNPv3OAbEPOvruco'));
 report.formResult = {
   urlBefore: beforeUrl,
   urlAfter: page.url(),
   navigated: page.url() !== beforeUrl,
-  submitButtonText: await page.evaluate(() => document.querySelector('.contact-form button[type="submit"]').textContent.trim()),
-  nameFieldAfter: await page.inputValue('#name'),
+  waUrlAttempted: report.navigations.filter((u) => u.indexOf('wa.me') > -1),
+  builtUrl: await page.evaluate(() => (window.__contactWhatsAppUrl ? window.__contactWhatsAppUrl() : null)),
+  formNote: report.formNote,
 };
-
-// ------------------------------------------------------ invariant 15 ids
-report.anchors = await page.evaluate((ids) => ids.map((id) => {
-  const el = document.getElementById(id);
-  return { id, present: !!el, tag: el ? el.tagName.toLowerCase() : null, heading: el ? (el.querySelector('h1,h2,summary,.section-title,.reviews-title') || {}).textContent : null };
-}), ANCHORS);
 
 await browser.close();
 server.close();
@@ -140,10 +158,11 @@ fs.writeFileSync('design/interactive-test.json', JSON.stringify(report, null, 2)
 const line = (s) => console.log(s);
 line('=== SELECTS');
 report.selects.forEach((s) => line(`  #${s.id.padEnd(18)} ${s.tag} options=${s.options} height=${s.height}px font=${s.fontPx}px  "${s.first}" … "${s.last}"`));
-line('\n=== REVIEWS');
-line(`  as served: reviewsLoading style=${JSON.stringify(report.reviewsSource.loading)}  reviewsError style=${JSON.stringify(report.reviewsSource.error)}`);
-line(`  after load -> loading=${report.reviewsAfter.loading.display}  error=${report.reviewsAfter.error.display}  carousel=${report.reviewsAfter.carousel.display}`);
-line(`  error text: "${report.reviewsAfter.error.text}"`);
+line('\n=== REVIEWS (A15)');
+line(`  #reviews section present: ${report.reviewsWidgetGone.sectionPresent}`);
+line(`  loader/error/carousel removed: ${!report.reviewsWidgetGone.loading}/${!report.reviewsWidgetGone.error}/${!report.reviewsWidgetGone.carousel}`);
+line(`  button: "${report.reviewsWidgetGone.cta}"`);
+line(`  href: ${String(report.reviewsWidgetGone.ctaHref).slice(0, 96)}…`);
 line('\n=== FINDER');
 line(`  values: ${JSON.stringify(report.finderValues)}`);
 line(`  results panel display: ${report.finderResult.visible}`);
@@ -153,7 +172,11 @@ line(`  alignment: "${report.finderResult.alignmentTitle}"`);
 line('\n=== CONTACT FORM');
 line(`  url before: ${report.formResult.urlBefore}`);
 line(`  url after : ${report.formResult.urlAfter}   navigated=${report.formResult.navigated}`);
-line(`  submit button now: "${report.formResult.submitButtonText}"   name field now: "${report.formResult.nameFieldAfter}"`);
+line(`  note under button: "${report.formResult.formNote}"`);
+line(`  wa.me navigation attempted: ${report.formResult.waUrlAttempted.length}`);
+report.formResult.waUrlAttempted.forEach((u) => line(`    ${u}`));
+line(`  WhatsApp conversion calls: ${report.conversions.length}`);
+report.conversions.forEach((c) => line(`    ${c.slice(0, 150)}`));
 line(`  dialogs: ${report.dialogs.length ? report.dialogs.map((d) => `${d.type}: ${d.message.slice(0, 90)}`).join(' | ') : 'none'}`);
 line(`  external navigations attempted: ${report.navigations.length ? report.navigations.join(', ') : 'none'}`);
 line('\n=== ANCHORS (invariant 15)');
@@ -165,8 +188,13 @@ report.selects.forEach((s) => {
   if (!s.present || s.tag !== 'SELECT') bad.push(`#${s.id} is not a <select>`);
   else { if (s.height < 44) bad.push(`#${s.id} is ${s.height}px tall`); if (s.fontPx < 16) bad.push(`#${s.id} font ${s.fontPx}px`); }
 });
-if (!/display:\s*none/.test(report.reviewsSource.loading || '')) bad.push('reviewsLoading does not start hidden in the served HTML');
-if (!/display:\s*none/.test(report.reviewsSource.error || '')) bad.push('reviewsError does not start hidden in the served HTML');
+if (report.reviewsWidgetGone.loading || report.reviewsWidgetGone.error || report.reviewsWidgetGone.carousel) bad.push('A15: a review widget container is still present');
+if (!report.reviewsWidgetGone.sectionPresent) bad.push('#reviews section missing');
+if (!report.reviewsWidgetGone.cta) bad.push('A15: reviews button missing');
+if (report.console.some((c) => /google-reviews|404/.test(c))) bad.push('console still shows the reviews 404');
 if (report.finderResult.visible !== 'block') bad.push('finder results panel did not open');
+if (report.formResult.waUrlAttempted.length !== 1) bad.push(`expected exactly 1 wa.me navigation, got ${report.formResult.waUrlAttempted.length}`);
+if (report.conversions.length !== 1) bad.push(`expected exactly 1 WhatsApp conversion, got ${report.conversions.length}`);
+if (report.dialogs.length) bad.push(`alert() still fires: ${report.dialogs.length}`);
 if (!report.anchors.every((a) => a.present)) bad.push('missing anchor ids');
 if (bad.length) { console.log('\nFAIL:\n  ' + bad.join('\n  ')); process.exitCode = 1; } else console.log('\nPASS');

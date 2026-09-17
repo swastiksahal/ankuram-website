@@ -89,8 +89,30 @@ A12 AREAS (Swastik, 17 Sep):
 
 A13 HOMEPAGE WORDING (Swastik, 17 Sep):
 - Visible review count "516 Reviews" becomes "500+ reviews". The JSON-LD AggregateRating reviewCount stays "516" and is NOT touched — the visible text and the structured data now differ deliberately, and that is the approved state.
-- FAQ: remove exact duplicate question-AND-answer pairs from the VISIBLE list only, keeping the first of each.
-  Verified on the baseline: only ONE pair is an exact duplicate — "Do you have a branch in Financial District?" with an identical answer. It is removed (second occurrence).
-  The Gachibowli and KPHB questions also appear twice, but their ANSWERS DIFFER, so they are not exact duplicates and both occurrences are kept. See the P4 report for the differing text; Swastik decides whether to merge them.
-- The FAQPage JSON-LD contains all three duplicate questions. Per instruction it is NOT edited; the duplicates are listed in the report instead.
+- FAQ de-duplication: WITHDRAWN 17 Sep by the supervisor. The one exact duplicate pair ("Do you have a branch in Financial District?") has been RESTORED, so the visible FAQ matches the FAQPage JSON-LD exactly again — 23 visible pairs, 17 JSON-LD entries, the same three questions appearing twice in both.
+  It will be done later as a single change touching the visible list and the JSON-LD together.
+  For the record, verified on the baseline: only that one pair was an exact question-AND-answer duplicate. The Gachibowli and KPHB questions also appear twice but their ANSWERS DIFFER, so they were never candidates.
 - Opening hours unchanged (Mon–Fri 5 AM – 10 PM, confirmed by Swastik).
+
+
+A14 CONTACT FORM -> WHATSAPP (supervisor, 17 Sep; the live form sends nothing):
+- On submit: trackFormSubmission runs first, unchanged (GA4 form_submission + dataLayer push). Then name and phone are validated as before. Then the browser goes to https://wa.me/917396669430 with the enquiry prefilled in the same tab.
+- Message body, one line per non-empty field; empty fields are omitted entirely:
+    Hi Swastik, I'd like to enquire about tuition.
+    Name: {name}
+    Phone: {phone}
+    Grade: {grade}
+    Curriculum: {curriculum}
+    Message: {message}
+  Grade and Curriculum use the visible option text, not the value code.
+- The WhatsApp conversion AW-10954184691/jucWCNPv3OAbEPOvruco fires exactly once before the redirect, via event_callback with a 1-second fallback timeout.
+- The alert() and the fake 1.5-second "Sending…" delay are removed. Button text stays "Send Message".
+- A14 wording: one line under the button — "Opens WhatsApp with your details filled in."
+- Implemented in js/contact-whatsapp.js, loaded with defer AFTER script.js. script.js is NOT edited.
+
+A15 REVIEWS BLOCK (supervisor, 17 Sep; the live widget is broken — /api/google-reviews 404s):
+- Kept, in the hero: the stars, "4.8", the business-name line and "500+ reviews".
+- Removed from the page: the loading container, the error container and the carousel, and with them these four baseline strings — "Loading reviews...", "Unable to load reviews at this time.", "See our Google reviews →", "View all reviews on Google →".
+- A15 wording: one button, "Read our reviews on Google", linking to the Google Maps reviews URL already on the page (the href that sat behind "See our Google reviews →").
+- loadGoogleReviews() is prevented from running by js/contact-whatsapp.js. script.js is NOT edited.
+- id="reviews" is kept. JSON-LD stays byte-identical.

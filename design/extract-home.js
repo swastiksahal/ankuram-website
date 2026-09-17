@@ -204,9 +204,17 @@ const rawSections = {
   ),
 };
 
+// A15: the Google Maps reviews URL already on the page (the href behind
+// "See our Google reviews →"). Reused for the single replacement button.
+const reviewsLinkMatch = /<a href="(https:\/\/www\.google\.com\/maps\/place[^"]+)"[^>]*class="view-all-reviews"/.exec(rawSections['reviews-section'])
+  || /class="view-all-reviews"[^>]*href="([^"]+)"/.exec(rawSections['reviews-section'])
+  || /<a href="(https:\/\/www\.google\.com\/maps\/place[^"]+)"/.exec(rawSections['reviews-section']);
+if (!reviewsLinkMatch) throw new Error('reviews Google Maps link not found');
+
 const out = {
   source: SRC,
   rawSections,
+  reviewsLink: reviewsLinkMatch[1],
   extractedAt: new Date().toISOString(),
   header: { nav, phone: { display: '+91 73966 69430', tel: '+917396669430' } },
   whatsapp: 'https://wa.me/917396669430',

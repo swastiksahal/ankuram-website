@@ -603,3 +603,12 @@
   .v2 .contact-value, .v2 .contact-info a, .v2 .map-directions-btn,
   .v2 .view-all-reviews { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* ---- A14: the line under the contact submit button ---- */
+.v2 .form-note { margin: 8px 0 0; font-size: 15px; color: var(--ink-soft); }
+.v2 [aria-invalid="true"] { border-color: #A3282B; outline: 2px solid #A3282B; outline-offset: 1px; }
+
+/* ---- A15: the reviews section is now a heading and one link ---- */
+.v2 .sec-reviews { text-align: center; }
+.v2 .sec-reviews h2 { margin-bottom: var(--s4); }
+.v2 .reviews-cta { min-height: 48px; }

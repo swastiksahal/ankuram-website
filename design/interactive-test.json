@@ -1,18 +1,10 @@
 {
-  "dialogs": [
-    {
-      "type": "alert",
-      "message": "Thank you! We will contact you soon. For immediate assistance, please call us at +91 73966 69430"
-    }
-  ],
+  "dialogs": [],
   "navigations": [
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2876956498387!2d78.3976363!3d17.4193665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95a38d079133%3A0xd70d61a4ba6957b!2sAnkuram%20Tuition%20Centre%20%7C%20Math%20Tuition%20%7C%20Science%20Tuition!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2876956498387!2d78.3976363!3d17.4193665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95a38d079133%3A0xd70d61a4ba6957b!2sAnkuram%20Tuition%20Centre%20%7C%20Math%20Tuition%20%7C%20Science%20Tuition!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin",
+    "https://wa.me/917396669430?text=Hi%20Swastik%2C%20I%27d%20like%20to%20enquire%20about%20tuition.%0AName%3A%20Test%20Parent%0APhone%3A%209876543210%0AGrade%3A%20Grades%206-10%0ACurriculum%3A%20CBSE%0AMessage%3A%20Test%20message%2C%20not%20a%20real%20enquiry."
   ],
-  "console": [
-    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
-    "warning: Failed to load Google Reviews: Error: API returned 404: Not Found\n    at loadGoogleReviews (http://127.0.0.1:8201/design",
-    "error: Google Reviews API Error: Error: API returned 404: Not Found\n    at loadGoogleReviews (http://127.0.0.1:8201/design/dire"
-  ],
+  "console": [],
   "selects": [
     {
       "id": "finder-grade",
@@ -65,23 +57,13 @@
       "last": "State Board"
     }
   ],
-  "reviewsSource": {
-    "loading": "display: none;",
-    "error": "display: none;"
-  },
-  "reviewsAfter": {
-    "loading": {
-      "display": "none",
-      "text": "Loading reviews..."
-    },
-    "error": {
-      "display": "block",
-      "text": "Unable to load reviews at this time. See our Google reviews →"
-    },
-    "carousel": {
-      "display": "none",
-      "text": ""
-    }
+  "reviewsWidgetGone": {
+    "loading": false,
+    "error": false,
+    "carousel": false,
+    "cta": "Read our reviews on Google",
+    "ctaHref": "https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0",
+    "sectionPresent": true
   },
   "finderValues": {
     "grade": "10",
@@ -94,13 +76,6 @@
     "howWeTeachTitle": "How we teach Grade 10",
     "alignmentTitle": "Curriculum alignment: CBSE",
     "bullets": 4
-  },
-  "formResult": {
-    "urlBefore": "http://127.0.0.1:8201/design/direction-c/",
-    "urlAfter": "http://127.0.0.1:8201/design/direction-c/",
-    "navigated": false,
-    "submitButtonText": "Send Message",
-    "nameFieldAfter": ""
   },
   "anchors": [
     {
@@ -139,5 +114,22 @@
       "tag": "section",
       "heading": "How a week works"
     }
-  ]
+  ],
+  "formNote": "Opens WhatsApp with your details filled in.",
+  "gtagCalls": [
+    "[\"event\",\"conversion\",{\"send_to\":\"AW-10954184691/jucWCNPv3OAbEPOvruco\",\"event_callback\":\"[fn]\"}]"
+  ],
+  "conversions": [
+    "[\"event\",\"conversion\",{\"send_to\":\"AW-10954184691/jucWCNPv3OAbEPOvruco\",\"event_callback\":\"[fn]\"}]"
+  ],
+  "formResult": {
+    "urlBefore": "http://127.0.0.1:8201/design/direction-c/",
+    "urlAfter": "chrome-error://chromewebdata/",
+    "navigated": true,
+    "waUrlAttempted": [
+      "https://wa.me/917396669430?text=Hi%20Swastik%2C%20I%27d%20like%20to%20enquire%20about%20tuition.%0AName%3A%20Test%20Parent%0APhone%3A%209876543210%0AGrade%3A%20Grades%206-10%0ACurriculum%3A%20CBSE%0AMessage%3A%20Test%20message%2C%20not%20a%20real%20enquiry."
+    ],
+    "builtUrl": null,
+    "formNote": "Opens WhatsApp with your details filled in."
+  }
 }
