@@ -58,8 +58,8 @@ const A11 = {
     routeA: 'Route A',
     routeB: 'Route B',
     routeBSub: 'Foundation support',
-    badge: '+2',
-    badgeNote: 'Any 2 weekdays at the centre',
+    blockCentre: '2 days · At the centre',
+    blockOnline: '3 days · Online',
     arrow: 'As confidence builds',
     weekend: 'Weekends at the centre: doubts cleared in person · revision and practice',
     aria: 'Two routes through the week. Route A: Monday to Friday online on Google Meet, Saturday and Sunday at the centre. Route B, foundation support: the same week with any two weekdays spent at the centre instead. Route B moves to Route A as confidence builds.',
@@ -72,7 +72,7 @@ const A11 = {
       'Photo sent on WhatsApp',
       'Corrected in class',
     ],
-    loop: 'Next problem',
+    loop: 'Next problem · back to step 2',
     after: 'After class: a worksheet to practise',
     aria: 'A weekday online class, as a loop: solved live on the digital board, your child tries the next one, photo sent on WhatsApp, corrected in class, then back to the next problem.',
   },
@@ -92,6 +92,9 @@ const ICONS = {
   correct: svg('<rect x="5" y="6" width="22" height="20" rx="2"/><polyline points="10,16 14,20 22,11"/>'),
   doubts: svg('<path d="M4 8 a3 3 0 0 1 3 -3 h18 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-11 l-7 5 v-5 a3 3 0 0 1 -3 -3 z"/><line x1="12" y1="11" x2="20" y2="11"/><line x1="12" y1="16" x2="17" y2="16"/>'),
   revise: svg('<path d="M27 16 a11 11 0 1 1 -3.5 -8"/><polyline points="27,4 27,9 22,9"/><line x1="16" y1="10" x2="16" y2="17"/><line x1="16" y1="17" x2="21" y2="19"/>'),
+  // D1 chip marks: a laptop for online, a building for the centre
+  laptop: svg('<rect x="6" y="7" width="20" height="14" rx="2"/><line x1="3" y1="25" x2="29" y2="25"/>', 'chip-ic'),
+  building: svg('<rect x="7" y="6" width="18" height="21" rx="1.5"/><line x1="12" y1="12" x2="12" y2="12.5"/><line x1="16" y1="12" x2="16" y2="12.5"/><line x1="20" y1="12" x2="20" y2="12.5"/><line x1="12" y1="17" x2="12" y2="17.5"/><line x1="16" y1="17" x2="16" y2="17.5"/><line x1="20" y1="17" x2="20" y2="17.5"/><rect x="14" y="21" width="4" height="6"/>', 'chip-ic'),
 };
 
 const ARROW_RIGHT = '<svg viewBox="0 0 24 16" class="arw arw-h" aria-hidden="true" focusable="false"><line x1="1" y1="8" x2="19" y2="8"/><polyline points="14,3 20,8 14,13"/></svg>';
@@ -108,8 +111,8 @@ function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote =
         <p class="ms-title${i === capIndex ? ' ms-title-cap' : ''}">${esc(title)}</p>
         ${caption ? `<p class="ms-caption">${esc(caption)}</p>` : ''}
       </li>`;
-  }).join(`
-      <li class="ms-arrow" aria-hidden="true">${ARROW_RIGHT}${ARROW_DOWN}</li>`);
+  }).map((card, i) => (i === 0 ? card : `
+      <li class="ms-arrow ms-arrow-${i}" aria-hidden="true">${ARROW_RIGHT}${ARROW_DOWN}</li>` + card)).join('');
 
   const openStage = circleLoop ? '<div class="ms-stage">' : '';
   const closeStage = circleLoop ? '</div>' : '';
@@ -138,25 +141,27 @@ const methodDiagram = () => `
 // -------------------------------------------------------------- D1, D2, D3
 function diagramWeek() {
   const d = A11.d1;
-  // Route A: five online chips then two centre chips.
-  // Route B: the same shape, with a single "+2" badge and a note. Specific
-  // weekdays are never marked -- A11 forbids naming which two.
-  const chip = (letter, kind) => `<li class="chip chip-${kind}">${esc(letter)}</li>`;
-  const row = (kinds) => d.chips.map((c, i) => chip(c, kinds[i])).join('');
-  const A_KINDS = ['online', 'online', 'online', 'online', 'online', 'centre', 'centre'];
+  const ONLINE = ICONS.laptop, CENTRE = ICONS.building;
+  const chip = (letter, kind) =>
+    `<li class="chip chip-${kind}">${kind === 'online' ? ONLINE : CENTRE}<span class="chip-d">${esc(letter)}</span></li>`;
+  // Route B says "two days at the centre" as a block, so no specific weekday
+  // is ever marked -- which is why the day letters are dropped there.
+  const block = (label, kind, span) =>
+    `<li class="chip chip-block chip-${kind}" style="--span:${span}">${kind === 'online' ? ONLINE : CENTRE}<span class="chip-d">${esc(label)}</span></li>`;
+  const weekend = () => d.chips.slice(5).map((c) => chip(c, 'centre')).join('');
 
   return `
 <figure class="dg dg-week" aria-label="${esc(d.aria)}">
   <figcaption class="dg-title">${esc(d.title)}</figcaption>
   <ul class="wk-key">
-    <li><span class="key-dot key-online" aria-hidden="true"></span>${esc(d.keyOnline)}</li>
-    <li><span class="key-dot key-centre" aria-hidden="true"></span>${esc(d.keyCentre)}</li>
+    <li class="chip chip-online chip-key">${ONLINE}<span class="chip-d">${esc(d.keyOnline)}</span></li>
+    <li class="chip chip-centre chip-key">${CENTRE}<span class="chip-d">${esc(d.keyCentre)}</span></li>
   </ul>
 
   <div class="wk-strip">
     <div class="wk-row">
       <p class="wk-route">${esc(d.routeA)}</p>
-      <ul class="wk-chips">${row(A_KINDS)}</ul>
+      <ul class="wk-chips">${d.chips.slice(0, 5).map((c) => chip(c, 'online')).join('')}${weekend()}</ul>
     </div>
 
     <div class="wk-link">
@@ -166,8 +171,7 @@ function diagramWeek() {
 
     <div class="wk-row">
       <p class="wk-route">${esc(d.routeB)}<span class="wk-sub">${esc(d.routeBSub)}</span></p>
-      <ul class="wk-chips">${row(A_KINDS)}</ul>
-      <p class="wk-badge-note"><span class="chip-badge">${esc(d.badge)}</span>${esc(d.badgeNote)}</p>
+      <ul class="wk-chips">${block(d.blockCentre, 'centre', 2)}${block(d.blockOnline, 'online', 3)}${weekend()}</ul>
     </div>
   </div>
 
@@ -219,6 +223,17 @@ const renderBody = (blocks) => blocks.map((b) => {
   if (b.t === 'button') return `<p><span class="pseudo-btn">${esc(b.v)}</span></p>`;
   return '';
 }).join('\n');
+
+// A group of 3+ sibling cards becomes a scroll-snap swipe row on phones.
+// The hint sits at the right end of the heading line, never below the row.
+const SWIPE_MIN = 3;
+let swipeRows = 0;
+const headLine = (tag, text, swipes) => {
+  if (swipes) swipeRows++;
+  return `<div class="sec-head"><${tag}>${esc(text)}</${tag}>` +
+    (swipes ? `<span class="swipe-hint">${esc(A11.swipeHint)}</span>` : '') + `</div>`;
+};
+const wrapSwipe = (html, swipes) => (swipes ? `<div class="swipe">${html}</div>` : html);
 
 const stepLabel = (n) => (n.label ? `<span class="step-label">${esc(n.label)}</span>` : '');
 const numEl = (n) => (n.num ? `<span class="num">${esc(n.num)}</span>` : '');
@@ -273,27 +288,25 @@ const [pCommute, pAcross] = leadPs;
 
 const subTree = (grp) => tree(grp.blocks, grp.blocks.some((b) => b.t === 'h4') ? 'h4' : 'h5');
 
-const swipeRow = (grp, layoutClass) => {
-  const t = subTree(grp);
-  return `<div class="swipe-wrap">
-      <div class="swipe ${layoutClass}">${t.map((n) => `<article class="card">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</article>`).join('')}</div>
-      <p class="swipe-hint" aria-hidden="true">${esc(A11.swipeHint)}</p>
-    </div>`;
-};
+const cardsOf = (t) => t.map((n) => `<article class="card">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</article>`).join('');
 
-const weekSection = () => `
+const weekSection = () => {
+  const tHow = subTree(gHow), tWhy = subTree(gWhy);
+  const howSwipe = tHow.length >= SWIPE_MIN, whySwipe = tWhy.length >= SWIPE_MIN;
+  return `
 <section class="sec sec-week" id="hybrid-classes">
   <div class="wrap">
     <h2>${esc(A11.sectionTitle)}</h2>
     <p class="sec-lede">${esc(pCommute.v)}</p>
     ${diagramWeek()}
-    <h3>${esc(gHow.head)}</h3>
-    ${swipeRow(gHow, 'swipe-3')}
+    ${headLine('h3', gHow.head, howSwipe)}
+    ${wrapSwipe(cardsOf(tHow), howSwipe).replace('class="swipe"', 'class="swipe swipe-3"')}
     ${diagramClass()}
-    <h3>${esc(gWhy.head)}</h3>
-    ${swipeRow(gWhy, 'swipe-4')}
+    ${headLine('h3', gWhy.head, whySwipe)}
+    ${wrapSwipe(cardsOf(tWhy), whySwipe).replace('class="swipe"', 'class="swipe swipe-4"')}
   </div>
 </section>`;
+};
 
 const areasDetails = () => `
 <section class="sec sec-areas">
@@ -325,11 +338,14 @@ function renderRest() {
     const rest = sec.blocks.filter((b) => b.t !== 'h2');
     const top = rest.some((b) => b.t === 'h3') ? 'h3' : rest.some((b) => b.t === 'h4') ? 'h4' : null;
     const t = top ? tree(rest, top) : [{ head: null, num: null, label: null, body: rest.filter((b) => !(typeof b.v === 'string' && isDecoration(b.v))), subs: [] }];
+    const layout = PLAN[i];
+    // Layouts that produce a row of comparable cards can swipe; prose cannot.
+    const swipeable = ['cards', 'panel', 'numbered', 'rows'].includes(layout) && t.length >= SWIPE_MIN;
     out.push(`
-<section class="sec sec-${PLAN[i]}" id="${esc(sec.id || 'sec-' + (i + 1))}">
+<section class="sec sec-${layout}" id="${esc(sec.id || 'sec-' + (i + 1))}">
   <div class="wrap">
-    <h2>${esc(h2)}</h2>
-    ${L[PLAN[i]](t)}
+    ${headLine('h2', h2, swipeable)}
+    ${wrapSwipe(L[layout](t), swipeable)}
   </div>
 </section>`);
     if (i === 1) out.push(weekSection());            // after "Subjects We Teach"
@@ -449,18 +465,18 @@ const navDupe = wc(C.header.nav.map((n) => n.text).join(' ')) + 1;
 
 // day names: once in the header row, then again inside each block (7 + 7)
 const d1 = A11.d1;
-const d1Words = wc([d1.title, ...d1.chips, d1.keyOnline, d1.keyCentre, d1.routeA, d1.routeB,
-  d1.routeBSub, d1.badge, d1.badgeNote, d1.arrow, d1.weekend,
-  ...d1.chips].join(' '));                                   // chips render on both rows
+// Route A shows 7 day letters; Route B shows 2 blocks + the 2 weekend letters.
+const d1Words = wc([d1.title, d1.keyOnline, d1.keyCentre, d1.routeA, d1.routeB, d1.routeBSub,
+  d1.arrow, d1.weekend, ...d1.chips, d1.blockCentre, d1.blockOnline, ...d1.chips.slice(5)].join(' '));
 const d2Words = wc([A11.d2.title, ...A11.d2.steps, A11.d2.loop, A11.d2.after].join(' ')) + 4; // + 1..4 badges
-const swipeWords = wc(A11.swipeHint) * 2;                    // one hint per swipe row
+const swipeWords = wc(A11.swipeHint) * swipeRows;            // one hint per swipe row
 const a11 = wc(A11.sectionTitle) + d1Words + d2Words + swipeWords;
 
 const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
-console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + swipe hints ${swipeWords} = ${a11}`);
+console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + ${swipeRows} swipe hints ${swipeWords} = ${a11}`);
 console.log(`expected ${P2_WORDS} + A10 ${a10} + method titles ${methodTitles} + numerals ${methodNumerals} + nav copy ${navDupe} + A11 ${a11} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');

@@ -227,39 +227,10 @@
   .v2 .row { grid-template-columns: 1fr; gap: 10px; }
 }
 
-/* Diagram flips to a vertical stack below 600px, with a side bracket loop. */
-@media (max-width: 600px) {
-  .v2 .method:not(.dg) { padding: var(--s4) var(--s3); display: grid; grid-template-columns: 34px 1fr; gap: var(--s2); }
-  .v2 .method:not(.dg) .ms-flow { grid-column: 2; flex-direction: column; align-items: stretch; gap: var(--s2); }
-  .v2 .method:not(.dg) .ms-step { padding: var(--s4); }
-  .v2 .ms-title { font-size: var(--t-base); }
-  .v2 .ms-caption { font-size: 16px; }            /* text stays >= 16px on mobile */
-  .v2 .method:not(.dg) .ms-arrow { flex: none; height: 24px; }
-  .v2 .arw-h { display: none; }
-  .v2 .arw-v { display: block; }
-  /* display:contents lets the bracket and its label sit directly in the
-     .method grid: the bracket in the narrow gutter, the label full width
-     underneath. Nested in .ms-loop they were both trapped in the 34px column. */
-  .v2 .method:not(.dg) .ms-loop { display: contents; }
-  .v2 .method:not(.dg) .ms-loop-h { display: none; }
-  .v2 .method:not(.dg) .ms-loop-v { display: block; grid-column: 1; grid-row: 1; width: 34px; height: 100%; align-self: stretch; }
-  .v2 .method:not(.dg) .ms-loop-label { grid-column: 1 / -1; grid-row: 2; margin: var(--s4) 0 0; font-size: 15px; text-align: left; }
-}
-
-@media (max-width: 640px) {
-  .v2 { font-size: 16px; }
-  .v2 .hero { padding: var(--s6) 0 var(--s5); }
-  .v2 .sec { padding: var(--s7) 0; }
-  .v2 .nav-desktop { display: none; }
-  .v2 .nav-mobile { display: block; order: 4; width: 100%; }
-  .v2 .brand { margin-right: auto; }
-  .v2 .numbered > li { grid-template-columns: 40px 1fr; gap: var(--s3); padding-left: 14px; }
-  .v2 .numbered > li::before, .v2 .numbered.own-nums > li .num { width: 32px; height: 32px; font-size: var(--t-sm); }
-  .v2 .deftable th { width: auto; display: block; border-bottom: 0; }
-  .v2 .deftable td { display: block; padding-top: var(--s1); }
-  .v2 .opts { columns: 1; }
-  .v2 .stat-band { gap: var(--s5); }
-}
+/* The phone rules live in the mobile-first block below. The earlier
+   duplicates of these were removed on 17 Sep: they re-declared the hero
+   diagram layout and forced the mobile menu onto its own full-width row,
+   which broke the one-row header between 601px and 640px. */
 
 /* ===========================================================================
    A11 — "How a week works", mobile-first (rebuilt 17 Sep).
@@ -273,31 +244,37 @@
 .v2 .sec-week h3 { margin: var(--s5) 0 var(--s3); }
 
 /* ---------------- D1: week chip strip ---------------- */
-.v2 .wk-key { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s4); margin: 0 0 var(--s3); padding: 0; }
-.v2 .wk-key li { display: flex; align-items: center; gap: 6px; font-size: 15px; color: var(--ink-soft); margin: 0; }
-.v2 .key-dot { width: 12px; height: 12px; border-radius: 3px; flex: none; }
-.v2 .key-online { background: var(--blue-soft); border: 1px solid var(--blue-line); }
-.v2 .key-centre { background: #C7D9EF; border: 1px solid #7C9AC4; }
+/* The two routes must read as different at a glance, so the two chip styles
+   differ in fill, text colour and icon -- not just in tint. */
+.v2 .wk-key { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s2); margin: 0 0 var(--s3); padding: 0; }
+.v2 .wk-key .chip-key { padding: 7px 12px; height: auto; min-height: 46px; flex-direction: row; gap: 7px; }
+.v2 .chip-key .chip-d { font-family: var(--sans); font-weight: 700; }
 
 .v2 .wk-strip { display: grid; gap: var(--s2); }
 .v2 .wk-row { display: grid; gap: 6px; }
 .v2 .wk-route { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: 15px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .v2 .wk-sub { font-weight: 600; font-size: 15px; color: var(--ink-soft); }
-.v2 .wk-chips { list-style: none; display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin: 0; padding: 0; max-width: 340px; }
+.v2 .wk-chips { list-style: none; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0; padding: 0; }
+
 .v2 .chip {
-  position: relative; height: 36px; min-width: 36px; border-radius: 8px;
-  display: grid; place-items: center; font-family: var(--mono); font-weight: 700;
-  font-size: 15px; margin: 0; line-height: 1;
+  height: 46px; border-radius: 8px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1px; margin: 0; line-height: 1;
+  font-weight: 700; font-size: 15px; overflow: hidden;
 }
-.v2 .chip-online { background: var(--blue-soft); border: 1px solid var(--blue-line); color: var(--blue-deep); }
-.v2 .chip-centre { background: #C7D9EF; border: 1px solid #7C9AC4; color: var(--blue-deep); }
-/* The badge sits with its note, not on a chip: putting it on one chip would
-   mark a specific weekday, and A11 says the two days are never named. */
-.v2 .chip-badge {
-  display: inline-block; background: var(--blue); color: #fff; font-size: 15px;
-  font-weight: 700; line-height: 1; padding: 4px 8px; border-radius: 999px; margin-right: 8px;
-}
-.v2 .wk-badge-note { margin: 6px 0 0; font-size: 15px; color: var(--ink-soft); display: flex; align-items: center; flex-wrap: wrap; row-gap: 4px; }
+.v2 .chip-ic { width: 15px; height: 15px; flex: none; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .chip-d { font-family: var(--mono); }
+
+/* Online: white fill, blue outline, blue text  (11.27:1) */
+.v2 .chip-online { background: var(--sheet); border: 1.5px solid var(--blue); color: var(--blue); }
+.v2 .chip-online .chip-ic { stroke: var(--blue); }
+/* At the centre: solid navy, white text            (11.27:1) */
+.v2 .chip-centre { background: var(--blue); border: 1.5px solid var(--blue); color: #fff; }
+.v2 .chip-centre .chip-ic { stroke: #fff; }
+
+/* Grouped blocks on Route B: no day letters at all */
+.v2 .chip-block { grid-column: span var(--span); flex-direction: row; gap: 7px; padding: 6px 8px; font-size: 15px; height: auto; min-height: 46px; text-align: left; }
+.v2 .chip-block .chip-d { font-family: var(--sans); font-weight: 700; }
+
 .v2 .wk-link { display: flex; align-items: center; gap: var(--s2); }
 .v2 .wk-arrow { width: 16px; height: 24px; flex: none; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .v2 .wk-arrow-label { margin: 0; font-size: 15px; font-weight: 600; color: var(--blue-deep); }
@@ -312,9 +289,11 @@
 
 /* ---------------- swipe rows ---------------- */
 .v2 .swipe-wrap { position: relative; }
-.v2 .swipe { display: grid; gap: var(--s4); }
-.v2 .swipe-3 { grid-template-columns: repeat(3, 1fr); }
-.v2 .swipe-4 { grid-template-columns: repeat(2, 1fr); }   /* 2x2, no orphan card */
+.v2 .swipe { display: contents; }               /* desktop: the inner layout decides */
+.v2 .swipe-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+.v2 .swipe-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }  /* 2x2, no orphan */
+.v2 .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
+.v2 .sec-head > h2, .v2 .sec-head > h3 { margin-bottom: var(--s3); }
 .v2 .swipe-hint { display: none; }
 
 /* ---------------- locality <details> ---------------- */
@@ -336,86 +315,171 @@
 .v2 .nav-mobile-list a { min-height: 44px; display: flex; align-items: center; }
 .v2 .nav-mobile-list a:last-child { border-bottom: 0; }
 
-/* ===================== phones: the primary target ===================== */
+/* ===================== phones: the primary target =====================
+   Phone is the main audience. Everything below tightens vertical rhythm and
+   turns repeated card groups into scroll-snap swipe rows, so the page stops
+   being a 24-screen scroll. No words are removed anywhere.
+   ===================================================================== */
 @media (max-width: 600px) {
-  /* Budget: the whole section must fit two 844px viewports, so vertical
-     rhythm here is deliberately tighter than the rest of the page. */
+  /* ---- global rhythm ---- */
+  .v2 { font-size: 16px; }
+  .v2 .sec { padding: var(--s5) 0; }
+  .v2 .sec-head > h2, .v2 .sec-head > h3 { margin-bottom: var(--s2); }
+  .v2 h2 { font-size: 1.35rem; line-height: 1.22; }
+  .v2 h3 { font-size: 1.02rem; }
+  .v2 h4 { font-size: 1rem; }
+  .v2 p, .v2 li { font-size: 15px; line-height: 1.45; }
+  .v2 p { margin-bottom: .7em; }
+  .v2 li { margin-bottom: .15em; }
+  .v2 .wrap { padding: 0 var(--s4); }
+
+  /* ---- hero ---- */
+  .v2 .hero { padding: var(--s5) 0 var(--s5); }
+  .v2 .hero-inner { gap: var(--s4); }
+  .v2 h1 { font-size: 1.75rem; line-height: 1.18; }
+  .v2 .lede { font-size: 16px; line-height: 1.45; }
+  .v2 .hero-ctas { margin: var(--s4) 0 var(--s3); gap: 8px; }
+  .v2 .btn { padding: 12px 18px; min-height: 44px; display: inline-flex; align-items: center; }
+  .v2 .rating { padding: 10px var(--s3); gap: 10px; }
+  .v2 .rating-num { font-size: 1.9rem; }
+  .v2 .rating-meta { font-size: 15px; line-height: 1.3; }
+  .v2 .trust { padding-top: var(--s3); gap: var(--s3); font-size: 15px; }
+  .v2 .curricula-line { font-size: 15px; line-height: 1.4; padding: 8px 12px; }
+  /* every link is a tap target, including the "Learn more" links in cards */
+  .v2 .inline-link, .v2 .footer-links a, .v2 .nav-mobile-list a {
+    display: inline-flex; align-items: center; min-height: 44px;
+  }
+
+  /* ---- hero method diagram: tighter vertical stack ---- */
+  .v2 .method:not(.dg) { padding: var(--s3) 10px; display: grid; grid-template-columns: 28px 1fr; gap: 6px; }
+  .v2 .method:not(.dg) .ms-flow { grid-column: 2; flex-direction: column; align-items: stretch; gap: 4px; }
+  .v2 .method:not(.dg) .ms-step { padding: 10px; gap: 2px; }
+  .v2 .method:not(.dg) .ms-arrow { flex: none; height: 18px; }
+  .v2 .method:not(.dg) .ms-loop { display: contents; }
+  .v2 .method:not(.dg) .ms-loop-h { display: none; }
+  .v2 .method:not(.dg) .ms-loop-v { display: block; grid-column: 1; grid-row: 1; width: 28px; height: 100%; align-self: stretch; }
+  .v2 .method:not(.dg) .ms-loop-label { grid-column: 1 / -1; grid-row: 2; margin: 10px 0 0; font-size: 15px; text-align: left; }
+  .v2 .ms-num { width: 26px; height: 26px; font-size: 15px; }
+  .v2 .ic { width: 22px; height: 22px; }
+  .v2 .ms-title { font-size: 15px; line-height: 1.3; }
+  .v2 .ms-caption { font-size: 15px; line-height: 1.4; }
+  .v2 .arw-h { display: none; }
+  .v2 .arw-v { display: block; }
+
+  /* ---- "How a week works" ---- */
   .v2 .sec-week { padding: var(--s5) 0; }
-  .v2 .sec-week h2 { margin-bottom: 6px; }
-  .v2 .sec-week h3 { margin: var(--s3) 0 6px; font-size: var(--t-base); }
   .v2 .sec-lede { font-size: 15px; line-height: 1.45; margin-bottom: var(--s3); }
   .v2 .dg { padding: 10px; margin-bottom: var(--s3); }
-
-  /* D1 stays a strip: 7 chips per row, sized to the viewport. */
-  .v2 .wk-chips { max-width: none; gap: 4px; }
-  .v2 .chip { height: 36px; min-width: 0; font-size: 15px; }
-  .v2 .wk-key { gap: var(--s3); margin-bottom: 10px; }
+  .v2 .wk-key { gap: 6px; margin-bottom: 10px; }
+  .v2 .wk-key .chip-key { flex: 1 1 0; }
   .v2 .wk-strip { gap: 6px; }
+  .v2 .wk-chips { gap: 3px; }
+  .v2 .chip { height: 46px; }
+  .v2 .chip-block { padding: 0 6px; }
+  .v2 .chip-block .chip-d { font-size: 15px; }
   .v2 .wk-weekend { margin-top: 10px; padding-top: 10px; line-height: 1.4; }
-  .v2 .wk-badge-note { line-height: 1.3; }
-  .v2 .ms-note { margin-top: 10px; }
 
-  /* D2 becomes a 2x2 clockwise loop: 1 TL, 2 TR, 3 BR, 4 BL. */
+  /* ---- D2: clockwise 2x2 with arrows between the cards ---- */
+  .v2 .dg-loop .ms-stage { position: relative; }
   .v2 .dg-loop .ms-flow {
     display: grid; grid-template-columns: 1fr 1fr;
-    column-gap: 6px; row-gap: 66px; position: relative;
+    column-gap: 26px; row-gap: 78px; position: relative;  /* room for the two-line centre label */
   }
-  .v2 .dg-loop .ms-arrow { display: none; }
   .v2 .dg-loop .ms-step { padding: 10px; gap: 4px; }
-  .v2 .dg-loop .ms-num { font-size: 15px; width: 28px; height: 28px; }
-  /* Clockwise: 1 top-left, 2 top-right, 3 bottom-right, 4 bottom-left.
-     Placed by explicit class -- nth-of-type would count the arrow <li>s too. */
+  .v2 .dg-loop .ms-num { font-size: 15px; width: 26px; height: 26px; }
   .v2 .dg-loop .ms-step-1 { grid-area: 1 / 1; }
   .v2 .dg-loop .ms-step-2 { grid-area: 1 / 2; }
   .v2 .dg-loop .ms-step-3 { grid-area: 2 / 2; }
   .v2 .dg-loop .ms-step-4 { grid-area: 2 / 1; }
-  .v2 .dg-loop .ms-title { font-size: 15px; line-height: 1.3; }
-  /* The centre stack sits in the full-width row-gap band, so the label has
-     room to stay on one line instead of wrapping a word per line. */
-  /* .ms-loop is a sibling of .ms-flow, so it needs .ms-stage as its
-     positioned ancestor -- otherwise it centres on the page, not the grid. */
-  .v2 .dg-loop .ms-stage { position: relative; }
+  /* 1 -> 2 across the top, 2 -> 3 down the right, 3 -> 4 back across */
+  .v2 .dg-loop .ms-arrow { display: grid; place-items: center; }
+  .v2 .dg-loop .ms-arrow-1 { grid-area: 1 / 1 / 2 / 3; justify-self: center; align-self: center; }
+  .v2 .dg-loop .ms-arrow-2 { grid-area: 1 / 2 / 3 / 3; justify-self: center; align-self: center; }
+  .v2 .dg-loop .ms-arrow-3 { grid-area: 2 / 1 / 3 / 3; justify-self: center; align-self: center; transform: rotate(180deg); }
+  .v2 .dg-loop .arw-h { display: block; width: 20px; height: 14px; }
+  .v2 .dg-loop .arw-v { display: none; }
+  .v2 .dg-loop .ms-arrow-2 .arw-h { transform: rotate(90deg); }
   .v2 .dg-loop .ms-loop {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    margin: 0; display: grid; justify-items: center; gap: 2px; z-index: 2;
-    background: var(--sheet); padding: 2px 10px; border-radius: 999px; white-space: nowrap;
+    margin: 0; display: grid; justify-items: center; gap: 2px; z-index: 3;
+    background: var(--sheet); padding: 3px 10px; border-radius: 999px;
   }
   .v2 .dg-loop .ms-loop-h { display: none; }
-  .v2 .dg-loop .ms-loop-circle { display: block; width: 34px; height: 34px; }
-  .v2 .dg-loop .ms-loop-label { font-size: 15px; }
+  .v2 .dg-loop .ms-loop-circle { display: block; width: 28px; height: 28px; }
+  .v2 .dg-loop .ms-loop-label { font-size: 15px; text-align: center; }
+  .v2 .dg-loop .ms-title { font-size: 15px; line-height: 1.3; }
+  .v2 .ms-note { margin-top: 10px; font-size: 15px; }
 
-  /* Cards become a scroll-snap swipe row; the next card peeks. */
+  /* ---- swipe rows: any group of 3+ comparable cards ---- */
   .v2 .swipe {
     display: flex; gap: var(--s3); overflow-x: auto; scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; padding-bottom: var(--s2); scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; padding-bottom: 6px; scrollbar-width: none;
+    margin: 0 calc(var(--s4) * -1); padding-left: var(--s4); padding-right: var(--s4);
   }
   .v2 .swipe::-webkit-scrollbar { display: none; }
-  .v2 .swipe > .card {
+  /* the inner layout container steps aside so its cards become the flex items */
+  .v2 .swipe > .cards, .v2 .swipe > .panel, .v2 .swipe > .numbered, .v2 .swipe > .rows { display: contents; }
+  .v2 .swipe .card,
+  .v2 .swipe .panel-item,
+  .v2 .swipe > .numbered > li,
+  .v2 .swipe .row {
     flex: 0 0 85%; scroll-snap-align: start; padding: var(--s3);
+    background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
   }
-  .v2 .swipe > .card p, .v2 .swipe > .card li { font-size: 15px; line-height: 1.45; }
-  .v2 .swipe > .card li { margin-bottom: .15em; }
-  .v2 .swipe > .card h3 { font-size: 15px; margin-bottom: 6px; }
+  .v2 .swipe > .numbered { border-left: 0; }
+  .v2 .swipe > .numbered > li { display: block; }
+  .v2 .swipe > .numbered > li::before { margin-bottom: 6px; }
+  .v2 .swipe .row { display: block; }
+  .v2 .swipe .card h3, .v2 .swipe .panel-item h3, .v2 .swipe .row h3 { font-size: 15px; margin-bottom: 6px; }
+  .v2 .swipe ul { margin-bottom: 0; }
+  .v2 .swipe p:last-child { margin-bottom: 0; }
   .v2 .step-label { font-size: 15px; padding: 2px 10px; }
-  .v2 .swipe > .card ul { margin-bottom: 0; }
-  .v2 .swipe > .card p:last-child { margin-bottom: 0; }
+  .v2 .pseudo-btn { font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+  .v2 .deftable th { font-size: 15px; }
+  .v2 .num { font-size: 15px; }
   .v2 .swipe-hint {
-    display: block; margin: 2px 0 0; font-size: 15px; font-weight: 700;
-    color: var(--blue); font-family: var(--mono); letter-spacing: .04em;
+    display: block; margin: 0; font-size: 14px; font-weight: 400;
+    color: var(--ink-mute); font-family: var(--sans); white-space: nowrap;
   }
 
-  /* header: logo left, WhatsApp + call + Menu right, one row */
+  /* ---- option lists become wrapped pills instead of a tall column ---- */
+  .v2 .opts { columns: auto; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin-bottom: .7em; list-style: none; }
+  .v2 .opts li {
+    margin: 0; font-size: 15px; background: var(--blue-soft); color: var(--blue-deep);
+    border-radius: 999px; padding: 6px 12px; font-family: var(--sans);
+  }
+
+  /* ---- tables stack ---- */
+  .v2 .deftable th { width: auto; display: block; border-bottom: 0; padding: var(--s3) var(--s3) 2px; }
+  .v2 .deftable td { display: block; padding: 0 var(--s3) var(--s3); }
+
+  /* ---- FAQ + locality: every answer stays in the HTML ---- */
+  .v2 .accordion summary { padding: 12px var(--s3); min-height: 44px; font-size: 15px; }
+  .v2 .acc-body { padding: 0 var(--s3) 10px; }
+  .v2 .areas-details > summary { font-size: var(--t-lg); padding: var(--s3); min-height: 44px; }
+  .v2 .areas-body { padding: 0 var(--s3) var(--s3); }
+  .v2 .sec-areas { padding: var(--s5) 0; }
+  .v2 .region-grid { grid-template-columns: 1fr; gap: 10px; }
+  .v2 .area { padding: 10px; }
+
+  /* ---- prose, CTA, footer ---- */
+  .v2 .prose { max-width: none; }
+  .v2 .cta-band { padding: var(--s6) 0; }
+  .v2 .cta-band p { margin-bottom: var(--s4); }
+  .v2 .site-footer { padding: var(--s5) 0; font-size: 15px; }
+  .v2 .site-footer p { font-size: 15px; }
+  .v2 .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* ---- header: logo left, WhatsApp + call + Menu right, one row ---- */
   .v2 .header-inner { flex-wrap: nowrap; gap: var(--s2); }
   .v2 .brand { font-size: 1rem; letter-spacing: .1em; }
   .v2 .header-cta { gap: 6px; align-items: center; }
   .v2 .hcta { padding: 10px; min-height: 44px; min-width: 44px; display: grid; place-items: center; }
   .v2 .hcta-ic { display: block; }
   .v2 .hcta-text { display: none; }
+  .v2 .nav-desktop { display: none; }
   .v2 .nav-mobile { display: block; }
   .v2 .nav-mobile > summary { padding: 10px 12px; font-size: 15px; min-height: 44px; display: grid; place-items: center; }
-
-  .v2 .areas-details > summary { font-size: var(--t-lg); padding: var(--s4); }
-  .v2 .areas-body { padding: 0 var(--s4) var(--s4); }
 }
 
 @media (max-width: 640px) and (min-width: 601px) {

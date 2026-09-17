@@ -69,10 +69,13 @@ Facts confirmed by Swastik:
   Route B (weaker foundations): 2 weekdays at the centre, other weekdays online, plus weekends at the centre, moving to Route A as confidence builds.
 - No timings anywhere. No class recordings. Do not mention tests in the new diagrams.
 New visible text is limited to the section title "How a week works" and the diagram labels and captions below. All existing wording stays word-for-word.
-  D1 "Two routes through the week" (mobile-first rebuild, 17 Sep): day chips "M T W T F S S"; key labels "Online · Google Meet" and "At the centre"; "Route A"; "Route B"; "Foundation support"; badge "+2" with the label "Any 2 weekdays at the centre" (specific weekdays are never named); arrow label "As confidence builds"; and one line directly under the strip: "Weekends at the centre: doubts cleared in person · revision and practice".
-  D2 "A weekday online class" (mobile-first rebuild, 17 Sep; these replace the longer labels): "Solved live on the digital board"; "Your child tries the next one"; "Photo sent on WhatsApp"; "Corrected in class"; loop label "Next problem"; under the loop, on one line: "After class: a worksheet to practise".
+  D1 "Two routes through the week" (rebuilt 17 Sep): day chips "M T W T F S S"; key labels "Online · Google Meet" and "At the centre"; "Route A"; "Route B"; "Foundation support"; arrow label "As confidence builds"; and one line directly under the strip: "Weekends at the centre: doubts cleared in person · revision and practice".
+    Route A shows five Online chips (M T W T F) then two At-the-centre chips (S S).
+    Route B replaces its weekday chips with two grouped blocks carrying NO day letters: "2 days · At the centre" then "3 days · Online", followed by the two At-the-centre weekend chips. The earlier "+2" badge and the line "Any 2 weekdays at the centre" are removed -- the two blocks now carry that meaning, and no specific weekday is ever named.
+    Chip styling: Online = white fill, blue outline, laptop icon. At the centre = solid navy fill, white text, building icon. Both pairs are AA (11.27:1).
+  D2 "A weekday online class" (mobile-first rebuild, 17 Sep; these replace the longer labels): "Solved live on the digital board"; "Your child tries the next one"; "Photo sent on WhatsApp"; "Corrected in class"; centre label "Next problem · back to step 2"; under the loop, on one line: "After class: a worksheet to practise". On phones the four steps form a clockwise 2x2 with arrows between them (1 to 2, 2 down to 3, 3 back to 4).
   D3 removed (17 Sep). Its content is carried by the single weekend line in D1.
-  Swipe rows below 600px carry the hint "Swipe →".
+  Swipe rows below 600px carry the hint "Swipe →", set in the body font at 14px grey, at the right end of the row's heading line.
 Structure (staging first; production needs a separate approval):
 - The existing "How It Works" and "Why Online Classes Work" content moves under one section titled "How a week works", every sentence kept word-for-word.
 - The locality cards move into a closed <details> titled "Students From Across Hyderabad", placed just above the FAQ, with the "Students from across Hyderabad learn with us …" sentence inside it.
