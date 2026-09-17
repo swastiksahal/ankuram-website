@@ -4,17 +4,17 @@
     {
       "width": 360,
       "overflow": 0,
-      "height": 12864
+      "height": 12447
     },
     {
       "width": 768,
       "overflow": 0,
-      "height": 18270
+      "height": 17393
     },
     {
       "width": 1440,
       "overflow": 0,
-      "height": 16967
+      "height": 15722
     }
   ],
   "rows": [
@@ -40,7 +40,7 @@
     },
     {
       "name": "Find Your Program",
-      "h": 1249
+      "h": 595
     },
     {
       "name": "How We Work",
@@ -56,19 +56,19 @@
     },
     {
       "name": "Curricula We Support",
-      "h": 689
+      "h": 343
     },
     {
       "name": "About ANKURAM",
-      "h": 723
+      "h": 722
     },
     {
       "name": "Get in Touch",
-      "h": 1323
+      "h": 1783
     },
     {
       "name": "Reviews",
-      "h": 307
+      "h": 256
     },
     {
       "name": "Students From Across Hyderabad",
@@ -76,7 +76,7 @@
     },
     {
       "name": "Frequently Asked Questions",
-      "h": 1373
+      "h": 1323
     },
     {
       "name": "Diagnostic Test",
@@ -88,10 +88,10 @@
     },
     {
       "name": "footer",
-      "h": 411
+      "h": 754
     }
   ],
-  "total": 12053,
+  "total": 11755,
   "minFont": 15,
   "minSel": "SUMMARY:Menu",
   "smallTaps": [],
@@ -131,16 +131,16 @@
     }
   ],
   "pageOverflow": 0,
-  "faqAnswers": 23,
+  "faqAnswers": 22,
   "faqClosed": true,
   "imgs": 0,
-  "screens": 15,
+  "screens": 14,
   "lighthouse": {
-    "performance": 98,
+    "performance": 96,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1052,
-    "totalBytes": 463616
+    "lcpMs": 1651,
+    "totalBytes": 530764
   },
   "a11yFailures": []
 }

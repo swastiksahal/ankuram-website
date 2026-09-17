@@ -46,6 +46,9 @@ A supervisor (Claude, in the project chat) reviews every phase before anything g
     id=diagnostic and id=reviews (Ads sitelinks point to them).
 14. Never change a page's wording. Layout, structure and styling may change; words may
     not, except under APPROVED-CHANGES.
+15. ANCHOR IDS — the homepage must keep the ids home, about, curricula, contact, reviews
+    and hybrid-classes, each on the section holding the matching content. Google shows
+    #about and #curricula as sitelinks. The parity checker verifies all six.
 
 ## Copy rules
 "Maths" not "Math" · "Google Meet" never Zoom · "13+ years" never 14 · no exclamation

@@ -160,6 +160,7 @@ It reruns `fingerprint.js` against the build output, loads
 | 12 static output | global | no framework runtime, no new JS library in `dist/` |
 | 13 paid pages | page | the 4 URLs never redirect; `/cbse-class-10/` keeps the 5 anchor ids |
 | 14 wording | page | `visibleTextHash` match, or word-diff fully explained by APPROVED-CHANGES |
+| 15 anchor ids | page | homepage keeps `#home`, `#about`, `#curricula`, `#contact`, `#reviews`, `#hybrid-classes`, each on the section with the matching content |
 
 Rules 11 and 13 need a running page, so they run against staging, not `dist/`.
 The rest are static and run on every build.

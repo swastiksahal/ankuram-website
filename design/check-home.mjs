@@ -44,8 +44,7 @@ const browser = await chromium.launch();
     const rows = [];
     const push = (name, el) => { if (el) rows.push({ name, h: Math.round(el.getBoundingClientRect().height) }); };
     push('header', document.querySelector('.site-header'));
-    push('hero', document.querySelector('.hero'));
-    document.querySelectorAll('main > section.sec, main > section.cta-band').forEach((s) => {
+    document.querySelectorAll('main > section').forEach((s) => {
       const h = s.querySelector('h2') || s.querySelector('summary');
       push((h && h.textContent.trim().slice(0, 38)) || s.className.slice(0, 30), s);
     });
@@ -112,7 +111,10 @@ for (const w of [360, 768, 1440]) {
   await page.goto(base + PAGE, { waitUntil: 'networkidle', timeout: 30000 });
   const m = await page.evaluate(() => ({ s: document.documentElement.scrollWidth, c: document.documentElement.clientWidth, h: Math.round(document.body.scrollHeight) }));
   out.scroll.push({ width: w, overflow: m.s - m.c, height: m.h });
-  if (w === 1440) { await (await page.$('.sec-week')).screenshot({ path: 'design/screens/hybrid-1440.png' }); }
+  if (w === 1440) {
+    await (await page.$('.sec-week')).screenshot({ path: 'design/screens/hybrid-1440.png' });
+    await (await page.$('.site-footer')).screenshot({ path: 'design/screens/footer-1440.png' });
+  }
   await ctx.close();
 }
 await browser.close();

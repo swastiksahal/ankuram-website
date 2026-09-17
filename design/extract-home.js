@@ -176,8 +176,37 @@ const footer = {
   links: footerGroups.filter((g) => g.tag === 'a').map((g) => ({ text: g.text, href: g.href })),
 };
 
+// Sections whose markup must be carried over VERBATIM because they are
+// interactive: real <select> dropdowns, a real <form>, and the review
+// containers script.js writes into. Rebuilding these by hand produced loose
+// "chips" instead of working controls.
+function rawSection(re, strip = []) {
+  const m = re.exec(html);
+  if (!m) throw new Error('raw section not found: ' + re);
+  let out = m[0];
+  for (const s of strip) {
+    const before = out.length;
+    out = out.replace(s, '');
+    if (out.length === before) throw new Error('strip pattern did not match: ' + s);
+  }
+  return out;
+}
+
+const rawSections = {
+  'quick-finder': rawSection(/<section[^>]*class="[^"]*quick-finder[^"]*"[\s\S]*?<\/section>/),
+  'contact-section': rawSection(/<section[^>]*class="[^"]*contact-section[^"]*"[\s\S]*?<\/section>/),
+  // The rating header moved to the hero, and the background image is a photo
+  // of the centre (A9), so both are stripped here.
+  'reviews-section': rawSection(
+    /<section[^>]*class="[^"]*reviews-section[^"]*"[\s\S]*?<\/section>/,
+    [/<div class="reviews-background">[\s\S]*?<\/div>\s*<\/div>/,
+     /<div class="google-rating">[\s\S]*?<p class="review-count"[^>]*>[\s\S]*?<\/p>/]
+  ),
+};
+
 const out = {
   source: SRC,
+  rawSections,
   extractedAt: new Date().toISOString(),
   header: { nav, phone: { display: '+91 73966 69430', tel: '+917396669430' } },
   whatsapp: 'https://wa.me/917396669430',

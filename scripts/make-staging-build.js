@@ -29,11 +29,14 @@ if (!/content="noindex, nofollow"/.test(html)) throw new Error('robots meta miss
 
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 fs.copyFileSync('css/site.css', path.join(OUT, 'css', 'site.css'));
+// script.js drives the finder, the contact form and the reviews block
+fs.copyFileSync('public_html/script.js', path.join(OUT, 'script.js'));
 
 // Any reference that is not the stylesheet, an anchor, a tel:, or an absolute
 // URL would be a file we have not shipped.
 const refs = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1]);
-const unshipped = refs.filter((r) => !/^(#|tel:|https?:|\/)/.test(r) && r !== 'css/site.css');
+const SHIPPED = ['css/site.css', 'script.js'];
+const unshipped = refs.filter((r) => !/^(#|tel:|https?:|\/)/.test(r) && !SHIPPED.includes(r));
 if (unshipped.length) throw new Error('unshipped local references: ' + unshipped.join(', '));
 
 const files = [];

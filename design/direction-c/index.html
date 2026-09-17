@@ -22,6 +22,7 @@
 <meta name="twitter:description" content="Maths & Science tuition for Grades 1-12. Small batches, all curricula.">
 <meta name="twitter:image" content="https://ankuramtuition.com/assets/images/classroom-teaching.webp">
 <link rel="stylesheet" href="../../css/site.css">
+<script defer src="script.js"></script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -453,7 +454,7 @@
 </header>
 
 <main id="main">
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="wrap hero-inner">
       <div class="hero-text">
         <h1>Tuition for Grades 1–12 in Jubilee Hills, Hyderabad</h1>
@@ -462,7 +463,7 @@
         <div class="rating" aria-label="Rating 4.8 out of 5">
           <span class="rating-num">4.8</span>
           <span class="rating-stars" aria-hidden="true">★★★★★</span>
-          <span class="rating-meta"><span class="rc">516 Reviews</span><span class="bn">Ankuram Tuition Centre | Math Tuition | Science Tuition</span></span>
+          <span class="rating-meta"><span class="rc">500+ reviews</span><span class="bn">Ankuram Tuition Centre | Math Tuition | Science Tuition</span></span>
         </div>
         <ul class="trust"><li>✓ 13+ Years Experience</li><li>✓ All Major Curricula</li></ul>
       </div>
@@ -592,16 +593,103 @@
     <div class="swipe swipe-4"><article class="card"><h3>Same Attention, No Commute</h3><p>Small batches of 3-5 students mean everyone gets personal attention — whether in our classroom or on screen. We don't run large online lectures; this is interactive, guided practice.</p></article><article class="card"><h3>Real-Time Problem Correction</h3><p>Here's how it works: Student solves a problem → takes a photo → sends on WhatsApp → teacher checks immediately → corrects mistakes then and there. Faster feedback than waiting for homework to be checked next class.</p></article><article class="card"><h3>Proper Digital Setup</h3><p>We've invested in the right setup — clear audio, good video, screen sharing for explanations. Students can see problems being solved step-by-step, ask questions, and interact naturally.</p></article><article class="card"><h3>Weekend Depth</h3><p>Online handles regular practice. Weekends at the centre handle the deep work — tests, intensive revision, in-person doubt sessions, and exam preparation. The combination is stronger than either alone.</p></article></div>
   </div>
 </section>
+<section class="quick-finder">
+        <div class="container">
+            <h2 class="section-title">Find Your Program</h2>
+            <p class="section-intro">Select your Grade, Subject, and Curriculum to check current batch availability. If you're looking for "maths tuition near me" in Jubilee Hills or nearby areas, our small‑batch format ensures personal attention from day one.</p>
+            <div class="finder-form">
+                <div class="finder-group">
+                    <label for="finder-grade">Grade</label>
+                    <select id="finder-grade" class="finder-select">
+                            <option value="">Select Grade</option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4">Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                            <option value="8">Grade 8</option>
+                            <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                        </select>
+                </div>
+                <div class="finder-group">
+                    <label for="finder-subject">Subject</label>
+                    <select id="finder-subject" class="finder-select">
+                            <option value="">Select Subject</option>
+                        <option value="all">All Subjects</option>
+                        <option value="school-homework">School Homework</option>
+                            <option value="maths">Maths</option>
+                        <option value="english">English</option>
+                            <option value="science">Science</option>
+                        </select>
+                </div>
+                <div class="finder-group">
+                    <label for="finder-curriculum">Curriculum</label>
+                    <select id="finder-curriculum" class="finder-select">
+                        <option value="">Select Curriculum</option>
+                        <option value="ib-pyp">IB PYP</option>
+                        <option value="cbse">CBSE</option>
+                        <option value="ib-myp">IB MYP</option>
+                        <option value="igcse">IGCSE</option>
+                        <option value="icse">ICSE</option>
+                        <option value="isc">ISC</option>
+                        <option value="ib-dp">IB DP</option>
+                        <option value="as-levels">AS Levels</option>
+                        <option value="a-levels">A Levels</option>
+                        <option value="state-board">State Board</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" id="checkAvailability">Check Availability</button>
+                <p class="finder-microcopy">Not sure what to choose? Call/WhatsApp us and we'll recommend the right plan in 2 minutes.</p>
+                </div>
+            <div class="availability-results" id="availabilityResults" style="display: none;">
+                <div class="results-header">
+                    <span class="checkmark">✓</span>
+                    <h3 id="resultsConfirmation"></h3>
+                </div>
+                
+                <div class="results-content">
+                    <div class="results-section">
+                        <h4 id="howWeTeachTitle"></h4>
+                        <div id="resultsHowWeTeach"></div>
+                </div>
+                    
+                    <div class="results-section curriculum-alignment" id="curriculumAlignmentSection">
+                        <h4 id="curriculumAlignmentTitle"></h4>
+                        <div id="curriculumAlignment"></div>
+                    </div>
+                    
+                    <div class="results-section class-details">
+                        <h4>Class Details</h4>
+                        <ul class="class-details-list">
+                            <li><strong>Session duration:</strong> 60 minutes</li>
+                            <li><strong>Classes per week:</strong> 3-5 based on student needs (determined after assessment)</li>
+                            <li><strong>Batch size:</strong> 3 students (for foundational support) to 5 students (for confident learners)</li>
+                            <li><strong>Centre timings:</strong> Mon-Fri: 5 AM – 10 PM | Sat: 10 AM – 9 PM | Sun: 11 AM – 7 PM</li>
+                            <li><strong>Batch timing:</strong> Decided after initial assessment to find what works best</li>
+                    </ul>
+                </div>
+            </div>
 
-<section class="sec sec-table" id="sec-3">
-  <div class="wrap">
-    <div class="sec-head"><h2>Find Your Program</h2></div>
-    <div class="intro"><p>Select your Grade, Subject, and Curriculum to check current batch availability. If you're looking for "maths tuition near me" in Jubilee Hills or nearby areas, our small‑batch format ensures personal attention from day one.</p><p>Grade</p><ul class="opts"><li>Select Grade</li><li>Grade 1</li><li>Grade 2</li><li>Grade 3</li><li>Grade 4</li><li>Grade 5</li><li>Grade 6</li><li>Grade 7</li><li>Grade 8</li><li>Grade 9</li><li>Grade 10</li><li>Grade 11</li><li>Grade 12</li></ul><p>Subject</p><ul class="opts"><li>Select Subject</li><li>All Subjects</li><li>School Homework</li><li>Maths</li><li>English</li><li>Science</li></ul><p>Curriculum</p><ul class="opts"><li>Select Curriculum</li><li>IB PYP</li><li>CBSE</li><li>IB MYP</li><li>IGCSE</li><li>ICSE</li><li>ISC</li><li>IB DP</li><li>AS Levels</li><li>A Levels</li><li>State Board</li><li>Other</li></ul><p><span class="pseudo-btn">Check Availability</span></p><p>Not sure what to choose? Call/WhatsApp us and we'll recommend the right plan in 2 minutes.</p></div><div class="table-wrap"><table class="deftable"><tbody><tr><th scope="row">Class Details</th><td><ul><li>Session duration: 60 minutes</li><li>Classes per week: 3-5 based on student needs (determined after assessment)</li><li>Batch size: 3 students (for foundational support) to 5 students (for confident learners)</li><li>Centre timings: Mon-Fri: 5 AM – 10 PM | Sat: 10 AM – 9 PM | Sun: 11 AM – 7 PM</li><li>Batch timing: Decided after initial assessment to find what works best</li></ul>
-<p>Book a diagnostic test to get started</p>
-<p><a class="inline-link" href="#">Book Diagnostic Test (₹750)</a></p>
-<p><a class="inline-link" href="tel:+917396669430">Call Now</a></p></td></tr></tbody></table></div>
-  </div>
-</section>
+                <div class="results-cta">
+                    <p class="cta-text">Book a diagnostic test to get started</p>
+                    <div class="results-buttons">
+                        <a href="#" class="btn btn-primary" id="bookDiagnosticFromResults">Book Diagnostic Test (₹750)</a>
+                        <a href="tel:+917396669430" 
+                           class="btn btn-secondary-outline"
+                           data-track="phone_call"
+                           data-track-location="results_section"
+                           onclick="trackPhoneClick('results_section'); return true;">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <section class="sec sec-numbered" id="sec-4">
   <div class="wrap">
@@ -638,67 +726,286 @@
   </div>
 </section>
 
-<section class="sec sec-cards" id="curricula">
+<section class="sec sec-curricula" id="curricula">
   <div class="wrap">
-    <div class="sec-head"><h2>Curricula We Support</h2></div>
-    <div class="cards"><article class="card"><p>We support major Indian and international curricula so students can get the right teaching style for their board—while still building strong fundamentals that work everywhere.</p>
-<p><a class="inline-link" href="/cbse-tuition-jubilee-hills">CBSE</a></p>
-<p><a class="inline-link" href="/icse-tuition-hyderabad">ICSE</a></p>
-<p><a class="inline-link" href="/isc-tuition-hyderabad">ISC</a></p>
-<p><a class="inline-link" href="/igcse-tuition-jubilee-hills">IGCSE</a></p>
-<p><a class="inline-link" href="/ib-myp-tuition-hyderabad">IB MYP</a></p>
-<p><a class="inline-link" href="/ib-dp-tuition-hyderabad">IB DP</a></p>
-<p><a class="inline-link" href="/a-level-tuition-hyderabad">AS &amp; A Levels</a></p>
-<p><a class="inline-link" href="/state-board-tuition-hyderabad">State Board</a></p></article></div>
+    <h2>Curricula We Support</h2>
+    <p>We support major Indian and international curricula so students can get the right teaching style for their board—while still building strong fundamentals that work everywhere.</p>
+    <div class="curr-grid"><a class="curr-chip" href="/cbse-tuition-jubilee-hills">CBSE</a><a class="curr-chip" href="/icse-tuition-hyderabad">ICSE</a><a class="curr-chip" href="/isc-tuition-hyderabad">ISC</a><a class="curr-chip" href="/igcse-tuition-jubilee-hills">IGCSE</a><a class="curr-chip" href="/ib-myp-tuition-hyderabad">IB MYP</a><a class="curr-chip" href="/ib-dp-tuition-hyderabad">IB DP</a><a class="curr-chip" href="/a-level-tuition-hyderabad">AS &amp; A Levels</a><a class="curr-chip" href="/state-board-tuition-hyderabad">State Board</a></div>
   </div>
 </section>
 
-<section class="sec sec-prose" id="about">
+<section class="sec sec-about" id="about">
   <div class="wrap">
-    <div class="sec-head"><h2>About ANKURAM</h2></div>
-    <div class="prose"><p>13+</p><p>Years Teaching</p><p>3-5</p><p>Students per Batch</p><p>Students learn best when fundamentals are strong and teaching is personal.</p><p>With 13+ years of teaching experience, an academic background in MSc Physics and BE Mechanical Engineering, and experience as a former Amazon software engineer, our teaching combines clarity, structure, and analytical problem-solving.</p><h3>Diagnose First</h3><p>We identify gaps early before teaching new concepts</p><h3>No Rushing</h3><p>Concepts taught step-by-step until truly understood</p><h3>Structured Practice</h3><p>Regular revision, error tracking, and feedback loops</p><h3>Small Batches</h3><p>3-5 students only — everyone gets attention</p>
+    <h2>About ANKURAM</h2>
+    <ul class="stat-band"><li class="stat"><span class="stat-num">13+</span><span class="stat-label">Years Teaching</span></li><li class="stat"><span class="stat-num">3-5</span><span class="stat-label">Students per Batch</span></li></ul>
+    <div class="prose"><p>Students learn best when fundamentals are strong and teaching is personal.</p><p>With 13+ years of teaching experience, an academic background in MSc Physics and BE Mechanical Engineering, and experience as a former Amazon software engineer, our teaching combines clarity, structure, and analytical problem-solving.</p><h3>Diagnose First</h3><p>We identify gaps early before teaching new concepts</p><h3>No Rushing</h3><p>Concepts taught step-by-step until truly understood</p><h3>Structured Practice</h3><p>Regular revision, error tracking, and feedback loops</p><h3>Small Batches</h3><p>3-5 students only — everyone gets attention</p>
 <p>One-on-one tuition available on a pro-rata basis for students who need extra attention.</p></div>
   </div>
 </section>
-
-<section class="sec sec-panel" id="contact">
-  <div class="wrap">
-    <div class="sec-head"><h2>Get in Touch</h2></div>
-    <div class="panel"><div class="panel-item"><p>Have questions about grade, curriculum, or schedule? We'll help you find the right fit.</p>
-<p>Phone</p>
-<p><a class="inline-link" href="tel:+917396669430">+91 73966 69430</a></p>
-<p>WhatsApp</p>
-<p><a class="inline-link" href="https://wa.me/917396669430?text=Hi%2C%20I%27m%20interested%20in%20tuition">Message Us</a></p>
-<p>Location</p>
-<p>Ankuram Tuition Centre | Math Tuition | Science Tuition Plot 229, Rd Number 72 Prashasan Nagar, Jubilee Hills Hyderabad, Telangana 500096</p>
-<p>Timings</p>
-<p>Mon – Fri: 5 AM – 10 PM</p>
-<p>Saturday: 10 AM – 9 PM</p>
-<p>Sunday: 11 AM – 7 PM</p>
-<p><a class="inline-link" href="tel:+917396669430">Call Now</a></p>
-<p><a class="inline-link" href="https://wa.me/917396669430">WhatsApp</a></p>
-<p><a class="inline-link" href="https://www.google.com/maps/dir//Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition,+Plot+229,+Road+Number+72,+Prashashan+Nagar,+Jubilee+Hills,+Hyderabad,+Telangana+500096/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0">Get Directions</a></p>
-<p>Share your student's grade and current curriculum (IB, IGCSE, Cambridge A-Levels, or CBSE). We will get back to you within 2 hours to schedule a comprehensive Diagnostic Assessment (₹750).</p>
-<p>Name *</p>
-<p>Phone *</p>
-<p>Grade</p>
-<ul class="opts"><li>Select Grade</li><li>Grades 1-5</li><li>Grades 6-10</li><li>Grades 11-12</li></ul>
-<p>Curriculum</p>
-<ul class="opts"><li>Select Curriculum</li><li>CBSE</li><li>IB MYP</li><li>IGCSE</li><li>ICSE</li><li>ISC</li><li>IB DP</li><li>AS &amp; A Levels</li><li>State Board</li></ul>
-<p>Message</p>
-<p><span class="pseudo-btn">Send Message</span></p></div></div>
-  </div>
-</section>
-
-<section class="sec sec-cards" id="reviews">
-  <div class="wrap">
-    <div class="sec-head"><h2>Reviews</h2></div>
-    <div class="cards"><article class="card"><p>Loading reviews...</p>
-<p>Unable to load reviews at this time.</p>
-<p><a class="inline-link" href="https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0">See our Google reviews →</a></p>
-<p><a class="inline-link" href="https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0">View all reviews on Google →</a></p></article></div>
-  </div>
-</section>
+<section id="contact" class="contact-section">
+        <div class="contact-container">
+            
+            <div class="contact-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions about grade, curriculum, or schedule? We'll help you find the right fit.</p>
+            </div>
+            
+            <div class="contact-grid">
+                
+                <!-- Left: Contact Info -->
+                <div class="contact-info">
+                    
+                    <!-- Phone -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+917396669430" 
+                               class="contact-value phone" 
+                               data-track="phone_call"
+                               data-track-location="contact_section"
+                               onclick="trackPhoneClick('contact_section'); return true;">
+                                +91 73966 69430
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="contact-item">
+                        <div class="contact-icon whatsapp-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">WhatsApp</span>
+                            <a href="https://wa.me/917396669430?text=Hi%2C%20I%27m%20interested%20in%20tuition" 
+                               target="_blank" 
+                               rel="noopener"
+                               class="contact-value"
+                               data-track="whatsapp_click"
+                               data-track-location="contact_section"
+                               onclick="trackWhatsAppClick('contact_section'); return true;">
+                                Message Us
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">Location</span>
+                            <address class="contact-value address">
+                                Ankuram Tuition Centre | Math Tuition | Science Tuition<br>
+                                Plot 229, Rd Number 72<br>
+                                Prashasan Nagar, Jubilee Hills<br>
+                                Hyderabad, Telangana 500096
+                            </address>
+                        </div>
+                    </div>
+                    
+                    <!-- Timings -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-label">Timings</span>
+                            <div class="contact-value timings">
+                                <span>Mon – Fri: 5 AM – 10 PM</span>
+                                <span>Saturday: 10 AM – 9 PM</span>
+                                <span>Sunday: 11 AM – 7 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="contact-buttons">
+                        <a href="tel:+917396669430" 
+                           class="btn btn-primary" 
+                           data-track="phone_call"
+                           data-track-location="contact_cta"
+                           onclick="trackPhoneClick('contact_cta'); return true;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                            </svg>
+                            Call Now
+                        </a>
+                        <a href="https://wa.me/917396669430" 
+                           class="btn btn-whatsapp" 
+                           target="_blank" 
+                           rel="noopener"
+                           data-track="whatsapp_click"
+                           data-track-location="contact_cta"
+                           onclick="trackWhatsAppClick('contact_cta'); return true;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            WhatsApp
+                        </a>
+                    </div>
+                    
+                </div>
+                
+                <!-- Right: Map + Form -->
+                <div class="contact-right">
+                    
+                    <!-- Map -->
+                    <div class="contact-map">
+                    <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2876956498387!2d78.3976363!3d17.4193665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95a38d079133%3A0xd70d61a4ba6957b!2sAnkuram%20Tuition%20Centre%20%7C%20Math%20Tuition%20%7C%20Science%20Tuition!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin" 
+                        width="100%" 
+                            height="350" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                            title="Ankuram Tuition Centre | Math Tuition | Science Tuition Location">
+                    </iframe>
+                        <a href="https://www.google.com/maps/dir//Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition,+Plot+229,+Road+Number+72,+Prashashan+Nagar,+Jubilee+Hills,+Hyderabad,+Telangana+500096/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0" 
+                           target="_blank"
+                           rel="noopener"
+                           class="map-directions-btn"
+                           data-track="cta_click"
+                           data-cta-name="get_directions"
+                           data-track-location="contact_map"
+                           onclick="trackCTAClick('get_directions', 'contact_map'); return true;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                            </svg>
+                            Get Directions
+                        </a>
+                </div>
+                    
+                    <!-- Contact Form -->
+                    <form class="contact-form" 
+                          id="contactForm"
+                          data-track="form_submission"
+                          data-form-name="contact"
+                          onsubmit="return trackFormSubmission('contact', this);">
+                        <p class="form-microcopy">Share your student's grade and current curriculum (IB, IGCSE, Cambridge A-Levels, or CBSE). We will get back to you within 2 hours to schedule a comprehensive Diagnostic Assessment (₹750).</p>
+                    <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                            <label for="grade">Grade</label>
+                            <select id="grade" name="grade">
+                            <option value="">Select Grade</option>
+                                <option value="1-5">Grades 1-5</option>
+                                <option value="6-10">Grades 6-10</option>
+                                <option value="11-12">Grades 11-12</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="curriculum">Curriculum</label>
+                            <select id="curriculum" name="curriculum">
+                            <option value="">Select Curriculum</option>
+                            <option value="cbse">CBSE</option>
+                                <option value="ib-myp">IB MYP</option>
+                                <option value="igcse">IGCSE</option>
+                            <option value="icse">ICSE</option>
+                                <option value="isc">ISC</option>
+                                <option value="ib-dp">IB DP</option>
+                                <option value="as-a-levels">AS & A Levels</option>
+                                <option value="state-board">State Board</option>
+                        </select>
+                    </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+<section id="reviews" class="reviews-section">
+        <!-- Background Image with Overlay -->
+        
+                
+        <!-- Content -->
+        <div class="reviews-content">
+            <!-- Section Header -->
+            <h2 class="reviews-title">Reviews</h2>
+            
+            <!-- Google Rating Summary -->
+            
+            
+            <!-- Loading State -->
+            <div id="reviewsLoading" class="reviews-loading" style="display: none;">
+                <p>Loading reviews...</p>
+            </div>
+            
+            <!-- Error Fallback -->
+            <div id="reviewsError" class="reviews-error" style="display: none;">
+                <p>Unable to load reviews at this time.</p>
+                <a href="https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="view-all-reviews">
+                    See our Google reviews →
+                </a>
+            </div>
+            
+            <!-- Reviews Carousel -->
+            <div class="reviews-carousel-container" id="reviewsCarousel" style="display: none;">
+                <!-- Previous Arrow -->
+                <button class="carousel-arrow prev" onclick="moveCarousel(-1)" aria-label="Previous reviews">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- Reviews Track -->
+                <div class="reviews-track" id="reviewsTrack" aria-live="polite">
+                    <!-- Review cards will be dynamically inserted here -->
+                </div>
+                
+                <!-- Next Arrow -->
+                <button class="carousel-arrow next" onclick="moveCarousel(1)" aria-label="Next reviews">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                
+            </div>
+            
+            <!-- Carousel Dots -->
+            <div class="carousel-dots" id="carouselDots" style="display: none;">
+                <!-- Dots will be dynamically generated -->
+            </div>
+            
+            <!-- View All Reviews Link -->
+            <a href="https://www.google.com/maps/place/Ankuram+Tuition+Centre+%7C+Math+Tuition+%7C+Science+Tuition/@17.4193665,78.3976363,15z/data=!4m7!3m6!1s0x3bcb95a38d079133:0xd70d61a4ba6957b!8m2!3d17.4193665!4d78.3976363!16s%2Fg%2F11qg16b5t6!19sChIJM5EHjaOVyzsRe5WmSxrWcA0" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="view-all-reviews"
+               id="viewAllReviewsLink">
+                View all reviews on Google →
+            </a>
+            
+        </div>
+    </section>
 
 <section class="sec sec-areas">
   <div class="wrap">
@@ -743,7 +1050,7 @@
 <section class="sec sec-details" id="sec-11">
   <div class="wrap">
     <div class="sec-head"><h2>Frequently Asked Questions</h2></div>
-    <div class="accordion"><details><summary>Do you offer tuition in Jubilee Hills for CBSE, ICSE, IGCSE and IB?</summary><div class="acc-body"><p>Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS &amp; A Levels, and State Board. Teaching style and practice are aligned to the curriculum.</p></div></details><details><summary>What grades do you teach?</summary><div class="acc-body"><p>We teach Grades 1–12. Grades 1–5 include all subjects + homework help (English &amp; Maths focus). Grades 6–10 focus mainly on Maths (Science optional). Grades 11–12 cover Maths, Physics and Chemistry.</p></div></details><details><summary>What is your batch size?</summary><div class="acc-body"><p>Our classes are small batches of 3–5 students, allowing personal attention, error correction, and steady improvement.</p></div></details><details><summary>Do you take Class 10 tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. We support Class 10 with concept strengthening, practice sets, and exam readiness—especially for Maths (and Science if required).</p></div></details><details><summary>Do you offer Class 12 Maths / Physics / Chemistry tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. For Grades 11–12, we teach Maths, Physics and Chemistry with structured practice and revision support.</p></div></details><details><summary>I'm searching "maths tuition near me"—are you close to Banjara Hills / Film Nagar / Madhapur?</summary><div class="acc-body"><p>We are located in Jubilee Hills and commonly serve students from Banjara Hills, Film Nagar, Madhapur and nearby areas.</p></div></details><details><summary>How do I know which program to choose?</summary><div class="acc-body"><p>Use "Find Your Program" to select Grade + Subject + Curriculum. Or call/WhatsApp us and we'll recommend the right batch based on current level and school syllabus.</p></div></details><details><summary>What are the tuition timings and fees?</summary><div class="acc-body"><p>Timings depend on grade and current batch availability. Fees vary by grade, subject, and frequency. Contact us for the latest schedule and fee structure.</p></div></details><details><summary>Do you offer home tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. We provide home tuition in select Hyderabad areas based on availability. Contact us to confirm if your location is covered.</p></div></details><details><summary>What are the tuition fees?</summary><div class="acc-body"><p>Fees depend on grade, subject, curriculum, and class frequency. Contact us after the diagnostic test for a personalised quote.</p></div></details><details><summary>Do you teach maths for Class 10 board exams?</summary><div class="acc-body"><p>Yes. We support CBSE, ICSE, IGCSE, and State Board Class 10 students with concept strengthening, exam-pattern practice, and revision planning.</p></div></details><details><summary>Do you offer IB MYP tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. We teach IB MYP Maths and Science with criterion-based assessment preparation and ATL skills support.</p></div></details><details><summary>What areas do you serve from Jubilee Hills?</summary><div class="acc-body"><p>Our centre is in Jubilee Hills. We commonly serve students from Banjara Hills, Film Nagar, Madhapur, Gachibowli, Kondapur, and surrounding areas.</p></div></details><details><summary>Do you teach Physics and Chemistry for Class 11-12?</summary><div class="acc-body"><p>Yes. We teach Maths, Physics, and Chemistry for Grades 11-12 across CBSE, ISC, IB DP, A Levels, and State Board.</p></div></details><details><summary>Do you offer tuition in Gachibowli?</summary><div class="acc-body"><p>Students from Gachibowli learn with us through online weekday classes and weekend sessions at our Jubilee Hills centre. The 20-25 minute weekend drive works well for most families.</p></div></details><details><summary>Is there tuition available in KPHB?</summary><div class="acc-body"><p>Yes. Students from KPHB attend online classes during the week and come to our Jubilee Hills centre on weekends for in-person sessions.</p></div></details><details><summary>Do you have a branch in Financial District?</summary><div class="acc-body"><p>We have one centre in Jubilee Hills. Students from Financial District join online classes on weekdays and attend weekend sessions at our centre.</p></div></details><details><summary>How do online classes work?</summary><div class="acc-body"><p>Live small-batch sessions (3-5 students) with real-time interaction. Students solve problems, share photos via WhatsApp, and get immediate corrections from the teacher.</p></div></details><details><summary>Is online as good as offline?</summary><div class="acc-body"><p>For regular practice and concept learning, yes. Weekend offline sessions add depth — tests, intensive revision, and in-person doubt-clearing. The combination works better than either alone.</p></div></details><details><summary>Do you offer tuition in Gachibowli?</summary><div class="acc-body"><p>Students from Gachibowli learn with us through online weekday classes and weekend sessions at our Jubilee Hills centre. It's a 20-25 minute drive on weekends.</p></div></details><details><summary>Is there tuition available in KPHB?</summary><div class="acc-body"><p>Yes, students from KPHB attend our online classes during the week and come to our Jubilee Hills centre on weekends for in-person sessions.</p></div></details><details><summary>Do you have a branch in Financial District?</summary><div class="acc-body"><p>We have one centre in Jubilee Hills. Students from Financial District join online classes on weekdays and attend weekend sessions at our centre.</p></div></details><details><summary>Can students from Secunderabad join?</summary><div class="acc-body"><p>Yes. Several students from Secunderabad learn with us through our hybrid model — online during the week, offline on weekends.</p></div></details></div>
+    <div class="accordion"><details><summary>Do you offer tuition in Jubilee Hills for CBSE, ICSE, IGCSE and IB?</summary><div class="acc-body"><p>Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS &amp; A Levels, and State Board. Teaching style and practice are aligned to the curriculum.</p></div></details><details><summary>What grades do you teach?</summary><div class="acc-body"><p>We teach Grades 1–12. Grades 1–5 include all subjects + homework help (English &amp; Maths focus). Grades 6–10 focus mainly on Maths (Science optional). Grades 11–12 cover Maths, Physics and Chemistry.</p></div></details><details><summary>What is your batch size?</summary><div class="acc-body"><p>Our classes are small batches of 3–5 students, allowing personal attention, error correction, and steady improvement.</p></div></details><details><summary>Do you take Class 10 tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. We support Class 10 with concept strengthening, practice sets, and exam readiness—especially for Maths (and Science if required).</p></div></details><details><summary>Do you offer Class 12 Maths / Physics / Chemistry tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. For Grades 11–12, we teach Maths, Physics and Chemistry with structured practice and revision support.</p></div></details><details><summary>I'm searching "maths tuition near me"—are you close to Banjara Hills / Film Nagar / Madhapur?</summary><div class="acc-body"><p>We are located in Jubilee Hills and commonly serve students from Banjara Hills, Film Nagar, Madhapur and nearby areas.</p></div></details><details><summary>How do I know which program to choose?</summary><div class="acc-body"><p>Use "Find Your Program" to select Grade + Subject + Curriculum. Or call/WhatsApp us and we'll recommend the right batch based on current level and school syllabus.</p></div></details><details><summary>What are the tuition timings and fees?</summary><div class="acc-body"><p>Timings depend on grade and current batch availability. Fees vary by grade, subject, and frequency. Contact us for the latest schedule and fee structure.</p></div></details><details><summary>Do you offer home tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. We provide home tuition in select Hyderabad areas based on availability. Contact us to confirm if your location is covered.</p></div></details><details><summary>What are the tuition fees?</summary><div class="acc-body"><p>Fees depend on grade, subject, curriculum, and class frequency. Contact us after the diagnostic test for a personalised quote.</p></div></details><details><summary>Do you teach maths for Class 10 board exams?</summary><div class="acc-body"><p>Yes. We support CBSE, ICSE, IGCSE, and State Board Class 10 students with concept strengthening, exam-pattern practice, and revision planning.</p></div></details><details><summary>Do you offer IB MYP tuition in Hyderabad?</summary><div class="acc-body"><p>Yes. We teach IB MYP Maths and Science with criterion-based assessment preparation and ATL skills support.</p></div></details><details><summary>What areas do you serve from Jubilee Hills?</summary><div class="acc-body"><p>Our centre is in Jubilee Hills. We commonly serve students from Banjara Hills, Film Nagar, Madhapur, Gachibowli, Kondapur, and surrounding areas.</p></div></details><details><summary>Do you teach Physics and Chemistry for Class 11-12?</summary><div class="acc-body"><p>Yes. We teach Maths, Physics, and Chemistry for Grades 11-12 across CBSE, ISC, IB DP, A Levels, and State Board.</p></div></details><details><summary>Do you offer tuition in Gachibowli?</summary><div class="acc-body"><p>Students from Gachibowli learn with us through online weekday classes and weekend sessions at our Jubilee Hills centre. The 20-25 minute weekend drive works well for most families.</p></div></details><details><summary>Is there tuition available in KPHB?</summary><div class="acc-body"><p>Yes. Students from KPHB attend online classes during the week and come to our Jubilee Hills centre on weekends for in-person sessions.</p></div></details><details><summary>Do you have a branch in Financial District?</summary><div class="acc-body"><p>We have one centre in Jubilee Hills. Students from Financial District join online classes on weekdays and attend weekend sessions at our centre.</p></div></details><details><summary>How do online classes work?</summary><div class="acc-body"><p>Live small-batch sessions (3-5 students) with real-time interaction. Students solve problems, share photos via WhatsApp, and get immediate corrections from the teacher.</p></div></details><details><summary>Is online as good as offline?</summary><div class="acc-body"><p>For regular practice and concept learning, yes. Weekend offline sessions add depth — tests, intensive revision, and in-person doubt-clearing. The combination works better than either alone.</p></div></details><details><summary>Do you offer tuition in Gachibowli?</summary><div class="acc-body"><p>Students from Gachibowli learn with us through online weekday classes and weekend sessions at our Jubilee Hills centre. It's a 20-25 minute drive on weekends.</p></div></details><details><summary>Is there tuition available in KPHB?</summary><div class="acc-body"><p>Yes, students from KPHB attend our online classes during the week and come to our Jubilee Hills centre on weekends for in-person sessions.</p></div></details><details><summary>Can students from Secunderabad join?</summary><div class="acc-body"><p>Yes. Several students from Secunderabad learn with us through our hybrid model — online during the week, offline on weekends.</p></div></details></div>
   </div>
 </section>
 
@@ -787,6 +1094,10 @@
   <div class="wrap">
     <p>Ankuram Tuition Centre | Math Tuition | Science Tuition</p><p>Expert tuition for Grades 1-12 in Jubilee Hills, Hyderabad.</p><p>Quick Links</p><p>Contact</p><p>Plot 229, Rd Number 72 Prashasan Nagar, Jubilee Hills Hyderabad, Telangana 500096</p><p>&copy; 2026 Ankuram Tuition Centre. All rights reserved.</p>
     <nav class="footer-links" aria-label="Footer"><a href="#home">Home</a><a href="#curricula">Curricula</a><a href="#about">About</a><a href="#contact">Contact</a><a href="/cbse-class-10-maths">Class 10 Maths Tuition</a><a href="tel:+917396669430">+91 73966 69430</a></nav>
+    <div class="footer-areas">
+      <h2 class="footer-areas-title">Areas we serve</h2>
+      <nav class="footer-areas-list" aria-label="Areas we serve"><a href="/areas/ameerpet">Ameerpet</a><a href="/areas/banjara-hills">Banjara Hills</a><a href="/areas/begumpet">Begumpet</a><a href="/areas/film-nagar">Film Nagar</a><a href="/areas/financial-district">Financial District</a><a href="/areas/gachibowli">Gachibowli</a><a href="/areas/hitech-city">Hitech City</a><a href="/areas/kokapet">Kokapet</a><a href="/areas/kondapur">Kondapur</a><a href="/areas/kphb">KPHB</a><a href="/areas/madhapur">Madhapur</a><a href="/areas/manikonda">Manikonda</a><a href="/areas/mehdipatnam">Mehdipatnam</a><a href="/areas/miyapur">Miyapur</a><a href="/areas/narsingi">Narsingi</a><a href="/areas/neopolis">Neopolis</a><a href="/areas/punjagutta">Punjagutta</a><a href="/areas/secunderabad">Secunderabad</a><a href="/areas/shaikpet">Shaikpet</a><a href="/areas/somajiguda">Somajiguda</a><a href="/areas/sr-nagar">SR Nagar</a><a href="/areas/tolichowki">Tolichowki</a><a href="/areas/yousufguda">Yousufguda</a></nav>
+    </div>
   </div>
 </footer>
 </body>

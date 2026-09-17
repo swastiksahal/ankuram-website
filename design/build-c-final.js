@@ -47,6 +47,13 @@ const STEPS = [
 const LOOP_LABEL = 'Tested again — any gap found is fixed again.';
 const METHOD_ARIA = 'How we teach, in four steps: Diagnostic Test, then Gaps in foundational knowledge, then Foundation-First Learning, then improve marks and confidence. Step four loops back to step two.';
 
+// A13: visible review count only. JSON-LD reviewCount stays 516 (frozen).
+const A13 = { reviewCount: '500+ reviews' };
+
+// A12: one footer row linking every /areas/ page that returns 200, with the
+// area name taken from that page's own H1.
+const A12 = { footerHeading: 'Areas we serve' };
+
 const A11 = {
   sectionTitle: 'How a week works',
   swipeHint: 'Swipe →',
@@ -77,6 +84,30 @@ const A11 = {
     aria: 'A weekday online class, as a loop: solved live on the digital board, your child tries the next one, photo sent on WhatsApp, corrected in class, then back to the next problem.',
   },
 };
+
+// ---- A12: build the area link list from live-http.csv + each page's H1 ----
+function areaLinks() {
+  const rows = fs.readFileSync('baseline/live-http.csv', 'utf8').trim().split('\n').slice(1).map((l) => {
+    const f = []; let c = '', q = false;
+    for (let i = 0; i < l.length; i++) {
+      const ch = l[i];
+      if (q) { if (ch === '"' && l[i + 1] === '"') { c += '"'; i++; } else if (ch === '"') q = false; else c += ch; }
+      else if (ch === '"') q = true; else if (ch === ',') { f.push(c); c = ''; } else c += ch;
+    }
+    f.push(c); return f;
+  });
+  const ok = rows.filter((r) => /^\/areas\/[a-z-]+$/.test(r[0]) && r[1] === '200' && r[3] === '200').map((r) => r[0]).sort();
+  return ok.map((url) => {
+    const h = fs.readFileSync('public_html' + url + '.html', 'utf8');
+    const m = /<h1[^>]*>([\s\S]*?)<\/h1>/i.exec(h);
+    if (!m) throw new Error('no H1 on ' + url);
+    const h1 = m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const name = /^Best Tuition Centre for (.+) Students$/.exec(h1);
+    if (!name) throw new Error('unexpected H1 shape on ' + url + ': ' + h1);
+    return { url, name: name[1] };
+  });
+}
+const AREAS = areaLinks();
 
 // ====================================================================== icons
 const svg = (body, cls = 'ic') => `<svg viewBox="0 0 32 32" class="${cls}" aria-hidden="true" focusable="false">${body}</svg>`;
@@ -330,12 +361,85 @@ for (let i = 1; i < PLAN.length; i++) if (PLAN[i] === PLAN[i - 1]) throw new Err
 const faqIdx = REST.findIndex((s) => /faq-section/.test(s.cls));
 if (faqIdx < 0) throw new Error('faq section not found');
 
+const RAW = C.rawSections;
+
+/** A13: drop the one FAQ pair whose question AND answer are both exact repeats. */
+function dedupeFaq(blocks) {
+  const out = [];
+  const seen = new Set();
+  let curKey = null, buf = [];
+  const flush = () => {
+    if (!buf.length) return;
+    if (!seen.has(curKey)) { seen.add(curKey); out.push(...buf); }
+    else droppedFaq.push(buf.map((b) => b.v).join(' | '));
+    buf = [];
+  };
+  for (const b of blocks) {
+    if (b.t === 'h3') { flush(); buf = [b]; curKey = null; continue; }
+    if (!buf.length) { out.push(b); continue; }
+    buf.push(b);
+    curKey = buf.map((x) => x.v).join('||');
+  }
+  flush();
+  return out;
+}
+const droppedFaq = [];
+
+/** The four leading text nodes of About are a stat band: number + label. */
+function statBand(blocks) {
+  const lead = [];
+  let i = 0;
+  while (i < blocks.length && blocks[i].t === 'text' && lead.length < 4) { lead.push(blocks[i]); i++; }
+  if (lead.length !== 4) return { band: '', rest: blocks };
+  const band = `<ul class="stat-band">` +
+    [[0, 1], [2, 3]].map(([n, l]) =>
+      `<li class="stat"><span class="stat-num">${esc(lead[n].v)}</span><span class="stat-label">${esc(lead[l].v)}</span></li>`).join('') +
+    `</ul>`;
+  return { band, rest: blocks.slice(i) };
+}
+
 function renderRest() {
   const out = [];
   REST.forEach((sec, i) => {
     if (i === faqIdx) out.push(areasDetails());      // details sits just above the FAQ
+    // Interactive sections keep the live markup verbatim: real dropdowns, a
+    // real form, and the containers script.js writes reviews into.
+    const rawKey = Object.keys(RAW).find((k) => sec.cls.includes(k));
+    if (rawKey) { out.push(RAW[rawKey]); if (i === 1) out.push(weekSection()); return; }
+
     const h2 = (sec.blocks.find((b) => b.t === 'h2') || {}).v || '';
-    const rest = sec.blocks.filter((b) => b.t !== 'h2');
+    let rest = sec.blocks.filter((b) => b.t !== 'h2');
+    if (sec.cls.includes('faq-section')) rest = dedupeFaq(rest);
+
+    if (sec.cls.includes('about-section')) {
+      const { band, rest: after } = statBand(rest);
+      const t2 = tree(after, after.some((b) => b.t === 'h3') ? 'h3' : after.some((b) => b.t === 'h4') ? 'h4' : null);
+      out.push(`
+<section class="sec sec-about" id="about">
+  <div class="wrap">
+    <h2>${esc(h2)}</h2>
+    ${band}
+    ${L.prose(t2)}
+  </div>
+</section>`);
+      return;
+    }
+
+    if (sec.cls.includes('curricula')) {
+      const intro = rest.filter((b) => b.t === 'p' || b.t === 'text').map((b) => `<p>${esc(b.v)}</p>`).join('');
+      const chips = rest.filter((b) => b.t === 'link')
+        .map((b) => `<a class="curr-chip" href="${esc(b.href || '#')}">${esc(b.v)}</a>`).join('');
+      out.push(`
+<section class="sec sec-curricula" id="curricula">
+  <div class="wrap">
+    <h2>${esc(h2)}</h2>
+    ${intro}
+    <div class="curr-grid">${chips}</div>
+  </div>
+</section>`);
+      return;
+    }
+
     const top = rest.some((b) => b.t === 'h3') ? 'h3' : rest.some((b) => b.t === 'h4') ? 'h4' : null;
     const t = top ? tree(rest, top) : [{ head: null, num: null, label: null, body: rest.filter((b) => !(typeof b.v === 'string' && isDecoration(b.v))), subs: [] }];
     const layout = PLAN[i];
@@ -385,6 +489,7 @@ ${HEAD.canonical}
 ${HEAD.og.join('\n')}
 ${HEAD.twitter.join('\n')}
 <link rel="stylesheet" href="../../css/site.css">
+<script defer src="script.js"></script>
 ${HEAD.jsonld.join('\n')}
 ${TRACKING}
 </head>
@@ -407,7 +512,7 @@ ${TRACKING}
 </header>
 
 <main id="main">
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="wrap hero-inner">
       <div class="hero-text">
         <h1>${esc(C.hero.h1)}</h1>
@@ -416,7 +521,7 @@ ${TRACKING}
         <div class="rating" aria-label="Rating ${esc(C.rating.value)} out of 5">
           <span class="rating-num">${esc(C.rating.value)}</span>
           <span class="rating-stars" aria-hidden="true">${'★'.repeat(C.rating.stars)}</span>
-          <span class="rating-meta"><span class="rc">${esc(C.rating.reviewCount)}</span><span class="bn">${esc(C.rating.businessName)}</span></span>
+          <span class="rating-meta"><span class="rc">${esc(A13.reviewCount)}</span><span class="bn">${esc(C.rating.businessName)}</span></span>
         </div>
         <ul class="trust">${C.trust.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
       </div>
@@ -442,6 +547,10 @@ ${renderRest()}
   <div class="wrap">
     ${C.footer.lines.map((l) => `<p>${esc(l)}</p>`).join('')}
     <nav class="footer-links" aria-label="Footer">${C.footer.links.map((l) => `<a href="${esc(l.href)}">${esc(l.text)}</a>`).join('')}</nav>
+    <div class="footer-areas">
+      <h2 class="footer-areas-title">${esc(A12.footerHeading)}</h2>
+      <nav class="footer-areas-list" aria-label="${esc(A12.footerHeading)}">${AREAS.map((a) => `<a href="${esc(a.url)}">${esc(a.name)}</a>`).join('')}</nav>
+    </div>
   </div>
 </footer>
 </body>
@@ -452,12 +561,22 @@ fs.mkdirSync('design/direction-c', { recursive: true });
 fs.writeFileSync('design/direction-c/index.html', page);
 
 // ==================================================================== checks
-const bodyText = /<body[^>]*>([\s\S]*)<\/body>/i.exec(page)[1]
+// Entities are decoded before counting: "&amp;" is one ampersand, not a word.
+// Counting it as one inflated every earlier total by the number of escaped
+// ampersands on the page.
+const decode = (t) => t
+  .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ')
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)));
+const bodyText = decode(/<body[^>]*>([\s\S]*)<\/body>/i.exec(page)[1]
   .replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<svg[\s\S]*?<\/svg>/g, ' ')
-  .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  .replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 const wc = (s) => s.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 
-const P2_WORDS = 3258;
+// P2 measured 3258, but that count treated every HTML entity as a word
+// ("&amp;" -> "amp"). Re-measured on the same committed P2 page with entities
+// decoded, the honest baseline is 3244. Every total from here on is decoded.
+const P2_WORDS = 3244;
 const a10 = wc(STEPS.map((s) => s.caption).concat(LOOP_LABEL).join(' '));
 const methodTitles = wc(STEPS.map((s) => s.title).join(' '));
 const methodNumerals = 4;
@@ -472,12 +591,17 @@ const d2Words = wc([A11.d2.title, ...A11.d2.steps, A11.d2.loop, A11.d2.after].jo
 const swipeWords = wc(A11.swipeHint) * swipeRows;            // one hint per swipe row
 const a11 = wc(A11.sectionTitle) + d1Words + d2Words + swipeWords;
 
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11;
+const a12 = wc(A12.footerHeading) + AREAS.reduce((n, a) => n + wc(a.name), 0);
+const faqRemoved = droppedFaq.reduce((n, t) => n + wc(t), 0);
+const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
 console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + ${swipeRows} swipe hints ${swipeWords} = ${a11}`);
-console.log(`expected ${P2_WORDS} + A10 ${a10} + method titles ${methodTitles} + numerals ${methodNumerals} + nav copy ${navDupe} + A11 ${a11} = ${expected}`);
+console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
+console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
+console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQ dup ${faqRemoved} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');
 if (/\bnull\b|\bundefined\b/.test(bodyText)) { console.log('null/undefined leaked'); process.exitCode = 1; }

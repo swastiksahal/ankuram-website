@@ -80,3 +80,17 @@ Structure (staging first; production needs a separate approval):
 - The existing "How It Works" and "Why Online Classes Work" content moves under one section titled "How a week works", every sentence kept word-for-word.
 - The locality cards move into a closed <details> titled "Students From Across Hyderabad", placed just above the FAQ, with the "Students from across Hyderabad learn with us …" sentence inside it.
 - JSON-LD areaServed and every FAQ answer stay byte-identical.
+
+A12 AREAS (Swastik, 17 Sep):
+- The locality cards stay inside the closed <details> titled "Students From Across Hyderabad", just above the FAQ. Unchanged.
+- Add ONE footer row titled "Areas we serve", linking every /areas/ page that returns a first-hop and final 200 in baseline/live-http.csv — 23 pages. /areas/kukatpally is excluded because it 301s to the homepage.
+- Link text is the area name taken from that page's own H1 ("Best Tuition Centre for <Area> Students" -> "<Area>"), which is why KPHB and SR Nagar keep their real capitalisation.
+- JSON-LD areaServed and every FAQ area answer stay byte-identical.
+
+A13 HOMEPAGE WORDING (Swastik, 17 Sep):
+- Visible review count "516 Reviews" becomes "500+ reviews". The JSON-LD AggregateRating reviewCount stays "516" and is NOT touched — the visible text and the structured data now differ deliberately, and that is the approved state.
+- FAQ: remove exact duplicate question-AND-answer pairs from the VISIBLE list only, keeping the first of each.
+  Verified on the baseline: only ONE pair is an exact duplicate — "Do you have a branch in Financial District?" with an identical answer. It is removed (second occurrence).
+  The Gachibowli and KPHB questions also appear twice, but their ANSWERS DIFFER, so they are not exact duplicates and both occurrences are kept. See the P4 report for the differing text; Swastik decides whether to merge them.
+- The FAQPage JSON-LD contains all three duplicate questions. Per instruction it is NOT edited; the duplicates are listed in the report instead.
+- Opening hours unchanged (Mon–Fri 5 AM – 10 PM, confirmed by Swastik).

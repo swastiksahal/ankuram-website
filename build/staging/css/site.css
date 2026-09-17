@@ -488,3 +488,118 @@
   .v2 .hcta-ic { display: block; }
   .v2 .hcta-text { display: none; }
 }
+
+/* ===========================================================================
+   Live interactive markup carried over verbatim (17 Sep): the finder, the
+   contact form and the review containers. These use the live class names
+   (.container, .finder-*, .contact-*, .reviews-*), so they are styled here
+   rather than rebuilt -- rebuilding them by hand is what turned the <select>
+   dropdowns into loose chips.
+   ========================================================================= */
+
+.v2 .quick-finder, .v2 .contact-section, .v2 .reviews-section { padding: var(--s8) 0; border-bottom: 1px solid var(--line); }
+.v2 .quick-finder { background: var(--sheet); }
+.v2 .reviews-section { background: var(--ground); }
+.v2 .container, .v2 .contact-container, .v2 .reviews-content { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
+.v2 .section-title, .v2 .reviews-title, .v2 .contact-header h2 { font-size: var(--t-2xl); margin: 0 0 var(--s3); }
+.v2 .section-intro, .v2 .contact-header p, .v2 .form-microcopy { max-width: 66ch; }
+
+/* ---- real dropdowns ---- */
+.v2 .finder-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); align-items: end; }
+.v2 .finder-group, .v2 .form-group { display: grid; gap: 6px; }
+.v2 .finder-group label, .v2 .form-group label { font-size: 15px; font-weight: 600; color: var(--ink); }
+.v2 select, .v2 input[type="text"], .v2 input[type="tel"], .v2 textarea {
+  width: 100%; min-height: 48px; font: inherit; font-size: 16px; color: var(--ink);
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px var(--s3); -webkit-appearance: none; appearance: none;
+}
+.v2 select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--blue) 50%), linear-gradient(135deg, var(--blue) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% + 2px), calc(100% - 12px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; padding-right: 36px;
+}
+.v2 textarea { min-height: 96px; resize: vertical; }
+.v2 select:focus, .v2 input:focus, .v2 textarea:focus { outline: 3px solid var(--blue); outline-offset: 1px; }
+.v2 #checkAvailability, .v2 .contact-form button[type="submit"] {
+  min-height: 48px; padding: 12px 22px; border: 0; border-radius: var(--radius-sm);
+  background: var(--blue); color: #fff; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
+}
+.v2 .finder-actions, .v2 .finder-cta { margin-top: var(--s4); }
+
+/* ---- finder results panel (script.js unhides it) ---- */
+.v2 .availability-results, .v2 #availabilityResults {
+  margin-top: var(--s5); background: var(--blue-soft); border: 1px solid var(--blue-line);
+  border-radius: var(--radius); padding: var(--s5);
+}
+.v2 .availability-results h3, .v2 .availability-results h4 { color: var(--blue-deep); }
+
+/* ---- contact ---- */
+.v2 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
+.v2 .contact-info { display: grid; gap: var(--s4); }
+.v2 .contact-form { display: grid; gap: var(--s4); background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+/* The carried-over contact items hold an inline SVG with no intrinsic size.
+   Without an explicit box it stretches and each item ballooned to ~450px. */
+.v2 .contact-item { display: grid; grid-template-columns: 34px 1fr; gap: var(--s3); align-items: start; }
+.v2 .contact-detail { display: grid; gap: 2px; min-width: 0; }
+.v2 .contact-icon { width: 34px; height: 34px; display: grid; place-items: center; background: var(--blue-soft); border-radius: 8px; }
+.v2 .contact-icon svg { width: 18px; height: 18px; fill: var(--blue); }
+.v2 .contact-label { font-size: 15px; font-weight: 700; color: var(--ink); }
+.v2 .contact-value { font-size: 15px; color: var(--ink-soft); }
+.v2 .contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.v2 .contact-buttons a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border-radius: var(--radius-sm); background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
+.v2 .contact-map iframe, .v2 .contact-right iframe { width: 100%; max-width: 100%; border: 0; border-radius: var(--radius); display: block; }
+.v2 .contact-info a { color: var(--blue); }
+.v2 .map-directions-btn, .v2 .view-all-reviews { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ---- reviews ---- */
+.v2 .reviews-loading, .v2 .reviews-error { text-align: center; padding: var(--s5) 0; }
+.v2 .view-all-reviews { font-weight: 600; }
+.v2 .reviews-carousel { overflow: hidden; }
+.v2 .reviews-track { display: flex; gap: var(--s4); }
+.v2 .review-card { flex: 0 0 100%; background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .carousel-dots { display: flex; gap: 8px; justify-content: center; margin-top: var(--s4); }
+
+/* ---- About stat band ---- */
+.v2 .sec-about .stat-band { margin: 0 0 var(--s5); }
+.v2 .stat-label { font-size: 15px; }
+
+/* ---- Curricula chip grid ---- */
+.v2 .curr-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.v2 .curr-chip {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: 10px 18px; border-radius: 999px; background: var(--blue-soft);
+  border: 1px solid var(--blue-line); color: var(--blue-deep); font-weight: 700;
+  font-size: 15px; text-decoration: none;
+}
+.v2 .curr-chip:hover { background: #D5E2F3; }
+
+/* ---- A12: footer areas row ---- */
+.v2 .footer-areas { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.v2 .footer-areas-title { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+.v2 .footer-areas-list { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.v2 .footer-areas-list a { color: var(--ink-soft); text-decoration: none; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+.v2 .footer-areas-list a:hover { color: var(--blue); text-decoration: underline; }
+
+/* ---- the Menu button must never wrap ---- */
+.v2 .nav-mobile > summary { white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .v2 .contact-grid { grid-template-columns: 1fr; gap: var(--s5); }
+}
+
+@media (max-width: 600px) {
+  .v2 .quick-finder, .v2 .contact-section, .v2 .reviews-section { padding: var(--s5) 0; }
+  .v2 .container, .v2 .contact-container, .v2 .reviews-content { padding: 0 var(--s4); }
+  .v2 .section-title, .v2 .reviews-title, .v2 .contact-header h2 { font-size: 1.35rem; }
+  .v2 .section-intro, .v2 .contact-header p, .v2 .form-microcopy { font-size: 15px; line-height: 1.45; }
+  .v2 .finder-form { grid-template-columns: 1fr; gap: var(--s3); }
+  .v2 .contact-form { padding: var(--s4); gap: var(--s3); }
+  .v2 .availability-results, .v2 #availabilityResults { padding: var(--s4); }
+  .v2 .curr-chip { font-size: 15px; padding: 10px 16px; }
+  .v2 .footer-areas-list { gap: 2px 12px; }
+  .v2 .stat-label { font-size: 15px; }
+  .v2 .stat-num { font-size: 1.7rem; }
+  /* links inside the carried-over live markup are tap targets too */
+  .v2 .contact-value, .v2 .contact-info a, .v2 .map-directions-btn,
+  .v2 .view-all-reviews { min-height: 44px; display: inline-flex; align-items: center; }
+}
