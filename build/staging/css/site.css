@@ -46,6 +46,19 @@
 .v2 *, .v2 *::before, .v2 *::after { box-sizing: border-box; }
 .v2 { margin: 0; background: var(--ground); color: var(--ink); font: 400 17px/1.64 var(--sans); overflow-x: hidden; -webkit-text-size-adjust: 100%; }
 .v2 img { max-width: 100%; height: auto; display: block; }
+
+/* ---------------------------------------------------------------------------
+   SVG SAFETY NET. An inline <svg> with only a viewBox and no CSS match falls
+   back to the replaced-element default (300x150) and paints solid. That is
+   what turned the two contact CTA buttons into blank dark rectangles and blew
+   up the icons on desktop. These rules sit OUTSIDE every media query so they
+   apply at all widths; diagrams override them with their own classes.
+   ------------------------------------------------------------------------- */
+.v2 svg { max-width: 100%; height: auto; }
+.v2 .icon,
+.v2 header svg,
+.v2 button svg,
+.v2 a svg { width: 1.25em; height: 1.25em; flex: none; }
 .v2 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
 .v2 .skip { position: absolute; left: -9999px; }
 .v2 .skip:focus { left: var(--s2); top: var(--s2); background: var(--blue); color: #fff; padding: var(--s2) var(--s3); z-index: 50; }
@@ -546,10 +559,17 @@
 .v2 .contact-label { font-size: 15px; font-weight: 700; color: var(--ink); }
 .v2 .contact-value { font-size: 15px; color: var(--ink-soft); }
 .v2 .contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-.v2 .contact-buttons a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border-radius: var(--radius-sm); background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
-.v2 .contact-map iframe, .v2 .contact-right iframe { width: 100%; max-width: 100%; border: 0; border-radius: var(--radius); display: block; }
 .v2 .contact-info a { color: var(--blue); }
-.v2 .map-directions-btn, .v2 .view-all-reviews { display: inline-flex; align-items: center; min-height: 44px; }
+/* Declared AFTER .contact-info a: these buttons live inside .contact-info, and
+   with equal specificity the later rule wins. When this sat first the labels
+   inherited navy on a navy fill -- 1:1 contrast, invisible text. */
+.v2 .contact-buttons a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: var(--radius-sm); background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
+.v2 .contact-buttons a svg { fill: #fff; }
+.v2 .contact-buttons .btn-whatsapp { background: var(--green); }
+.v2 .contact-map iframe, .v2 .contact-right iframe { width: 100%; max-width: 100%; border: 0; border-radius: var(--radius); display: block; }
+.v2 .map-directions-btn, .v2 .view-all-reviews { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; }
+.v2 .map-directions-btn svg { fill: var(--blue); }
+.v2 .contact-map { display: grid; gap: var(--s3); }
 
 /* ---- reviews ---- */
 .v2 .reviews-loading, .v2 .reviews-error { text-align: center; padding: var(--s5) 0; }
@@ -612,3 +632,48 @@
 .v2 .sec-reviews { text-align: center; }
 .v2 .sec-reviews h2 { margin-bottom: var(--s4); }
 .v2 .reviews-cta { min-height: 48px; }
+
+/* ===========================================================================
+   DESKTOP PASS (17 Sep). Phone layout is unchanged: everything here is
+   inside min-width queries.
+   ========================================================================= */
+
+/* Container: 1200px, as agreed. */
+.v2 { --wrap: 1200px; }
+
+@media (min-width: 900px) {
+  /* ---- header: logo, nav, WhatsApp button, call button — one line ---- */
+  .v2 .header-inner { flex-wrap: nowrap; align-items: center; min-height: 72px; gap: var(--s5); }
+  .v2 .brand { margin-right: var(--s5); }
+  .v2 .nav-desktop { display: flex; align-items: center; gap: var(--s5); margin-right: auto; }
+  .v2 .nav-mobile { display: none; }
+  .v2 .header-cta { display: flex; align-items: center; gap: 10px; flex: none; }
+  .v2 .hcta {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 44px; padding: 10px 16px; white-space: nowrap;
+  }
+  .v2 .hcta-ic { display: block; width: 18px; height: 18px; }
+  .v2 .hcta-text { display: inline; }
+  .v2 .hcta-wa { background: var(--green); color: #fff; }
+  .v2 .hcta-wa .hcta-ic { fill: #fff; }
+  .v2 .hcta-tel { border: 1px solid var(--blue); color: var(--blue); }
+  .v2 .hcta-tel .hcta-ic { fill: var(--blue); }
+
+  /* ---- swipe rows become grids: no sideways scrolling on desktop ---- */
+  .v2 .swipe { display: contents; }
+  .v2 .swipe-hint { display: none; }
+  .v2 .swipe-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+  .v2 .swipe-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }
+
+  /* ---- contact: two columns ---- */
+  .v2 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
+
+  /* ---- reviews: rating above the button ---- */
+  .v2 .reviews-rating { justify-content: center; }
+}
+
+/* The reviews rating line, all widths. */
+.v2 .reviews-rating { display: flex; align-items: baseline; justify-content: center; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s4); }
+.v2 .reviews-rating .rating-num { font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; }
+.v2 .reviews-rating .rating-stars { color: var(--gold); letter-spacing: 2px; font-size: 1.1rem; }
+.v2 .reviews-rating .rc { font-size: 15px; font-weight: 700; color: var(--ink); }

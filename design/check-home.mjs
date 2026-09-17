@@ -107,15 +107,66 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-for (const w of [360, 768, 1440]) {
+out.svgGuard = [];
+out.contrastGuard = [];
+for (const w of [360, 390, 768, 1024, 1280, 1440]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: 900 }, deviceScaleFactor: 1 });
   const page = await ctx.newPage();
   await page.goto(base + PAGE, { waitUntil: 'networkidle', timeout: 30000 });
   const m = await page.evaluate(() => ({ s: document.documentElement.scrollWidth, c: document.documentElement.clientWidth, h: Math.round(document.body.scrollHeight) }));
   out.scroll.push({ width: w, overflow: m.s - m.c, height: m.h });
+
+  // GUARD: no non-diagram SVG may exceed 48px, and nothing may spill out of
+  // the button or link that contains it.
+  const guard = await page.evaluate(() => {
+    const DIAGRAM = /ms-loop|wk-arrow|method|arw|dg-/;
+    const big = [];
+    document.querySelectorAll('svg').forEach((sv) => {
+      const cls = (sv.getAttribute('class') || '');
+      if (DIAGRAM.test(cls)) return;
+      const r = sv.getBoundingClientRect();
+      if (r.width > 48 || r.height > 48) big.push(`${cls || '(no class)'} ${Math.round(r.width)}x${Math.round(r.height)}`);
+    });
+    const spill = [];
+    document.querySelectorAll('a, button').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (!r.width) return;
+      el.querySelectorAll('*').forEach((ch) => {
+        const c = ch.getBoundingClientRect();
+        if (c.width > r.width + 1 || c.height > r.height + 1) {
+          spill.push(`${(el.className || el.tagName).toString().slice(0, 28)} < ${ch.tagName} ${Math.round(c.width)}x${Math.round(c.height)}`);
+        }
+      });
+    });
+    // invisible text: foreground within 3:1 of its own background
+    const L = (col) => { const m2 = /rgba?\((\d+), ?(\d+), ?(\d+)/.exec(col); if (!m2) return 1;
+      const v = [1, 2, 3].map((i) => Number(m2[i]) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4)));
+      return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+    const invisible = [];
+    document.querySelectorAll('a, button, span, div, p, li').forEach((el) => {
+      if (![...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) return;
+      if (!el.getClientRects().length) return;
+      const cs = getComputedStyle(el);
+      let bg = cs.backgroundColor, node = el;
+      while (bg === 'rgba(0, 0, 0, 0)' && node.parentElement) { node = node.parentElement; bg = getComputedStyle(node).backgroundColor; }
+      const l1 = L(cs.color), l2 = L(bg);
+      const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+      if (ratio < 3) invisible.push(`${(el.className || el.tagName).toString().slice(0, 30)} "${el.textContent.trim().slice(0, 20)}" ${ratio.toFixed(2)}:1`);
+    });
+    return { big, spill, invisible };
+  });
+  if (guard.big.length) out.svgGuard.push({ width: w, big: guard.big });
+  if (guard.spill.length) out.svgGuard.push({ width: w, spill: guard.spill });
+  if (guard.invisible.length) out.contrastGuard.push({ width: w, invisible: guard.invisible });
+  if ([1024, 1280, 1440].includes(w)) {
+    await page.screenshot({ path: `design/screens/home-desktop-${w}.png`, fullPage: true });
+    await (await page.$('.site-header')).screenshot({ path: `design/screens/header-${w}.png` });
+  }
   if (w === 1440) {
     await (await page.$('.sec-week')).screenshot({ path: 'design/screens/hybrid-1440.png' });
     await (await page.$('.site-footer')).screenshot({ path: 'design/screens/footer-1440.png' });
+    await (await page.$('.contact-section')).screenshot({ path: 'design/screens/contact-1440.png' });
+    await (await page.$('#reviews')).screenshot({ path: 'design/screens/reviews-1440.png' });
   }
   await ctx.close();
 }
@@ -133,6 +184,20 @@ out.lighthouse = {
   totalBytes: n(r.audits['total-byte-weight'].numericValue),
 };
 out.a11yFailures = r.categories.accessibility.auditRefs.map((x) => r.audits[x.id]).filter((a) => a && a.score !== null && a.score < 1).map((a) => a.id);
+
+// Desktop Lighthouse as well — the desktop pass has to clear 90 too.
+const DESKTOP = {
+  formFactor: 'desktop',
+  screenEmulation: { mobile: false, width: 1350, height: 940, deviceScaleFactor: 1, disabled: false },
+  throttling: { rttMs: 40, throughputKbps: 10240, cpuSlowdownMultiplier: 1 },
+};
+const rd = (await lighthouse(base + PAGE, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] }, { extends: 'lighthouse:default', settings: DESKTOP })).lhr;
+out.lighthouseDesktop = {
+  performance: n(rd.categories.performance.score * 100),
+  accessibility: n(rd.categories.accessibility.score * 100),
+  cls: n(rd.audits['cumulative-layout-shift'].numericValue, 3),
+  lcpMs: n(rd.audits['largest-contentful-paint'].numericValue),
+};
 await chrome.kill();
 server.close();
 fs.writeFileSync('design/home-checks.json', JSON.stringify(out, null, 2));
@@ -144,8 +209,11 @@ console.log(`taps <44px: ${out.smallTaps.length ? JSON.stringify(out.smallTaps.s
 console.log(`page overflow: ${out.pageOverflow}px   unintended scrollers: ${out.badScrollers.join(', ') || 'none'}`);
 console.log(`swipe rows: ${out.swipes.length}  ${JSON.stringify(out.swipes.slice(0, 3))}`);
 console.log(`FAQ answers in HTML: ${out.faqAnswers}, all closed: ${out.faqClosed}   <img> count: ${out.imgs}`);
-console.log('other widths:', out.scroll.map((s) => `${s.width}:overflow=${s.overflow}`).join('  '));
-console.log('lighthouse:', JSON.stringify(out.lighthouse));
+console.log('widths:', out.scroll.map((s) => `${s.width}:overflow=${s.overflow}`).join('  '));
+console.log(`svg/spill guard: ${out.svgGuard.length ? JSON.stringify(out.svgGuard) : 'clean at 360/390/768/1024/1280/1440'}`);
+console.log(`invisible-text guard: ${out.contrastGuard.length ? JSON.stringify(out.contrastGuard) : 'clean'}`);
+console.log('lighthouse mobile :', JSON.stringify(out.lighthouse));
+console.log('lighthouse desktop:', JSON.stringify(out.lighthouseDesktop));
 console.log('a11y failures:', out.a11yFailures.join(', ') || 'none');
 
 const bad = [];
@@ -156,8 +224,12 @@ if (out.badScrollers.length) bad.push(`scrollers: ${out.badScrollers.join(', ')}
 if (!out.swipes.every((s) => s.scrollable)) bad.push('a swipe row does not scroll');
 if (out.imgs) bad.push(`A9: ${out.imgs} <img>`);
 if (!out.faqClosed) bad.push('FAQ not closed');
-if (out.lighthouse.performance < 90) bad.push(`perf ${out.lighthouse.performance}`);
+if (out.lighthouse.performance < 90) bad.push(`mobile perf ${out.lighthouse.performance}`);
+if (out.lighthouseDesktop.performance < 90) bad.push(`desktop perf ${out.lighthouseDesktop.performance}`);
+if (out.lighthouseDesktop.cls >= 0.1) bad.push(`desktop CLS ${out.lighthouseDesktop.cls}`);
 if (out.lighthouse.cls >= 0.1) bad.push(`CLS ${out.lighthouse.cls}`);
 if (out.scroll.some((s) => s.overflow > 1)) bad.push('horizontal scroll at another width');
+if (out.svgGuard.length) bad.push('oversized SVG or overflowing child inside a button/link');
+if (out.contrastGuard.length) bad.push('text with under 3:1 contrast against its own background');
 if (out.a11yFailures.length) bad.push(`a11y: ${out.a11yFailures.join(', ')}`);
 if (bad.length) { console.log('\nFAIL:\n  ' + bad.join('\n  ')); process.exitCode = 1; } else console.log('\nPASS');

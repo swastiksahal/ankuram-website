@@ -116,7 +116,11 @@ function areaLinks() {
 const AREAS = areaLinks();
 
 // ====================================================================== icons
-const svg = (body, cls = 'ic') => `<svg viewBox="0 0 32 32" class="${cls}" aria-hidden="true" focusable="false">${body}</svg>`;
+// Every inline SVG carries explicit width/height attributes. Without them an
+// SVG with only a viewBox falls back to the replaced-element default (300x150)
+// whenever a CSS rule fails to reach it.
+const svg = (body, cls = 'ic', size = 24) =>
+  `<svg viewBox="0 0 32 32" class="${cls}" width="${size}" height="${size}" aria-hidden="true" focusable="false">${body}</svg>`;
 const ICONS = {
   testPaper: svg('<rect x="7" y="4" width="18" height="24" rx="2"/><line x1="11" y1="11" x2="21" y2="11"/><line x1="11" y1="16" x2="21" y2="16"/><line x1="11" y1="21" x2="17" y2="21"/>'),
   magnifierGap: svg('<line x1="4" y1="24" x2="11" y2="24"/><line x1="21" y1="24" x2="28" y2="24" stroke-dasharray="3 3"/><circle cx="16" cy="13" r="7"/><line x1="21.2" y1="18.2" x2="26" y2="23"/>'),
@@ -130,12 +134,12 @@ const ICONS = {
   doubts: svg('<path d="M4 8 a3 3 0 0 1 3 -3 h18 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-11 l-7 5 v-5 a3 3 0 0 1 -3 -3 z"/><line x1="12" y1="11" x2="20" y2="11"/><line x1="12" y1="16" x2="17" y2="16"/>'),
   revise: svg('<path d="M27 16 a11 11 0 1 1 -3.5 -8"/><polyline points="27,4 27,9 22,9"/><line x1="16" y1="10" x2="16" y2="17"/><line x1="16" y1="17" x2="21" y2="19"/>'),
   // D1 chip marks: a laptop for online, a building for the centre
-  laptop: svg('<rect x="6" y="7" width="20" height="14" rx="2"/><line x1="3" y1="25" x2="29" y2="25"/>', 'chip-ic'),
-  building: svg('<rect x="7" y="6" width="18" height="21" rx="1.5"/><line x1="12" y1="12" x2="12" y2="12.5"/><line x1="16" y1="12" x2="16" y2="12.5"/><line x1="20" y1="12" x2="20" y2="12.5"/><line x1="12" y1="17" x2="12" y2="17.5"/><line x1="16" y1="17" x2="16" y2="17.5"/><line x1="20" y1="17" x2="20" y2="17.5"/><rect x="14" y="21" width="4" height="6"/>', 'chip-ic'),
+  laptop: svg('<rect x="6" y="7" width="20" height="14" rx="2"/><line x1="3" y1="25" x2="29" y2="25"/>', 'chip-ic', 15),
+  building: svg('<rect x="7" y="6" width="18" height="21" rx="1.5"/><line x1="12" y1="12" x2="12" y2="12.5"/><line x1="16" y1="12" x2="16" y2="12.5"/><line x1="20" y1="12" x2="20" y2="12.5"/><line x1="12" y1="17" x2="12" y2="17.5"/><line x1="16" y1="17" x2="16" y2="17.5"/><line x1="20" y1="17" x2="20" y2="17.5"/><rect x="14" y="21" width="4" height="6"/>', 'chip-ic', 15),
 };
 
-const ARROW_RIGHT = '<svg viewBox="0 0 24 16" class="arw arw-h" aria-hidden="true" focusable="false"><line x1="1" y1="8" x2="19" y2="8"/><polyline points="14,3 20,8 14,13"/></svg>';
-const ARROW_DOWN = '<svg viewBox="0 0 16 24" class="arw arw-v" aria-hidden="true" focusable="false"><line x1="8" y1="1" x2="8" y2="19"/><polyline points="3,14 8,20 13,14"/></svg>';
+const ARROW_RIGHT = '<svg viewBox="0 0 24 16" class="arw arw-h" width="22" height="15" aria-hidden="true" focusable="false"><line x1="1" y1="8" x2="19" y2="8"/><polyline points="14,3 20,8 14,13"/></svg>';
+const ARROW_DOWN = '<svg viewBox="0 0 16 24" class="arw arw-v" width="15" height="22" aria-hidden="true" focusable="false"><line x1="8" y1="1" x2="8" y2="19"/><polyline points="3,14 8,20 13,14"/></svg>';
 
 /** A four-step flow with a 4 -> 2 loop. Shared by the method diagram and D2. */
 function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote = '', circleLoop = false }) {
@@ -157,10 +161,10 @@ function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote =
   <ol class="ms-flow">${cards}
   </ol>
   <div class="ms-loop">
-    <svg class="ms-loop-line ms-loop-h" viewBox="0 0 800 46" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M770 2 L770 30 Q770 40 758 40 L222 40 Q210 40 210 30 L210 10"/><polyline points="204,16 210,6 216,16"/></svg>
+    <svg class="ms-loop-line ms-loop-h" viewBox="0 0 800 46" width="800" height="46" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M770 2 L770 30 Q770 40 758 40 L222 40 Q210 40 210 30 L210 10"/><polyline points="204,16 210,6 216,16"/></svg>
     ${circleLoop
-      ? `<svg class="ms-loop-line ms-loop-circle" viewBox="0 0 64 64" role="img" aria-label="${esc(aria)}"><path d="M52 32 a20 20 0 1 1 -6 -14"/><polyline points="46 4 46 18 32 18"/></svg>`
-      : `<svg class="ms-loop-line ms-loop-v" viewBox="0 0 48 300" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M40 292 L40 286 Q40 278 30 278 L14 278 Q4 278 4 268 L4 97 Q4 87 14 87 L30 87"/><polyline points="24,81 34,87 24,93"/></svg>`}
+      ? `<svg class="ms-loop-line ms-loop-circle" viewBox="0 0 64 64" width="34" height="34" role="img" aria-label="${esc(aria)}"><path d="M52 32 a20 20 0 1 1 -6 -14"/><polyline points="46 4 46 18 32 18"/></svg>`
+      : `<svg class="ms-loop-line ms-loop-v" viewBox="0 0 48 300" width="48" height="300" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M40 292 L40 286 Q40 278 30 278 L14 278 Q4 278 4 268 L4 97 Q4 87 14 87 L30 87"/><polyline points="24,81 34,87 24,93"/></svg>`}
     <p class="ms-loop-label">${esc(loopLabel)}</p>
   </div>${closeStage}${extraNote ? `\n  <p class="ms-note">${esc(extraNote)}</p>` : ''}`;
 }
@@ -202,7 +206,7 @@ function diagramWeek() {
     </div>
 
     <div class="wk-link">
-      <svg class="wk-arrow" viewBox="0 0 24 34" role="img" aria-label="${esc(d.aria)}"><path d="M12 32 L12 8"/><polyline points="5,15 12,4 19,15"/></svg>
+      <svg class="wk-arrow" viewBox="0 0 24 34" width="16" height="24" role="img" aria-label="${esc(d.aria)}"><path d="M12 32 L12 8"/><polyline points="5,15 12,4 19,15"/></svg>
       <p class="wk-arrow-label">${esc(d.arrow)}</p>
     </div>
 
@@ -367,7 +371,14 @@ for (let i = 1; i < PLAN.length; i++) if (PLAN[i] === PLAN[i - 1]) throw new Err
 const faqIdx = REST.findIndex((s) => /faq-section/.test(s.cls));
 if (faqIdx < 0) throw new Error('faq section not found');
 
-const RAW = C.rawSections;
+// The carried-over live markup contains inline SVGs with only a viewBox.
+// Give every one of them explicit width/height so nothing can fall back to
+// the 300x150 default if a CSS rule ever misses.
+const sizeRawSvgs = (html) => html.replace(/<svg\b([^>]*)>/g, (tag, attrs) => {
+  if (/\bwidth=/.test(attrs)) return tag;
+  return `<svg${attrs} width="20" height="20">`;
+});
+const RAW = Object.fromEntries(Object.entries(C.rawSections).map(([k, v]) => [k, sizeRawSvgs(v)]));
 
 /** A13: drop the one FAQ pair whose question AND answer are both exact repeats. */
 function dedupeFaq(blocks) {
@@ -418,7 +429,12 @@ function renderRest() {
 <section class="sec sec-reviews" id="reviews">
   <div class="wrap">
     <h2>${esc((sec.blocks.find((b) => b.t === 'h2') || {}).v || 'Reviews')}</h2>
-    <a class="btn btn-primary reviews-cta" href="${esc(C.reviewsLink)}" target="_blank" rel="noopener noreferrer">${esc(A15.reviewsButton)}</a>
+    <div class="reviews-rating" aria-label="Rating ${esc(C.rating.value)} out of 5">
+      <span class="rating-stars" aria-hidden="true">${'★'.repeat(C.rating.stars)}</span>
+      <span class="rating-num">${esc(C.rating.value)}</span>
+      <span class="rc">${esc(A13.reviewCount)}</span>
+    </div>
+    <a class="btn btn-primary reviews-cta" href="${esc(C.googleReviewsLink)}" target="_blank" rel="noopener noreferrer">${esc(A15.reviewsButton)}</a>
   </div>
 </section>`);
       return;
@@ -503,8 +519,8 @@ const TRACKING = `<script async src="https://www.googletagmanager.com/gtag/js?id
   });
 </script>`;
 
-const ICON_WA = '<svg viewBox="0 0 24 24" class="hcta-ic" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path d="M8.6 7.6c.3 0 .6 0 .8.5l.9 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4-.1.6a7 7 0 0 0 3.4 3c.3.1.5 0 .6-.1l.6-.7c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.4.6a2 2 0 0 1-2 1.9c-1 0-3.4-.8-5.4-2.9S6.7 11 6.7 9.8a2 2 0 0 1 1.9-2.2z"/></svg>';
-const ICON_TEL = '<svg viewBox="0 0 24 24" class="hcta-ic" aria-hidden="true" focusable="false"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5L16 12l4 1.5v3a1.6 1.6 0 0 1-1.8 1.6A15.6 15.6 0 0 1 5 5.8 1.6 1.6 0 0 1 6.6 3z"/></svg>';
+const ICON_WA = '<svg viewBox="0 0 24 24" class="hcta-ic" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path d="M8.6 7.6c.3 0 .6 0 .8.5l.9 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4-.1.6a7 7 0 0 0 3.4 3c.3.1.5 0 .6-.1l.6-.7c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.4.6a2 2 0 0 1-2 1.9c-1 0-3.4-.8-5.4-2.9S6.7 11 6.7 9.8a2 2 0 0 1 1.9-2.2z"/></svg>';
+const ICON_TEL = '<svg viewBox="0 0 24 24" class="hcta-ic" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5L16 12l4 1.5v3a1.6 1.6 0 0 1-1.8 1.6A15.6 15.6 0 0 1 5 5.8 1.6 1.6 0 0 1 6.6 3z"/></svg>';
 
 const navLinks = C.header.nav.map((n) => `<a href="${esc(n.href)}">${esc(n.text)}</a>`).join('');
 
@@ -629,7 +645,9 @@ const faqRemoved = droppedFaq.reduce((n, t) => n + wc(t), 0);   // 0 now: withdr
 // A15 drops the widget's four strings and adds one button label.
 const reviewsBlocks = (C.sections.find((x) => x.cls.includes('reviews-section')) || { blocks: [] }).blocks;
 const a15Removed = reviewsBlocks.filter((b) => b.t !== 'h2').reduce((n, b) => n + wc(b.v || ''), 0);
-const a15 = wc(A15.reviewsButton) - a15Removed;
+// The reviews block repeats the rating figure and the count above the button.
+const a15Repeat = wc(C.rating.value) + wc(A13.reviewCount);
+const a15 = wc(A15.reviewsButton) + a15Repeat - a15Removed;
 const a14 = wc(A14.formNote);
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
 const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15;
@@ -639,7 +657,7 @@ console.log(`head copied from live: title, description, canonical, ${HEAD.og.len
 console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + ${swipeRows} swipe hints ${swipeWords} = ${a11}`);
 console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
-console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} - widget strings ${a15Removed} = ${a15}`);
+console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
 console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');

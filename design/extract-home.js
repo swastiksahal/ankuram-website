@@ -211,10 +211,16 @@ const reviewsLinkMatch = /<a href="(https:\/\/www\.google\.com\/maps\/place[^"]+
   || /<a href="(https:\/\/www\.google\.com\/maps\/place[^"]+)"/.exec(rawSections['reviews-section']);
 if (!reviewsLinkMatch) throw new Error('reviews Google Maps link not found');
 
+// The button href uses script.js's own GOOGLE_REVIEWS_LINK constant.
+const SCRIPT = fs.readFileSync('public_html/script.js', 'utf8');
+const gmLink = /const GOOGLE_REVIEWS_LINK\s*=\s*'([^']+)'/.exec(SCRIPT);
+if (!gmLink) throw new Error('GOOGLE_REVIEWS_LINK not found in script.js');
+
 const out = {
   source: SRC,
   rawSections,
   reviewsLink: reviewsLinkMatch[1],
+  googleReviewsLink: gmLink[1],
   extractedAt: new Date().toISOString(),
   header: { nav, phone: { display: '+91 73966 69430', tel: '+917396669430' } },
   whatsapp: 'https://wa.me/917396669430',

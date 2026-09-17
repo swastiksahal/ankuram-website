@@ -4,17 +4,32 @@
     {
       "width": 360,
       "overflow": 0,
-      "height": 12448
+      "height": 12512
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "height": 11796
     },
     {
       "width": 768,
       "overflow": 0,
-      "height": 17372
+      "height": 17437
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "height": 16008
+    },
+    {
+      "width": 1280,
+      "overflow": 0,
+      "height": 15521
     },
     {
       "width": 1440,
       "overflow": 0,
-      "height": 15701
+      "height": 15521
     }
   ],
   "rows": [
@@ -64,11 +79,11 @@
     },
     {
       "name": "Get in Touch",
-      "h": 1825
+      "h": 1837
     },
     {
       "name": "Reviews",
-      "h": 140
+      "h": 193
     },
     {
       "name": "Students From Across Hyderabad",
@@ -91,7 +106,7 @@
       "h": 754
     }
   ],
-  "total": 11731,
+  "total": 11796,
   "minFont": 15,
   "minSel": "SUMMARY:Menu",
   "smallTaps": [],
@@ -135,12 +150,20 @@
   "faqClosed": true,
   "imgs": 0,
   "screens": 14,
+  "svgGuard": [],
+  "contrastGuard": [],
   "lighthouse": {
-    "performance": 96,
+    "performance": 97,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1698,
-    "totalBytes": 534135
+    "lcpMs": 1802,
+    "totalBytes": 538532
   },
-  "a11yFailures": []
+  "a11yFailures": [],
+  "lighthouseDesktop": {
+    "performance": 100,
+    "accessibility": 100,
+    "cls": 0,
+    "lcpMs": 401
+  }
 }
