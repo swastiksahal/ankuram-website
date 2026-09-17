@@ -57,3 +57,22 @@ A10 METHOD DIAGRAM CAPTIONS (final wording approved on screenshot before any dep
   4 improve marks and confidence — "Regular practice and tests in small batches of 3–5, until the topic holds."
 - add a loop arrow from step 4 back to step 2, labelled: "Tested again — any gap found is fixed again."
 - these captions go in the diagram only, never in JSON-LD, title, meta or H1; the word-count check must allow exactly these added words
+
+A11 HYBRID MODEL SECTION WITH DIAGRAMS (Swastik, 17 Sep; final wording approved on staging screenshot before production).
+Facts confirmed by Swastik:
+- Weekday classes are online on Google Meet. Swastik solves live on a digital board, shared on screen.
+- The student solves on paper, sends a photo on WhatsApp, and it is corrected during the class.
+- Worksheets are sent after class.
+- Weekends at the Jubilee Hills centre are for in-person doubt clearing, and for revision and practice.
+- Two routes depend on the student:
+  Route A: weekdays online plus Saturday–Sunday at the centre.
+  Route B (weaker foundations): 2 weekdays at the centre, other weekdays online, plus weekends at the centre, moving to Route A as confidence builds.
+- No timings anywhere. No class recordings. Do not mention tests in the new diagrams.
+New visible text is limited to the section title "How a week works" and the diagram labels and captions below. All existing wording stays word-for-word.
+  D1 "Two routes through the week": day names Mon Tue Wed Thu Fri Sat Sun; "Route A"; "Route B"; "Foundation support"; "Online · Google Meet"; "At the centre"; "Online"; arrow label "As confidence builds".
+  D2 "A weekday online class": "Swastik solves it live on the digital board"; "Your child solves the next problem on paper"; "A photo of the work is sent on WhatsApp"; "Mistakes are corrected during the class"; loop label "Next problem"; below the loop "After class: a worksheet to practise".
+  D3 "Weekends at the centre": "Doubts cleared in person"; "Revision and practice".
+Structure (staging first; production needs a separate approval):
+- The existing "How It Works" and "Why Online Classes Work" content moves under one section titled "How a week works", every sentence kept word-for-word.
+- The locality cards move into a closed <details> titled "Students From Across Hyderabad", placed just above the FAQ, with the "Students from across Hyderabad learn with us …" sentence inside it.
+- JSON-LD areaServed and every FAQ answer stay byte-identical.

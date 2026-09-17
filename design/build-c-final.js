@@ -1,22 +1,43 @@
 #!/usr/bin/env node
 /**
- * build-c-final.js — final Direction C homepage.
+ * build-c-final.js — the staging homepage (Direction C, finalised).
  *
- * Content still comes verbatim from design/home-content.json. The only wording
- * changes are the ones APPROVED-CHANGES allows:
- *   A9  — no photograph of the centre anywhere (C already carried none)
- *   A10 — four diagram captions and one loop label, exact strings below
+ * Content comes verbatim from design/home-content.json. The head block
+ * (title, description, canonical, og/twitter, JSON-LD) is copied byte-for-byte
+ * out of the LIVE public_html/index.html, so those never drift.
+ *
+ * Approved wording changes only:
+ *   A9  — no photograph of the centre anywhere
+ *   A10 — four method-diagram captions and one loop label
+ *   A11 — the "How a week works" section title and the D1/D2/D3 diagram text
  *
  * Usage: node design/build-c-final.js
  */
 
 const fs = require('fs');
-const path = require('path');
 
 const C = JSON.parse(fs.readFileSync('design/home-content.json', 'utf8'));
 const esc = (s) => String(s).replace(/&(?!#?\w+;)/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// ---------------------------------------------------------------- A10 text
+// ===================================================== head, copied from live
+const LIVE = fs.readFileSync('public_html/index.html', 'utf8');
+const LIVE_HEAD = /<head[^>]*>([\s\S]*?)<\/head>/i.exec(LIVE)[1];
+const one = (re) => { const m = re.exec(LIVE_HEAD); return m ? m[0] : ''; };
+const many = (re) => LIVE_HEAD.match(re) || [];
+
+const HEAD = {
+  title: one(/<title>[\s\S]*?<\/title>/i),
+  description: one(/<meta[^>]+name="description"[^>]*>/i),
+  canonical: one(/<link[^>]+rel="canonical"[^>]*>/i),
+  og: many(/<meta[^>]+property="og:[^>]*>/gi),
+  twitter: many(/<meta[^>]+name="twitter:[^>]*>/gi),
+  jsonld: LIVE.match(/<script[^>]+application\/ld\+json[^>]*>[\s\S]*?<\/script>/gi) || [],
+};
+for (const [k, v] of Object.entries(HEAD)) {
+  if (!v || (Array.isArray(v) && !v.length)) throw new Error(`live head: ${k} not found`);
+}
+
+// ============================================================ A10 / A11 text
 const STEPS = [
   { title: 'Diagnostic Test', caption: "A test on last year's topics shows exactly where your child stands." },
   { title: 'Gaps in foundational knowledge', caption: 'Swastik solves every question and marks the exact gaps behind each mistake.' },
@@ -24,128 +45,191 @@ const STEPS = [
   { title: 'improve marks and confidence', caption: 'Regular practice and tests in small batches of 3–5, until the topic holds.' },
 ];
 const LOOP_LABEL = 'Tested again — any gap found is fixed again.';
-const DIAGRAM_ARIA =
-  'How we teach, in four steps: Diagnostic Test, then Gaps in foundational knowledge, then Foundation-First Learning, then improve marks and confidence. Step four loops back to step two.';
+const METHOD_ARIA = 'How we teach, in four steps: Diagnostic Test, then Gaps in foundational knowledge, then Foundation-First Learning, then improve marks and confidence. Step four loops back to step two.';
 
-// ------------------------------------------------------------------- icons
-// Small, single-stroke, currentColor. Decorative: the step title next to each
-// icon carries the meaning, so each icon is aria-hidden.
-const ICONS = {
-  testPaper: `<svg viewBox="0 0 32 32" class="ic" aria-hidden="true" focusable="false">
-    <rect x="7" y="4" width="18" height="24" rx="2"/>
-    <line x1="11" y1="11" x2="21" y2="11"/><line x1="11" y1="16" x2="21" y2="16"/><line x1="11" y1="21" x2="17" y2="21"/></svg>`,
-  magnifierGap: `<svg viewBox="0 0 32 32" class="ic" aria-hidden="true" focusable="false">
-    <line x1="4" y1="24" x2="11" y2="24"/><line x1="21" y1="24" x2="28" y2="24" stroke-dasharray="3 3"/>
-    <circle cx="16" cy="13" r="7"/><line x1="21.2" y1="18.2" x2="26" y2="23"/></svg>`,
-  blocks: `<svg viewBox="0 0 32 32" class="ic" aria-hidden="true" focusable="false">
-    <rect x="5" y="19" width="9" height="8" rx="1"/><rect x="17" y="19" width="9" height="8" rx="1"/>
-    <rect x="11" y="9" width="9" height="8" rx="1"/></svg>`,
-  examTick: `<svg viewBox="0 0 32 32" class="ic" aria-hidden="true" focusable="false">
-    <rect x="6" y="4" width="17" height="24" rx="2"/>
-    <line x1="10" y1="11" x2="19" y2="11"/><line x1="10" y1="15" x2="16" y2="15"/>
-    <polyline points="12,21 15.5,24.5 23,16"/></svg>`,
+const A11 = {
+  sectionTitle: 'How a week works',
+  d1: {
+    title: 'Two routes through the week',
+    days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    routeA: 'Route A',
+    routeB: 'Route B',
+    routeBSub: 'Foundation support',
+    online: 'Online · Google Meet',
+    onlineShort: 'Online',
+    centre: 'At the centre',
+    arrow: 'As confidence builds',
+    aria: 'Two routes through the week. Route A: Monday to Friday online on Google Meet, Saturday and Sunday at the centre. Route B, foundation support: two weekdays at the centre, the other weekdays online, Saturday and Sunday at the centre. Route B moves to Route A as confidence builds.',
+  },
+  d2: {
+    title: 'A weekday online class',
+    steps: [
+      'Swastik solves it live on the digital board',
+      'Your child solves the next problem on paper',
+      'A photo of the work is sent on WhatsApp',
+      'Mistakes are corrected during the class',
+    ],
+    loop: 'Next problem',
+    after: 'After class: a worksheet to practise',
+    aria: 'A weekday online class, in four steps: Swastik solves it live on the digital board, your child solves the next problem on paper, a photo of the work is sent on WhatsApp, mistakes are corrected during the class. Step four loops back to step two for the next problem.',
+  },
+  d3: {
+    title: 'Weekends at the centre',
+    blocks: ['Doubts cleared in person', 'Revision and practice'],
+    aria: 'Weekends at the centre: doubts cleared in person, and revision and practice.',
+  },
 };
-const ICON_ORDER = ['testPaper', 'magnifierGap', 'blocks', 'examTick'];
 
-const ARROW_RIGHT = `<svg viewBox="0 0 24 16" class="arw arw-h" aria-hidden="true" focusable="false"><line x1="1" y1="8" x2="19" y2="8"/><polyline points="14,3 20,8 14,13"/></svg>`;
-const ARROW_DOWN = `<svg viewBox="0 0 16 24" class="arw arw-v" aria-hidden="true" focusable="false"><line x1="8" y1="1" x2="8" y2="19"/><polyline points="3,14 8,20 13,14"/></svg>`;
+// ====================================================================== icons
+const svg = (body, cls = 'ic') => `<svg viewBox="0 0 32 32" class="${cls}" aria-hidden="true" focusable="false">${body}</svg>`;
+const ICONS = {
+  testPaper: svg('<rect x="7" y="4" width="18" height="24" rx="2"/><line x1="11" y1="11" x2="21" y2="11"/><line x1="11" y1="16" x2="21" y2="16"/><line x1="11" y1="21" x2="17" y2="21"/>'),
+  magnifierGap: svg('<line x1="4" y1="24" x2="11" y2="24"/><line x1="21" y1="24" x2="28" y2="24" stroke-dasharray="3 3"/><circle cx="16" cy="13" r="7"/><line x1="21.2" y1="18.2" x2="26" y2="23"/>'),
+  blocks: svg('<rect x="5" y="19" width="9" height="8" rx="1"/><rect x="17" y="19" width="9" height="8" rx="1"/><rect x="11" y="9" width="9" height="8" rx="1"/>'),
+  examTick: svg('<rect x="6" y="4" width="17" height="24" rx="2"/><line x1="10" y1="11" x2="19" y2="11"/><line x1="10" y1="15" x2="16" y2="15"/><polyline points="12,21 15.5,24.5 23,16"/>'),
+  // A11
+  board: svg('<rect x="3" y="6" width="26" height="17" rx="2"/><line x1="16" y1="23" x2="16" y2="28"/><line x1="11" y1="28" x2="21" y2="28"/><line x1="8" y1="12" x2="17" y2="12"/><line x1="8" y1="17" x2="13" y2="17"/>'),
+  paper: svg('<rect x="7" y="4" width="16" height="22" rx="2"/><line x1="11" y1="11" x2="19" y2="11"/><line x1="11" y1="16" x2="19" y2="16"/><path d="M20 26 l5 4 -1.5 -5"/>'),
+  photo: svg('<rect x="9" y="3" width="14" height="26" rx="3"/><circle cx="16" cy="15" r="4"/><line x1="13" y1="7" x2="19" y2="7"/>'),
+  correct: svg('<rect x="5" y="6" width="22" height="20" rx="2"/><polyline points="10,16 14,20 22,11"/>'),
+  doubts: svg('<path d="M4 8 a3 3 0 0 1 3 -3 h18 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-11 l-7 5 v-5 a3 3 0 0 1 -3 -3 z"/><line x1="12" y1="11" x2="20" y2="11"/><line x1="12" y1="16" x2="17" y2="16"/>'),
+  revise: svg('<path d="M27 16 a11 11 0 1 1 -3.5 -8"/><polyline points="27,4 27,9 22,9"/><line x1="16" y1="10" x2="16" y2="17"/><line x1="16" y1="17" x2="21" y2="19"/>'),
+};
 
-function methodDiagram() {
-  const cards = STEPS.map((s, i) => `
-      <li class="ms-step${i === 3 ? ' ms-step-final' : ''}">
-        <div class="ms-head">
-          <span class="ms-num" aria-hidden="true">${i + 1}</span>
-          ${ICONS[ICON_ORDER[i]]}
-        </div>
-        <p class="ms-title${i === 3 ? ' ms-title-cap' : ''}">${esc(s.title)}</p>
-        <p class="ms-caption">${esc(s.caption)}</p>
-      </li>`).join(`
+const ARROW_RIGHT = '<svg viewBox="0 0 24 16" class="arw arw-h" aria-hidden="true" focusable="false"><line x1="1" y1="8" x2="19" y2="8"/><polyline points="14,3 20,8 14,13"/></svg>';
+const ARROW_DOWN = '<svg viewBox="0 0 16 24" class="arw arw-v" aria-hidden="true" focusable="false"><line x1="8" y1="1" x2="8" y2="19"/><polyline points="3,14 8,20 13,14"/></svg>';
+
+/** A four-step flow with a 4 -> 2 loop. Shared by the method diagram and D2. */
+function flowDiagram({ steps, icons, loopLabel, aria, capIndex = -1, extraNote = '' }) {
+  const cards = steps.map((s, i) => {
+    const title = typeof s === 'string' ? s : s.title;
+    const caption = typeof s === 'string' ? '' : s.caption;
+    return `
+      <li class="ms-step${i === steps.length - 1 ? ' ms-step-final' : ''}">
+        <div class="ms-head"><span class="ms-num" aria-hidden="true">${i + 1}</span>${icons[i]}</div>
+        <p class="ms-title${i === capIndex ? ' ms-title-cap' : ''}">${esc(title)}</p>
+        ${caption ? `<p class="ms-caption">${esc(caption)}</p>` : ''}
+      </li>`;
+  }).join(`
       <li class="ms-arrow" aria-hidden="true">${ARROW_RIGHT}${ARROW_DOWN}</li>`);
 
   return `
-<figure class="method" role="group" aria-label="${esc(DIAGRAM_ARIA)}">
-  <ol class="ms-flow">
-    ${cards}
+  <ol class="ms-flow">${cards}
   </ol>
   <div class="ms-loop">
-    <svg class="ms-loop-line ms-loop-h" viewBox="0 0 800 46" preserveAspectRatio="none" role="img" aria-label="${esc(DIAGRAM_ARIA)}">
-      <path d="M770 2 L770 30 Q770 40 758 40 L222 40 Q210 40 210 30 L210 10" />
-      <polyline points="204,16 210,6 216,16" />
-    </svg>
-    <svg class="ms-loop-line ms-loop-v" viewBox="0 0 48 300" preserveAspectRatio="none" role="img" aria-label="${esc(DIAGRAM_ARIA)}">
-      <path d="M40 292 L40 286 Q40 278 30 278 L14 278 Q4 278 4 268 L4 97 Q4 87 14 87 L30 87" />
-      <polyline points="24,81 34,87 24,93" />
-    </svg>
-    <p class="ms-loop-label">${esc(LOOP_LABEL)}</p>
+    <svg class="ms-loop-line ms-loop-h" viewBox="0 0 800 46" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M770 2 L770 30 Q770 40 758 40 L222 40 Q210 40 210 30 L210 10"/><polyline points="204,16 210,6 216,16"/></svg>
+    <svg class="ms-loop-line ms-loop-v" viewBox="0 0 48 300" preserveAspectRatio="none" role="img" aria-label="${esc(aria)}"><path d="M40 292 L40 286 Q40 278 30 278 L14 278 Q4 278 4 268 L4 97 Q4 87 14 87 L30 87"/><polyline points="24,81 34,87 24,93"/></svg>
+    <p class="ms-loop-label">${esc(loopLabel)}</p>
+  </div>${extraNote ? `\n  <p class="ms-note">${esc(extraNote)}</p>` : ''}`;
+}
+
+const methodDiagram = () => `
+<figure class="method" aria-label="${esc(METHOD_ARIA)}">${flowDiagram({
+  steps: STEPS,
+  icons: [ICONS.testPaper, ICONS.magnifierGap, ICONS.blocks, ICONS.examTick],
+  loopLabel: LOOP_LABEL,
+  aria: METHOD_ARIA,
+  capIndex: 3,
+})}
+</figure>`;
+
+// -------------------------------------------------------------- D1, D2, D3
+function diagramWeek() {
+  const d = A11.d1;
+  // The day names live in the DOM (not in CSS ::before) so that what a reader
+  // sees on mobile is the same text the word-count check measures.
+  const cell = (label, days, kind) =>
+    `<div class="wk-block wk-${kind}" style="--span:${days.length}">` +
+    `<span class="wk-block-days">${days.map(esc).join(' ')}</span>` +
+    `<span class="wk-block-label">${esc(label)}</span></div>`;
+  const D = d.days;
+  return `
+<figure class="dg dg-week">
+  <figcaption class="dg-title">${esc(d.title)}</figcaption>
+  <div class="wk">
+    <div class="wk-head">
+      <span class="wk-head-spacer" aria-hidden="true"></span>
+      <div class="wk-days">${d.days.map((x) => `<span class="wk-day">${esc(x)}</span>`).join('')}</div>
+    </div>
+
+    <div class="wk-row">
+      <p class="wk-route">${esc(d.routeA)}</p>
+      <div class="wk-cells">${cell(d.online, D.slice(0, 5), 'online')}${cell(d.centre, D.slice(5), 'centre')}</div>
+    </div>
+
+    <div class="wk-link">
+      <svg class="wk-arrow" viewBox="0 0 28 60" preserveAspectRatio="none" role="img" aria-label="${esc(d.aria)}"><path d="M14 56 L14 12"/><polyline points="7,19 14,7 21,19"/></svg>
+      <p class="wk-arrow-label">${esc(d.arrow)}</p>
+    </div>
+
+    <div class="wk-row">
+      <p class="wk-route">${esc(d.routeB)}<span class="wk-sub">${esc(d.routeBSub)}</span></p>
+      <div class="wk-cells">${cell(d.centre, D.slice(0, 2), 'centre')}${cell(d.onlineShort, D.slice(2, 5), 'online')}${cell(d.centre, D.slice(5), 'centre')}</div>
+    </div>
   </div>
 </figure>`;
 }
 
-// ---------------------------------------------------------------- structure
+const diagramClass = () => `
+<figure class="dg method" aria-label="${esc(A11.d2.aria)}">
+  <figcaption class="dg-title">${esc(A11.d2.title)}</figcaption>${flowDiagram({
+  steps: A11.d2.steps,
+  icons: [ICONS.board, ICONS.paper, ICONS.photo, ICONS.correct],
+  loopLabel: A11.d2.loop,
+  aria: A11.d2.aria,
+  extraNote: A11.d2.after,
+})}
+</figure>`;
+
+const diagramWeekend = () => `
+<figure class="dg dg-weekend" aria-label="${esc(A11.d3.aria)}">
+  <figcaption class="dg-title">${esc(A11.d3.title)}</figcaption>
+  <div class="we-blocks">
+    <div class="we-block">${ICONS.doubts}<p class="we-label">${esc(A11.d3.blocks[0])}</p></div>
+    <div class="we-block">${ICONS.revise}<p class="we-label">${esc(A11.d3.blocks[1])}</p></div>
+  </div>
+</figure>`;
+
+// ================================================================= structure
 const BARE_NUM = /^\d{1,2}$/;
 const STEP_LABEL = /^Step \d+$/;
-/** Text that is decoration, not content: separators and standalone emoji. */
-const isDecoration = (v) => {
-  const t = String(v).trim();
-  if (!t) return true;
-  return !/[\p{L}\p{N}]/u.test(t);
-};
+const isDecoration = (v) => { const t = String(v).trim(); return !t || !/[\p{L}\p{N}]/u.test(t); };
 
 function tree(blocks, topLevel) {
-  const out = [];
-  let cur = null;
-  let pendingNum = null;
-  let pendingLabel = null;
+  const out = []; let cur = null, pendingNum = null, pendingLabel = null;
   for (const b of blocks) {
     if ((b.t === 'text' || b.t === 'p') && typeof b.v === 'string') {
       const t = b.v.trim();
-      // "Step 1" sits before the card it belongs to, not after the previous one.
       if (STEP_LABEL.test(t)) { pendingLabel = t; continue; }
       if (BARE_NUM.test(t)) { pendingNum = t; continue; }
-      if (isDecoration(t)) continue; // stray "+" separators and emoji
+      if (isDecoration(t)) continue;
     }
     const deeper = /^h([2-6])$/.exec(b.t);
-    if (b.t === topLevel) {
-      cur = { head: b.v, num: pendingNum, label: pendingLabel, body: [], subs: [] };
-      pendingNum = null; pendingLabel = null; out.push(cur); continue;
-    }
+    if (b.t === topLevel) { cur = { head: b.v, num: pendingNum, label: pendingLabel, body: [], subs: [] }; pendingNum = pendingLabel = null; out.push(cur); continue; }
     if (!cur) { out.push({ head: null, num: null, label: null, body: [b], subs: [] }); continue; }
-    if (deeper && Number(deeper[1]) > Number(topLevel[1])) {
-      cur.subs.push({ head: b.v, level: b.t, label: pendingLabel, num: pendingNum, body: [] });
-      pendingLabel = null; pendingNum = null;
-    } else {
-      const lastSub = cur.subs[cur.subs.length - 1];
-      (lastSub ? lastSub.body : cur.body).push(b);
-    }
+    if (deeper && Number(deeper[1]) > Number(topLevel[1])) { cur.subs.push({ head: b.v, level: b.t, label: pendingLabel, num: pendingNum, body: [] }); pendingLabel = pendingNum = null; }
+    else { const ls = cur.subs[cur.subs.length - 1]; (ls ? ls.body : cur.body).push(b); }
   }
-  // A numeral or label with no heading after it still belongs to the page.
   if (pendingNum || pendingLabel) out.push({ head: null, num: pendingNum, label: pendingLabel, body: [], subs: [] });
   return out;
 }
 
-const renderBody = (blocks) =>
-  blocks.map((b) => {
-    if (b.t === 'p' || b.t === 'text') return isDecoration(b.v) ? '' : `<p>${esc(b.v)}</p>`;
-    if (b.t === 'ul') return `<ul>${b.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
-    if (b.t === 'options') return `<ul class="opts">${b.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
-    if (b.t === 'link') return `<p><a class="inline-link" href="${esc(b.href || '#')}">${esc(b.v)}</a></p>`;
-    if (b.t === 'button') return `<p><span class="pseudo-btn">${esc(b.v)}</span></p>`;
-    return '';
-  }).join('\n');
+const renderBody = (blocks) => blocks.map((b) => {
+  if (b.t === 'p' || b.t === 'text') return isDecoration(b.v) ? '' : `<p>${esc(b.v)}</p>`;
+  if (b.t === 'ul') return `<ul>${b.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
+  if (b.t === 'options') return `<ul class="opts">${b.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`;
+  if (b.t === 'link') return `<p><a class="inline-link" href="${esc(b.href || '#')}">${esc(b.v)}</a></p>`;
+  if (b.t === 'button') return `<p><span class="pseudo-btn">${esc(b.v)}</span></p>`;
+  return '';
+}).join('\n');
 
 const stepLabel = (n) => (n.label ? `<span class="step-label">${esc(n.label)}</span>` : '');
 const numEl = (n) => (n.num ? `<span class="num">${esc(n.num)}</span>` : '');
+const renderSubs = (n) => (n.subs || []).map((s) => `<article class="sub-card">${stepLabel(s)}${numEl(s)}<h4>${esc(s.head)}</h4>${renderBody(s.body)}</article>`).join('');
 
-const renderSubs = (n) =>
-  (n.subs || []).map((sub) => `<article class="sub-card">${stepLabel(sub)}${numEl(sub)}<h4>${esc(sub.head)}</h4>${renderBody(sub.body)}</article>`).join('');
-
-// ------------------------------------------------------------- layout kit
 const L = {
   cards: (t) => `<div class="cards">${t.map((n) => `<article class="card">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</article>`).join('')}</div>`,
-  numbered: (t) => {
-    const own = t.some((n) => n.num);
-    return `<ol class="numbered${own ? ' own-nums' : ''}">${t.map((n) => `<li>${numEl(n)}<div>${stepLabel(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</div></li>`).join('')}</ol>`;
-  },
+  numbered: (t) => { const own = t.some((n) => n.num); return `<ol class="numbered${own ? ' own-nums' : ''}">${t.map((n) => `<li>${numEl(n)}<div>${stepLabel(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</div></li>`).join('')}</ol>`; },
   rows: (t) => `<div class="rows">${t.map((n) => `<article class="row">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}<div class="row-body">${renderBody(n.body)}${renderSubs(n)}</div></article>`).join('')}</div>`,
   table: (t) => {
     const intro = t.filter((n) => !n.head).map((n) => `${renderBody(n.body)}${renderSubs(n)}`).join('');
@@ -153,33 +237,103 @@ const L = {
     const body = headed.map((n) => `<tr><th scope="row">${numEl(n)}${esc(n.head)}</th><td>${renderBody(n.body)}${renderSubs(n)}</td></tr>`).join('');
     return `${intro ? `<div class="intro">${intro}</div>` : ''}${headed.length ? `<div class="table-wrap"><table class="deftable"><tbody>${body}</tbody></table></div>` : ''}`;
   },
-  details: (t) => `<div class="accordion">${t.map((n) => n.head
-    ? `<details><summary>${esc(n.head)}</summary><div class="acc-body">${renderBody(n.body)}${renderSubs(n)}</div></details>`
-    : `<div class="acc-plain">${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
+  details: (t) => `<div class="accordion">${t.map((n) => n.head ? `<details><summary>${esc(n.head)}</summary><div class="acc-body">${renderBody(n.body)}${renderSubs(n)}</div></details>` : `<div class="acc-plain">${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
   regions: (t) => `<div class="regions">${t.map((n) => `<section class="region">${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}<div class="region-grid">${n.subs.map((s) => `<article class="area">${stepLabel(s)}${numEl(s)}<h4>${esc(s.head)}</h4>${renderBody(s.body)}</article>`).join('')}</div></section>`).join('')}</div>`,
   prose: (t) => `<div class="prose">${t.map((n) => `${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${n.subs.map((s) => `<h4>${esc(s.head)}</h4>${renderBody(s.body)}`).join('')}`).join('')}</div>`,
   panel: (t) => `<div class="panel">${t.map((n) => `<div class="panel-item">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
 };
 
-const PLAN = ['numbered', 'cards', 'regions', 'table', 'numbered', 'panel', 'rows', 'cards', 'prose', 'panel', 'cards', 'details', 'rows'];
+// ------------------------------------------- split the hybrid section (A11)
+const hybridIdx = C.sections.findIndex((s) => /hybrid-section/.test(s.cls));
+if (hybridIdx < 0) throw new Error('hybrid section not found');
+const hybrid = C.sections[hybridIdx];
+const hybridH2 = hybrid.blocks.find((b) => b.t === 'h2').v;
+
+const leadPs = [];
+const groups = [];
+let g = null;
+for (const b of hybrid.blocks) {
+  if (b.t === 'h2') continue;
+  if (b.t === 'h3') { g = { head: b.v, blocks: [] }; groups.push(g); continue; }
+  if (!g) { if ((b.t === 'p' || b.t === 'text') && !isDecoration(b.v)) leadPs.push(b); continue; }
+  g.blocks.push(b);
+}
+// Two groups describe the week; every OTHER group is locality content and goes
+// into the <details>. Assigning by exclusion rather than by name means a group
+// can never be silently dropped -- an earlier version named three groups and
+// lost a fourth ("Students Learn With Us From") along with 12 sentences.
+const WEEK_GROUPS = ['How It Works', 'Why Online Classes Work'];
+const gBy = (name) => groups.find((x) => x.head === name);
+const gHow = gBy(WEEK_GROUPS[0]);
+const gWhy = gBy(WEEK_GROUPS[1]);
+for (const n of WEEK_GROUPS) if (!gBy(n)) throw new Error(`hybrid group missing: ${n}`);
+const areaGroups = groups.filter((x) => !WEEK_GROUPS.includes(x.head));
+if (!areaGroups.length) throw new Error('no locality groups found');
+const assigned = WEEK_GROUPS.length + areaGroups.length;
+if (assigned !== groups.length) throw new Error(`assigned ${assigned} of ${groups.length} hybrid groups`);
+if (leadPs.length !== 2) throw new Error(`expected 2 lead paragraphs, got ${leadPs.length}`);
+const [pCommute, pAcross] = leadPs;
+
+const subTree = (grp) => tree(grp.blocks, grp.blocks.some((b) => b.t === 'h4') ? 'h4' : 'h5');
+
+const weekSection = () => `
+<section class="sec sec-week" id="hybrid-classes">
+  <div class="wrap">
+    <h2>${esc(A11.sectionTitle)}</h2>
+    <p class="sec-lede">${esc(pCommute.v)}</p>
+    ${diagramWeek()}
+    <h3>${esc(gHow.head)}</h3>
+    ${L.cards(subTree(gHow))}
+    ${diagramClass()}
+    <h3>${esc(gWhy.head)}</h3>
+    ${L.panel(subTree(gWhy))}
+    ${diagramWeekend()}
+  </div>
+</section>`;
+
+const areasDetails = () => `
+<section class="sec sec-areas">
+  <div class="wrap">
+    <details class="areas-details">
+      <summary>${esc(hybridH2)}</summary>
+      <div class="areas-body">
+        <p>${esc(pAcross.v)}</p>
+        ${areaGroups.map((grp) => `<h3>${esc(grp.head)}</h3>${L.regions(tree(grp.blocks, grp.blocks.some((b) => b.t === 'h4') ? 'h4' : 'h5'))}`).join('\n')}
+      </div>
+    </details>
+  </div>
+</section>`;
+
+// --------------------------------------------------------- remaining sections
+const REST = C.sections.filter((_, i) => i !== hybridIdx);
+const PLAN = ['numbered', 'cards', 'table', 'numbered', 'panel', 'rows', 'cards', 'prose', 'panel', 'cards', 'details', 'rows'];
+if (PLAN.length !== REST.length) throw new Error(`plan covers ${PLAN.length} of ${REST.length} sections`);
 for (let i = 1; i < PLAN.length; i++) if (PLAN[i] === PLAN[i - 1]) throw new Error(`sections ${i} and ${i + 1} share layout`);
 
-function renderSections() {
-  return C.sections.map((sec, i) => {
+const faqIdx = REST.findIndex((s) => /faq-section/.test(s.cls));
+if (faqIdx < 0) throw new Error('faq section not found');
+
+function renderRest() {
+  const out = [];
+  REST.forEach((sec, i) => {
+    if (i === faqIdx) out.push(areasDetails());      // details sits just above the FAQ
     const h2 = (sec.blocks.find((b) => b.t === 'h2') || {}).v || '';
     const rest = sec.blocks.filter((b) => b.t !== 'h2');
     const top = rest.some((b) => b.t === 'h3') ? 'h3' : rest.some((b) => b.t === 'h4') ? 'h4' : null;
     const t = top ? tree(rest, top) : [{ head: null, num: null, label: null, body: rest.filter((b) => !(typeof b.v === 'string' && isDecoration(b.v))), subs: [] }];
-    return `
+    out.push(`
 <section class="sec sec-${PLAN[i]}" id="${esc(sec.id || 'sec-' + (i + 1))}">
   <div class="wrap">
     <h2>${esc(h2)}</h2>
     ${L[PLAN[i]](t)}
   </div>
-</section>`;
-  }).join('\n');
+</section>`);
+    if (i === 1) out.push(weekSection());            // after "Subjects We Teach"
+  });
+  return out.join('\n');
 }
 
+// ================================================================== the page
 const TRACKING = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-MQRSS8DKLE"></script>
 <script>
   window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
@@ -193,6 +347,9 @@ const TRACKING = `<script async src="https://www.googletagmanager.com/gtag/js?id
   });
 </script>`;
 
+const ICON_WA = '<svg viewBox="0 0 24 24" class="hcta-ic" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path d="M8.6 7.6c.3 0 .6 0 .8.5l.9 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4-.1.6a7 7 0 0 0 3.4 3c.3.1.5 0 .6-.1l.6-.7c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.4.6a2 2 0 0 1-2 1.9c-1 0-3.4-.8-5.4-2.9S6.7 11 6.7 9.8a2 2 0 0 1 1.9-2.2z"/></svg>';
+const ICON_TEL = '<svg viewBox="0 0 24 24" class="hcta-ic" aria-hidden="true" focusable="false"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5L16 12l4 1.5v3a1.6 1.6 0 0 1-1.8 1.6A15.6 15.6 0 0 1 5 5.8 1.6 1.6 0 0 1 6.6 3z"/></svg>';
+
 const navLinks = C.header.nav.map((n) => `<a href="${esc(n.href)}">${esc(n.text)}</a>`).join('');
 
 const page = `<!DOCTYPE html>
@@ -200,9 +357,15 @@ const page = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diagram-led — Ankuram homepage direction C (final)</title>
+${HEAD.title}
+${HEAD.description}
+${HEAD.canonical}
+<!-- STAGING ONLY: the live page is "index, follow". Staging must never be indexed. -->
 <meta name="robots" content="noindex, nofollow">
+${HEAD.og.join('\n')}
+${HEAD.twitter.join('\n')}
 <link rel="stylesheet" href="../../css/site.css">
+${HEAD.jsonld.join('\n')}
 ${TRACKING}
 </head>
 <body class="v2">
@@ -212,14 +375,14 @@ ${TRACKING}
   <div class="wrap header-inner">
     <a class="brand" href="/">ANKURAM</a>
     <div class="header-cta">
-      <a class="hcta hcta-wa" href="${esc(C.whatsapp)}">WhatsApp</a>
-      <a class="hcta hcta-tel" href="tel:${esc(C.header.phone.tel)}">${esc(C.header.phone.display)}</a>
+      <a class="hcta hcta-wa" href="${esc(C.whatsapp)}" aria-label="WhatsApp">${ICON_WA}<span class="hcta-text">WhatsApp</span></a>
+      <a class="hcta hcta-tel" href="tel:${esc(C.header.phone.tel)}" aria-label="Call ${esc(C.header.phone.display)}">${ICON_TEL}<span class="hcta-text">${esc(C.header.phone.display)}</span></a>
+      <details class="nav-mobile">
+        <summary>Menu</summary>
+        <nav class="nav-mobile-list" aria-label="Main">${navLinks}</nav>
+      </details>
     </div>
     <nav class="nav nav-desktop" aria-label="Main">${navLinks}</nav>
-    <details class="nav-mobile">
-      <summary>Menu</summary>
-      <nav class="nav-mobile-list" aria-label="Main">${navLinks}</nav>
-    </details>
   </div>
 </header>
 
@@ -241,7 +404,7 @@ ${TRACKING}
     </div>
   </section>
 
-${renderSections()}
+${renderRest()}
 
   <section class="cta-band">
     <div class="wrap">
@@ -268,26 +431,34 @@ ${renderSections()}
 fs.mkdirSync('design/direction-c', { recursive: true });
 fs.writeFileSync('design/direction-c/index.html', page);
 
-// ----------------------------------------------------------------- checks
+// ==================================================================== checks
 const bodyText = /<body[^>]*>([\s\S]*)<\/body>/i.exec(page)[1]
   .replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<svg[\s\S]*?<\/svg>/g, ' ')
   .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const wc = (s) => s.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 
-// Word-count check, explained rather than guessed. Compare against the P2
-// Direction C page and account for every added word.
 const P2_WORDS = 3258;
 const a10 = wc(STEPS.map((s) => s.caption).concat(LOOP_LABEL).join(' '));
-const titles = wc(STEPS.map((s) => s.title).join(' '));   // now real HTML text, not SVG
-const numerals = STEPS.length;                            // the 1..4 badges
-const navDupe = wc(C.header.nav.map((n) => n.text).join(' ')) + 1; // mobile menu copy + "Menu"
-const expected = P2_WORDS + a10 + titles + numerals + navDupe;
+const methodTitles = wc(STEPS.map((s) => s.title).join(' '));
+const methodNumerals = 4;
+const navDupe = wc(C.header.nav.map((n) => n.text).join(' ')) + 1;
+
+// day names: once in the header row, then again inside each block (7 + 7)
+const d1Words = wc([A11.d1.title, ...A11.d1.days, ...A11.d1.days, ...A11.d1.days,
+  A11.d1.routeA, A11.d1.routeB, A11.d1.routeBSub,
+  A11.d1.online, A11.d1.centre, A11.d1.centre, A11.d1.onlineShort, A11.d1.centre, A11.d1.arrow].join(' '));
+const d2Words = wc([A11.d2.title, ...A11.d2.steps, A11.d2.loop, A11.d2.after].join(' ')) + 4; // + 1..4 badges
+const d3Words = wc([A11.d3.title, ...A11.d3.blocks].join(' '));
+const a11 = wc(A11.sectionTitle) + d1Words + d2Words + d3Words;
+
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11;
 const actual = wc(bodyText);
 
-console.log(`words: P2 ${P2_WORDS} + A10 ${a10} + diagram titles ${titles} + numerals ${numerals} + mobile-nav copy ${navDupe} = ${expected}`);
-console.log(`visible words: ${actual}  ${actual === expected ? 'OK — every added word accounted for' : `MISMATCH by ${actual - expected}`}`);
+console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
+console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + D3 ${d3Words} = ${a11}`);
+console.log(`expected ${P2_WORDS} + A10 ${a10} + method titles ${methodTitles} + numerals ${methodNumerals} + nav copy ${navDupe} + A11 ${a11} = ${expected}`);
+console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
+if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');
 if (/\bnull\b|\bundefined\b/.test(bodyText)) { console.log('null/undefined leaked'); process.exitCode = 1; }
-if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: an <img> is present'); process.exitCode = 1; }
-else console.log('A9: no <img> on the page');
 if (actual !== expected) process.exitCode = 1;
 console.log(`html ${(Buffer.byteLength(page) / 1024).toFixed(1)} KB`);

@@ -260,3 +260,90 @@
   .v2 .opts { columns: 1; }
   .v2 .stat-band { gap: var(--s5); }
 }
+
+/* ===========================================================================
+   A11 — "How a week works": three diagrams (D1 week strip, D2 class loop,
+   D3 weekend blocks), plus the locality <details> and the one-row mobile
+   header. Added 17 Sep.
+   ========================================================================= */
+
+.v2 .dg { margin: 0 0 var(--s6); background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5) var(--s4) var(--s4); }
+.v2 .dg-title { font-weight: 700; color: var(--blue-deep); font-size: var(--t-lg); margin: 0 0 var(--s4); }
+.v2 .sec-lede { font-size: var(--t-lg); color: var(--ink); max-width: 66ch; }
+.v2 .ms-note { margin: var(--s3) 0 0; font-size: var(--t-sm); color: var(--ink-soft); text-align: center; font-style: italic; }
+
+/* ---------------- D1: the week strip ---------------- */
+.v2 .wk { display: grid; gap: var(--s2); }
+/* The day header must sit in the same column as the blocks, so it shares the
+   row grid: an empty spacer over the route-label column, then 7 equal days. */
+.v2 .wk-head { display: grid; grid-template-columns: 140px 1fr; gap: var(--s4); }
+.v2 .wk-days, .v2 .wk-cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.v2 .wk-day { font-family: var(--mono); font-size: var(--t-xs); color: var(--ink-mute); text-align: center; text-transform: uppercase; letter-spacing: .04em; }
+.v2 .wk-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--s4); align-items: center; }
+.v2 .wk-route { margin: 0; font-weight: 700; color: var(--blue-deep); display: flex; flex-direction: column; font-size: var(--t-base); }
+.v2 .wk-sub { font-weight: 600; font-size: var(--t-xs); color: var(--ink-mute); }
+.v2 .wk-block {
+  grid-column: span var(--span); border-radius: 8px; padding: var(--s3) var(--s2);
+  font-size: var(--t-sm); font-weight: 600; text-align: center; line-height: 1.3;
+}
+.v2 .wk-block-days { display: none; }
+.v2 .wk-online { background: var(--blue-soft); border: 1px solid var(--blue-line); color: var(--blue-deep); }
+.v2 .wk-centre { background: #D5E2F3; border: 1px solid #8FAAD0; color: var(--blue-deep); }
+.v2 .wk-link { display: grid; grid-template-columns: 140px 1fr; gap: var(--s4); align-items: center; }
+.v2 .wk-arrow { width: 22px; height: 34px; justify-self: end; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .wk-arrow-label { margin: 0; font-size: var(--t-sm); font-weight: 600; color: var(--blue-deep); }
+
+/* ---------------- D3: weekend blocks ---------------- */
+.v2 .we-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.v2 .we-block { display: flex; align-items: center; gap: var(--s3); background: var(--blue-soft); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: var(--s4); }
+.v2 .we-label { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: var(--t-base); }
+
+/* ---------------- locality <details> ---------------- */
+.v2 .sec-areas { padding: var(--s7) 0; }
+.v2 .areas-details { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); }
+.v2 .areas-details > summary { cursor: pointer; padding: var(--s4) var(--s5); font-size: var(--t-xl); font-weight: 700; color: var(--ink); }
+.v2 .areas-details > summary::marker { color: var(--blue); }
+.v2 .areas-body { padding: 0 var(--s5) var(--s5); }
+.v2 .areas-body > h3 { margin-top: var(--s5); }
+
+/* ---------------- header: one row on mobile ---------------- */
+.v2 .header-inner { position: relative; }
+.v2 .hcta-ic { display: none; width: 18px; height: 18px; fill: currentColor; stroke: none; flex: none; }
+.v2 .nav-mobile-list {
+  position: absolute; left: var(--s4); right: var(--s4); top: calc(100% + 6px);
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 14px 32px rgba(20,24,31,.14); padding: var(--s2) var(--s4); z-index: 30;
+}
+.v2 .nav-mobile-list a:last-child { border-bottom: 0; }
+
+@media (max-width: 900px) {
+  .v2 .wk-row, .v2 .wk-link, .v2 .wk-head { grid-template-columns: 110px 1fr; gap: var(--s3); }
+}
+
+@media (max-width: 640px) {
+  /* Logo left; WhatsApp, call and Menu as compact buttons on the same row. */
+  .v2 .header-inner { flex-wrap: nowrap; gap: var(--s2); }
+  .v2 .brand { font-size: 1rem; letter-spacing: .1em; }
+  .v2 .header-cta { gap: 6px; align-items: center; }
+  .v2 .hcta { padding: 8px 10px; }
+  .v2 .hcta-ic { display: block; }
+  .v2 .hcta-text { display: none; }
+  .v2 .nav-mobile { display: block; }
+  .v2 .nav-mobile > summary { padding: 8px 10px; font-size: var(--t-xs); }
+
+  /* D1 stacks: day header hidden, each block reads as a full-width row. */
+  .v2 .wk-row, .v2 .wk-link { grid-template-columns: 1fr; gap: var(--s2); }
+  .v2 .wk-head { display: none; }
+  .v2 .wk-cells { grid-template-columns: 1fr; }
+  .v2 .wk-block { grid-column: auto; font-size: 16px; text-align: left; padding: var(--s3) var(--s4); }
+  .v2 .wk-block-days { display: block; font-family: var(--mono); font-size: var(--t-xs); color: var(--ink-soft); margin-bottom: 2px; letter-spacing: .04em; }
+  /* Route A sits above Route B on mobile, so the arrow still points UP:
+     Route B becomes Route A, not the other way round. */
+  .v2 .wk-arrow { justify-self: start; }
+  .v2 .wk-arrow-label { font-size: 16px; }
+  .v2 .we-blocks { grid-template-columns: 1fr; }
+  .v2 .we-label { font-size: 16px; }
+  .v2 .dg-title { font-size: var(--t-base); }
+  .v2 .areas-details > summary { font-size: var(--t-lg); padding: var(--s4); }
+  .v2 .areas-body { padding: 0 var(--s4) var(--s4); }
+}

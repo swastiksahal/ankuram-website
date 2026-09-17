@@ -1,0 +1,97 @@
+{
+  "scroll": [
+    {
+      "width": 360,
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "overflow": 0
+    }
+  ],
+  "shots": [
+    "header-390.png",
+    "areas-closed-390.png",
+    "hybrid-390.png",
+    "hybrid-1440.png",
+    "c-final-1440.png"
+  ],
+  "layout@360": {
+    "headerRows": 1,
+    "headerHeight": 66,
+    "headerVisibleChildren": 2,
+    "navDesktop": "none",
+    "navMobile": "block",
+    "hctaText": "none",
+    "hctaIcon": "block",
+    "weekCells": 1,
+    "blockLabelPx": 16,
+    "weLabelPx": 16,
+    "msCaptionPx": 16,
+    "areasOpen": false,
+    "diagrams": 4
+  },
+  "layout@390": {
+    "headerRows": 1,
+    "headerHeight": 66,
+    "headerVisibleChildren": 2,
+    "navDesktop": "none",
+    "navMobile": "block",
+    "hctaText": "none",
+    "hctaIcon": "block",
+    "weekCells": 1,
+    "blockLabelPx": 16,
+    "weLabelPx": 16,
+    "msCaptionPx": 16,
+    "areasOpen": false,
+    "diagrams": 4
+  },
+  "layout@768": {
+    "headerRows": 2,
+    "headerHeight": 84,
+    "headerVisibleChildren": 3,
+    "navDesktop": "flex",
+    "navMobile": "none",
+    "hctaText": "inline",
+    "hctaIcon": "none",
+    "weekCells": 7,
+    "blockLabelPx": 14.08,
+    "weLabelPx": 16,
+    "msCaptionPx": 14.08,
+    "areasOpen": false,
+    "diagrams": 4
+  },
+  "layout@1440": {
+    "headerRows": 1,
+    "headerHeight": 66,
+    "headerVisibleChildren": 3,
+    "navDesktop": "flex",
+    "navMobile": "none",
+    "hctaText": "inline",
+    "hctaIcon": "none",
+    "weekCells": 7,
+    "blockLabelPx": 14.08,
+    "weLabelPx": 16,
+    "msCaptionPx": 14.08,
+    "areasOpen": false,
+    "diagrams": 4
+  },
+  "lighthouse": {
+    "performance": 97,
+    "accessibility": 100,
+    "bestPractices": 75,
+    "seo": 63,
+    "lcpMs": 1051,
+    "cls": 0,
+    "totalBytes": 452586
+  },
+  "a11yFailures": []
+}
