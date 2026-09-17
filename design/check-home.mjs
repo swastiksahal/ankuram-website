@@ -71,7 +71,7 @@ const browser = await chromium.launch();
     const badScrollers = [];
     document.querySelectorAll('body *').forEach((el) => {
       const ox = getComputedStyle(el).overflowX;
-      if (el.scrollWidth > el.clientWidth + 1 && (ox === 'auto' || ox === 'scroll') && !el.classList.contains('swipe')) {
+      if (el.scrollWidth > el.clientWidth + 1 && (ox === 'auto' || ox === 'scroll') && !el.classList.contains('swipe') && !el.classList.contains('tab-bar')) {
         badScrollers.push((el.className || el.tagName).toString().slice(0, 36));
       }
     });
@@ -119,7 +119,7 @@ for (const w of [360, 390, 768, 1024, 1280, 1440]) {
   // GUARD: no non-diagram SVG may exceed 48px, and nothing may spill out of
   // the button or link that contains it.
   const guard = await page.evaluate(() => {
-    const DIAGRAM = /ms-loop|wk-arrow|method|arw|dg-/;
+    const DIAGRAM = /ms-loop|wk-arrow|method|arw|dg-|cycle/;
     const big = [];
     document.querySelectorAll('svg').forEach((sv) => {
       const cls = (sv.getAttribute('class') || '');

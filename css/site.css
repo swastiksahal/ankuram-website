@@ -677,3 +677,191 @@
 .v2 .reviews-rating .rating-num { font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; }
 .v2 .reviews-rating .rating-stars { color: var(--gold); letter-spacing: 2px; font-size: 1.1rem; }
 .v2 .reviews-rating .rc { font-size: 15px; font-weight: 700; color: var(--ink); }
+
+/* ===========================================================================
+   LOWER-PAGE REDESIGN (17 Sep) — same language as the hero and the week
+   section: blue ink, inline SVG icons, rounded cards, numbered badges.
+   ========================================================================= */
+
+.v2 .sub-head { margin: var(--s7) 0 var(--s4); font-size: var(--t-xl); }
+
+/* ---- highlighted lead paragraph ---- */
+.v2 .lead-block {
+  border-left: 4px solid var(--blue); background: var(--blue-soft);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: var(--s4) var(--s5);
+  margin-bottom: var(--s6);
+}
+.v2 .lead-block p { font-size: 1.15rem; line-height: 1.55; color: var(--blue-deep); max-width: 70ch; margin: 0; }
+
+/* ---- the five-step learning cycle ---- */
+.v2 .cycle {
+  list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(5, 1fr); gap: var(--s4); position: relative;
+}
+.v2 .cycle::before {           /* the track the steps sit on */
+  content: ''; position: absolute; left: 10%; right: 10%; top: 27px;
+  height: 2px; background: var(--blue-line);
+}
+.v2 .cycle-step { position: relative; text-align: center; display: grid; justify-items: center; gap: 6px; }
+.v2 .cycle-step::after {       /* arrow between steps */
+  content: ''; position: absolute; top: 22px; right: calc(-1 * var(--s4) / 2 - 4px);
+  width: 9px; height: 9px; border-top: 2px solid var(--blue); border-right: 2px solid var(--blue);
+  transform: rotate(45deg);
+}
+.v2 .cycle-step:last-child::after { display: none; }
+.v2 .cycle-badge {
+  width: 54px; height: 54px; border-radius: 50%; background: var(--blue); color: #fff;
+  display: grid; place-items: center; font-family: var(--mono); font-weight: 700;
+  font-size: 1.1rem; position: relative; z-index: 1; border: 4px solid var(--sheet);
+}
+.v2 .cycle-icon { display: grid; place-items: center; width: 34px; height: 34px; }
+.v2 .cycle-icon svg { width: 26px; height: 26px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .cycle-title { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: var(--t-base); }
+.v2 .cycle-step p:not(.cycle-title) { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.45; }
+.v2 .cycle-loop { display: block; width: 100%; height: 40px; margin-top: var(--s2); fill: none; stroke: var(--blue-line); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- CSS-only grade tabs ---- */
+.v2 .tabs { display: grid; gap: var(--s4); }
+.v2 .tab-bar { display: flex; flex-wrap: wrap; gap: 10px; }
+.v2 .tab-input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.v2 .tab-label {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: 10px 20px; border-radius: 999px; border: 1px solid var(--blue);
+  color: var(--blue); font-weight: 700; font-size: 15px; cursor: pointer; white-space: nowrap;
+}
+.v2 #gb-0:checked ~ .tab-bar label[for="gb-0"],
+.v2 #gb-1:checked ~ .tab-bar label[for="gb-1"],
+.v2 #gb-2:checked ~ .tab-bar label[for="gb-2"] { background: var(--blue); color: #fff; }
+.v2 #gb-0:focus-visible ~ .tab-bar label[for="gb-0"],
+.v2 #gb-1:focus-visible ~ .tab-bar label[for="gb-1"],
+.v2 #gb-2:focus-visible ~ .tab-bar label[for="gb-2"] { outline: 3px solid var(--blue); outline-offset: 2px; }
+.v2 .tab-panel { display: none; }
+.v2 #gb-0:checked ~ .tab-panels #gb-panel-0,
+.v2 #gb-1:checked ~ .tab-panels #gb-panel-1,
+.v2 #gb-2:checked ~ .tab-panels #gb-panel-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); }
+.v2 .tab-prose { background: var(--blue-soft); border-radius: var(--radius); padding: var(--s5); }
+.v2 .tab-prose p { margin: 0; max-width: 70ch; color: var(--blue-deep); }
+.v2 .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; align-content: start; }
+.v2 .checklist li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; margin: 0; }
+.v2 .tick-ic { width: 20px; height: 20px; fill: none; stroke: var(--blue); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- board cards ---- */
+.v2 .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+.v2 .board-card {
+  display: grid; align-content: start; gap: var(--s3);
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--s5); transition: transform .15s ease, box-shadow .15s ease;
+}
+.v2 .board-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(20,24,31,.10); }
+.v2 .board-badge {
+  justify-self: start; background: var(--blue); color: #fff; font-weight: 700;
+  font-size: 15px; padding: 6px 14px; border-radius: 999px;
+}
+.v2 .board-2 .board-badge { background: #1F5C4A; }
+.v2 .board-3 .board-badge { background: #6B3FA0; }
+.v2 .board-4 .board-badge { background: #8A4B1F; }
+.v2 .board-5 .board-badge { background: #12294C; }
+.v2 .board-6 .board-badge { background: #0B5563; }
+.v2 .board-desc { margin: 0; font-size: 1.02rem; color: var(--ink); }
+.v2 .board-link {
+  margin-top: auto; align-self: end; justify-self: start; display: inline-flex; align-items: center;
+  min-height: 44px; padding: 8px 16px; border-radius: var(--radius-sm);
+  border: 1px solid var(--blue); color: var(--blue); font-weight: 600; text-decoration: none; font-size: 15px;
+}
+.v2 .board-link:hover { background: var(--blue); color: #fff; }
+
+/* ---- Curricula band ---- */
+.v2 .curricula-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--s6); align-items: start; }
+.v2 .curricula-intro p { max-width: 70ch; }
+.v2 .curr-grid { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
+.v2 .curr-chip {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  padding: 10px 16px; border-radius: 999px; background: var(--blue-soft);
+  border: 1px solid var(--blue-line); color: var(--blue-deep); font-weight: 700;
+  font-size: 15px; text-decoration: none;
+}
+.v2 .curr-chip:hover { background: #D5E2F3; }
+.v2 .curr-chip .chip-ic { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 1.8; }
+.v2 .curr-chip .chip-arrow { width: 15px; height: 15px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- About profile block ---- */
+.v2 .about-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: var(--s6); align-items: start; }
+.v2 .profile-card { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); display: grid; gap: var(--s4); justify-items: start; }
+.v2 .monogram {
+  width: 68px; height: 68px; border-radius: 50%; background: var(--blue); color: #fff;
+  display: grid; place-items: center; font-weight: 700; font-size: 1.5rem; letter-spacing: .06em;
+}
+.v2 .profile-card .stat-band { border: 0; padding: 0; margin: 0; gap: var(--s6); }
+.v2 .credential { margin: 0; font-size: 15px; color: var(--ink-soft); }
+.v2 .cred-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+.v2 .cred-chips li { background: var(--blue-soft); color: var(--blue-deep); border-radius: 999px; padding: 6px 12px; font-size: 15px; font-weight: 600; margin: 0; }
+.v2 .pull-quote { margin: 0 0 var(--s5); border-left: 4px solid var(--blue); padding: var(--s2) 0 var(--s2) var(--s4); }
+.v2 .pull-quote p { margin: 0; font-size: 1.2rem; line-height: 1.5; color: var(--blue-deep); font-weight: 600; max-width: 70ch; }
+.v2 .principles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.v2 .principle { background: var(--blue-soft); border-radius: var(--radius); padding: var(--s4); display: grid; gap: 6px; align-content: start; }
+.v2 .principle-icon { display: grid; place-items: center; width: 34px; height: 34px; background: var(--sheet); border-radius: 8px; }
+.v2 .principle-icon svg { width: 20px; height: 20px; stroke: var(--blue); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .principle h3 { margin: 0; color: var(--blue-deep); font-size: var(--t-base); }
+.v2 .principle p { margin: 0; font-size: 15px; }
+.v2 .about-note { margin: var(--s4) 0 0; font-size: 15px; color: var(--ink-soft); font-style: italic; }
+
+/* ---- Diagnostic Test ---- */
+.v2 .diag-head { display: flex; align-items: baseline; gap: var(--s4); flex-wrap: wrap; }
+.v2 .diag-price { margin: 0 0 .5em; font-weight: 700; color: var(--blue); background: var(--blue-soft); padding: 6px 14px; border-radius: 999px; font-size: 15px; }
+.v2 .diag-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); }
+.v2 .diag-prose { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .diag-prose h3 { margin-top: 0; }
+.v2 .book-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--s5); align-items: start; }
+.v2 .book-steps { list-style: none; margin: 0; padding: 0; counter-reset: bk; display: grid; gap: var(--s3); }
+.v2 .book-steps li { display: grid; grid-template-columns: 38px 1fr; gap: var(--s3); align-items: center; counter-increment: bk; margin: 0; }
+.v2 .book-steps li::before {
+  content: counter(bk); width: 38px; height: 38px; border-radius: 50%; background: var(--blue);
+  color: #fff; display: grid; place-items: center; font-family: var(--mono); font-weight: 700;
+}
+.v2 .pay-card { background: var(--blue-soft); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: var(--s5); display: grid; gap: var(--s3); justify-items: start; }
+.v2 .pay-card p { margin: 0; }
+.v2 .pay-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---- FAQ single column ---- */
+.v2 .sec-details .accordion { max-width: 760px; margin: 0 auto; }
+.v2 .sec-details .sec-head { max-width: 760px; margin: 0 auto; }
+
+/* ---- footer columns ---- */
+.v2 .site-footer .wrap { display: grid; gap: var(--s5); }
+
+@media (max-width: 900px) {
+  .v2 .boards { grid-template-columns: 1fr 1fr; }
+  .v2 .curricula-band, .v2 .about-grid, .v2 .diag-cols, .v2 .book-grid { grid-template-columns: 1fr; gap: var(--s5); }
+  .v2 #gb-0:checked ~ .tab-panels #gb-panel-0,
+  .v2 #gb-1:checked ~ .tab-panels #gb-panel-1,
+  .v2 #gb-2:checked ~ .tab-panels #gb-panel-2 { grid-template-columns: 1fr; gap: var(--s4); }
+}
+
+@media (max-width: 600px) {
+  .v2 .sub-head { margin: var(--s5) 0 var(--s3); font-size: var(--t-lg); }
+  .v2 .lead-block { padding: var(--s3) var(--s4); margin-bottom: var(--s5); }
+  .v2 .lead-block p { font-size: 17px; }
+
+  /* cycle becomes a vertical timeline: line down the left, badges on it */
+  .v2 .cycle { grid-template-columns: 1fr; gap: 0; padding-left: 0; }
+  .v2 .cycle::before { left: 26px; right: auto; top: 10px; bottom: 10px; width: 2px; height: auto; }
+  .v2 .cycle-step { grid-template-columns: 54px 1fr; justify-items: start; text-align: left; gap: 4px var(--s4); padding-bottom: var(--s5); }
+  .v2 .cycle-step::after { display: none; }
+  .v2 .cycle-badge { grid-row: 1 / span 3; width: 54px; height: 54px; align-self: start; }
+  .v2 .cycle-icon { grid-column: 2; }
+  .v2 .cycle-title { grid-column: 2; }
+  .v2 .cycle-step p:not(.cycle-title) { grid-column: 2; font-size: 15px; }
+  .v2 .cycle-loop { display: none; }
+
+  .v2 .tab-bar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .v2 .tab-bar::-webkit-scrollbar { display: none; }
+  .v2 .tab-label { padding: 10px 16px; }
+  .v2 .tab-prose { padding: var(--s4); }
+  .v2 .boards { grid-template-columns: 1fr; }
+  .v2 .board-card { padding: var(--s4); }
+  .v2 .board-desc { font-size: 15px; }
+  .v2 .principles { grid-template-columns: 1fr; }
+  .v2 .profile-card { padding: var(--s4); }
+  .v2 .pull-quote p { font-size: 17px; }
+  .v2 .diag-prose, .v2 .pay-card { padding: var(--s4); }
+}

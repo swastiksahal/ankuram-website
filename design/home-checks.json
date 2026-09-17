@@ -4,32 +4,32 @@
     {
       "width": 360,
       "overflow": 0,
-      "height": 12512
+      "height": 15950
     },
     {
       "width": 390,
       "overflow": 0,
-      "height": 11796
+      "height": 15208
     },
     {
       "width": 768,
       "overflow": 0,
-      "height": 17437
+      "height": 16105
     },
     {
       "width": 1024,
       "overflow": 0,
-      "height": 16008
+      "height": 13667
     },
     {
       "width": 1280,
       "overflow": 0,
-      "height": 15521
+      "height": 13196
     },
     {
       "width": 1440,
       "overflow": 0,
-      "height": 15521
+      "height": 13196
     }
   ],
   "rows": [
@@ -66,20 +66,16 @@
       "h": 368
     },
     {
-      "name": "How We Teach at ANKURAM",
-      "h": 992
-    },
-    {
       "name": "Curricula We Support",
-      "h": 343
+      "h": 481
     },
     {
       "name": "About ANKURAM",
-      "h": 722
+      "h": 1299
     },
     {
-      "name": "Get in Touch",
-      "h": 1837
+      "name": "How We Teach at ANKURAM",
+      "h": 2374
     },
     {
       "name": "Reviews",
@@ -95,7 +91,11 @@
     },
     {
       "name": "Diagnostic Test",
-      "h": 505
+      "h": 1644
+    },
+    {
+      "name": "Get in Touch",
+      "h": 1837
     },
     {
       "name": "Book Diagnostic Test",
@@ -103,23 +103,15 @@
     },
     {
       "name": "footer",
-      "h": 754
+      "h": 932
     }
   ],
-  "total": 11796,
+  "total": 15208,
   "minFont": 15,
   "minSel": "SUMMARY:Menu",
   "smallTaps": [],
   "badScrollers": [],
   "swipes": [
-    {
-      "scrollable": true,
-      "cardPct": 78
-    },
-    {
-      "scrollable": true,
-      "cardPct": 78
-    },
     {
       "scrollable": true,
       "cardPct": 78
@@ -149,21 +141,21 @@
   "faqAnswers": 23,
   "faqClosed": true,
   "imgs": 0,
-  "screens": 14,
+  "screens": 19,
   "svgGuard": [],
   "contrastGuard": [],
   "lighthouse": {
     "performance": 97,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1802,
-    "totalBytes": 538532
+    "lcpMs": 1801,
+    "totalBytes": 560940
   },
   "a11yFailures": [],
   "lighthouseDesktop": {
     "performance": 100,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 401
+    "lcpMs": 454
   }
 }

@@ -116,3 +116,12 @@ A15 REVIEWS BLOCK (supervisor, 17 Sep; the live widget is broken — /api/google
 - A15 wording: one button, "Read our reviews on Google", linking to the Google Maps reviews URL already on the page (the href that sat behind "See our Google reviews →").
 - loadGoogleReviews() is prevented from running by js/contact-whatsapp.js. script.js is NOT edited.
 - id="reviews" is kept. JSON-LD stays byte-identical.
+
+A16 SECTION ORDER (supervisor, 17 Sep). The homepage runs in this order, enforced by an explicit list in the builder which throws if any section is left unplaced:
+  hero · Why Choose Ankuram Tuition Centre? · Subjects We Teach · How a week works · Find Your Program · How We Work · What We Offer · Curricula We Support · About ANKURAM · How We Teach at ANKURAM · Reviews · Students From Across Hyderabad (closed details) · Frequently Asked Questions · Diagnostic Test · Get in Touch · Book Diagnostic Test · footer
+No wording changes; this is ordering only.
+
+A17 ABOUT PROFILE BLOCK (supervisor, 17 Sep). Presentation additions in the About section:
+- A monogram circle reading "SS". No photograph (A9).
+- Three credential chips: "MSc Physics", "BE Mechanical Engineering", "Former Amazon software engineer". These are presentation only and repeat wording already in the credential sentence, which stays in full and unchanged.
+- The stat pair 13+ / Years Teaching and 3-5 / Students per Batch is shown as large numerals with small labels. Existing wording.

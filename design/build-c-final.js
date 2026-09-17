@@ -135,6 +135,12 @@ const ICONS = {
   revise: svg('<path d="M27 16 a11 11 0 1 1 -3.5 -8"/><polyline points="27,4 27,9 22,9"/><line x1="16" y1="10" x2="16" y2="17"/><line x1="16" y1="17" x2="21" y2="19"/>'),
   // D1 chip marks: a laptop for online, a building for the centre
   laptop: svg('<rect x="6" y="7" width="20" height="14" rx="2"/><line x1="3" y1="25" x2="29" y2="25"/>', 'chip-ic', 15),
+  magnifier: svg('<circle cx="14" cy="14" r="8"/><line x1="20" y1="20" x2="27" y2="27"/>'),
+  people: svg('<circle cx="11" cy="11" r="4"/><circle cx="22" cy="12" r="3.4"/><path d="M4 27c0-4 3.2-7 7-7s7 3 7 7"/><path d="M19 27c0-3.3 2.4-6 5.5-6 2.1 0 3.9 1.2 4.8 3"/>'),
+  pencil: svg('<path d="M22 5l5 5-14 14-6.5 1.5L8 19z"/><line x1="19" y1="8" x2="24" y2="13"/>'),
+  tick: svg('<polyline points="7,17 13,23 25,9"/>', 'tick-ic', 18),
+  book: svg('<path d="M6 6h9a4 4 0 0 1 4 4v16a3.4 3.4 0 0 0-3.4-3H6z"/><path d="M26 6h-9a4 4 0 0 0-4 4v16a3.4 3.4 0 0 1 3.4-3H26z"/>', 'chip-ic', 16),
+  arrowR: svg('<line x1="6" y1="16" x2="24" y2="16"/><polyline points="18,10 25,16 18,22"/>', 'chip-arrow', 16),
   building: svg('<rect x="7" y="6" width="18" height="21" rx="1.5"/><line x1="12" y1="12" x2="12" y2="12.5"/><line x1="16" y1="12" x2="16" y2="12.5"/><line x1="20" y1="12" x2="20" y2="12.5"/><line x1="12" y1="17" x2="12" y2="17.5"/><line x1="16" y1="17" x2="16" y2="17.5"/><line x1="20" y1="17" x2="20" y2="17.5"/><rect x="14" y="21" width="4" height="6"/>', 'chip-ic', 15),
 };
 
@@ -296,6 +302,225 @@ const L = {
   panel: (t) => `<div class="panel">${t.map((n) => `<div class="panel-item">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
 };
 
+
+// ===================== redesigned lower sections (17 Sep) =====================
+// Same visual language as the hero and "How a week works": blue ink, inline
+// SVG icons, rounded cards, numbered badges. No wording changes.
+
+const A17 = { monogram: 'SS', chips: ['MSc Physics', 'BE Mechanical Engineering', 'Former Amazon software engineer'] };
+
+/** Split a section's blocks at its h3 boundaries. */
+function groupsByH3(blocks) {
+  const lead = []; const groups = []; let g = null; let pendingNum = null;
+  for (const b of blocks) {
+    if (b.t === 'h2') continue;
+    // A bare numeral belongs to the heading that FOLLOWS it. Left in place it
+    // falls into the previous group's body and the number renders twice.
+    if ((b.t === 'text' || b.t === 'p') && /^\d{1,2}$/.test(String(b.v || '').trim())) { pendingNum = String(b.v).trim(); continue; }
+    if (b.t === 'h3') { g = { head: b.v, num: pendingNum, blocks: [] }; pendingNum = null; groups.push(g); continue; }
+    (g ? g.blocks : lead).push(b);
+  }
+  return { lead, groups };
+}
+
+function howWeTeachSection(sec) {
+  const h2 = sec.blocks.find((b) => b.t === 'h2').v;
+  const { lead, groups } = groupsByH3(sec.blocks);
+
+  // --- (a) lead block -------------------------------------------------
+  const intro = lead.filter((b) => b.t === 'p' && !isDecoration(b.v));
+
+  // --- (b) the five-step cycle ---------------------------------------
+  // The numbered text nodes sit before each h3, so the cycle steps are the
+  // first five h3 groups.
+  const CYCLE_ICONS = [ICONS.magnifier, ICONS.board, ICONS.people, ICONS.pencil, ICONS.revise];
+  const cycle = groups.slice(0, 5);
+  const cycleHtml = `
+    <ol class="cycle">
+      ${cycle.map((g, i) => `
+      <li class="cycle-step">
+        <span class="cycle-badge">${esc(g.num || String(i + 1))}</span>
+        <span class="cycle-icon">${CYCLE_ICONS[i]}</span>
+        <p class="cycle-title">${esc(g.head)}</p>
+        ${renderBody(g.blocks)}
+      </li>`).join('')}
+    </ol>
+    <svg class="cycle-loop" viewBox="0 0 900 40" preserveAspectRatio="none" width="900" height="40" role="img" aria-label="Step five feeds back into step two.">
+      <path d="M840 4 L840 24 Q840 32 830 32 L200 32 Q190 32 190 24 L190 10"/>
+      <polyline points="184,16 190,6 196,16"/>
+    </svg>`;
+
+  // --- (c) grade tabs, CSS only ---------------------------------------
+  const gradeGroup = groups.find((g) => /Grade.wise approach/.test(g.head));
+  const tabButtons = gradeGroup.blocks.filter((b) => b.t === 'button').map((b) => b.v);
+  const paras = gradeGroup.blocks.filter((b) => b.t === 'p' && !isDecoration(b.v));
+  const lists = gradeGroup.blocks.filter((b) => b.t === 'ul');
+  // The radios must be SIBLINGS of .tab-panels: the ~ combinator cannot reach
+  // out of .tab-bar. Labels bind by `for`, so they can live anywhere.
+  const tabs = `
+    <div class="tabs">
+      ${tabButtons.map((t, i) => `<input class="tab-input" type="radio" name="grade-band" id="gb-${i}"${i === 0 ? ' checked' : ''} aria-label="${esc(t)}">`).join('')}
+      <div class="tab-bar">
+        ${tabButtons.map((t, i) => `<label class="tab-label" for="gb-${i}">${esc(t)}</label>`).join('')}
+      </div>
+      <div class="tab-panels">
+        ${tabButtons.map((t, i) => `
+        <div class="tab-panel" id="gb-panel-${i}">
+          <div class="tab-prose">${paras[i] ? `<p>${esc(paras[i].v)}</p>` : ''}</div>
+          <ul class="checklist">${(lists[i] ? lists[i].items : []).map((x) => `<li>${ICONS.tick}<span>${esc(x)}</span></li>`).join('')}</ul>
+        </div>`).join('')}
+      </div>
+    </div>`;
+
+  // --- (d) board cards -------------------------------------------------
+  const boardGroup = groups.find((g) => /Curriculum.specific/.test(g.head));
+  const cards = [];
+  let cur = null;
+  for (const b of boardGroup.blocks) {
+    if (b.t === 'h4') { cur = { name: b.v, desc: '', href: '#', link: '' }; cards.push(cur); continue; }
+    if (!cur) continue;
+    if (b.t === 'p') cur.desc = b.v;
+    if (b.t === 'link') { cur.link = b.v; cur.href = b.href || '#'; }
+  }
+  const boardHtml = `
+    <div class="boards">
+      ${cards.map((c, i) => `
+      <article class="board-card board-${i + 1}">
+        <span class="board-badge">${esc(c.name)}</span>
+        <p class="board-desc">${esc(c.desc)}</p>
+        <a class="board-link" href="${esc(c.href)}">${esc(c.link)}</a>
+      </article>`).join('')}
+    </div>`;
+
+  return `
+<section class="sec sec-teach" id="how-we-teach">
+  <div class="wrap">
+    <h2>${esc(h2)}</h2>
+    <div class="lead-block">${intro.map((b) => `<p>${esc(b.v)}</p>`).join('')}</div>
+    ${cycleHtml}
+    <h3 class="sub-head">${esc(gradeGroup.head)}</h3>
+    ${tabs}
+    <h3 class="sub-head">${esc(boardGroup.head)}</h3>
+    ${boardHtml}
+  </div>
+</section>`;
+}
+
+function curriculaSection(sec) {
+  const h2 = sec.blocks.find((b) => b.t === 'h2').v;
+  const intro = sec.blocks.filter((b) => (b.t === 'p' || b.t === 'text') && !isDecoration(b.v));
+  const links = sec.blocks.filter((b) => b.t === 'link');
+  return `
+<section class="sec sec-curricula" id="curricula">
+  <div class="wrap curricula-band">
+    <div class="curricula-intro">
+      <h2>${esc(h2)}</h2>
+      ${intro.map((b) => `<p>${esc(b.v)}</p>`).join('')}
+    </div>
+    <div class="curr-grid">
+      ${links.map((l) => `<a class="curr-chip" href="${esc(l.href || '#')}">${ICONS.book}<span>${esc(l.v)}</span>${ICONS.arrowR}</a>`).join('')}
+    </div>
+  </div>
+</section>`;
+}
+
+function aboutSection(sec) {
+  const h2 = sec.blocks.find((b) => b.t === 'h2').v;
+  const rest = sec.blocks.filter((b) => b.t !== 'h2');
+  const statText = rest.filter((b) => b.t === 'text').slice(0, 4).map((b) => b.v);
+  const paras = rest.filter((b) => b.t === 'p');
+  const quote = paras[0];
+  const credential = paras[1];
+  const oneOnOne = paras[paras.length - 1];
+
+  const principles = [];
+  let cur = null;
+  for (const b of rest) {
+    if (b.t === 'h4') { cur = { head: b.v, desc: '' }; principles.push(cur); continue; }
+    if (cur && b.t === 'p' && !cur.desc && b !== oneOnOne) cur.desc = b.v;
+  }
+  const PICONS = [ICONS.magnifier, ICONS.pencil, ICONS.blocks, ICONS.people];
+
+  return `
+<section class="sec sec-about" id="about">
+  <div class="wrap">
+    <h2>${esc(h2)}</h2>
+    <div class="about-grid">
+      <aside class="profile-card">
+        <span class="monogram" aria-hidden="true">${esc(A17.monogram)}</span>
+        <ul class="stat-band">
+          <li class="stat"><span class="stat-num">${esc(statText[0])}</span><span class="stat-label">${esc(statText[1])}</span></li>
+          <li class="stat"><span class="stat-num">${esc(statText[2])}</span><span class="stat-label">${esc(statText[3])}</span></li>
+        </ul>
+        <p class="credential">${esc(credential.v)}</p>
+        <ul class="cred-chips" aria-hidden="true">${A17.chips.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+      </aside>
+      <div class="about-main">
+        <blockquote class="pull-quote"><p>${esc(quote.v)}</p></blockquote>
+        <div class="principles">
+          ${principles.map((pr, i) => `
+          <article class="principle">
+            <span class="principle-icon">${PICONS[i % PICONS.length]}</span>
+            <h3>${esc(pr.head)}</h3>
+            <p>${esc(pr.desc)}</p>
+          </article>`).join('')}
+        </div>
+        <p class="about-note">${esc(oneOnOne.v)}</p>
+      </div>
+    </div>
+  </div>
+</section>`;
+}
+
+function diagnosticSection(sec) {
+  const h2 = sec.blocks.find((b) => b.t === 'h2').v;
+  const { lead, groups } = groupsByH3(sec.blocks);
+  const price = lead.filter((b) => !isDecoration(b.v));
+  const gBy = (re) => groups.find((g) => re.test(g.head));
+  const gWhat = gBy(/What is the/), gAfter = gBy(/What happens after/), gDetails = gBy(/Test Details/), gBook = gBy(/How to Book/);
+
+  const detailRows = [];
+  const dt = gDetails.blocks.filter((b) => b.t === 'text' || b.t === 'p');
+  for (let i = 0; i + 1 < dt.length; i += 2) detailRows.push([dt[i].v, dt[i + 1].v]);
+
+  const steps = (gBook.blocks.find((b) => b.t === 'ul') || { items: [] }).items;
+  const payLines = gBook.blocks.filter((b) => (b.t === 'p' || b.t === 'text') && !isDecoration(b.v));
+  const payBtn = gBook.blocks.find((b) => b.t === 'button');
+  const payLinks = gBook.blocks.filter((b) => b.t === 'link');
+
+  const prose = (g) => `<div class="diag-prose"><h3>${esc(g.head)}</h3>${renderBody(g.blocks)}</div>`;
+
+  return `
+<section class="sec sec-diagnostic" id="diagnostic-test">
+  <div class="wrap">
+    <div class="diag-head">
+      <h2>${esc(h2)}</h2>
+      ${price.map((b) => `<p class="diag-price">${esc(b.v)}</p>`).join('')}
+    </div>
+    <div class="diag-cols">${prose(gWhat)}${prose(gAfter)}</div>
+
+    <h3 class="sub-head">${esc(gDetails.head)}</h3>
+    <div class="table-wrap">
+      <table class="deftable"><tbody>
+        ${detailRows.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}
+      </tbody></table>
+    </div>
+
+    <h3 class="sub-head">${esc(gBook.head)}</h3>
+    <div class="book-grid">
+      <ol class="book-steps">
+        ${steps.map((t) => `<li><span>${esc(t)}</span></li>`).join('')}
+      </ol>
+      <aside class="pay-card">
+        ${payLines.map((b) => `<p>${esc(b.v)}</p>`).join('')}
+        ${payBtn ? `<span class="pseudo-btn">${esc(payBtn.v)}</span>` : ''}
+        <div class="pay-links">${payLinks.map((l, i) => `<a class="btn ${i === 0 ? 'btn-primary' : 'btn-ghost'}" href="${esc(l.href || '#')}">${esc(l.v)}</a>`).join('')}</div>
+      </aside>
+    </div>
+  </div>
+</section>`;
+}
+
 // ------------------------------------------- split the hybrid section (A11)
 const hybridIdx = C.sections.findIndex((s) => /hybrid-section/.test(s.cls));
 if (hybridIdx < 0) throw new Error('hybrid section not found');
@@ -363,14 +588,6 @@ const areasDetails = () => `
 </section>`;
 
 // --------------------------------------------------------- remaining sections
-const REST = C.sections.filter((_, i) => i !== hybridIdx);
-const PLAN = ['numbered', 'cards', 'table', 'numbered', 'panel', 'rows', 'cards', 'prose', 'panel', 'cards', 'details', 'rows'];
-if (PLAN.length !== REST.length) throw new Error(`plan covers ${PLAN.length} of ${REST.length} sections`);
-for (let i = 1; i < PLAN.length; i++) if (PLAN[i] === PLAN[i - 1]) throw new Error(`sections ${i} and ${i + 1} share layout`);
-
-const faqIdx = REST.findIndex((s) => /faq-section/.test(s.cls));
-if (faqIdx < 0) throw new Error('faq section not found');
-
 // The carried-over live markup contains inline SVGs with only a viewBox.
 // Give every one of them explicit width/height so nothing can fall back to
 // the 300x150 default if a CSS rule ever misses.
@@ -380,51 +597,55 @@ const sizeRawSvgs = (html) => html.replace(/<svg\b([^>]*)>/g, (tag, attrs) => {
 });
 const RAW = Object.fromEntries(Object.entries(C.rawSections).map(([k, v]) => [k, sizeRawSvgs(v)]));
 
-/** A13: drop the one FAQ pair whose question AND answer are both exact repeats. */
-function dedupeFaq(blocks) {
-  const out = [];
-  const seen = new Set();
-  let curKey = null, buf = [];
-  const flush = () => {
-    if (!buf.length) return;
-    if (!seen.has(curKey)) { seen.add(curKey); out.push(...buf); }
-    else droppedFaq.push(buf.map((b) => b.v).join(' | '));
-    buf = [];
-  };
-  for (const b of blocks) {
-    if (b.t === 'h3') { flush(); buf = [b]; curKey = null; continue; }
-    if (!buf.length) { out.push(b); continue; }
-    buf.push(b);
-    curKey = buf.map((x) => x.v).join('||');
-  }
-  flush();
-  return out;
-}
-const droppedFaq = [];
+// ------------------------------- A16: explicit section order ---------------
+// Order agreed 17 Sep. Keys match the live section class names; the two
+// pseudo-entries are the built sections.
+const ORDER = [
+  'why-choose-us',
+  'subjects-section',
+  '__week__',
+  'quick-finder',
+  'how-we-work',
+  'what-we-offer',
+  'curricula',
+  'about-section',
+  'how-we-teach',
+  'reviews-section',
+  '__areas__',
+  'faq-section',
+  'modal-overlay',        // Diagnostic Test
+  'contact-section',      // Get in Touch
+];
 
-/** The four leading text nodes of About are a stat band: number + label. */
-function statBand(blocks) {
-  const lead = [];
-  let i = 0;
-  while (i < blocks.length && blocks[i].t === 'text' && lead.length < 4) { lead.push(blocks[i]); i++; }
-  if (lead.length !== 4) return { band: '', rest: blocks };
-  const band = `<ul class="stat-band">` +
-    [[0, 1], [2, 3]].map(([n, l]) =>
-      `<li class="stat"><span class="stat-num">${esc(lead[n].v)}</span><span class="stat-label">${esc(lead[l].v)}</span></li>`).join('') +
-    `</ul>`;
-  return { band, rest: blocks.slice(i) };
-}
+// Layouts for the sections still rendered generically.
+const GENERIC = {
+  'why-choose-us': 'numbered',
+  'subjects-section': 'cards',
+  'how-we-work': 'numbered',
+  'what-we-offer': 'panel',
+  'faq-section': 'details',
+};
+
+const sectionByKey = (key) => C.sections.find((x) => x.cls.includes(key) && !/hybrid-section/.test(x.cls));
 
 function renderRest() {
   const out = [];
-  REST.forEach((sec, i) => {
-    if (i === faqIdx) out.push(areasDetails());      // details sits just above the FAQ
-    // Interactive sections keep the live markup verbatim: real dropdowns, a
-    // real form, and the containers script.js writes reviews into.
-    // A15: the reviews widget is replaced by a heading and one Google link.
-    // The rating itself (4.8, stars, business name, "500+ reviews") lives in
-    // the hero and is untouched.
-    if (sec.cls.includes('reviews-section')) {
+  const used = new Set();
+
+  for (const key of ORDER) {
+    if (key === '__week__') { out.push(weekSection()); continue; }
+    if (key === '__areas__') { out.push(areasDetails()); continue; }
+
+    const sec = sectionByKey(key);
+    if (!sec) throw new Error('section not found for order key: ' + key);
+    used.add(sec);
+
+    if (key === 'curricula') { out.push(curriculaSection(sec)); continue; }
+    if (key === 'about-section') { out.push(aboutSection(sec)); continue; }
+    if (key === 'how-we-teach') { out.push(howWeTeachSection(sec)); continue; }
+    if (key === 'modal-overlay') { out.push(diagnosticSection(sec)); continue; }
+
+    if (key === 'reviews-section') {
       out.push(`
 <section class="sec sec-reviews" id="reviews">
   <div class="wrap">
@@ -437,71 +658,40 @@ function renderRest() {
     <a class="btn btn-primary reviews-cta" href="${esc(C.googleReviewsLink)}" target="_blank" rel="noopener noreferrer">${esc(A15.reviewsButton)}</a>
   </div>
 </section>`);
-      return;
+      continue;
     }
 
     const rawKey = Object.keys(RAW).find((k) => sec.cls.includes(k));
     if (rawKey) {
       let raw = RAW[rawKey];
       if (rawKey === 'contact-section') {
-        // A14: one line under the submit button, inside the live form markup.
         const btn = '<button type="submit" class="btn btn-primary">Send Message</button>';
         if (!raw.includes(btn)) throw new Error('contact submit button markup not found');
         raw = raw.replace(btn, btn + `<p class="form-note">${esc(A14.formNote)}</p>`);
       }
       out.push(raw);
-      if (i === 1) out.push(weekSection());
-      return;
+      continue;
     }
 
+    const layout = GENERIC[key];
+    if (!layout) throw new Error('no layout for ' + key);
     const h2 = (sec.blocks.find((b) => b.t === 'h2') || {}).v || '';
-    let rest = sec.blocks.filter((b) => b.t !== 'h2');
-    // A13 FAQ de-duplication WITHDRAWN 17 Sep: the visible list must match the
-    // FAQPage JSON-LD exactly. Both will be changed together, later.
-
-    if (sec.cls.includes('about-section')) {
-      const { band, rest: after } = statBand(rest);
-      const t2 = tree(after, after.some((b) => b.t === 'h3') ? 'h3' : after.some((b) => b.t === 'h4') ? 'h4' : null);
-      out.push(`
-<section class="sec sec-about" id="about">
-  <div class="wrap">
-    <h2>${esc(h2)}</h2>
-    ${band}
-    ${L.prose(t2)}
-  </div>
-</section>`);
-      return;
-    }
-
-    if (sec.cls.includes('curricula')) {
-      const intro = rest.filter((b) => b.t === 'p' || b.t === 'text').map((b) => `<p>${esc(b.v)}</p>`).join('');
-      const chips = rest.filter((b) => b.t === 'link')
-        .map((b) => `<a class="curr-chip" href="${esc(b.href || '#')}">${esc(b.v)}</a>`).join('');
-      out.push(`
-<section class="sec sec-curricula" id="curricula">
-  <div class="wrap">
-    <h2>${esc(h2)}</h2>
-    ${intro}
-    <div class="curr-grid">${chips}</div>
-  </div>
-</section>`);
-      return;
-    }
-
+    const rest = sec.blocks.filter((b) => b.t !== 'h2');
     const top = rest.some((b) => b.t === 'h3') ? 'h3' : rest.some((b) => b.t === 'h4') ? 'h4' : null;
     const t = top ? tree(rest, top) : [{ head: null, num: null, label: null, body: rest.filter((b) => !(typeof b.v === 'string' && isDecoration(b.v))), subs: [] }];
-    const layout = PLAN[i];
-    // Layouts that produce a row of comparable cards can swipe; prose cannot.
     const swipeable = ['cards', 'panel', 'numbered', 'rows'].includes(layout) && t.length >= SWIPE_MIN;
     out.push(`
-<section class="sec sec-${layout}" id="${esc(sec.id || 'sec-' + (i + 1))}">
+<section class="sec sec-${layout}" id="${esc(sec.id || key)}">
   <div class="wrap">
     ${headLine('h2', h2, swipeable)}
     ${wrapSwipe(L[layout](t), swipeable)}
   </div>
 </section>`);
-    if (i === 1) out.push(weekSection());            // after "Subjects We Teach"
-  });
+  }
+
+  // Nothing may be dropped: every non-hybrid section must be in ORDER.
+  const missing = C.sections.filter((x) => !/hybrid-section/.test(x.cls) && !used.has(x));
+  if (missing.length) throw new Error('sections not placed by ORDER: ' + missing.map((x) => x.cls).join(', '));
   return out.join('\n');
 }
 
@@ -641,7 +831,7 @@ const swipeWords = wc(A11.swipeHint) * swipeRows;            // one hint per swi
 const a11 = wc(A11.sectionTitle) + d1Words + d2Words + swipeWords;
 
 const a12 = wc(A12.footerHeading) + AREAS.reduce((n, a) => n + wc(a.name), 0);
-const faqRemoved = droppedFaq.reduce((n, t) => n + wc(t), 0);   // 0 now: withdrawn
+const faqRemoved = 0;   // A13 FAQ de-duplication withdrawn 17 Sep
 // A15 drops the widget's four strings and adds one button label.
 const reviewsBlocks = (C.sections.find((x) => x.cls.includes('reviews-section')) || { blocks: [] }).blocks;
 const a15Removed = reviewsBlocks.filter((b) => b.t !== 'h2').reduce((n, b) => n + wc(b.v || ''), 0);
@@ -649,14 +839,17 @@ const a15Removed = reviewsBlocks.filter((b) => b.t !== 'h2').reduce((n, b) => n 
 const a15Repeat = wc(C.rating.value) + wc(A13.reviewCount);
 const a15 = wc(A15.reviewsButton) + a15Repeat - a15Removed;
 const a14 = wc(A14.formNote);
+// A17: the monogram and the credential chips (the full sentence stays).
+const a17 = wc(A17.monogram) + A17.chips.reduce((n, c) => n + wc(c), 0);
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15;
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
 console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + ${swipeRows} swipe hints ${swipeWords} = ${a11}`);
 console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
+console.log(`A17: monogram + credential chips +${a17}`);
 console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
 console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
