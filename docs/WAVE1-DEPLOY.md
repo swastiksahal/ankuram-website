@@ -1,7 +1,11 @@
-# WAVE 1 — homepage deploy plan
+# WAVE 1 — homepage deploy
 
-**Status: NOT RUN. Written as a plan only. Nothing in this document has been
-executed. It needs Swastik's explicit OK in the session that runs it.**
+**Status: EXECUTED 18 Sep 2026, on Swastik's explicit approval. Steps 0–6 ran in
+order, plus three additional verifications. No rollback was needed. The actual
+output of every step is recorded in "Execution record" at the foot of this file.**
+
+Backup taken before the deploy:
+`~/backups/public_html-pre-wave1-20260918-101018.tar.gz` (1.5M, 190 entries).
 
 Wave 1 replaces one page: the homepage. It uploads three files and creates two
 directories. It changes no URL, no redirect, no `.htaccess`, no `robots.txt` and
@@ -11,10 +15,15 @@ no `sitemap.xml`.
 
 ## What ships
 
+These are the A20 hashes, as actually deployed and as verified on the server in
+step 5. (An earlier revision of this file carried the A19 hashes for
+`index.html` and `site.css`; A20 changed both. `contact-whatsapp.js` is
+unchanged by A20 and its hash is the same in both revisions.)
+
 | local file | remote path | size | sha256 |
 |---|---|---|---|
-| `build/production/index.html` | `public_html/index.html` | 100859 B | `6be7102c7dae750e5e9af1f84f165656c5a60513dfedf3b0779c5dd01a814d69` |
-| `build/production/css/site.css` | `public_html/css/site.css` | 59865 B | `dbce86e7b56ed63d5a81582820b5a82d22bccece64beb7cd9d4f440f1690e0f3` |
+| `build/production/index.html` | `public_html/index.html` | 101559 B | `34e1f1f1e86fe0ddb7f421a941ad432d8c403fdd8c1b70f617422cf41db969cc` |
+| `build/production/css/site.css` | `public_html/css/site.css` | 60552 B | `451d14a591a3c39ca50bb3d1b9b3df5fb16cce80a453997c79bddbea92575949` |
 | `build/production/js/contact-whatsapp.js` | `public_html/js/contact-whatsapp.js` | 5242 B | `8194ecd351ce7ba6815014c267a5949cf444219d5d84b13d197bbfae93eb0981` |
 
 `public_html/css/` and `public_html/js/` do not exist on the server yet. Both are
@@ -129,7 +138,7 @@ The CDN caches, so HTTP proves nothing until the cache is cleared.
 ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE/public_html && \
   echo '--- the three files:' && ls -l index.html css/site.css js/contact-whatsapp.js && \
   echo '--- sha256 (must match the table at the top):' && sha256sum index.html css/site.css js/contact-whatsapp.js && \
-  echo '--- tracking, must be 1 1 1:' && \
+  echo '--- tracking, must be 1 then 2 then 1:' && \
   grep -c uir8kpny76 index.html && grep -c G-MQRSS8DKLE index.html && grep -c jucWCNPv3OAbEPOvruco index.html && \
   echo '--- robots meta, must be index, follow:' && grep -o '<meta name=\"robots\"[^>]*>' index.html && \
   echo '--- must print NOTHING:' && (grep -n 'noindex\|STAGING ONLY\|G-KHP2PBXF6X\|G-MQRSS8DKKE' index.html || echo 'clean') && \
@@ -138,6 +147,10 @@ ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE/public_html && \
 ```
 
 Every one of those must be as described before moving on.
+
+`G-MQRSS8DKLE` legitimately appears **twice**: once in the gtag loader URL and
+once in `gtag('config', …)`. The builder guard asserts exactly 2 and head-parity
+confirms 2. Only Clarity and the WhatsApp label must be exactly 1.
 
 ---
 
@@ -150,7 +163,7 @@ ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE/public_html && sha256sum .htaccess robots.tx
 `.htaccess`, `robots.txt`, `sitemap.xml`, `styles.css` and `script.js` must be
 **byte-identical to step 1**. `index.html` is the only file whose hash changes,
 and it must now equal
-`6be7102c7dae750e5e9af1f84f165656c5a60513dfedf3b0779c5dd01a814d69`.
+`34e1f1f1e86fe0ddb7f421a941ad432d8c403fdd8c1b70f617422cf41db969cc`.
 
 Then Swastik clears the Hostinger cache (hPanel → Clear cache), and only after
 that:
@@ -207,3 +220,165 @@ ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE && tar -xzf \$(ls -t ~/backups/public_html-p
   that was dropped in the rebuild and restored under A19; it is worth checking
   first.
 - Search Console — the homepage is a Tier A URL. Watch impressions for a week.
+
+---
+
+# Execution record — 18 September 2026
+
+Run on Swastik's explicit approval. One step at a time, real output quoted.
+
+## Step 0 — local checks, ALL PASS
+
+- `diff build/staging/index.html build/production/index.html` → only the two
+  robots lines (`9,10c9`).
+- `scripts/parity.js build/production/index.html` → **ALL PASS**, word count
+  3464 vs live 3226 = **107.4%**, baseline strings **427/432**, six anchor ids.
+- `scripts/head-parity.js` → **ALL PASS**, including every live h2 and h3
+  present as a heading, 50/50 live h3 at h3.
+- `grep -c uir8kpny76 build/production/index.html` → **1**.
+- `design/check-production.mjs` → overflow **0** at 360/390/768/1024/1280/1440;
+  Lighthouse mobile perf 95 / a11y 100 / BP 79 / SEO 100 / CLS 0, desktop
+  100 / 100 / 78 / 100 / CLS 0.
+
+## Step 1 — live fingerprint BEFORE
+
+```
+4587cf66071257971ed49b2fabc0b9ae380bcd1f9e7feccf9c21197f59ae17db  .htaccess
+43ed0d0e71b037ff80f0aa299b8a15c0f60724f1cdb7064d19b129052fffe329  robots.txt
+6d9d9940d77d471e4269276c843356fc85f15dbda2e8cafe0d9c5d7158a31c6b  sitemap.xml
+a391e670f359c24f0a2df62d3882608ee2918ff46c2e214d44afe2aeb118d84b  index.html
+c75ae294e9f8da3581da4a3bf52a5a09307e2f77be1cb279ae3f28b4832043c2  styles.css
+1bf4f312561dc7917a432deb1d6675cf485f512be184e5d1b5106833a142a364  script.js
+```
+
+`index.html` matched the expected pre-deploy hash exactly.
+
+## Step 2 — backup
+
+```
+-rw-r--r-- 1 u879191658 o1008120454 1.5M Sep 18 10:10 /home/u879191658/backups/public_html-pre-wave1-20260918-101018.tar.gz
+```
+
+Archive verified readable: `tar -tzf … public_html/index.html` listed
+`public_html/index.html`; 190 entries total.
+
+## Step 3 — directories created
+
+```
+drwxr-xr-x 2 u879191658 o1008120454 4096 Sep 18 10:10 css
+drwxr-xr-x 2 u879191658 o1008120454 4096 Sep 18 10:10 js
+```
+
+## Step 4 — upload
+
+Three separate rsyncs, `--checksum`, no `--delete`, `index.html` last.
+60552 B, 5242 B, 101559 B transferred.
+
+## Step 5 — server-side verification
+
+```
+-rw-r--r-- 1 u879191658 o1008120454  60552 Sep 18 10:09 css/site.css
+-rw-r--r-- 1 u879191658 o1008120454 101559 Sep 18 10:09 index.html
+-rw-r--r-- 1 u879191658 o1008120454   5242 Sep 18 10:09 js/contact-whatsapp.js
+
+34e1f1f1e86fe0ddb7f421a941ad432d8c403fdd8c1b70f617422cf41db969cc  index.html
+451d14a591a3c39ca50bb3d1b9b3df5fb16cce80a453997c79bddbea92575949  css/site.css
+8194ecd351ce7ba6815014c267a5949cf444219d5d84b13d197bbfae93eb0981  js/contact-whatsapp.js
+```
+
+All three identical to the local `build/production` files. Tracking counts
+1 / 2 / 1 as expected. Robots meta `<meta name="robots" content="index, follow">`.
+The forbidden-string grep printed `clean`. All six anchor ids present.
+`styles.css` (Aug 28 15:15) and `script.js` (Jun 17 11:26) kept their original
+timestamps — untouched.
+
+## Step 6 — live fingerprint AFTER
+
+```
+4587cf66071257971ed49b2fabc0b9ae380bcd1f9e7feccf9c21197f59ae17db  .htaccess     unchanged
+43ed0d0e71b037ff80f0aa299b8a15c0f60724f1cdb7064d19b129052fffe329  robots.txt    unchanged
+6d9d9940d77d471e4269276c843356fc85f15dbda2e8cafe0d9c5d7158a31c6b  sitemap.xml   unchanged
+c75ae294e9f8da3581da4a3bf52a5a09307e2f77be1cb279ae3f28b4832043c2  styles.css    unchanged
+1bf4f312561dc7917a432deb1d6675cf485f512be184e5d1b5106833a142a364  script.js     unchanged
+34e1f1f1e86fe0ddb7f421a941ad432d8c403fdd8c1b70f617422cf41db969cc  index.html    THE ONLY CHANGE
+```
+
+No Hostinger cache clear was needed: the CDN served the new file immediately.
+`curl https://ankuramtuition.com/ | sha256sum` returned `34e1f1f1…`, matching the
+deployed build. `/css/site.css` and `/js/contact-whatsapp.js` both return 200.
+
+## Addition 1 — the rest of the site is unaffected
+
+All six pages 200, title byte-identical to the pre-deploy snapshot AND identical
+to the baseline once entities are decoded on both sides:
+
+| page | HTTP | title |
+|---|---|---|
+| `/about/` | 200 | identical |
+| `/how-we-teach` | 200 | identical |
+| `/cbse-class-10/` | 200 | identical |
+| `/online-tuition-class-10-cbse/` | 200 | identical |
+| `/areas/gachibowli` | 200 | identical |
+| `/ib-myp-tuition-hyderabad` | 200 | identical |
+
+## Addition 2 — the live page renders
+
+`design/verify-live.mjs` and `design/verify-live-2.mjs`, against the live URL.
+Screenshots: `design/screens/LIVE-390.png`, `design/screens/LIVE-1440.png`.
+
+| check | 390x844 | 1440x900 |
+|---|---|---|
+| console errors (clean load) | none | none |
+| `css/site.css` | 200 | 200 |
+| `js/contact-whatsapp.js` | 200 | 200 |
+| `script.js` | 200 | 200 |
+| horizontal overflow | 0 | 0 |
+| FAQ opens / closes | yes / yes | yes / yes |
+| grade tabs switch | yes, 1 panel visible | yes, 1 panel visible |
+| swipe row scrolls | yes, 969px in a 390px track | n/a |
+
+## Addition 3 — conversion wiring
+
+Verified with outbound Google beacons blocked at the network layer, so no test
+conversion was written to account 786-647-2391. The contact form was **not**
+submitted; its handler and generated URL were inspected instead, so no WhatsApp
+message was sent.
+
+| control | resolves to | conversion fired |
+|---|---|---|
+| WhatsApp button | `https://wa.me/917396669430` | 1 × `AW-10954184691/jucWCNPv3OAbEPOvruco` |
+| Phone link | `tel:+917396669430` | 1 × `AW-10954184691/NGIFCNbv3OAbEPOvruco` |
+| "Send Message" | `handleFormSubmitWhatsApp`, A14 override loaded | fires the WhatsApp label on submit |
+
+Observed gtag calls on the phone click:
+
+```
+["event","phone_click",{"event_category":"Contact","event_label":"Phone Call"}]
+["event","conversion",{"send_to":"AW-10954184691/NGIFCNbv3OAbEPOvruco"}]
+```
+
+On the WhatsApp click:
+
+```
+["event","conversion",{"send_to":"AW-10954184691/jucWCNPv3OAbEPOvruco"}]
+```
+
+The form's generated URL (built, never opened):
+
+```
+https://wa.me/917396669430?text=Hi%20Swastik%2C%20I'd%20like%20to%20enquire%20about%20tuition.%0AName%3A%20…
+```
+
+6 `wa.me` links and 8 `tel:` links on the page, all wired through the same
+delegated listener.
+
+Live tracking confirmed loading on the deployed page: GA4 collect 204, Ads
+`viewthroughconversion` 200, Clarity tag 200, `clarity.js` 200, Clarity collect
+204. A handful of `net::ERR_ABORTED` duplicate beacons appear, and the untouched
+`/how-we-teach` shows the identical pattern, so it is a headless-browser
+artifact, not a wave 1 effect.
+
+## Rollback
+
+Not needed. Not run. The step 7 command remains valid against
+`public_html-pre-wave1-20260918-101018.tar.gz`.

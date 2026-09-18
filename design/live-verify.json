@@ -1,0 +1,127 @@
+{
+  "390": {
+    "consoleErrors": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "pageErrors": [],
+    "assets": {
+      "css": {
+        "url": "https://ankuramtuition.com/css/site.css",
+        "status": 200
+      },
+      "wa": {
+        "url": "https://ankuramtuition.com/js/contact-whatsapp.js",
+        "status": 200
+      },
+      "scriptjs": {
+        "url": "https://ankuramtuition.com/script.js",
+        "status": 200
+      }
+    },
+    "overflow": {
+      "over": 0,
+      "scrollW": 390,
+      "clientW": 390
+    },
+    "faq": {
+      "startedOpen": false,
+      "openedOnClick": true,
+      "bodyVisible": true,
+      "closedOnSecondClick": true
+    },
+    "tabs": "no tabs found",
+    "swipe": {
+      "scrollWidth": 969,
+      "clientWidth": 390,
+      "scrolledTo": 332,
+      "scrollable": true
+    },
+    "blockedBeacons": 5,
+    "navAttempts": []
+  },
+  "1440": {
+    "consoleErrors": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "pageErrors": [],
+    "assets": {
+      "css": {
+        "url": "https://ankuramtuition.com/css/site.css",
+        "status": 200
+      },
+      "wa": {
+        "url": "https://ankuramtuition.com/js/contact-whatsapp.js",
+        "status": 200
+      },
+      "scriptjs": {
+        "url": "https://ankuramtuition.com/script.js",
+        "status": 200
+      }
+    },
+    "overflow": {
+      "over": 0,
+      "scrollW": 1440,
+      "clientW": 1440
+    },
+    "faq": {
+      "startedOpen": false,
+      "openedOnClick": true,
+      "bodyVisible": true,
+      "closedOnSecondClick": true
+    },
+    "tabs": "no tabs found",
+    "swipe": "n/a (desktop)",
+    "blockedBeacons": 5,
+    "navAttempts": []
+  },
+  "conversions": {
+    "controls": {
+      "whatsapp": {
+        "href": "https://wa.me/917396669430",
+        "text": "WhatsApp"
+      },
+      "phone": {
+        "href": "tel:+917396669430",
+        "text": "+91 73966 69430"
+      },
+      "submit": {
+        "text": "Send Message",
+        "formOnsubmit": "return trackFormSubmission('contact', this);",
+        "handlerSource": "function handleFormSubmitWhatsApp(e) {\n    if (e && typeof e.preventDefault === 'function') e.preventDefault();\n\n    var name = value('name');\n    var phone = value('phone');\n    if (!name || !phone) {\n      // Same validation as before, without the alert(): t",
+        "handlerName": "handleFormSubmitWhatsApp",
+        "overrideLoaded": true,
+        "note": "Opens WhatsApp with your details filled in."
+      },
+      "waLinksOnPage": 6,
+      "telLinksOnPage": 8
+    },
+    "generatedWaUrl": "https://wa.me/917396669430?text=Hi%20Swastik%2C%20I'd%20like%20to%20enquire%20about%20tuition.%0AName%3A%20TEST%20DO%20NOT%20SEND%0APhone%3A%200000000000%0AGrade%3A%20Grades%201-5%0ACurriculum%3A%20CBSE%0AMessage%3A%20automated%20post-deploy%20check%2C%20not%20submitted",
+    "phoneClick": {
+      "calls": [
+        "[\"event\",\"phone_click\",{\"event_category\":\"Contact\",\"event_label\":\"Phone Call\"}]",
+        "[\"event\",\"conversion\",{\"send_to\":\"AW-10954184691/NGIFCNbv3OAbEPOvruco\"}]"
+      ],
+      "conversions": 1
+    },
+    "whatsappClick": {
+      "calls": [
+        "[\"event\",\"conversion\",{\"send_to\":\"AW-10954184691/jucWCNPv3OAbEPOvruco\"}]"
+      ],
+      "conversions": 1
+    },
+    "navigationsAttempted": [
+      "https://wa.me/917396669430"
+    ],
+    "formSubmitted": false
+  }
+}
