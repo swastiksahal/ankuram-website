@@ -78,13 +78,22 @@ const visible = norm(dec(
     .replace(/<[^>]+>/g, ' ')
 ));
 
+// A20: the bar is now higher than invariant 4. Every live h2/h3 string must be
+// present AS A HEADING ELEMENT, not merely as visible text. <summary> alone does
+// not count; an <h1>-<h6> does, including one nested inside a <summary>.
+const HEADING_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
 const levelReport = [];
 function headingCheck(label, list, sameTag) {
   const uniq = [...new Set(list.map(norm))];
-  const absent = uniq.filter((t) => !visible.includes(t));
-  const moved = uniq.filter((t) => visible.includes(t) && (elementText[t] || [])[0] !== sameTag);
-  rows.push({ name: `${label} (${uniq.length} unique) — text retained`, ok: absent.length === 0, live: absent, built: '' });
-  levelReport.push({ label, uniq: uniq.length, same: uniq.length - absent.length - moved.length, moved: moved.map((t) => ({ t, to: (elementText[t] || ['not a heading — plain text'])[0] })) });
+  const absentText = uniq.filter((t) => !visible.includes(t));
+  const notHeading = uniq.filter((t) => visible.includes(t) && !(elementText[t] || []).some((tag) => HEADING_TAGS.has(tag)));
+  const moved = uniq.filter((t) => {
+    const tags = (elementText[t] || []).filter((x) => HEADING_TAGS.has(x));
+    return tags.length && !tags.includes(sameTag);
+  });
+  rows.push({ name: `${label} (${uniq.length} unique) — text retained`, ok: absentText.length === 0, live: absentText, built: '' });
+  rows.push({ name: `${label} — present AS A HEADING`, ok: notHeading.length === 0, live: notHeading, built: '' });
+  levelReport.push({ label, uniq: uniq.length, moved: moved.map((t) => ({ t, to: (elementText[t] || []).filter((x) => HEADING_TAGS.has(x))[0] })) });
 }
 headingCheck('every live h2 present', base.h2, 'h2');
 headingCheck('every live h3 present', base.h3, 'h3');
@@ -127,7 +136,7 @@ for (const r of rows) {
 }
 console.log('\nheading levels (invariant 4 pins the text, not the level — reported, not failed):\n');
 for (const r of levelReport) {
-  console.log(`  ${r.label}: ${r.same}/${r.uniq} still at the same level, ${r.moved.length} moved`);
+  console.log(`  ${r.label}: ${r.uniq - r.moved.length}/${r.uniq} at the same level, ${r.moved.length} at a different level`);
   const byTarget = {};
   r.moved.forEach((m) => (byTarget[m.to] = byTarget[m.to] || []).push(m.t));
   for (const [to, list] of Object.entries(byTarget)) {

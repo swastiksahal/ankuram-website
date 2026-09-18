@@ -306,7 +306,12 @@ const L = {
     const body = headed.map((n) => `<tr><th scope="row">${numEl(n)}${esc(n.head)}</th><td>${renderBody(n.body)}${renderSubs(n)}</td></tr>`).join('');
     return `${intro ? `<div class="intro">${intro}</div>` : ''}${headed.length ? `<div class="table-wrap"><table class="deftable"><tbody>${body}</tbody></table></div>` : ''}`;
   },
-  details: (t) => `<div class="accordion">${t.map((n) => n.head ? `<details><summary>${esc(n.head)}</summary><div class="acc-body">${renderBody(n.body)}${renderSubs(n)}</div></details>` : `<div class="acc-plain">${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
+  // A20: every head rendered here was an <h3> on live, so the heading element
+  // is kept inside the <summary> rather than thrown away. <summary>'s content
+  // model is "phrasing content, optionally intermixed with heading content",
+  // so an h3 child is valid. The h3 is display:inline and carries no box of its
+  // own, so the disclosure marker, padding and tap target are unchanged.
+  details: (t) => `<div class="accordion">${t.map((n) => n.head ? `<details><summary><h3 class="faq-question">${esc(n.head)}</h3></summary><div class="acc-body">${renderBody(n.body)}${renderSubs(n)}</div></details>` : `<div class="acc-plain">${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
   regions: (t) => `<div class="regions">${t.map((n) => `<section class="region">${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}<div class="region-grid">${n.subs.map((s) => `<article class="area">${stepLabel(s)}${numEl(s)}<h4>${esc(s.head)}</h4>${renderBody(s.body)}</article>`).join('')}</div></section>`).join('')}</div>`,
   prose: (t) => `<div class="prose">${t.map((n) => `${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${n.subs.map((s) => `<h4>${esc(s.head)}</h4>${renderBody(s.body)}`).join('')}`).join('')}</div>`,
   panel: (t) => `<div class="panel">${t.map((n) => `<div class="panel-item">${stepLabel(n)}${numEl(n)}${n.head ? `<h3>${esc(n.head)}</h3>` : ''}${renderBody(n.body)}${renderSubs(n)}</div>`).join('')}</div>`,
@@ -352,7 +357,7 @@ function howWeTeachSection(sec) {
       <li class="cycle-step">
         <span class="cycle-badge">${esc(g.num || String(i + 1))}</span>
         <span class="cycle-icon">${CYCLE_ICONS[i]}</span>
-        <p class="cycle-title">${esc(g.head)}</p>
+        <h3 class="cycle-title">${esc(g.head)}</h3>
         ${renderBody(g.blocks)}
       </li>`).join('')}
     </ol>

@@ -146,17 +146,17 @@
   "contrastGuard": [],
   "desktopScreens": 15,
   "lighthouse": {
-    "performance": 97,
+    "performance": 93,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1844,
-    "totalBytes": 569569
+    "lcpMs": 1851,
+    "totalBytes": 601040
   },
   "a11yFailures": [],
   "lighthouseDesktop": {
     "performance": 100,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 447
+    "lcpMs": 459
   }
 }

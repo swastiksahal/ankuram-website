@@ -193,6 +193,11 @@
 .v2 .accordion details:last-child { border-bottom: 0; }
 .v2 .accordion summary { cursor: pointer; padding: 15px var(--s4); font-weight: 600; color: var(--ink); }
 .v2 .accordion summary::marker { color: var(--blue); }
+/* A20: the question keeps the <h3> it had on live, inside the <summary>. The
+   heading must not introduce a box of its own — it renders exactly as the bare
+   text node did, so the marker, padding and tap target are untouched. Every
+   heading property is handed back to the summary it sits in. */
+.v2 .faq-question { display: inline; margin: 0; font: inherit; color: inherit; letter-spacing: inherit; }
 .v2 .acc-body { padding: 0 var(--s4) var(--s3); }
 .v2 .acc-plain { padding: var(--s4); }
 
@@ -717,7 +722,10 @@
 }
 .v2 .cycle-icon { display: grid; place-items: center; width: 34px; height: 34px; }
 .v2 .cycle-icon svg { width: 26px; height: 26px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.v2 .cycle-title { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: var(--t-base); }
+/* A20: was a <p>, restored to the <h3> it is on live. line-height and
+   letter-spacing are handed back to the inherited values a <p> had, so the
+   global heading rule (line-height 1.2, letter-spacing -.012em) cannot shift it. */
+.v2 .cycle-title { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: var(--t-base); line-height: inherit; letter-spacing: inherit; }
 .v2 .cycle-step p:not(.cycle-title) { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.45; }
 .v2 .cycle-loop { display: block; width: 100%; height: 40px; margin-top: var(--s2); fill: none; stroke: var(--blue-line); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
