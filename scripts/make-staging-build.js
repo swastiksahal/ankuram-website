@@ -35,6 +35,31 @@ for (const bad of ['G-KHP2PBXF6X', 'G-MQRSS8DKKE']) {
   if (html.includes(bad)) throw new Error(`tracking: forbidden ${bad} present`);
 }
 
+// A21: raw sections are carried over verbatim, inline on* attributes and all,
+// but the old page's inline <script> is not. Every function those attributes
+// call must be defined by something this build actually ships, or it is a
+// ReferenceError on the live site. A19 was the same defect with a <script>.
+//
+// This is a CHEAP FIRST PASS only. It is a regex over the sources, and it can
+// be fooled — a named function expression assigned to the wrong name still
+// matches while being undefined at runtime (verified). The authoritative gate
+// is design/check-inline-handlers.mjs, which loads the built page in a real
+// browser and asks it for typeof window[name]. Run that before any deploy.
+{
+  const scriptJs = fs.readFileSync('public_html/script.js', 'utf8');
+  const waJs = fs.readFileSync('js/contact-whatsapp.js', 'utf8');
+  const sources = [html, scriptJs, waJs];
+  const called = new Set();
+  for (const m of html.matchAll(/\son[a-z]+\s*=\s*"([^"]*)"/gi)) {
+    for (const c of m[1].matchAll(/([A-Za-z_$][\w$]*)\s*\(/g)) called.add(c[1]);
+  }
+  const BUILTIN = new Set(['alert', 'confirm', 'parseInt', 'parseFloat', 'String', 'Number', 'return', 'if', 'typeof']);
+  const undef = [...called].filter((n) => !BUILTIN.has(n)
+    && !sources.some((s) => new RegExp(`function\\s+${n}\\b|\\b${n}\\s*=\\s*function|window\\.${n}\\s*=[^=]`).test(s)));
+  if (undef.length) throw new Error(`inline on* handlers call undefined function(s): ${undef.join(', ')}`);
+  console.log(`inline handlers: ${called.size} function(s) referenced, all defined`);
+}
+
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 fs.copyFileSync('css/site.css', path.join(OUT, 'css', 'site.css'));
 // script.js drives the finder, the contact form and the reviews block
