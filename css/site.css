@@ -229,7 +229,8 @@
 /* =========================== sections + footer ========================== */
 .v2 .sec { padding: var(--s8) 0; border-bottom: 1px solid var(--line); }
 .v2 .sec:nth-of-type(even) { background: var(--sheet); }
-.v2 .site-footer { background: var(--sheet); padding: var(--s6) 0; font-size: var(--t-sm); color: var(--ink-soft); }
+.v2 .site-footer, .v2 footer.footer { background: var(--sheet); padding: var(--s6) 0; font-size: 15px; color: var(--ink-soft); }
+.v2 footer .container { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
 .v2 .footer-links { display: flex; gap: var(--s4); flex-wrap: wrap; margin-top: 10px; }
 
 /* ============================== responsive ============================== */
@@ -864,4 +865,151 @@
   .v2 .profile-card { padding: var(--s4); }
   .v2 .pull-quote p { font-size: 17px; }
   .v2 .diag-prose, .v2 .pay-card { padding: var(--s4); }
+}
+
+/* ===========================================================================
+   Three fixes, 18 Sep.
+   ========================================================================= */
+
+/* ---- 1. GET IN TOUCH: form card aligned with the Phone row ---------------
+   The right column holds the map and the form. In source order the map comes
+   first, so the form started ~394px below the Phone row. Ordering the form
+   first puts the two column tops level; the map follows underneath. */
+@media (min-width: 900px) {
+  .v2 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
+  .v2 .contact-grid > * { min-width: 0; }
+  .v2 .contact-right { display: flex; flex-direction: column; gap: var(--s5); }
+  .v2 .contact-right .contact-form { order: 1; margin: 0; }
+  .v2 .contact-right .contact-map { order: 2; }
+  .v2 .contact-info { margin: 0; }
+}
+
+/* ---- 2. FOOTER: three columns, each heading above its own list ---------- */
+.v2 footer .footer-content { display: grid; gap: var(--s5); }
+.v2 footer .footer-section h3 { font-size: var(--t-base); color: var(--ink); margin: 0 0 10px; }
+.v2 footer .footer-section p { margin: 0 0 .5em; font-size: 15px; }
+.v2 footer .footer-nav { display: grid; gap: 2px; }
+.v2 footer .footer-nav a,
+.v2 footer .footer-section a { color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+.v2 footer .footer-nav a:hover { text-decoration: underline; }
+.v2 footer .footer-bottom { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.v2 footer .footer-bottom p { margin: 0; font-size: 15px; }
+.v2 .footer-areas { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.v2 .footer-areas-title { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+
+@media (min-width: 900px) {
+  .v2 footer .footer-content { grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s6); align-items: start; }
+}
+
+/* ---- 3. PHONE ONLY: boards and diagnostic become swipe rows ------------- */
+@media (max-width: 600px) {
+  .v2 .boards,
+  .v2 .diag-cols {
+    display: flex; gap: var(--s3); overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin: 0 calc(var(--s4) * -1); padding: 0 var(--s4) 6px;
+  }
+  .v2 .boards::-webkit-scrollbar, .v2 .diag-cols::-webkit-scrollbar { display: none; }
+  .v2 .boards > .board-card,
+  .v2 .diag-cols > .diag-prose { flex: 0 0 85%; scroll-snap-align: start; }
+
+  /* Scroll affordance: a track of dots with a thumb that tracks the scroll
+     position where scroll-driven animations are supported, and reads as a
+     plain indicator where they are not. No JavaScript. */
+  .v2 .swipe-dots { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 10px; }
+  .v2 .swipe-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--blue-line); }
+  .v2 .swipe-rail { position: relative; height: 4px; border-radius: 999px; background: var(--blue-soft); margin: 10px auto 0; width: 120px; overflow: hidden; }
+  .v2 .swipe-rail::after {
+    content: ''; position: absolute; inset: 0 auto 0 0; width: 40%;
+    border-radius: 999px; background: var(--blue);
+    animation: swipe-progress linear both;
+  }
+  .v2 .boards-wrap .swipe-rail::after { animation-timeline: --boards-scroll; }
+  .v2 .diag-wrap  .swipe-rail::after { animation-timeline: --diag-scroll; }
+  .v2 .boards { scroll-timeline: --boards-scroll inline; }
+  .v2 .diag-cols { scroll-timeline: --diag-scroll inline; }
+}
+@keyframes swipe-progress { from { transform: translateX(0); } to { transform: translateX(150%); } }
+
+/* ---- phone length: targeted cuts only, no wording touched --------------- */
+@media (max-width: 600px) {
+  /* the four principle cards are short — two per row reads fine at 390 */
+  .v2 .principles { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .v2 .principle { padding: var(--s3); }
+  .v2 .principle-icon { width: 28px; height: 28px; }
+  .v2 .principle-icon svg { width: 17px; height: 17px; }
+  .v2 .principle h3 { font-size: 15px; }
+
+  /* 23 closed FAQ rows dominate the page; tighter rows, same content */
+  .v2 .accordion summary { padding: 10px var(--s3); }
+
+  /* the map is decorative at this width */
+  .v2 .contact-map iframe, .v2 .contact-right iframe { height: 200px; }
+  .v2 .contact-right { gap: var(--s4); }
+  .v2 .contact-item { gap: 10px; }
+  .v2 .contact-info { gap: var(--s3); }
+  .v2 .contact-section .contact-grid { gap: var(--s4); }
+
+  /* hero method diagram: tighter steps */
+  .v2 .method:not(.dg) .ms-step { padding: 8px 10px; }
+  .v2 .method:not(.dg) .ms-arrow { height: 14px; }
+
+  /* footer: tighter stacking */
+  .v2 footer .footer-content { gap: var(--s4); }
+  .v2 footer .footer-section p { margin-bottom: .25em; }
+  .v2 .footer-areas-list { gap: 0 12px; }
+
+  /* cycle timeline: a little less air between steps */
+  .v2 .cycle-step { padding-bottom: var(--s4); }
+}
+
+/* ---- phone length, round 2 --------------------------------------------- */
+@media (max-width: 600px) {
+  .v2 .accordion summary { padding: 8px var(--s3); }
+  .v2 .acc-body { padding: 0 var(--s3) 8px; }
+
+  .v2 .contact-form { gap: 10px; padding: var(--s3); }
+  .v2 .form-group { gap: 4px; }
+  .v2 .contact-map iframe, .v2 .contact-right iframe { height: 160px; }
+  .v2 .form-microcopy { margin-bottom: 4px; }
+
+  .v2 .pay-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .v2 .pay-links .btn { padding: 10px 12px; text-align: center; justify-content: center; }
+  .v2 .pay-card { gap: 10px; padding: var(--s3); }
+  .v2 .book-steps { gap: 10px; }
+  .v2 .book-steps li::before { width: 32px; height: 32px; }
+  .v2 .book-steps li { grid-template-columns: 32px 1fr; }
+  .v2 .diag-prose { padding: var(--s3); }
+  .v2 .diag-prose h3 { margin-bottom: 6px; }
+
+  .v2 .cycle-step { padding-bottom: var(--s3); }
+  .v2 .cycle-badge { width: 44px; height: 44px; font-size: 1rem; }
+  .v2 .cycle-step { grid-template-columns: 44px 1fr; gap: 2px var(--s3); }
+  .v2 .cycle::before { left: 21px; }
+  .v2 .cycle-icon { width: 24px; height: 24px; }
+  .v2 .cycle-icon svg { width: 20px; height: 20px; }
+
+  .v2 .rating { padding: 8px var(--s3); }
+  .v2 .trust { padding-top: 10px; }
+  .v2 .hero { padding: var(--s4) 0 var(--s5); }
+  .v2 .tab-prose { padding: var(--s3); }
+  .v2 .board-card { padding: var(--s3); gap: 10px; }
+  .v2 .profile-card { gap: var(--s3); }
+  .v2 .monogram { width: 56px; height: 56px; font-size: 1.25rem; }
+}
+
+/* ---- phone length, round 3: section rhythm ------------------------------ */
+@media (max-width: 600px) {
+  .v2 .sec, .v2 .sec-week, .v2 .sec-areas,
+  .v2 .quick-finder, .v2 .contact-section, .v2 .reviews-section { padding: 20px 0; }
+  .v2 .sub-head { margin: var(--s4) 0 10px; }
+  .v2 .sec-head > h2, .v2 .sec-head > h3 { margin-bottom: 6px; }
+  .v2 .dg { margin-bottom: 10px; }
+  .v2 .lead-block { margin-bottom: var(--s4); }
+  .v2 .cta-band { padding: var(--s5) 0; }
+  .v2 footer.footer { padding: var(--s5) 0; }
+  .v2 .swipe { padding-bottom: 4px; }
+  .v2 .tabs { gap: 10px; }
+  .v2 .boards, .v2 .diag-cols { padding-bottom: 4px; }
+  .v2 .swipe-dots, .v2 .swipe-rail { margin-top: 6px; }
 }

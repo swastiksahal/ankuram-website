@@ -383,6 +383,7 @@ function howWeTeachSection(sec) {
     if (b.t === 'link') { cur.link = b.v; cur.href = b.href || '#'; }
   }
   const boardHtml = `
+    <div class="boards-wrap">
     <div class="boards">
       ${cards.map((c, i) => `
       <article class="board-card board-${i + 1}">
@@ -390,6 +391,9 @@ function howWeTeachSection(sec) {
         <p class="board-desc">${esc(c.desc)}</p>
         <a class="board-link" href="${esc(c.href)}">${esc(c.link)}</a>
       </article>`).join('')}
+    </div>
+    <div class="swipe-dots" aria-hidden="true">${cards.map(() => '<span></span>').join('')}</div>
+    <div class="swipe-rail" aria-hidden="true"></div>
     </div>`;
 
   return `
@@ -497,7 +501,11 @@ function diagnosticSection(sec) {
       <h2>${esc(h2)}</h2>
       ${price.map((b) => `<p class="diag-price">${esc(b.v)}</p>`).join('')}
     </div>
-    <div class="diag-cols">${prose(gWhat)}${prose(gAfter)}</div>
+    <div class="diag-wrap">
+      <div class="diag-cols">${prose(gWhat)}${prose(gAfter)}</div>
+      <div class="swipe-dots" aria-hidden="true"><span></span><span></span></div>
+      <div class="swipe-rail" aria-hidden="true"></div>
+    </div>
 
     <h3 class="sub-head">${esc(gDetails.head)}</h3>
     <div class="table-wrap">
@@ -714,6 +722,21 @@ const ICON_TEL = '<svg viewBox="0 0 24 24" class="hcta-ic" width="20" height="20
 
 const navLinks = C.header.nav.map((n) => `<a href="${esc(n.href)}">${esc(n.text)}</a>`).join('');
 
+/** The live footer verbatim (3 columns, each heading above its own list),
+ *  with the A12 "Areas we serve" row appended before the copyright line. */
+function footerHtml() {
+  let f = sizeRawSvgs(C.rawSections['site-footer']);
+  const areas = `
+      <div class="footer-areas">
+        <h3 class="footer-areas-title">${esc(A12.footerHeading)}</h3>
+        <nav class="footer-areas-list" aria-label="${esc(A12.footerHeading)}">${AREAS.map((a) => `<a href="${esc(a.url)}">${esc(a.name)}</a>`).join('')}</nav>
+      </div>`;
+  const anchor = '<div class="footer-bottom">';
+  if (!f.includes(anchor)) throw new Error('footer-bottom not found');
+  f = f.replace(anchor, areas + '\n      ' + anchor);
+  return f;
+}
+
 const page = `<!DOCTYPE html>
 <html lang="en-IN">
 <head>
@@ -782,16 +805,7 @@ ${renderRest()}
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    ${C.footer.lines.map((l) => `<p>${esc(l)}</p>`).join('')}
-    <nav class="footer-links" aria-label="Footer">${C.footer.links.map((l) => `<a href="${esc(l.href)}">${esc(l.text)}</a>`).join('')}</nav>
-    <div class="footer-areas">
-      <h2 class="footer-areas-title">${esc(A12.footerHeading)}</h2>
-      <nav class="footer-areas-list" aria-label="${esc(A12.footerHeading)}">${AREAS.map((a) => `<a href="${esc(a.url)}">${esc(a.name)}</a>`).join('')}</nav>
-    </div>
-  </div>
-</footer>
+${footerHtml()}
 </body>
 </html>
 `;

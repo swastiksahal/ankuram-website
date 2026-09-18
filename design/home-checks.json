@@ -4,32 +4,32 @@
     {
       "width": 360,
       "overflow": 0,
-      "height": 15950
+      "height": 13734
     },
     {
       "width": 390,
       "overflow": 0,
-      "height": 15208
+      "height": 13004
     },
     {
       "width": 768,
       "overflow": 0,
-      "height": 16105
+      "height": 16275
     },
     {
       "width": 1024,
       "overflow": 0,
-      "height": 13667
+      "height": 13590
     },
     {
       "width": 1280,
       "overflow": 0,
-      "height": 13196
+      "height": 13119
     },
     {
       "width": 1440,
       "overflow": 0,
-      "height": 13196
+      "height": 13119
     }
   ],
   "rows": [
@@ -39,74 +39,74 @@
     },
     {
       "name": "hero",
-      "h": 1319
+      "h": 1277
     },
     {
       "name": "Why Choose Ankuram Tuition Centre?",
-      "h": 338
+      "h": 326
     },
     {
       "name": "Subjects We Teach",
-      "h": 226
+      "h": 214
     },
     {
       "name": "How a week works",
-      "h": 1550
+      "h": 1530
     },
     {
       "name": "Find Your Program",
-      "h": 595
+      "h": 587
     },
     {
       "name": "How We Work",
-      "h": 270
+      "h": 258
     },
     {
       "name": "What We Offer",
-      "h": 368
+      "h": 356
     },
     {
       "name": "Curricula We Support",
-      "h": 481
+      "h": 473
     },
     {
       "name": "About ANKURAM",
-      "h": 1299
+      "h": 982
     },
     {
       "name": "How We Teach at ANKURAM",
-      "h": 2374
+      "h": 1327
     },
     {
       "name": "Reviews",
-      "h": 193
+      "h": 185
     },
     {
       "name": "Students From Across Hyderabad",
-      "h": 105
+      "h": 97
     },
     {
       "name": "Frequently Asked Questions",
-      "h": 1373
+      "h": 1240
     },
     {
       "name": "Diagnostic Test",
-      "h": 1644
+      "h": 1311
     },
     {
       "name": "Get in Touch",
-      "h": 1837
+      "h": 1576
     },
     {
       "name": "Book Diagnostic Test",
-      "h": 233
+      "h": 217
     },
     {
       "name": "footer",
-      "h": 932
+      "h": 975
     }
   ],
-  "total": 15208,
+  "total": 13004,
   "minFont": 15,
   "minSel": "SUMMARY:Menu",
   "smallTaps": [],
@@ -141,21 +141,22 @@
   "faqAnswers": 23,
   "faqClosed": true,
   "imgs": 0,
-  "screens": 19,
+  "screens": 16,
   "svgGuard": [],
   "contrastGuard": [],
+  "desktopScreens": 15,
   "lighthouse": {
     "performance": 97,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1801,
-    "totalBytes": 560940
+    "lcpMs": 1842,
+    "totalBytes": 569494
   },
   "a11yFailures": [],
   "lighthouseDesktop": {
     "performance": 100,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 454
+    "lcpMs": 445
   }
 }

@@ -195,6 +195,10 @@ function rawSection(re, strip = []) {
 const rawSections = {
   'quick-finder': rawSection(/<section[^>]*class="[^"]*quick-finder[^"]*"[\s\S]*?<\/section>/),
   'contact-section': rawSection(/<section[^>]*class="[^"]*contact-section[^"]*"[\s\S]*?<\/section>/),
+  // The live footer already carries the three-column structure with each
+  // heading directly above its own list. Rebuilding it by hand is what
+  // produced the orphan "Quick Links" and "Contact" headings.
+  'site-footer': rawSection(/<footer[\s\S]*?<\/footer>/),
   // The rating header moved to the hero, and the background image is a photo
   // of the centre (A9), so both are stripped here.
   'reviews-section': rawSection(

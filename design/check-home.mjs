@@ -48,7 +48,7 @@ const browser = await chromium.launch();
       const h = s.querySelector('h2') || s.querySelector('summary');
       push((h && h.textContent.trim().slice(0, 38)) || s.className.slice(0, 30), s);
     });
-    push('footer', document.querySelector('.site-footer'));
+    push('footer', document.querySelector('footer'));
 
     // smallest rendered text, ignoring the deliberately-14px swipe hint
     let minFont = 999, minSel = '';
@@ -71,7 +71,11 @@ const browser = await chromium.launch();
     const badScrollers = [];
     document.querySelectorAll('body *').forEach((el) => {
       const ox = getComputedStyle(el).overflowX;
-      if (el.scrollWidth > el.clientWidth + 1 && (ox === 'auto' || ox === 'scroll') && !el.classList.contains('swipe') && !el.classList.contains('tab-bar')) {
+      // .swipe, .tab-bar, .boards and .diag-cols are intended horizontal
+      // scrollers on phones; anything else scrolling sideways is a defect.
+      const INTENDED = ['swipe', 'tab-bar', 'boards', 'diag-cols'];
+      if (el.scrollWidth > el.clientWidth + 1 && (ox === 'auto' || ox === 'scroll')
+          && !INTENDED.some((c) => el.classList.contains(c))) {
         badScrollers.push((el.className || el.tagName).toString().slice(0, 36));
       }
     });
@@ -158,13 +162,26 @@ for (const w of [360, 390, 768, 1024, 1280, 1440]) {
   if (guard.big.length) out.svgGuard.push({ width: w, big: guard.big });
   if (guard.spill.length) out.svgGuard.push({ width: w, spill: guard.spill });
   if (guard.invisible.length) out.contrastGuard.push({ width: w, invisible: guard.invisible });
+  if (w === 1440) {
+    // one PNG per 1440x900 viewport, covering the whole desktop page
+    for (const f of fs.readdirSync('design/screens')) if (/^home-d-\d+\.png$/.test(f)) fs.unlinkSync(path.join('design/screens', f));
+    const total = (await page.evaluate(() => Math.round(document.body.scrollHeight)));
+    const screensD = Math.ceil(total / 900);
+    for (let i = 0; i < screensD; i++) {
+      const y = i * 900;
+      const height = Math.min(900, total - y);
+      if (height <= 2) break;
+      await page.screenshot({ path: `design/screens/home-d-${String(i + 1).padStart(2, '0')}.png`, fullPage: true, clip: { x: 0, y, width: 1440, height } });
+    }
+    out.desktopScreens = screensD;
+  }
   if ([1024, 1280, 1440].includes(w)) {
     await page.screenshot({ path: `design/screens/home-desktop-${w}.png`, fullPage: true });
     await (await page.$('.site-header')).screenshot({ path: `design/screens/header-${w}.png` });
   }
   if (w === 1440) {
     await (await page.$('.sec-week')).screenshot({ path: 'design/screens/hybrid-1440.png' });
-    await (await page.$('.site-footer')).screenshot({ path: 'design/screens/footer-1440.png' });
+    await (await page.$('footer')).screenshot({ path: 'design/screens/footer-1440.png' });
     await (await page.$('.contact-section')).screenshot({ path: 'design/screens/contact-1440.png' });
     await (await page.$('#reviews')).screenshot({ path: 'design/screens/reviews-1440.png' });
   }
