@@ -25,6 +25,15 @@ const LIVE_HEAD = /<head[^>]*>([\s\S]*?)<\/head>/i.exec(LIVE)[1];
 const one = (re) => { const m = re.exec(LIVE_HEAD); return m ? m[0] : ''; };
 const many = (re) => LIVE_HEAD.match(re) || [];
 
+// A19: Microsoft Clarity was dropped by the first rebuild because the head was
+// copied field by field and Clarity had no rule. It is lifted out of the live
+// head verbatim — never retyped, never reformatted, ID never touched.
+const clarityBlocks = (LIVE_HEAD.match(/<script\b[\s\S]*?<\/script>/gi) || [])
+  .filter((s) => s.includes('uir8kpny76'));
+if (clarityBlocks.length !== 1) {
+  throw new Error(`live head: expected exactly 1 Clarity script, found ${clarityBlocks.length}`);
+}
+
 const HEAD = {
   title: one(/<title>[\s\S]*?<\/title>/i),
   description: one(/<meta[^>]+name="description"[^>]*>/i),
@@ -32,6 +41,7 @@ const HEAD = {
   og: many(/<meta[^>]+property="og:[^>]*>/gi),
   twitter: many(/<meta[^>]+name="twitter:[^>]*>/gi),
   jsonld: LIVE.match(/<script[^>]+application\/ld\+json[^>]*>[\s\S]*?<\/script>/gi) || [],
+  clarity: clarityBlocks[0],
 };
 for (const [k, v] of Object.entries(HEAD)) {
   if (!v || (Array.isArray(v) && !v.length)) throw new Error(`live head: ${k} not found`);
@@ -755,6 +765,9 @@ ${HEAD.twitter.join('\n')}
 <script defer src="js/contact-whatsapp.js"></script>
 ${HEAD.jsonld.join('\n')}
 ${TRACKING}
+
+<!-- Microsoft Clarity -->
+${HEAD.clarity}
 </head>
 <body class="v2">
 <a class="skip" href="#main">Skip to content</a>
@@ -869,6 +882,19 @@ console.log(`A17: credential chips +${a17}   A18: name "${A18.name}" +${a18} (mo
 console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
 console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
+// A19: every tracking ID that must survive the rebuild, checked on the output.
+for (const [label, id, want] of [
+  ['GA4', 'G-MQRSS8DKLE', 2], ['Ads', 'AW-10954184691', 3], ['Clarity', 'uir8kpny76', 1],
+  ['phone label', 'NGIFCNbv3OAbEPOvruco', 1], ['WhatsApp label', 'jucWCNPv3OAbEPOvruco', 1],
+]) {
+  const n = page.split(id).length - 1;
+  if (n !== want) { console.log(`TRACKING: ${label} ${id} appears ${n}x, expected ${want}`); process.exitCode = 1; }
+}
+for (const bad of ['G-KHP2PBXF6X', 'G-MQRSS8DKKE', 'jucWCNbv']) {
+  if (page.includes(bad)) { console.log(`TRACKING: forbidden ${bad} present`); process.exitCode = 1; }
+}
+console.log('tracking: GA4 + Ads + Clarity + both conversion labels present, no typo IDs');
+
 if (/<img\b/i.test(page)) { console.log('A9 VIOLATION: <img> present'); process.exitCode = 1; } else console.log('A9: no <img>');
 if (/\bnull\b|\bundefined\b/.test(bodyText)) { console.log('null/undefined leaked'); process.exitCode = 1; }
 if (actual !== expected) process.exitCode = 1;

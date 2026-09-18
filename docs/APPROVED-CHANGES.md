@@ -127,3 +127,7 @@ A17 ABOUT PROFILE BLOCK (supervisor, 17 Sep). Presentation additions in the Abou
 - The stat pair 13+ / Years Teaching and 3-5 / Students per Batch is shown as large numerals with small labels. Existing wording.
 
 A18 — the decorative 'SS' monogram in the About profile card is removed and replaced with the name 'Swastik Sahal' set in display type. Approved by Swastik, 18 Sep 2026. No avatar, photo or image placeholder anywhere on the page.
+
+A19 — Microsoft Clarity (uir8kpny76) was dropped during the homepage rebuild and is restored byte-identically from the live source. Not a change to live behaviour; a regression fix.
+  Root cause: design/build-c-final.js copies the live head field by field (title, description, canonical, og, twitter, JSON-LD) and Clarity had no extraction rule, so it was never carried over. The builder now lifts the whole script element out of the live head verbatim and emits it immediately after the A1 gtag block, the same position it holds on live.
+  Guard added in the builder and in scripts/make-staging-build.js: the build fails if G-MQRSS8DKLE, AW-10954184691, uir8kpny76, NGIFCNbv3OAbEPOvruco or jucWCNPv3OAbEPOvruco is missing, or if G-KHP2PBXF6X or the G-MQRSS8DKKE typo appears.

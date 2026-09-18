@@ -27,6 +27,14 @@ html = html.replace(hrefRe, 'href="css/site.css"');
 if (/<img\b/i.test(html)) throw new Error('A9 violation: an <img> is present');
 if (!/content="noindex, nofollow"/.test(html)) throw new Error('robots meta missing');
 
+// A19: Clarity was lost once already. Nothing ships without every tracking ID.
+for (const id of ['G-MQRSS8DKLE', 'AW-10954184691', 'uir8kpny76', 'NGIFCNbv3OAbEPOvruco', 'jucWCNPv3OAbEPOvruco']) {
+  if (!html.includes(id)) throw new Error(`tracking: ${id} missing from the build`);
+}
+for (const bad of ['G-KHP2PBXF6X', 'G-MQRSS8DKKE']) {
+  if (html.includes(bad)) throw new Error(`tracking: forbidden ${bad} present`);
+}
+
 fs.writeFileSync(path.join(OUT, 'index.html'), html);
 fs.copyFileSync('css/site.css', path.join(OUT, 'css', 'site.css'));
 // script.js drives the finder, the contact form and the reviews block

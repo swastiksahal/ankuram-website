@@ -1,0 +1,1017 @@
+/* ============================================================================
+   site.css — Ankuram design system, from P2 Direction C (diagram-led).
+   NEW FILE. The live styles.css is not touched by this.
+
+   Everything is scoped under .v2 on <body>, so a page that has not migrated
+   yet links only styles.css and renders exactly as it does today.
+
+   System fonts only: 0 bytes of webfont, no render-blocking font request.
+   ========================================================================= */
+
+.v2 {
+  /* ---- colour tokens ---- */
+  --ground: #F7F8FA;
+  --sheet: #FFFFFF;
+  --ink: #14181F;
+  --ink-soft: #454F5E;
+  --ink-mute: #5B6675;
+  --blue: #1B3A6B;
+  --blue-deep: #12294C;
+  --blue-soft: #E8EEF7;
+  --blue-line: #B9CAE2;
+  --line: #D8DEE7;
+  --grid: #E9EDF3;
+  --gold: #8A6212;
+  --green: #0B6B4F;
+
+  /* ---- type ---- */
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --t-xs: .78rem;
+  --t-sm: .88rem;
+  --t-base: 1rem;
+  --t-lg: 1.14rem;
+  --t-xl: 1.4rem;
+  --t-2xl: clamp(1.4rem, 3.2vw, 2.05rem);
+  --t-3xl: clamp(1.9rem, 5.2vw, 3.05rem);
+
+  /* ---- spacing ---- */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+  --s6: 32px; --s7: 44px; --s8: 56px; --s9: 72px;
+  --radius: 10px;
+  --radius-sm: 7px;
+  --wrap: 1100px;
+}
+
+.v2 *, .v2 *::before, .v2 *::after { box-sizing: border-box; }
+.v2 { margin: 0; background: var(--ground); color: var(--ink); font: 400 17px/1.64 var(--sans); overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+.v2 img { max-width: 100%; height: auto; display: block; }
+
+/* ---------------------------------------------------------------------------
+   SVG SAFETY NET. An inline <svg> with only a viewBox and no CSS match falls
+   back to the replaced-element default (300x150) and paints solid. That is
+   what turned the two contact CTA buttons into blank dark rectangles and blew
+   up the icons on desktop. These rules sit OUTSIDE every media query so they
+   apply at all widths; diagrams override them with their own classes.
+   ------------------------------------------------------------------------- */
+.v2 svg { max-width: 100%; height: auto; }
+.v2 .icon,
+.v2 header svg,
+.v2 button svg,
+.v2 a svg { width: 1.25em; height: 1.25em; flex: none; }
+.v2 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
+.v2 .skip { position: absolute; left: -9999px; }
+.v2 .skip:focus { left: var(--s2); top: var(--s2); background: var(--blue); color: #fff; padding: var(--s2) var(--s3); z-index: 50; }
+.v2 :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+.v2 h1, .v2 h2, .v2 h3, .v2 h4 { color: var(--ink); margin: 0 0 .5em; line-height: 1.2; font-weight: 700; letter-spacing: -.012em; }
+.v2 h1 { font-size: var(--t-3xl); }
+.v2 h2 { font-size: var(--t-2xl); }
+.v2 h3 { font-size: var(--t-lg); }
+.v2 h4 { font-size: var(--t-base); }
+.v2 p { margin: 0 0 1em; color: var(--ink-soft); }
+.v2 a { color: var(--blue); }
+.v2 code { font-family: var(--mono); font-size: .92em; background: var(--blue-soft); color: var(--blue-deep); padding: 1px 5px; border-radius: 4px; }
+.v2 ul { margin: 0 0 1em; padding-left: 1.15em; }
+.v2 li { color: var(--ink-soft); margin-bottom: .3em; }
+
+/* ============================ BLOCK 1 — header ========================== */
+.v2 .site-header { background: var(--sheet); border-bottom: 1px solid var(--line); }
+.v2 .header-inner { display: flex; align-items: center; gap: var(--s4); min-height: 66px; flex-wrap: wrap; }
+.v2 .brand { font-weight: 700; letter-spacing: .16em; color: var(--blue); text-decoration: none; font-size: 1.12rem; margin-right: auto; display: flex; align-items: center; min-height: 44px; }
+.v2 .nav-desktop { display: flex; gap: 17px; flex-wrap: wrap; order: 2; }
+.v2 .nav-desktop a { color: var(--ink-soft); text-decoration: none; font-size: var(--t-sm); }
+.v2 .nav-desktop a:hover { color: var(--blue); }
+.v2 .header-cta { display: flex; gap: var(--s2); order: 3; }
+.v2 .hcta { font-size: var(--t-sm); text-decoration: none; padding: 7px 13px; border-radius: var(--radius-sm); font-weight: 600; white-space: nowrap; }
+.v2 .hcta-wa { background: var(--green); color: #fff; }
+.v2 .hcta-tel { border: 1px solid var(--blue); color: var(--blue); }
+
+/* no-JavaScript mobile menu */
+.v2 .nav-mobile { display: none; }
+.v2 .nav-mobile > summary {
+  list-style: none; cursor: pointer; font-size: var(--t-sm); font-weight: 600;
+  color: var(--blue); border: 1px solid var(--blue); border-radius: var(--radius-sm); padding: 7px 13px;
+}
+.v2 .nav-mobile > summary::-webkit-details-marker { display: none; }
+.v2 .nav-mobile > summary::after { content: " ▾"; }
+.v2 .nav-mobile[open] > summary::after { content: " ▴"; }
+.v2 .nav-mobile-list { display: flex; flex-direction: column; gap: var(--s1); padding: var(--s3) 0 var(--s2); width: 100%; }
+.v2 .nav-mobile-list a { color: var(--ink-soft); text-decoration: none; padding: 9px 2px; border-bottom: 1px solid var(--line); font-size: var(--t-base); }
+
+/* ============================= BLOCK 2 — hero =========================== */
+.v2 .hero {
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 28px 100%,
+    var(--sheet);
+  border-bottom: 1px solid var(--line);
+  padding: var(--s8) 0 var(--s7);
+}
+.v2 .hero-inner { display: grid; grid-template-columns: 1fr; gap: var(--s6); }
+.v2 .hero-text { max-width: 62ch; }
+.v2 .lede { font-size: var(--t-lg); color: var(--ink); }
+.v2 .curricula-line { font-family: var(--mono); font-size: var(--t-xs); color: var(--blue); background: var(--blue-soft); display: inline-block; padding: 7px var(--s3); border-radius: var(--radius-sm); }
+.v2 .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin: var(--s5) 0 var(--s4); }
+.v2 .btn { display: inline-block; padding: 12px 20px; border-radius: var(--radius-sm); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.v2 .btn-primary { background: var(--blue); color: #fff; }
+.v2 .btn-ghost { border: 1px solid var(--blue); color: var(--blue); }
+
+/* ====================== BLOCK 3 — method diagram ======================== */
+.v2 .method { margin: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5) var(--s4) var(--s4); }
+.v2 .ms-flow { list-style: none; margin: 0; padding: 0; display: flex; align-items: stretch; gap: var(--s2); }
+.v2 .ms-step {
+  flex: 1 1 0; min-width: 0; background: var(--blue-soft); border: 1px solid var(--blue-line);
+  border-radius: var(--radius); padding: var(--s4) var(--s3); display: flex; flex-direction: column; gap: var(--s2);
+}
+.v2 .ms-step-final { background: #D5E2F3; border-color: #8FAAD0; }
+.v2 .ms-head { display: flex; align-items: center; gap: var(--s2); }
+.v2 .ms-num {
+  font-family: var(--mono); font-weight: 700; font-size: var(--t-sm); color: #fff; background: var(--blue);
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; flex: none;
+}
+.v2 .ic { width: 30px; height: 30px; flex: none; fill: none; stroke: var(--blue); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* A label inside the figure, not a section heading: keeping it a <p> avoids an
+   h1 -> h3 jump in the hero. Weight and size do the work instead. */
+.v2 .ms-title { font-size: var(--t-base); margin: 0; color: var(--blue-deep); line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
+/* Step 4's title is lowercase in the source copy ("improve marks and
+   confidence"). Only the FIRST letter is raised, and only in CSS — the text
+   node itself is untouched, so the wording check still sees the original. */
+.v2 .ms-title-cap::first-letter { text-transform: uppercase; }
+.v2 .ms-caption { font-size: var(--t-sm); margin: 0; color: var(--ink-soft); line-height: 1.5; }
+.v2 .ms-arrow { flex: 0 0 26px; display: grid; place-items: center; }
+.v2 .arw { fill: none; stroke: var(--blue); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .arw-h { width: 22px; height: 15px; }
+.v2 .arw-v { display: none; width: 15px; height: 22px; }
+
+.v2 .ms-loop { margin-top: var(--s2); }
+.v2 .ms-loop-line { fill: none; stroke: var(--blue); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .ms-loop-h { display: block; width: 100%; height: 46px; }
+.v2 .ms-loop-v { display: none; }
+.v2 .ms-loop-label { font-size: var(--t-sm); color: var(--blue-deep); margin: 0; text-align: center; font-weight: 600; }
+
+/* ======================= BLOCK 4 — numbered list ======================== */
+.v2 .numbered { list-style: none; margin: 0; padding: 0 0 0 var(--s1); counter-reset: n; display: grid; border-left: 2px solid var(--blue-soft); }
+.v2 .numbered > li { display: grid; grid-template-columns: 52px 1fr; gap: var(--s4); padding: 0 0 var(--s6) var(--s5); counter-increment: n; }
+.v2 .numbered > li:last-child { padding-bottom: 0; }
+.v2 .numbered > li::before { content: counter(n, decimal-leading-zero); font-family: var(--mono); font-size: .95rem; font-weight: 700; color: #fff; background: var(--blue); width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; }
+.v2 .numbered.own-nums > li::before { content: none; }
+.v2 .numbered.own-nums > li .num { font-family: var(--mono); font-size: .95rem; font-weight: 700; color: #fff; background: var(--blue); width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; }
+
+/* ========================= BLOCK 5 — card grid ========================== */
+.v2 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(252px, 1fr)); gap: var(--s4); }
+.v2 .card { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .sec:nth-of-type(even) .card { background: var(--ground); }
+.v2 .step-label {
+  display: inline-block; font-family: var(--mono); font-size: var(--t-xs); font-weight: 700;
+  color: var(--blue); background: var(--blue-soft); border-radius: 999px; padding: 3px 10px; margin-bottom: var(--s2);
+}
+.v2 .sub-card { border-top: 1px solid var(--line); padding-top: var(--s3); margin-top: var(--s3); }
+.v2 .card > .sub-card:first-of-type, .v2 .panel-item > .sub-card:first-of-type { border-top: 0; }
+
+/* ====================== BLOCK 6 — comparison table ====================== */
+.v2 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--sheet); }
+.v2 .deftable { width: 100%; border-collapse: collapse; }
+.v2 .deftable th, .v2 .deftable td { text-align: left; vertical-align: top; padding: var(--s4); border-bottom: 1px solid var(--line); }
+.v2 .deftable th { width: 30%; color: var(--blue); font-family: var(--mono); font-size: var(--t-sm); font-weight: 700; }
+.v2 .deftable tr:last-child th, .v2 .deftable tr:last-child td { border-bottom: 0; }
+.v2 .deftable p:last-child { margin-bottom: 0; }
+.v2 .intro { max-width: 66ch; margin-bottom: var(--s4); }
+
+/* =========================== BLOCK 7 — steps =========================== */
+.v2 .rows { display: grid; gap: var(--s5); }
+.v2 .row { display: grid; grid-template-columns: 240px 1fr; gap: var(--s5); background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .sec:nth-of-type(even) .row { background: var(--ground); }
+.v2 .regions { display: grid; gap: var(--s6); }
+.v2 .region-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: var(--s4); }
+.v2 .area { border: 1px dashed var(--line); border-radius: 8px; padding: var(--s4); background: var(--sheet); }
+.v2 .sec:nth-of-type(even) .area { background: var(--ground); }
+
+/* ======================= BLOCK 8 — FAQ accordion ======================== */
+.v2 .accordion { border: 1px solid var(--line); border-radius: var(--radius); background: var(--sheet); overflow: hidden; }
+.v2 .accordion details { border-bottom: 1px solid var(--line); }
+.v2 .accordion details:last-child { border-bottom: 0; }
+.v2 .accordion summary { cursor: pointer; padding: 15px var(--s4); font-weight: 600; color: var(--ink); }
+.v2 .accordion summary::marker { color: var(--blue); }
+.v2 .acc-body { padding: 0 var(--s4) var(--s3); }
+.v2 .acc-plain { padding: var(--s4); }
+
+/* ======================== BLOCK 9 — review band ========================= */
+.v2 .rating { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; background: var(--sheet); border: 1px solid var(--line); border-radius: 9px; padding: var(--s3) var(--s4); }
+.v2 .rating-num { font-size: 2.3rem; font-weight: 700; line-height: 1; color: var(--blue); font-variant-numeric: tabular-nums; }
+.v2 .rating-stars { color: var(--gold); letter-spacing: 2px; }
+.v2 .rating-meta { display: flex; flex-direction: column; font-size: var(--t-xs); color: var(--ink-soft); }
+.v2 .rating-meta .rc { font-weight: 700; color: var(--ink); }
+
+/* ========================= BLOCK 10 — stat band ========================= */
+.v2 .trust, .v2 .stat-band { list-style: none; display: flex; gap: var(--s4); padding: var(--s4) 0 0; margin: 0; flex-wrap: wrap; font-size: var(--t-sm); color: var(--ink-soft); }
+.v2 .stat-band { gap: var(--s6); padding: var(--s5) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.v2 .stat { display: flex; flex-direction: column; }
+.v2 .stat-num { font-size: 1.9rem; font-weight: 700; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
+.v2 .stat-label { font-size: var(--t-xs); color: var(--ink-soft); }
+
+/* ========================== BLOCK 11 — panel ============================ */
+.v2 .panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: var(--s5); }
+.v2 .panel-item { background: var(--blue-soft); border-radius: var(--radius); padding: var(--s5); }
+.v2 .panel-item h3 { color: var(--blue-deep); }
+.v2 .prose { max-width: 66ch; }
+.v2 .opts { columns: 2; font-size: .9rem; font-family: var(--mono); }
+.v2 .pseudo-btn { display: inline-block; border: 1px solid var(--line); background: var(--sheet); padding: var(--s2) var(--s3); border-radius: var(--radius-sm); font-size: var(--t-sm); }
+
+/* ========================= BLOCK 12 — CTA band ========================== */
+.v2 .cta-band { background: var(--blue); padding: var(--s8) 0; text-align: center; }
+.v2 .cta-band h2 { color: #fff; }
+.v2 .cta-band p { color: #D3DEEE; max-width: 60ch; margin: 0 auto var(--s5); }
+.v2 .cta-row { display: flex; gap: var(--s3); justify-content: center; flex-wrap: wrap; }
+.v2 .cta-band .btn-primary { background: #fff; color: var(--blue); }
+.v2 .cta-band .btn-ghost { border-color: #90A6C6; color: #fff; }
+
+/* =========================== sections + footer ========================== */
+.v2 .sec { padding: var(--s8) 0; border-bottom: 1px solid var(--line); }
+.v2 .sec:nth-of-type(even) { background: var(--sheet); }
+.v2 .site-footer, .v2 footer.footer { background: var(--sheet); padding: var(--s6) 0; font-size: 15px; color: var(--ink-soft); }
+.v2 footer .container { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
+.v2 .footer-links { display: flex; gap: var(--s4); flex-wrap: wrap; margin-top: 10px; }
+
+/* ============================== responsive ============================== */
+@media (min-width: 901px) {
+  .v2 .hero-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .v2 .row { grid-template-columns: 1fr; gap: 10px; }
+}
+
+/* The phone rules live in the mobile-first block below. The earlier
+   duplicates of these were removed on 17 Sep: they re-declared the hero
+   diagram layout and forced the mobile menu onto its own full-width row,
+   which broke the one-row header between 601px and 640px. */
+
+/* ===========================================================================
+   A11 — "How a week works", mobile-first (rebuilt 17 Sep).
+   Phone is the primary audience: the whole section must fit inside two
+   viewport heights at 390x844, and each diagram inside one.
+   ========================================================================= */
+
+.v2 .dg { margin: 0 0 var(--s5); background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s4); }
+.v2 .dg-title { font-weight: 700; color: var(--blue-deep); font-size: var(--t-base); margin: 0 0 var(--s3); }
+.v2 .sec-lede { font-size: var(--t-base); color: var(--ink); max-width: 66ch; margin-bottom: var(--s4); }
+.v2 .sec-week h3 { margin: var(--s5) 0 var(--s3); }
+
+/* ---------------- D1: week chip strip ---------------- */
+/* The two routes must read as different at a glance, so the two chip styles
+   differ in fill, text colour and icon -- not just in tint. */
+.v2 .wk-key { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s2); margin: 0 0 var(--s3); padding: 0; }
+.v2 .wk-key .chip-key { padding: 7px 12px; height: auto; min-height: 46px; flex-direction: row; gap: 7px; }
+.v2 .chip-key .chip-d { font-family: var(--sans); font-weight: 700; }
+
+.v2 .wk-strip { display: grid; gap: var(--s2); }
+.v2 .wk-row { display: grid; gap: 6px; }
+.v2 .wk-route { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: 15px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.v2 .wk-sub { font-weight: 600; font-size: 15px; color: var(--ink-soft); }
+.v2 .wk-chips { list-style: none; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0; padding: 0; }
+
+.v2 .chip {
+  height: 46px; border-radius: 8px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1px; margin: 0; line-height: 1;
+  font-weight: 700; font-size: 15px; overflow: hidden;
+}
+.v2 .chip-ic { width: 15px; height: 15px; flex: none; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .chip-d { font-family: var(--mono); }
+
+/* Online: white fill, blue outline, blue text  (11.27:1) */
+.v2 .chip-online { background: var(--sheet); border: 1.5px solid var(--blue); color: var(--blue); }
+.v2 .chip-online .chip-ic { stroke: var(--blue); }
+/* At the centre: solid navy, white text            (11.27:1) */
+.v2 .chip-centre { background: var(--blue); border: 1.5px solid var(--blue); color: #fff; }
+.v2 .chip-centre .chip-ic { stroke: #fff; }
+
+/* Grouped blocks on Route B: no day letters at all */
+.v2 .chip-block { grid-column: span var(--span); flex-direction: row; gap: 7px; padding: 6px 8px; font-size: 15px; height: auto; min-height: 46px; text-align: left; }
+.v2 .chip-block .chip-d { font-family: var(--sans); font-weight: 700; }
+
+.v2 .wk-link { display: flex; align-items: center; gap: var(--s2); }
+.v2 .wk-arrow { width: 16px; height: 24px; flex: none; fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .wk-arrow-label { margin: 0; font-size: 15px; font-weight: 600; color: var(--blue-deep); }
+.v2 .wk-weekend {
+  margin: var(--s3) 0 0; padding-top: var(--s3); border-top: 1px solid var(--line);
+  font-size: 15px; color: var(--ink); font-weight: 600;
+}
+
+/* ---------------- D2: 2x2 loop on mobile, row on desktop ---------------- */
+.v2 .ms-loop-circle { display: none; }
+.v2 .ms-note { margin: var(--s3) 0 0; font-size: 15px; color: var(--ink-soft); text-align: center; font-style: italic; white-space: normal; }
+
+/* ---------------- swipe rows ---------------- */
+.v2 .swipe-wrap { position: relative; }
+.v2 .swipe { display: contents; }               /* desktop: the inner layout decides */
+.v2 .swipe-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+.v2 .swipe-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }  /* 2x2, no orphan */
+.v2 .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
+.v2 .sec-head > h2, .v2 .sec-head > h3 { margin-bottom: var(--s3); }
+.v2 .swipe-hint { display: none; }
+
+/* ---------------- locality <details> ---------------- */
+.v2 .sec-areas { padding: var(--s7) 0; }
+.v2 .areas-details { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); }
+.v2 .areas-details > summary { cursor: pointer; padding: var(--s4) var(--s5); font-size: var(--t-xl); font-weight: 700; color: var(--ink); min-height: 44px; }
+.v2 .areas-details > summary::marker { color: var(--blue); }
+.v2 .areas-body { padding: 0 var(--s5) var(--s5); }
+.v2 .areas-body > h3 { margin-top: var(--s5); }
+
+/* ---------------- header: one row on mobile ---------------- */
+.v2 .header-inner { position: relative; }
+.v2 .hcta-ic { display: none; width: 18px; height: 18px; fill: currentColor; stroke: none; flex: none; }
+.v2 .nav-mobile-list {
+  position: absolute; left: var(--s4); right: var(--s4); top: calc(100% + 6px);
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 14px 32px rgba(20,24,31,.14); padding: var(--s2) var(--s4); z-index: 30;
+}
+.v2 .nav-mobile-list a { min-height: 44px; display: flex; align-items: center; }
+.v2 .nav-mobile-list a:last-child { border-bottom: 0; }
+
+/* ===================== phones: the primary target =====================
+   Phone is the main audience. Everything below tightens vertical rhythm and
+   turns repeated card groups into scroll-snap swipe rows, so the page stops
+   being a 24-screen scroll. No words are removed anywhere.
+   ===================================================================== */
+@media (max-width: 600px) {
+  /* ---- global rhythm ---- */
+  .v2 { font-size: 16px; }
+  .v2 .sec { padding: var(--s5) 0; }
+  .v2 .sec-head > h2, .v2 .sec-head > h3 { margin-bottom: var(--s2); }
+  .v2 h2 { font-size: 1.35rem; line-height: 1.22; }
+  .v2 h3 { font-size: 1.02rem; }
+  .v2 h4 { font-size: 1rem; }
+  .v2 p, .v2 li { font-size: 15px; line-height: 1.45; }
+  .v2 p { margin-bottom: .7em; }
+  .v2 li { margin-bottom: .15em; }
+  .v2 .wrap { padding: 0 var(--s4); }
+
+  /* ---- hero ---- */
+  .v2 .hero { padding: var(--s5) 0 var(--s5); }
+  .v2 .hero-inner { gap: var(--s4); }
+  .v2 h1 { font-size: 1.75rem; line-height: 1.18; }
+  .v2 .lede { font-size: 16px; line-height: 1.45; }
+  .v2 .hero-ctas { margin: var(--s4) 0 var(--s3); gap: 8px; }
+  .v2 .btn { padding: 12px 18px; min-height: 44px; display: inline-flex; align-items: center; }
+  .v2 .rating { padding: 10px var(--s3); gap: 10px; }
+  .v2 .rating-num { font-size: 1.9rem; }
+  .v2 .rating-meta { font-size: 15px; line-height: 1.3; }
+  .v2 .trust { padding-top: var(--s3); gap: var(--s3); font-size: 15px; }
+  .v2 .curricula-line { font-size: 15px; line-height: 1.4; padding: 8px 12px; }
+  /* every link is a tap target, including the "Learn more" links in cards */
+  .v2 .inline-link, .v2 .footer-links a, .v2 .nav-mobile-list a {
+    display: inline-flex; align-items: center; min-height: 44px;
+  }
+
+  /* ---- hero method diagram: tighter vertical stack ---- */
+  .v2 .method:not(.dg) { padding: var(--s3) 10px; display: grid; grid-template-columns: 28px 1fr; gap: 6px; }
+  .v2 .method:not(.dg) .ms-flow { grid-column: 2; flex-direction: column; align-items: stretch; gap: 4px; }
+  .v2 .method:not(.dg) .ms-step { padding: 10px; gap: 2px; }
+  .v2 .method:not(.dg) .ms-arrow { flex: none; height: 18px; }
+  .v2 .method:not(.dg) .ms-loop { display: contents; }
+  .v2 .method:not(.dg) .ms-loop-h { display: none; }
+  .v2 .method:not(.dg) .ms-loop-v { display: block; grid-column: 1; grid-row: 1; width: 28px; height: 100%; align-self: stretch; }
+  .v2 .method:not(.dg) .ms-loop-label { grid-column: 1 / -1; grid-row: 2; margin: 10px 0 0; font-size: 15px; text-align: left; }
+  .v2 .ms-num { width: 26px; height: 26px; font-size: 15px; }
+  .v2 .ic { width: 22px; height: 22px; }
+  .v2 .ms-title { font-size: 15px; line-height: 1.3; }
+  .v2 .ms-caption { font-size: 15px; line-height: 1.4; }
+  .v2 .arw-h { display: none; }
+  .v2 .arw-v { display: block; }
+
+  /* ---- "How a week works" ---- */
+  .v2 .sec-week { padding: var(--s5) 0; }
+  .v2 .sec-lede { font-size: 15px; line-height: 1.45; margin-bottom: var(--s3); }
+  .v2 .dg { padding: 10px; margin-bottom: var(--s3); }
+  .v2 .wk-key { gap: 6px; margin-bottom: 10px; }
+  .v2 .wk-key .chip-key { flex: 1 1 0; }
+  .v2 .wk-strip { gap: 6px; }
+  .v2 .wk-chips { gap: 3px; }
+  .v2 .chip { height: 46px; }
+  .v2 .chip-block { padding: 0 6px; }
+  .v2 .chip-block .chip-d { font-size: 15px; }
+  .v2 .wk-weekend { margin-top: 10px; padding-top: 10px; line-height: 1.4; }
+
+  /* ---- D2: clockwise 2x2 with arrows between the cards ---- */
+  .v2 .dg-loop .ms-stage { position: relative; }
+  .v2 .dg-loop .ms-flow {
+    display: grid; grid-template-columns: 1fr 1fr;
+    column-gap: 26px; row-gap: 78px; position: relative;  /* room for the two-line centre label */
+  }
+  .v2 .dg-loop .ms-step { padding: 10px; gap: 4px; }
+  .v2 .dg-loop .ms-num { font-size: 15px; width: 26px; height: 26px; }
+  .v2 .dg-loop .ms-step-1 { grid-area: 1 / 1; }
+  .v2 .dg-loop .ms-step-2 { grid-area: 1 / 2; }
+  .v2 .dg-loop .ms-step-3 { grid-area: 2 / 2; }
+  .v2 .dg-loop .ms-step-4 { grid-area: 2 / 1; }
+  /* 1 -> 2 across the top, 2 -> 3 down the right, 3 -> 4 back across */
+  .v2 .dg-loop .ms-arrow { display: grid; place-items: center; }
+  .v2 .dg-loop .ms-arrow-1 { grid-area: 1 / 1 / 2 / 3; justify-self: center; align-self: center; }
+  .v2 .dg-loop .ms-arrow-2 { grid-area: 1 / 2 / 3 / 3; justify-self: center; align-self: center; }
+  .v2 .dg-loop .ms-arrow-3 { grid-area: 2 / 1 / 3 / 3; justify-self: center; align-self: center; transform: rotate(180deg); }
+  .v2 .dg-loop .arw-h { display: block; width: 20px; height: 14px; }
+  .v2 .dg-loop .arw-v { display: none; }
+  .v2 .dg-loop .ms-arrow-2 .arw-h { transform: rotate(90deg); }
+  .v2 .dg-loop .ms-loop {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    margin: 0; display: grid; justify-items: center; gap: 2px; z-index: 3;
+    background: var(--sheet); padding: 3px 10px; border-radius: 999px;
+  }
+  .v2 .dg-loop .ms-loop-h { display: none; }
+  .v2 .dg-loop .ms-loop-circle { display: block; width: 28px; height: 28px; }
+  .v2 .dg-loop .ms-loop-label { font-size: 15px; text-align: center; }
+  .v2 .dg-loop .ms-title { font-size: 15px; line-height: 1.3; }
+  .v2 .ms-note { margin-top: 10px; font-size: 15px; }
+
+  /* ---- swipe rows: any group of 3+ comparable cards ---- */
+  .v2 .swipe {
+    display: flex; gap: var(--s3); overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; padding-bottom: 6px; scrollbar-width: none;
+    margin: 0 calc(var(--s4) * -1); padding-left: var(--s4); padding-right: var(--s4);
+  }
+  .v2 .swipe::-webkit-scrollbar { display: none; }
+  /* the inner layout container steps aside so its cards become the flex items */
+  .v2 .swipe > .cards, .v2 .swipe > .panel, .v2 .swipe > .numbered, .v2 .swipe > .rows { display: contents; }
+  .v2 .swipe .card,
+  .v2 .swipe .panel-item,
+  .v2 .swipe > .numbered > li,
+  .v2 .swipe .row {
+    flex: 0 0 85%; scroll-snap-align: start; padding: var(--s3);
+    background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
+  }
+  .v2 .swipe > .numbered { border-left: 0; }
+  .v2 .swipe > .numbered > li { display: block; }
+  .v2 .swipe > .numbered > li::before { margin-bottom: 6px; }
+  .v2 .swipe .row { display: block; }
+  .v2 .swipe .card h3, .v2 .swipe .panel-item h3, .v2 .swipe .row h3 { font-size: 15px; margin-bottom: 6px; }
+  .v2 .swipe ul { margin-bottom: 0; }
+  .v2 .swipe p:last-child { margin-bottom: 0; }
+  .v2 .step-label { font-size: 15px; padding: 2px 10px; }
+  .v2 .pseudo-btn { font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+  .v2 .deftable th { font-size: 15px; }
+  .v2 .num { font-size: 15px; }
+  .v2 .swipe-hint {
+    display: block; margin: 0; font-size: 14px; font-weight: 400;
+    color: var(--ink-mute); font-family: var(--sans); white-space: nowrap;
+  }
+
+  /* ---- option lists become wrapped pills instead of a tall column ---- */
+  .v2 .opts { columns: auto; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin-bottom: .7em; list-style: none; }
+  .v2 .opts li {
+    margin: 0; font-size: 15px; background: var(--blue-soft); color: var(--blue-deep);
+    border-radius: 999px; padding: 6px 12px; font-family: var(--sans);
+  }
+
+  /* ---- tables stack ---- */
+  .v2 .deftable th { width: auto; display: block; border-bottom: 0; padding: var(--s3) var(--s3) 2px; }
+  .v2 .deftable td { display: block; padding: 0 var(--s3) var(--s3); }
+
+  /* ---- FAQ + locality: every answer stays in the HTML ---- */
+  .v2 .accordion summary { padding: 12px var(--s3); min-height: 44px; font-size: 15px; }
+  .v2 .acc-body { padding: 0 var(--s3) 10px; }
+  .v2 .areas-details > summary { font-size: var(--t-lg); padding: var(--s3); min-height: 44px; }
+  .v2 .areas-body { padding: 0 var(--s3) var(--s3); }
+  .v2 .sec-areas { padding: var(--s5) 0; }
+  .v2 .region-grid { grid-template-columns: 1fr; gap: 10px; }
+  .v2 .area { padding: 10px; }
+
+  /* ---- prose, CTA, footer ---- */
+  .v2 .prose { max-width: none; }
+  .v2 .cta-band { padding: var(--s6) 0; }
+  .v2 .cta-band p { margin-bottom: var(--s4); }
+  .v2 .site-footer { padding: var(--s5) 0; font-size: 15px; }
+  .v2 .site-footer p { font-size: 15px; }
+  .v2 .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* ---- header: logo left, WhatsApp + call + Menu right, one row ---- */
+  .v2 .header-inner { flex-wrap: nowrap; gap: var(--s2); }
+  .v2 .brand { font-size: 1rem; letter-spacing: .1em; }
+  .v2 .header-cta { gap: 6px; align-items: center; }
+  .v2 .hcta { padding: 10px; min-height: 44px; min-width: 44px; display: grid; place-items: center; }
+  .v2 .hcta-ic { display: block; }
+  .v2 .hcta-text { display: none; }
+  .v2 .nav-desktop { display: none; }
+  .v2 .nav-mobile { display: block; }
+  .v2 .nav-mobile > summary { padding: 10px 12px; font-size: 15px; min-height: 44px; display: grid; place-items: center; }
+}
+
+@media (max-width: 640px) and (min-width: 601px) {
+  .v2 .nav-desktop { display: none; }
+  .v2 .nav-mobile { display: block; }
+  .v2 .hcta-ic { display: block; }
+  .v2 .hcta-text { display: none; }
+}
+
+/* ===========================================================================
+   Live interactive markup carried over verbatim (17 Sep): the finder, the
+   contact form and the review containers. These use the live class names
+   (.container, .finder-*, .contact-*, .reviews-*), so they are styled here
+   rather than rebuilt -- rebuilding them by hand is what turned the <select>
+   dropdowns into loose chips.
+   ========================================================================= */
+
+.v2 .quick-finder, .v2 .contact-section, .v2 .reviews-section { padding: var(--s8) 0; border-bottom: 1px solid var(--line); }
+.v2 .quick-finder { background: var(--sheet); }
+.v2 .reviews-section { background: var(--ground); }
+.v2 .container, .v2 .contact-container, .v2 .reviews-content { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--s4); }
+.v2 .section-title, .v2 .reviews-title, .v2 .contact-header h2 { font-size: var(--t-2xl); margin: 0 0 var(--s3); }
+.v2 .section-intro, .v2 .contact-header p, .v2 .form-microcopy { max-width: 66ch; }
+
+/* ---- real dropdowns ---- */
+.v2 .finder-form { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); align-items: end; }
+.v2 .finder-group, .v2 .form-group { display: grid; gap: 6px; }
+.v2 .finder-group label, .v2 .form-group label { font-size: 15px; font-weight: 600; color: var(--ink); }
+.v2 select, .v2 input[type="text"], .v2 input[type="tel"], .v2 textarea {
+  width: 100%; min-height: 48px; font: inherit; font-size: 16px; color: var(--ink);
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px var(--s3); -webkit-appearance: none; appearance: none;
+}
+.v2 select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--blue) 50%), linear-gradient(135deg, var(--blue) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% + 2px), calc(100% - 12px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; padding-right: 36px;
+}
+.v2 textarea { min-height: 96px; resize: vertical; }
+.v2 select:focus, .v2 input:focus, .v2 textarea:focus { outline: 3px solid var(--blue); outline-offset: 1px; }
+.v2 #checkAvailability, .v2 .contact-form button[type="submit"] {
+  min-height: 48px; padding: 12px 22px; border: 0; border-radius: var(--radius-sm);
+  background: var(--blue); color: #fff; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
+}
+.v2 .finder-actions, .v2 .finder-cta { margin-top: var(--s4); }
+
+/* ---- finder results panel (script.js unhides it) ---- */
+.v2 .availability-results, .v2 #availabilityResults {
+  margin-top: var(--s5); background: var(--blue-soft); border: 1px solid var(--blue-line);
+  border-radius: var(--radius); padding: var(--s5);
+}
+.v2 .availability-results h3, .v2 .availability-results h4 { color: var(--blue-deep); }
+
+/* ---- contact ---- */
+.v2 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
+.v2 .contact-info { display: grid; gap: var(--s4); }
+.v2 .contact-form { display: grid; gap: var(--s4); background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+/* The carried-over contact items hold an inline SVG with no intrinsic size.
+   Without an explicit box it stretches and each item ballooned to ~450px. */
+.v2 .contact-item { display: grid; grid-template-columns: 34px 1fr; gap: var(--s3); align-items: start; }
+.v2 .contact-detail { display: grid; gap: 2px; min-width: 0; }
+.v2 .contact-icon { width: 34px; height: 34px; display: grid; place-items: center; background: var(--blue-soft); border-radius: 8px; }
+.v2 .contact-icon svg { width: 18px; height: 18px; fill: var(--blue); }
+.v2 .contact-label { font-size: 15px; font-weight: 700; color: var(--ink); }
+.v2 .contact-value { font-size: 15px; color: var(--ink-soft); }
+.v2 .contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.v2 .contact-info a { color: var(--blue); }
+/* Declared AFTER .contact-info a: these buttons live inside .contact-info, and
+   with equal specificity the later rule wins. When this sat first the labels
+   inherited navy on a navy fill -- 1:1 contrast, invisible text. */
+.v2 .contact-buttons a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: var(--radius-sm); background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
+.v2 .contact-buttons a svg { fill: #fff; }
+.v2 .contact-buttons .btn-whatsapp { background: var(--green); }
+.v2 .contact-map iframe, .v2 .contact-right iframe { width: 100%; max-width: 100%; border: 0; border-radius: var(--radius); display: block; }
+.v2 .map-directions-btn, .v2 .view-all-reviews { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; }
+.v2 .map-directions-btn svg { fill: var(--blue); }
+.v2 .contact-map { display: grid; gap: var(--s3); }
+
+/* ---- reviews ---- */
+.v2 .reviews-loading, .v2 .reviews-error { text-align: center; padding: var(--s5) 0; }
+.v2 .view-all-reviews { font-weight: 600; }
+.v2 .reviews-carousel { overflow: hidden; }
+.v2 .reviews-track { display: flex; gap: var(--s4); }
+.v2 .review-card { flex: 0 0 100%; background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .carousel-dots { display: flex; gap: 8px; justify-content: center; margin-top: var(--s4); }
+
+/* ---- About stat band ---- */
+.v2 .sec-about .stat-band { margin: 0 0 var(--s5); }
+.v2 .stat-label { font-size: 15px; }
+
+/* ---- Curricula chip grid ---- */
+.v2 .curr-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.v2 .curr-chip {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: 10px 18px; border-radius: 999px; background: var(--blue-soft);
+  border: 1px solid var(--blue-line); color: var(--blue-deep); font-weight: 700;
+  font-size: 15px; text-decoration: none;
+}
+.v2 .curr-chip:hover { background: #D5E2F3; }
+
+/* ---- A12: footer areas row ---- */
+.v2 .footer-areas { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.v2 .footer-areas-title { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+.v2 .footer-areas-list { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.v2 .footer-areas-list a { color: var(--ink-soft); text-decoration: none; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+.v2 .footer-areas-list a:hover { color: var(--blue); text-decoration: underline; }
+
+/* ---- the Menu button must never wrap ---- */
+.v2 .nav-mobile > summary { white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .v2 .contact-grid { grid-template-columns: 1fr; gap: var(--s5); }
+}
+
+@media (max-width: 600px) {
+  .v2 .quick-finder, .v2 .contact-section, .v2 .reviews-section { padding: var(--s5) 0; }
+  .v2 .container, .v2 .contact-container, .v2 .reviews-content { padding: 0 var(--s4); }
+  .v2 .section-title, .v2 .reviews-title, .v2 .contact-header h2 { font-size: 1.35rem; }
+  .v2 .section-intro, .v2 .contact-header p, .v2 .form-microcopy { font-size: 15px; line-height: 1.45; }
+  .v2 .finder-form { grid-template-columns: 1fr; gap: var(--s3); }
+  .v2 .contact-form { padding: var(--s4); gap: var(--s3); }
+  .v2 .availability-results, .v2 #availabilityResults { padding: var(--s4); }
+  .v2 .curr-chip { font-size: 15px; padding: 10px 16px; }
+  .v2 .footer-areas-list { gap: 2px 12px; }
+  .v2 .stat-label { font-size: 15px; }
+  .v2 .stat-num { font-size: 1.7rem; }
+  /* links inside the carried-over live markup are tap targets too */
+  .v2 .contact-value, .v2 .contact-info a, .v2 .map-directions-btn,
+  .v2 .view-all-reviews { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* ---- A14: the line under the contact submit button ---- */
+.v2 .form-note { margin: 8px 0 0; font-size: 15px; color: var(--ink-soft); }
+.v2 [aria-invalid="true"] { border-color: #A3282B; outline: 2px solid #A3282B; outline-offset: 1px; }
+
+/* ---- A15: the reviews section is now a heading and one link ---- */
+.v2 .sec-reviews { text-align: center; }
+.v2 .sec-reviews h2 { margin-bottom: var(--s4); }
+.v2 .reviews-cta { min-height: 48px; }
+
+/* ===========================================================================
+   DESKTOP PASS (17 Sep). Phone layout is unchanged: everything here is
+   inside min-width queries.
+   ========================================================================= */
+
+/* Container: 1200px, as agreed. */
+.v2 { --wrap: 1200px; }
+
+@media (min-width: 900px) {
+  /* ---- header: logo, nav, WhatsApp button, call button — one line ---- */
+  .v2 .header-inner { flex-wrap: nowrap; align-items: center; min-height: 72px; gap: var(--s5); }
+  .v2 .brand { margin-right: var(--s5); }
+  .v2 .nav-desktop { display: flex; align-items: center; gap: var(--s5); margin-right: auto; }
+  .v2 .nav-mobile { display: none; }
+  .v2 .header-cta { display: flex; align-items: center; gap: 10px; flex: none; }
+  .v2 .hcta {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 44px; padding: 10px 16px; white-space: nowrap;
+  }
+  .v2 .hcta-ic { display: block; width: 18px; height: 18px; }
+  .v2 .hcta-text { display: inline; }
+  .v2 .hcta-wa { background: var(--green); color: #fff; }
+  .v2 .hcta-wa .hcta-ic { fill: #fff; }
+  .v2 .hcta-tel { border: 1px solid var(--blue); color: var(--blue); }
+  .v2 .hcta-tel .hcta-ic { fill: var(--blue); }
+
+  /* ---- swipe rows become grids: no sideways scrolling on desktop ---- */
+  .v2 .swipe { display: contents; }
+  .v2 .swipe-hint { display: none; }
+  .v2 .swipe-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+  .v2 .swipe-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }
+
+  /* ---- contact: two columns ---- */
+  .v2 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
+
+  /* ---- reviews: rating above the button ---- */
+  .v2 .reviews-rating { justify-content: center; }
+}
+
+/* The reviews rating line, all widths. */
+.v2 .reviews-rating { display: flex; align-items: baseline; justify-content: center; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s4); }
+.v2 .reviews-rating .rating-num { font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; }
+.v2 .reviews-rating .rating-stars { color: var(--gold); letter-spacing: 2px; font-size: 1.1rem; }
+.v2 .reviews-rating .rc { font-size: 15px; font-weight: 700; color: var(--ink); }
+
+/* ===========================================================================
+   LOWER-PAGE REDESIGN (17 Sep) — same language as the hero and the week
+   section: blue ink, inline SVG icons, rounded cards, numbered badges.
+   ========================================================================= */
+
+.v2 .sub-head { margin: var(--s7) 0 var(--s4); font-size: var(--t-xl); }
+
+/* ---- highlighted lead paragraph ---- */
+.v2 .lead-block {
+  border-left: 4px solid var(--blue); background: var(--blue-soft);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: var(--s4) var(--s5);
+  margin-bottom: var(--s6);
+}
+.v2 .lead-block p { font-size: 1.15rem; line-height: 1.55; color: var(--blue-deep); max-width: 70ch; margin: 0; }
+
+/* ---- the five-step learning cycle ---- */
+.v2 .cycle {
+  list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(5, 1fr); gap: var(--s4); position: relative;
+}
+.v2 .cycle::before {           /* the track the steps sit on */
+  content: ''; position: absolute; left: 10%; right: 10%; top: 27px;
+  height: 2px; background: var(--blue-line);
+}
+.v2 .cycle-step { position: relative; text-align: center; display: grid; justify-items: center; gap: 6px; }
+.v2 .cycle-step::after {       /* arrow between steps */
+  content: ''; position: absolute; top: 22px; right: calc(-1 * var(--s4) / 2 - 4px);
+  width: 9px; height: 9px; border-top: 2px solid var(--blue); border-right: 2px solid var(--blue);
+  transform: rotate(45deg);
+}
+.v2 .cycle-step:last-child::after { display: none; }
+.v2 .cycle-badge {
+  width: 54px; height: 54px; border-radius: 50%; background: var(--blue); color: #fff;
+  display: grid; place-items: center; font-family: var(--mono); font-weight: 700;
+  font-size: 1.1rem; position: relative; z-index: 1; border: 4px solid var(--sheet);
+}
+.v2 .cycle-icon { display: grid; place-items: center; width: 34px; height: 34px; }
+.v2 .cycle-icon svg { width: 26px; height: 26px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .cycle-title { margin: 0; font-weight: 700; color: var(--blue-deep); font-size: var(--t-base); }
+.v2 .cycle-step p:not(.cycle-title) { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.45; }
+.v2 .cycle-loop { display: block; width: 100%; height: 40px; margin-top: var(--s2); fill: none; stroke: var(--blue-line); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- CSS-only grade tabs ---- */
+.v2 .tabs { display: grid; gap: var(--s4); }
+.v2 .tab-bar { display: flex; flex-wrap: wrap; gap: 10px; }
+.v2 .tab-input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.v2 .tab-label {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: 10px 20px; border-radius: 999px; border: 1px solid var(--blue);
+  color: var(--blue); font-weight: 700; font-size: 15px; cursor: pointer; white-space: nowrap;
+}
+.v2 #gb-0:checked ~ .tab-bar label[for="gb-0"],
+.v2 #gb-1:checked ~ .tab-bar label[for="gb-1"],
+.v2 #gb-2:checked ~ .tab-bar label[for="gb-2"] { background: var(--blue); color: #fff; }
+.v2 #gb-0:focus-visible ~ .tab-bar label[for="gb-0"],
+.v2 #gb-1:focus-visible ~ .tab-bar label[for="gb-1"],
+.v2 #gb-2:focus-visible ~ .tab-bar label[for="gb-2"] { outline: 3px solid var(--blue); outline-offset: 2px; }
+.v2 .tab-panel { display: none; }
+.v2 #gb-0:checked ~ .tab-panels #gb-panel-0,
+.v2 #gb-1:checked ~ .tab-panels #gb-panel-1,
+.v2 #gb-2:checked ~ .tab-panels #gb-panel-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); }
+.v2 .tab-prose { background: var(--blue-soft); border-radius: var(--radius); padding: var(--s5); }
+.v2 .tab-prose p { margin: 0; max-width: 70ch; color: var(--blue-deep); }
+.v2 .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; align-content: start; }
+.v2 .checklist li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; margin: 0; }
+.v2 .tick-ic { width: 20px; height: 20px; fill: none; stroke: var(--blue); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- board cards ---- */
+.v2 .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+.v2 .board-card {
+  display: grid; align-content: start; gap: var(--s3);
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--s5); transition: transform .15s ease, box-shadow .15s ease;
+}
+.v2 .board-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(20,24,31,.10); }
+.v2 .board-badge {
+  justify-self: start; background: var(--blue); color: #fff; font-weight: 700;
+  font-size: 15px; padding: 6px 14px; border-radius: 999px;
+}
+.v2 .board-2 .board-badge { background: #1F5C4A; }
+.v2 .board-3 .board-badge { background: #6B3FA0; }
+.v2 .board-4 .board-badge { background: #8A4B1F; }
+.v2 .board-5 .board-badge { background: #12294C; }
+.v2 .board-6 .board-badge { background: #0B5563; }
+.v2 .board-desc { margin: 0; font-size: 1.02rem; color: var(--ink); }
+.v2 .board-link {
+  margin-top: auto; align-self: end; justify-self: start; display: inline-flex; align-items: center;
+  min-height: 44px; padding: 8px 16px; border-radius: var(--radius-sm);
+  border: 1px solid var(--blue); color: var(--blue); font-weight: 600; text-decoration: none; font-size: 15px;
+}
+.v2 .board-link:hover { background: var(--blue); color: #fff; }
+
+/* ---- Curricula band ---- */
+.v2 .curricula-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--s6); align-items: start; }
+.v2 .curricula-intro p { max-width: 70ch; }
+.v2 .curr-grid { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
+.v2 .curr-chip {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  padding: 10px 16px; border-radius: 999px; background: var(--blue-soft);
+  border: 1px solid var(--blue-line); color: var(--blue-deep); font-weight: 700;
+  font-size: 15px; text-decoration: none;
+}
+.v2 .curr-chip:hover { background: #D5E2F3; }
+.v2 .curr-chip .chip-ic { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 1.8; }
+.v2 .curr-chip .chip-arrow { width: 15px; height: 15px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- About profile block ---- */
+.v2 .about-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: var(--s6); align-items: start; }
+.v2 .profile-card { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); display: grid; gap: var(--s4); justify-items: start; }
+/* A18: the profile card leads with the name in display type — full colour,
+   tight leading. It must read as a name, not a label, button or chip. */
+.v2 .profile-name {
+  margin: 0; font-size: 1.5rem; line-height: 1.15; font-weight: 700;
+  color: var(--ink); letter-spacing: -.015em; white-space: nowrap;
+}
+.v2 .profile-card .stat-band { border: 0; padding: 0; margin: 0; gap: var(--s6); }
+.v2 .credential { margin: 0; font-size: 15px; color: var(--ink-soft); }
+.v2 .cred-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+.v2 .cred-chips li { background: var(--blue-soft); color: var(--blue-deep); border-radius: 999px; padding: 6px 12px; font-size: 15px; font-weight: 600; margin: 0; }
+.v2 .pull-quote { margin: 0 0 var(--s5); border-left: 4px solid var(--blue); padding: var(--s2) 0 var(--s2) var(--s4); }
+.v2 .pull-quote p { margin: 0; font-size: 1.2rem; line-height: 1.5; color: var(--blue-deep); font-weight: 600; max-width: 70ch; }
+.v2 .principles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.v2 .principle { background: var(--blue-soft); border-radius: var(--radius); padding: var(--s4); display: grid; gap: 6px; align-content: start; }
+.v2 .principle-icon { display: grid; place-items: center; width: 34px; height: 34px; background: var(--sheet); border-radius: 8px; }
+.v2 .principle-icon svg { width: 20px; height: 20px; stroke: var(--blue); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.v2 .principle h3 { margin: 0; color: var(--blue-deep); font-size: var(--t-base); }
+.v2 .principle p { margin: 0; font-size: 15px; }
+.v2 .about-note { margin: var(--s4) 0 0; font-size: 15px; color: var(--ink-soft); font-style: italic; }
+
+/* ---- Diagnostic Test ---- */
+.v2 .diag-head { display: flex; align-items: baseline; gap: var(--s4); flex-wrap: wrap; }
+.v2 .diag-price { margin: 0 0 .5em; font-weight: 700; color: var(--blue); background: var(--blue-soft); padding: 6px 14px; border-radius: 999px; font-size: 15px; }
+.v2 .diag-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); }
+.v2 .diag-prose { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.v2 .diag-prose h3 { margin-top: 0; }
+.v2 .book-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--s5); align-items: start; }
+.v2 .book-steps { list-style: none; margin: 0; padding: 0; counter-reset: bk; display: grid; gap: var(--s3); }
+.v2 .book-steps li { display: grid; grid-template-columns: 38px 1fr; gap: var(--s3); align-items: center; counter-increment: bk; margin: 0; }
+.v2 .book-steps li::before {
+  content: counter(bk); width: 38px; height: 38px; border-radius: 50%; background: var(--blue);
+  color: #fff; display: grid; place-items: center; font-family: var(--mono); font-weight: 700;
+}
+.v2 .pay-card { background: var(--blue-soft); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: var(--s5); display: grid; gap: var(--s3); justify-items: start; }
+.v2 .pay-card p { margin: 0; }
+.v2 .pay-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---- FAQ single column ---- */
+.v2 .sec-details .accordion { max-width: 760px; margin: 0 auto; }
+.v2 .sec-details .sec-head { max-width: 760px; margin: 0 auto; }
+
+/* ---- footer columns ---- */
+.v2 .site-footer .wrap { display: grid; gap: var(--s5); }
+
+@media (max-width: 900px) {
+  .v2 .boards { grid-template-columns: 1fr 1fr; }
+  .v2 .curricula-band, .v2 .about-grid, .v2 .diag-cols, .v2 .book-grid { grid-template-columns: 1fr; gap: var(--s5); }
+  .v2 #gb-0:checked ~ .tab-panels #gb-panel-0,
+  .v2 #gb-1:checked ~ .tab-panels #gb-panel-1,
+  .v2 #gb-2:checked ~ .tab-panels #gb-panel-2 { grid-template-columns: 1fr; gap: var(--s4); }
+}
+
+@media (max-width: 600px) {
+  .v2 .sub-head { margin: var(--s5) 0 var(--s3); font-size: var(--t-lg); }
+  .v2 .lead-block { padding: var(--s3) var(--s4); margin-bottom: var(--s5); }
+  .v2 .lead-block p { font-size: 17px; }
+
+  /* cycle becomes a vertical timeline: line down the left, badges on it */
+  .v2 .cycle { grid-template-columns: 1fr; gap: 0; padding-left: 0; }
+  .v2 .cycle::before { left: 26px; right: auto; top: 10px; bottom: 10px; width: 2px; height: auto; }
+  .v2 .cycle-step { grid-template-columns: 54px 1fr; justify-items: start; text-align: left; gap: 4px var(--s4); padding-bottom: var(--s5); }
+  .v2 .cycle-step::after { display: none; }
+  .v2 .cycle-badge { grid-row: 1 / span 3; width: 54px; height: 54px; align-self: start; }
+  .v2 .cycle-icon { grid-column: 2; }
+  .v2 .cycle-title { grid-column: 2; }
+  .v2 .cycle-step p:not(.cycle-title) { grid-column: 2; font-size: 15px; }
+  .v2 .cycle-loop { display: none; }
+
+  .v2 .tab-bar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .v2 .tab-bar::-webkit-scrollbar { display: none; }
+  .v2 .tab-label { padding: 10px 16px; }
+  .v2 .tab-prose { padding: var(--s4); }
+  .v2 .boards { grid-template-columns: 1fr; }
+  .v2 .board-card { padding: var(--s4); }
+  .v2 .board-desc { font-size: 15px; }
+  .v2 .principles { grid-template-columns: 1fr; }
+  .v2 .profile-card { padding: var(--s4); }
+  .v2 .pull-quote p { font-size: 17px; }
+  .v2 .diag-prose, .v2 .pay-card { padding: var(--s4); }
+}
+
+/* ===========================================================================
+   Three fixes, 18 Sep.
+   ========================================================================= */
+
+/* ---- 1. GET IN TOUCH: form card aligned with the Phone row ---------------
+   The right column holds the map and the form. In source order the map comes
+   first, so the form started ~394px below the Phone row. Ordering the form
+   first puts the two column tops level; the map follows underneath. */
+@media (min-width: 900px) {
+  .v2 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); align-items: start; }
+  .v2 .contact-grid > * { min-width: 0; }
+  .v2 .contact-right { display: flex; flex-direction: column; gap: var(--s5); }
+  .v2 .contact-right .contact-form { order: 1; margin: 0; }
+  .v2 .contact-right .contact-map { order: 2; }
+  .v2 .contact-info { margin: 0; }
+}
+
+/* ---- 2. FOOTER: three columns, each heading above its own list ---------- */
+.v2 footer .footer-content { display: grid; gap: var(--s5); }
+.v2 footer .footer-section h3 { font-size: var(--t-base); color: var(--ink); margin: 0 0 10px; }
+.v2 footer .footer-section p { margin: 0 0 .5em; font-size: 15px; }
+.v2 footer .footer-nav { display: grid; gap: 2px; }
+.v2 footer .footer-nav a,
+.v2 footer .footer-section a { color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+.v2 footer .footer-nav a:hover { text-decoration: underline; }
+.v2 footer .footer-bottom { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.v2 footer .footer-bottom p { margin: 0; font-size: 15px; }
+.v2 .footer-areas { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
+.v2 .footer-areas-title { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+
+@media (min-width: 900px) {
+  .v2 footer .footer-content { grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s6); align-items: start; }
+}
+
+/* ---- 3. PHONE ONLY: boards and diagnostic become swipe rows ------------- */
+@media (max-width: 600px) {
+  .v2 .boards,
+  .v2 .diag-cols {
+    display: flex; gap: var(--s3); overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin: 0 calc(var(--s4) * -1); padding: 0 var(--s4) 6px;
+  }
+  .v2 .boards::-webkit-scrollbar, .v2 .diag-cols::-webkit-scrollbar { display: none; }
+  .v2 .boards > .board-card,
+  .v2 .diag-cols > .diag-prose { flex: 0 0 85%; scroll-snap-align: start; }
+
+  /* Scroll affordance: a track of dots with a thumb that tracks the scroll
+     position where scroll-driven animations are supported, and reads as a
+     plain indicator where they are not. No JavaScript. */
+  .v2 .swipe-dots { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 10px; }
+  .v2 .swipe-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--blue-line); }
+  .v2 .swipe-rail { position: relative; height: 4px; border-radius: 999px; background: var(--blue-soft); margin: 10px auto 0; width: 120px; overflow: hidden; }
+  .v2 .swipe-rail::after {
+    content: ''; position: absolute; inset: 0 auto 0 0; width: 40%;
+    border-radius: 999px; background: var(--blue);
+    animation: swipe-progress linear both;
+  }
+  .v2 .boards-wrap .swipe-rail::after { animation-timeline: --boards-scroll; }
+  .v2 .diag-wrap  .swipe-rail::after { animation-timeline: --diag-scroll; }
+  .v2 .boards { scroll-timeline: --boards-scroll inline; }
+  .v2 .diag-cols { scroll-timeline: --diag-scroll inline; }
+}
+@keyframes swipe-progress { from { transform: translateX(0); } to { transform: translateX(150%); } }
+
+/* ---- phone length: targeted cuts only, no wording touched --------------- */
+@media (max-width: 600px) {
+  /* the four principle cards are short — two per row reads fine at 390 */
+  .v2 .principles { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .v2 .principle { padding: var(--s3); }
+  .v2 .principle-icon { width: 28px; height: 28px; }
+  .v2 .principle-icon svg { width: 17px; height: 17px; }
+  .v2 .principle h3 { font-size: 15px; }
+
+  /* 23 closed FAQ rows dominate the page; tighter rows, same content */
+  .v2 .accordion summary { padding: 10px var(--s3); }
+
+  /* the map is decorative at this width */
+  .v2 .contact-map iframe, .v2 .contact-right iframe { height: 200px; }
+  .v2 .contact-right { gap: var(--s4); }
+  .v2 .contact-item { gap: 10px; }
+  .v2 .contact-info { gap: var(--s3); }
+  .v2 .contact-section .contact-grid { gap: var(--s4); }
+
+  /* hero method diagram: tighter steps */
+  .v2 .method:not(.dg) .ms-step { padding: 8px 10px; }
+  .v2 .method:not(.dg) .ms-arrow { height: 14px; }
+
+  /* footer: tighter stacking */
+  .v2 footer .footer-content { gap: var(--s4); }
+  .v2 footer .footer-section p { margin-bottom: .25em; }
+  .v2 .footer-areas-list { gap: 0 12px; }
+
+  /* cycle timeline: a little less air between steps */
+  .v2 .cycle-step { padding-bottom: var(--s4); }
+}
+
+/* ---- phone length, round 2 --------------------------------------------- */
+@media (max-width: 600px) {
+  .v2 .accordion summary { padding: 8px var(--s3); }
+  .v2 .acc-body { padding: 0 var(--s3) 8px; }
+
+  .v2 .contact-form { gap: 10px; padding: var(--s3); }
+  .v2 .form-group { gap: 4px; }
+  .v2 .contact-map iframe, .v2 .contact-right iframe { height: 160px; }
+  .v2 .form-microcopy { margin-bottom: 4px; }
+
+  .v2 .pay-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .v2 .pay-links .btn { padding: 10px 12px; text-align: center; justify-content: center; }
+  .v2 .pay-card { gap: 10px; padding: var(--s3); }
+  .v2 .book-steps { gap: 10px; }
+  .v2 .book-steps li::before { width: 32px; height: 32px; }
+  .v2 .book-steps li { grid-template-columns: 32px 1fr; }
+  .v2 .diag-prose { padding: var(--s3); }
+  .v2 .diag-prose h3 { margin-bottom: 6px; }
+
+  .v2 .cycle-step { padding-bottom: var(--s3); }
+  .v2 .cycle-badge { width: 44px; height: 44px; font-size: 1rem; }
+  .v2 .cycle-step { grid-template-columns: 44px 1fr; gap: 2px var(--s3); }
+  .v2 .cycle::before { left: 21px; }
+  .v2 .cycle-icon { width: 24px; height: 24px; }
+  .v2 .cycle-icon svg { width: 20px; height: 20px; }
+
+  .v2 .rating { padding: 8px var(--s3); }
+  .v2 .trust { padding-top: 10px; }
+  .v2 .hero { padding: var(--s4) 0 var(--s5); }
+  .v2 .tab-prose { padding: var(--s3); }
+  .v2 .board-card { padding: var(--s3); gap: 10px; }
+  .v2 .profile-card { gap: var(--s3); }
+  .v2 .profile-name { font-size: 1.3rem; }
+}
+
+/* ---- phone length, round 3: section rhythm ------------------------------ */
+@media (max-width: 600px) {
+  .v2 .sec, .v2 .sec-week, .v2 .sec-areas,
+  .v2 .quick-finder, .v2 .contact-section, .v2 .reviews-section { padding: 20px 0; }
+  .v2 .sub-head { margin: var(--s4) 0 10px; }
+  .v2 .sec-head > h2, .v2 .sec-head > h3 { margin-bottom: 6px; }
+  .v2 .dg { margin-bottom: 10px; }
+  .v2 .lead-block { margin-bottom: var(--s4); }
+  .v2 .cta-band { padding: var(--s5) 0; }
+  .v2 footer.footer { padding: var(--s5) 0; }
+  .v2 .swipe { padding-bottom: 4px; }
+  .v2 .tabs { gap: 10px; }
+  .v2 .boards, .v2 .diag-cols { padding-bottom: 4px; }
+  .v2 .swipe-dots, .v2 .swipe-rail { margin-top: 6px; }
+}
