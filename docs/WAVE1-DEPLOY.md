@@ -26,6 +26,10 @@ unchanged by A20 and its hash is the same in both revisions.)
 | `build/production/css/site.css` | `public_html/css/site.css` | 60552 B | `451d14a591a3c39ca50bb3d1b9b3df5fb16cce80a453997c79bddbea92575949` |
 | `build/production/js/contact-whatsapp.js` | `public_html/js/contact-whatsapp.js` | 5242 B | `8194ecd351ce7ba6815014c267a5949cf444219d5d84b13d197bbfae93eb0981` |
 
+That `contact-whatsapp.js` row is the WAVE 1 file. It was superseded on the same
+day by A21 — see "A21 single-file deploy" at the foot of this file for the
+current hash.
+
 `public_html/css/` and `public_html/js/` do not exist on the server yet. Both are
 created by step 3.
 
@@ -382,3 +386,111 @@ artifact, not a wave 1 effect.
 
 Not needed. Not run. The step 7 command remains valid against
 `public_html-pre-wave1-20260918-101018.tar.gz`.
+
+---
+
+# A21 single-file deploy — 18 September 2026
+
+Approved separately. One file: `js/contact-whatsapp.js`. `index.html` and
+`css/site.css` were NOT re-uploaded — they are byte-identical to what was
+already live, so wave 1's `index.html` hash must not move, and it did not.
+
+## Step 1 — backup
+
+```
+-rw-r--r-- 1 u879191658 o1008120454 1.5M Sep 18 12:51 /home/u879191658/backups/public_html-pre-a21-20260918-125111.tar.gz
+```
+
+194 entries (wave 1's 190 plus `css/`, `css/site.css`, `js/`,
+`js/contact-whatsapp.js`). Verified to contain both
+`public_html/js/contact-whatsapp.js` and `public_html/index.html`.
+
+## Steps 2 and 4 — hashes before and after
+
+| file | before | after | |
+|---|---|---|---|
+| `.htaccess` | `4587cf66…` | `4587cf66…` | unchanged |
+| `robots.txt` | `43ed0d0e…` | `43ed0d0e…` | unchanged |
+| `sitemap.xml` | `6d9d9940…` | `6d9d9940…` | unchanged |
+| `index.html` | `34e1f1f1…` | `34e1f1f1…` | unchanged, mtime still Sep 18 10:09 |
+| `styles.css` | `c75ae294…` | `c75ae294…` | unchanged |
+| `script.js` | `1bf4f312…` | `1bf4f312…` | unchanged |
+| `css/site.css` | `451d14a5…` | `451d14a5…` | unchanged |
+| `js/contact-whatsapp.js` | `8194ecd3…` | **`1e48b2de…`** | THE ONLY CHANGE |
+
+`1e48b2de8f98bc3723bf988f88535d54ce78e9060c15ce42fa7b0f0510307e8a` is exactly
+the local `build/production/js/contact-whatsapp.js`, 9683 B.
+
+## Step 3 — upload
+
+One rsync, `--checksum`, no `--delete`, 9683 B.
+
+## Step 5 — inline handlers on the LIVE url
+
+`node design/check-inline-handlers.mjs https://ankuramtuition.com/`
+
+```
+  OK  window.trackCTAClick         typeof=function
+  OK  window.trackFormSubmission   typeof=function
+  OK  window.trackPhoneClick       typeof=function
+  OK  window.trackWhatsAppClick    typeof=function
+  page errors on load: none
+  PASS — every inline handler resolves at runtime
+```
+
+Run with `CACHE_BUST=1`, for the reason in "CDN cache" below. Without it, all
+four still report `undefined`, because the edge is serving the pre-A21 file.
+
+## Step 6 — live behaviour, mobile UA, 390x844
+
+wa.me, api.whatsapp.com and every Google/Clarity beacon aborted, so no message
+reached Swastik and no test conversion was written to account 786-647-2391.
+
+**A. Contact form, Name + Phone**
+
+```
+https://wa.me/917396669430?text=Hi%20Swastik%2C%20I%27d%20like%20to%20enquire%20about%20tuition.%0AName%3A%20Test%20Parent%0APhone%3A%209876543210
+decoded: "Hi Swastik, I'd like to enquire about tuition.\nName: Test Parent\nPhone: 9876543210"
+```
+
+1 navigation · GA4 `form_submission` **1** · dataLayer `form_submission` **1** ·
+Ads `jucWCNPv3OAbEPOvruco` **1** · conversion events of any label **1** ·
+ReferenceErrors **0** · errors none.
+
+**B. tel: link** — GA4 `phone_call_click` 1, script.js's own `phone_click` 1,
+dataLayer `phone_call` 1, Ads `NGIFCNbv3OAbEPOvruco` **1**, conversion events of
+any label **1**, ReferenceErrors 0.
+
+**C. wa.me link and CTA link** — GA4 `whatsapp_click` 1 + Ads
+`jucWCNPv3OAbEPOvruco` **1**; GA4 `cta_click` 1, dataLayer `cta_click` 1;
+ReferenceErrors 0.
+
+Nothing fires twice. Before A21 these four threw
+`ReferenceError: <name> is not defined` and `form_submission` never fired at all.
+
+## CDN cache — action needed
+
+The origin is correct; the CDN edge is not yet serving it:
+
+```
+plain URL        -> 8194ecd3…   (pre-A21, cached)
+?cachebust=…     -> 1e48b2de…   (the deployed file)
+cache-control: public, max-age=604800
+last-modified: Fri, 18 Sep 2026 12:36:29 GMT
+```
+
+`max-age` is 7 days, so **Swastik must clear the Hostinger cache (hPanel →
+Clear cache)** before real visitors get the fix. Until then the live page still
+throws the four ReferenceErrors and still does not record `form_submission`.
+Steps 5 and 6 above were run with `CACHE_BUST=1`, which reads the deployed bytes
+past the stale edge copy; they must be re-run without it after the purge.
+
+## Step 7 — rollback, ready, not run
+
+```bash
+ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+  "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-a21-20260918-125111.tar.gz public_html/js/contact-whatsapp.js && cd public_html && sha256sum js/contact-whatsapp.js"
+# must print 8194ecd351ce7ba6815014c267a5949cf444219d5d84b13d197bbfae93eb0981
+```
+
+Restores only that one file. Nothing else on the site is touched.
