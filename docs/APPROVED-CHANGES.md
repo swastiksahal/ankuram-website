@@ -125,3 +125,5 @@ A17 ABOUT PROFILE BLOCK (supervisor, 17 Sep). Presentation additions in the Abou
 - A monogram circle reading "SS". No photograph (A9).
 - Three credential chips: "MSc Physics", "BE Mechanical Engineering", "Former Amazon software engineer". These are presentation only and repeat wording already in the credential sentence, which stays in full and unchanged.
 - The stat pair 13+ / Years Teaching and 3-5 / Students per Batch is shown as large numerals with small labels. Existing wording.
+
+A18 — the decorative 'SS' monogram in the About profile card is removed and replaced with the name 'Swastik Sahal' set in display type. Approved by Swastik, 18 Sep 2026. No avatar, photo or image placeholder anywhere on the page.

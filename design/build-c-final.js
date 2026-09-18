@@ -307,7 +307,8 @@ const L = {
 // Same visual language as the hero and "How a week works": blue ink, inline
 // SVG icons, rounded cards, numbered badges. No wording changes.
 
-const A17 = { monogram: 'SS', chips: ['MSc Physics', 'BE Mechanical Engineering', 'Former Amazon software engineer'] };
+const A18 = { name: 'Swastik Sahal' };
+const A17 = { chips: ['MSc Physics', 'BE Mechanical Engineering', 'Former Amazon software engineer'] };
 
 /** Split a section's blocks at its h3 boundaries. */
 function groupsByH3(blocks) {
@@ -451,7 +452,7 @@ function aboutSection(sec) {
     <h2>${esc(h2)}</h2>
     <div class="about-grid">
       <aside class="profile-card">
-        <span class="monogram" aria-hidden="true">${esc(A17.monogram)}</span>
+        <p class="profile-name">${esc(A18.name)}</p>
         <ul class="stat-band">
           <li class="stat"><span class="stat-num">${esc(statText[0])}</span><span class="stat-label">${esc(statText[1])}</span></li>
           <li class="stat"><span class="stat-num">${esc(statText[2])}</span><span class="stat-label">${esc(statText[3])}</span></li>
@@ -853,17 +854,18 @@ const a15Removed = reviewsBlocks.filter((b) => b.t !== 'h2').reduce((n, b) => n 
 const a15Repeat = wc(C.rating.value) + wc(A13.reviewCount);
 const a15 = wc(A15.reviewsButton) + a15Repeat - a15Removed;
 const a14 = wc(A14.formNote);
-// A17: the monogram and the credential chips (the full sentence stays).
-const a17 = wc(A17.monogram) + A17.chips.reduce((n, c) => n + wc(c), 0);
+// A17: the credential chips (the full sentence stays). A18: the name.
+const a17 = A17.chips.reduce((n, c) => n + wc(c), 0);
+const a18 = wc(A18.name);
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17;
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
 console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2Words} + ${swipeRows} swipe hints ${swipeWords} = ${a11}`);
 console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
-console.log(`A17: monogram + credential chips +${a17}`);
+console.log(`A17: credential chips +${a17}   A18: name "${A18.name}" +${a18} (monogram removed)`);
 console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
 console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);

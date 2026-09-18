@@ -4,17 +4,17 @@
     {
       "width": 360,
       "overflow": 0,
-      "height": 13734
+      "height": 13702
     },
     {
       "width": 390,
       "overflow": 0,
-      "height": 13004
+      "height": 12971
     },
     {
       "width": 768,
       "overflow": 0,
-      "height": 16275
+      "height": 16235
     },
     {
       "width": 1024,
@@ -71,7 +71,7 @@
     },
     {
       "name": "About ANKURAM",
-      "h": 982
+      "h": 950
     },
     {
       "name": "How We Teach at ANKURAM",
@@ -106,7 +106,7 @@
       "h": 975
     }
   ],
-  "total": 13004,
+  "total": 12971,
   "minFont": 15,
   "minSel": "SUMMARY:Menu",
   "smallTaps": [],
@@ -149,14 +149,14 @@
     "performance": 97,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 1842,
-    "totalBytes": 569494
+    "lcpMs": 1844,
+    "totalBytes": 569569
   },
   "a11yFailures": [],
   "lighthouseDesktop": {
     "performance": 100,
     "accessibility": 100,
     "cls": 0,
-    "lcpMs": 445
+    "lcpMs": 447
   }
 }
