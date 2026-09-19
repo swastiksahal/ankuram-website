@@ -12,6 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const OUT = 'build/staging';
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -19,10 +20,27 @@ fs.mkdirSync(path.join(OUT, 'css'), { recursive: true });
 
 let html = fs.readFileSync('design/direction-c/index.html', 'utf8');
 
+// A23: both assets are referenced with ?v=<first 8 hex of their own sha256>.
+// Two Hostinger edge PoPs served a stale js asset through two manual purges;
+// the query string is part of the edge's cache key (proved: ?cachebust= returned
+// the deployed bytes while the bare URL returned the stale ones), so a content
+// hash guarantees a new key the moment either file changes. It is derived, never
+// typed, so it cannot be forgotten on a future wave.
+const assetHash = (file) => crypto.createHash('sha256')
+  .update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+
+const CSS_V = assetHash('css/site.css');
+const WA_V = assetHash('js/contact-whatsapp.js');
+
 const hrefRe = /href="\.\.\/\.\.\/css\/site\.css"/g;
 const found = (html.match(hrefRe) || []).length;
 if (found !== 1) throw new Error(`expected exactly 1 site.css href, found ${found}`);
-html = html.replace(hrefRe, 'href="css/site.css"');
+html = html.replace(hrefRe, `href="css/site.css?v=${CSS_V}"`);
+
+const waRe = /src="js\/contact-whatsapp\.js"/g;
+const waFound = (html.match(waRe) || []).length;
+if (waFound !== 1) throw new Error(`expected exactly 1 contact-whatsapp.js src, found ${waFound}`);
+html = html.replace(waRe, `src="js/contact-whatsapp.js?v=${WA_V}"`);
 
 if (/<img\b/i.test(html)) throw new Error('A9 violation: an <img> is present');
 if (!/content="noindex, nofollow"/.test(html)) throw new Error('robots meta missing');
@@ -72,8 +90,17 @@ fs.copyFileSync('js/contact-whatsapp.js', path.join(OUT, 'js', 'contact-whatsapp
 // URL would be a file we have not shipped.
 const refs = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1]);
 const SHIPPED = ['css/site.css', 'script.js', 'js/contact-whatsapp.js'];
-const unshipped = refs.filter((r) => !/^(#|tel:|https?:|\/)/.test(r) && !SHIPPED.includes(r));
+// A23 appends ?v=<hash>, so compare on the path and keep the query out of it.
+const unshipped = refs.filter((r) => !/^(#|tel:|https?:|\/)/.test(r) && !SHIPPED.includes(r.split('?')[0]));
 if (unshipped.length) throw new Error('unshipped local references: ' + unshipped.join(', '));
+
+// A23: each versioned URL must carry the hash of the file actually shipped.
+for (const [ref, file] of [['css/site.css', path.join(OUT, 'css', 'site.css')], ['js/contact-whatsapp.js', path.join(OUT, 'js', 'contact-whatsapp.js')]]) {
+  const used = refs.find((r) => r.split('?')[0] === ref);
+  const want = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+  if (used !== `${ref}?v=${want}`) throw new Error(`A23: ${ref} referenced as "${used}", expected "?v=${want}"`);
+  console.log(`A23: ${ref}?v=${want}  (matches the shipped file)`);
+}
 
 const files = [];
 (function walk(d) {

@@ -136,6 +136,64 @@
     };
   }
 
+  // ---------------------------------------------------------------- A22
+  // The curriculum list is filtered by the grade chosen, so a parent cannot
+  // submit an impossible pair like "Grades 1-5 + IB MYP".
+  //
+  // PROGRESSIVE ENHANCEMENT: all nine curricula are in the HTML. This script
+  // REMOVES the ones that do not apply. With JavaScript off nothing is removed
+  // and every curriculum stays selectable, which is the safe direction to fail.
+  //
+  // The mapping is the site's own, from the "Curricula We Support" table on
+  // /cbse-icse-igcse-ib-tuition-hyderabad: CBSE 1-12, ICSE/ISC 1-12, IB PYP 1-5,
+  // IB MYP 6-10, IB DP 11-12, IGCSE & A-Levels 9-12.
+  var CURRICULA_BY_GRADE = {
+    '1-5': ['cbse', 'icse', 'ib-pyp', 'state-board'],
+    '6-10': ['cbse', 'icse', 'ib-myp', 'igcse', 'state-board'],
+    '11-12': ['cbse', 'isc', 'ib-dp', 'as-a-levels', 'state-board'],
+  };
+
+  var gradeSel = document.getElementById('grade');
+  var currSel = document.getElementById('curriculum');
+
+  if (gradeSel && currSel) {
+    // Keep a pristine copy of every option, so filtering is always applied to
+    // the full list rather than to whatever survived the last pass.
+    var allOptions = [];
+    for (var oi = 0; oi < currSel.options.length; oi++) {
+      var o = currSel.options[oi];
+      allOptions.push({ value: o.value, text: o.textContent });
+    }
+
+    var applyGradeFilter = function () {
+      var grade = gradeSel.value;
+      var allowed = CURRICULA_BY_GRADE[grade] || null;   // null = blank grade, show all
+      var previous = currSel.value;
+
+      // Rebuild from the pristine list. The placeholder (value "") always stays.
+      var keep = allOptions.filter(function (op) {
+        return op.value === '' || !allowed || allowed.indexOf(op.value) > -1;
+      });
+
+      currSel.innerHTML = '';
+      for (var i = 0; i < keep.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = keep[i].value;
+        opt.textContent = keep[i].text;       // the text matters: value() reads it
+        currSel.appendChild(opt);
+      }
+
+      // Keep the choice if it is still valid; otherwise fall back to the
+      // placeholder. Never silently swap in a different curriculum.
+      var stillValid = previous !== '' && keep.some(function (op) { return op.value === previous; });
+      currSel.value = stillValid ? previous : '';
+    };
+
+    gradeSel.addEventListener('change', applyGradeFilter);
+    // Apply once on load, in case the browser restored a grade on a back/refresh.
+    applyGradeFilter();
+  }
+
   // ---------------------------------------------------------------- A14
   var form = document.getElementById('contactForm');
   if (!form) return;

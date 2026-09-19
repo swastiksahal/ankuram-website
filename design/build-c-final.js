@@ -692,6 +692,16 @@ function renderRest() {
         const btn = '<button type="submit" class="btn btn-primary">Send Message</button>';
         if (!raw.includes(btn)) throw new Error('contact submit button markup not found');
         raw = raw.replace(btn, btn + `<p class="form-note">${esc(A14.formNote)}</p>`);
+
+        // A22: the form offered IB MYP and IB DP but not IB PYP, so a Grades 1-5
+        // parent could only pick a programme their child cannot be on. PYP goes
+        // directly before MYP, keeping the IB programmes in ascending order.
+        // ALL nine stay in the HTML: the grade filter is applied by JS, so with
+        // JS off every curriculum is still present and selectable.
+        const myp = '<option value="ib-myp">IB MYP</option>';
+        if (!raw.includes(myp)) throw new Error('A22: the IB MYP option was not found');
+        if (raw.includes('ib-pyp')) throw new Error('A22: an IB PYP option already exists');
+        raw = raw.replace(myp, `<option value="ib-pyp">IB PYP</option>\n                                ${myp}`);
       }
       out.push(raw);
       continue;
@@ -875,8 +885,10 @@ const a14 = wc(A14.formNote);
 // A17: the credential chips (the full sentence stays). A18: the name.
 const a17 = A17.chips.reduce((n, c) => n + wc(c), 0);
 const a18 = wc(A18.name);
+// A22: one added <option> — its visible text is the only new wording.
+const a22 = wc('IB PYP');
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18;
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18 + a22;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
@@ -884,8 +896,9 @@ console.log(`A11 words: title ${wc(A11.sectionTitle)} + D1 ${d1Words} + D2 ${d2W
 console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
 console.log(`A17: credential chips +${a17}   A18: name "${A18.name}" +${a18} (monogram removed)`);
+console.log(`A22: IB PYP option +${a22} words`);
 console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
-console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} = ${expected}`);
+console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} + A22 ${a22} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 // A19: every tracking ID that must survive the rebuild, checked on the output.
 for (const [label, id, want] of [

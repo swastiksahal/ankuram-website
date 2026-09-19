@@ -113,14 +113,15 @@ has('no G-KHP2PBXF6X anywhere', 'G-KHP2PBXF6X', false);
 has('no G-MQRSS8DKKE typo anywhere', 'G-MQRSS8DKKE', false);
 has('no jucWCNbv label typo anywhere', 'jucWCNbv3OAbEPOvruco', false);
 
-const iScript = html.indexOf('src="script.js"');
-const iWa = html.indexOf('src="js/contact-whatsapp.js"');
+// A23 appends ?v=<content hash> to the asset URLs, so match the path only.
+const iScript = html.search(/src="script\.js(\?[^"]*)?"/);
+const iWa = html.search(/src="js\/contact-whatsapp\.js(\?[^"]*)?"/);
 t.push({
   name: 'script.js loads before js/contact-whatsapp.js',
   ok: iScript > -1 && iWa > -1 && iScript < iWa,
   detail: `script.js at byte ${iScript}, contact-whatsapp.js at byte ${iWa}`,
 });
-const bothDefer = /<script defer src="script\.js">/.test(html) && /<script defer src="js\/contact-whatsapp\.js">/.test(html);
+const bothDefer = /<script defer src="script\.js(\?[^"]*)?">/.test(html) && /<script defer src="js\/contact-whatsapp\.js(\?[^"]*)?">/.test(html);
 t.push({ name: 'both are defer (defer preserves document order)', ok: bothDefer, detail: bothDefer ? 'both defer' : 'not both defer' });
 
 // ------------------------------------------------------------------- report

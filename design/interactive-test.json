@@ -50,7 +50,7 @@
       "id": "curriculum",
       "present": true,
       "tag": "SELECT",
-      "options": 9,
+      "options": 10,
       "height": 48,
       "fontPx": 16,
       "first": "Select Curriculum",
