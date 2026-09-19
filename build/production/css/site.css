@@ -111,7 +111,9 @@
 .v2 .hero-inner { display: grid; grid-template-columns: 1fr; gap: var(--s6); }
 .v2 .hero-text { max-width: 62ch; }
 .v2 .lede { font-size: var(--t-lg); color: var(--ink); }
-.v2 .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin: var(--s5) 0 var(--s4); }
+/* A25.2: the CTA row is a change of function, so it needs a bigger break above
+   it than the gap between paragraphs. One step up the token scale, --s5 -> --s6. */
+.v2 .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin: var(--s6) 0 var(--s4); }
 .v2 .btn { display: inline-block; padding: 12px 20px; border-radius: var(--radius-sm); text-decoration: none; font-weight: 600; font-size: .95rem; }
 .v2 .btn-primary { background: var(--blue); color: #fff; }
 .v2 .btn-ghost { border: 1px solid var(--blue); color: var(--blue); }
@@ -356,7 +358,8 @@
   .v2 .hero-inner { gap: var(--s4); }
   .v2 h1 { font-size: 1.75rem; line-height: 1.18; }
   .v2 .lede { font-size: 16px; line-height: 1.45; }
-  .v2 .hero-ctas { margin: var(--s4) 0 var(--s3); gap: 8px; }
+  /* A25.2: same one-step increase on phones, --s4 -> --s5. */
+  .v2 .hero-ctas { margin: var(--s5) 0 var(--s3); gap: 8px; }
   .v2 .btn { padding: 12px 18px; min-height: 44px; display: inline-flex; align-items: center; }
   .v2 .rating { padding: 10px var(--s3); gap: 10px; }
   .v2 .rating-num { font-size: 1.9rem; }

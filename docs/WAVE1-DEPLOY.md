@@ -672,3 +672,85 @@ every load; A23 means no Hostinger purge should be needed.
 ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE && tar -xzf \$(ls -t ~/backups/public_html-pre-a24a25-*.tar.gz | head -1) public_html/index.html public_html/css/site.css && cd public_html && sha256sum index.html css/site.css"
 # must print 0b01cab1… index.html  and  451d14a5… css/site.css
 ```
+
+---
+
+# A24 + A25 + A25.1 + A25.2 deploy — EXECUTED 19 September 2026
+
+Two files, one write. `js/contact-whatsapp.js` was NOT uploaded: identical at
+`5f7ccd03…`, and it kept its Sep 19 07:40 timestamp.
+
+## Step 1 — backup
+
+`~/backups/public_html-pre-a24a25-20260919-170647.tar.gz`, 1.5M, 194 entries,
+verified to contain `index.html`, `css/site.css` and `js/contact-whatsapp.js`.
+
+## Steps 2 and 4 — hashes before and after
+
+| file | before | after | |
+|---|---|---|---|
+| `.htaccess` | `4587cf66…` | `4587cf66…` | unchanged |
+| `robots.txt` | `43ed0d0e…` | `43ed0d0e…` | unchanged |
+| `sitemap.xml` | `6d9d9940…` | `6d9d9940…` | unchanged |
+| `styles.css` | `c75ae294…` | `c75ae294…` | unchanged |
+| `script.js` | `1bf4f312…` | `1bf4f312…` | unchanged |
+| `js/contact-whatsapp.js` | `5f7ccd03…` | `5f7ccd03…` | unchanged, not uploaded |
+| `index.html` | `0b01cab1…` | **`cfe08857…`** | changed |
+| `css/site.css` | `451d14a5…` | **`ca460165…`** | changed |
+
+Both new hashes equal the local `build/production` files. Stylesheet uploaded
+first, `index.html` last, no `--delete`.
+
+A23 after the A25.2 edit: the stylesheet hash moved `59085e0f -> ca460165` and
+the page references `css/site.css?v=ca460165`, matching the deployed file. The
+build fails if they disagree; it did not.
+
+Server-side content checks: hero band occurrences **0**, `id="curricula"` **1**.
+
+## A23 at the edge — first test on a CSS change
+
+```
+css/site.css?v=ca460165                 expected ca460165
+  mum-edge5   ca460165 CURRENT  MISS   61630 B     <- previously stale node
+  mum-edge9   ca460165 CURRENT  MISS   61630 B
+  mum-edge7   ca460165 CURRENT  MISS   61630 B
+  mum-edge8   ca460165 CURRENT  MISS   61630 B     <- previously stale node
+  mum-edge4   ca460165 CURRENT  MISS   61630 B
+  mum-edge10  ca460165 CURRENT  MISS   61630 B
+  7 requests, 6 distinct nodes, stale responses: 0
+```
+
+Every node reported MISS, i.e. the new cache key forced a fresh origin fetch
+everywhere rather than serving anything held from before.
+
+**Sixteen live homepage loads, no cache-busting: 16 / 16 clean.**
+
+**No Hostinger purge was needed, and none was performed.**
+
+## Live verification, mobile UA, wa.me and beacons blocked
+
+Board-name counts: CBSE 18, ICSE 16, ISC 10, IGCSE 17, IB PYP 5, IB MYP 8,
+IB DP 5, AS & A Levels 9, State Board 12 — none zero. Hero band absent.
+`id="curricula"` present. All six anchor ids present. Four inline handlers
+`typeof=function`. No console errors.
+
+Curricula fold, with JavaScript ENABLED and DISABLED: starts closed, opens,
+closes, 9 chips, sets `["International","Indian"]`, no page errors.
+
+Grade lists all match. Grades 1-5 + IB PYP submits with "Curriculum: IB PYP".
+GA4 `form_submission` 1, dataLayer 1, Ads `jucWCNPv3OAbEPOvruco` 1, any-label 1.
+tel: `phone_call_click` 1 + `NGIFCNbv3OAbEPOvruco` 1. wa.me `whatsapp_click` 1 +
+`jucWCNPv3OAbEPOvruco` 1. CTA `cta_click` 1 with no Ads conversion, correct.
+Nothing fires twice.
+
+## Rollback — ready, not run
+
+```bash
+ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+  "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-a24a25-20260919-170647.tar.gz public_html/index.html public_html/css/site.css && cd public_html && sha256sum index.html css/site.css"
+# must print 0b01cab1…  index.html  and  451d14a5…  css/site.css
+```
+
+Restores only those two files. `js/contact-whatsapp.js` is untouched either way.
+A rollback also reverts the A23 version string to `?v=451d14a5`, a key the edge
+already holds, so the old stylesheet would be served immediately.
