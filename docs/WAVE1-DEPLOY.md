@@ -604,3 +604,71 @@ Restores only those two files. `css/site.css` and everything else are untouched.
 Note that a rollback also reverts the A23 versioned references, so the old
 `js/contact-whatsapp.js` (no query string) would be served from whatever the
 edge holds — the pre-A23 behaviour.
+
+---
+
+# A24 + A25 + A25.1 production deploy — PREPARED, NOT RUN
+
+Awaiting approval. One write covering all three changes.
+
+## Files that change — TWO, not three
+
+| remote path | on the server now | to deploy | |
+|---|---|---|---|
+| `public_html/index.html` | `0b01cab1d189fb73f50d6812ca04ab5a521cac00d84eac247d49d7139b6807dd` | `129ad4ff0b43422e77205b93ca6bfaee84dc79fa259fc76aeb4fa4675ca47bbe` | CHANGES |
+| `public_html/css/site.css` | `451d14a591a3c39ca50bb3d1b9b3df5fb16cce80a453997c79bddbea92575949` | `59085e0ff8512ed85db83fca3218999211266c9fa117d042ff6006422f6a1395` | CHANGES |
+| `public_html/js/contact-whatsapp.js` | `5f7ccd037099426518dfee5f30e444e56f606f26495dd4866370fd7b705cbbd9` | identical | **DO NOT UPLOAD** |
+
+`css/site.css` changes because A25 added the fold and set styling and A25.1
+deleted both dead `.curricula-line` rules. `js/contact-whatsapp.js` is untouched
+by A24/A25/A25.1 — the JS change was A22's grade filter, already live.
+
+Under A23 the page will reference `css/site.css?v=59085e0f`, a cache key no edge
+node has seen, so the stylesheet cannot be served stale.
+
+## Not touched
+
+`.htaccess`, `robots.txt`, `sitemap.xml`, `styles.css`, `script.js`,
+`js/contact-whatsapp.js`, and every other page. No `rsync --delete`.
+
+## Steps
+
+```bash
+SSH_OPTS="-p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3"
+SSH_HOST="u879191658@145.79.212.4"
+SITE="domains/ankuramtuition.com"
+
+# 1. backup
+ssh $SSH_OPTS $SSH_HOST "mkdir -p ~/backups && cd ~/$SITE && tar -czf ~/backups/public_html-pre-a24a25-\$(date +%Y%m%d-%H%M%S).tar.gz public_html && ls -lh ~/backups/public_html-pre-a24a25-*.tar.gz"
+ssh $SSH_OPTS $SSH_HOST "cd ~/backups && ls -t public_html-pre-a24a25-*.tar.gz | head -1 | xargs -I{} tar -tzf {} public_html/index.html public_html/css/site.css"
+
+# 2. fingerprint BEFORE
+ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE/public_html && sha256sum .htaccess robots.txt sitemap.xml index.html styles.css script.js css/site.css js/contact-whatsapp.js"
+
+# 3. upload — stylesheet first, index.html last, no --delete
+rsync -avz --checksum -e "ssh $SSH_OPTS" build/production/css/site.css $SSH_HOST:$SITE/public_html/css/site.css
+rsync -avz --checksum -e "ssh $SSH_OPTS" build/production/index.html   $SSH_HOST:$SITE/public_html/index.html
+
+# 4. fingerprint AFTER — only index.html and css/site.css may differ
+ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE/public_html && sha256sum .htaccess robots.txt sitemap.xml index.html styles.css script.js css/site.css js/contact-whatsapp.js"
+
+# 5. server-side content checks
+ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE/public_html && \
+  echo '--- versioned refs:' && grep -o 'css/site.css?v=[0-9a-f]*' index.html && grep -o 'js/contact-whatsapp.js?v=[0-9a-f]*' index.html && \
+  echo '--- the band must be GONE (expect 0):' && grep -c 'curricula-line' index.html; \
+  echo '--- every board name, none may be 0:' && for b in CBSE ICSE ISC IGCSE 'IB PYP' 'IB MYP' 'IB DP' 'State Board'; do printf '%s ' \"\$b\"; grep -c \"\$b\" index.html; done; \
+  echo '--- id=curricula:' && grep -c 'id=\"curricula\"' index.html"
+```
+
+## Post-deploy
+
+Run `node design/check-inline-handlers.mjs https://ankuramtuition.com/` and
+`node design/verify-live-a22.mjs` with no cache-busting. Both must be clean on
+every load; A23 means no Hostinger purge should be needed.
+
+## Rollback
+
+```bash
+ssh $SSH_OPTS $SSH_HOST "cd ~/$SITE && tar -xzf \$(ls -t ~/backups/public_html-pre-a24a25-*.tar.gz | head -1) public_html/index.html public_html/css/site.css && cd public_html && sha256sum index.html css/site.css"
+# must print 0b01cab1… index.html  and  451d14a5… css/site.css
+```

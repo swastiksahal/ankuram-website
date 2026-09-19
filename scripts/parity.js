@@ -42,7 +42,14 @@ const APPROVED_REMOVALS = [
   'CBSE, ICSE, ISC, IGCSE, IB MYP/DP, AS & A Levels, and Telangana/Andhra State Board—taught with the right syllabus + exam approach.',
   'IB MYP/DP',
   'Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels, and State Board. Teaching style and practice are aligned to the curriculum.',
+  // A25.1 — the hero's bullet-joined board band, a verbatim repeat of the prose
+  // sentence above it. This IS a removal, the only one here. No board name is
+  // lost: the check below asserts every one of the nine is still on the page.
+  'CBSE • IB MYP • IGCSE • ICSE • IB DP • AS & A Levels • State Board',
 ];
+
+// A25.1: removing the band must not remove a board. Every name must survive.
+const BOARD_NAMES = ['CBSE', 'ICSE', 'ISC', 'IGCSE', 'IB PYP', 'IB MYP', 'IB DP', 'AS & A Levels', 'State Board'];
 
 // A24: every string above must reappear with PYP added. This turns "the string
 // vanished" into "the string was renamed exactly as approved", and fails if a
@@ -130,6 +137,12 @@ check(14, `removals all approved (${missingStrings.length})`, unapproved.length 
 const missingRenames = A24_RENAMES.filter(([, after]) => !builtBody.includes(decode(after)));
 check(14, `A24 renames present in their new form (${A24_RENAMES.length})`,
   missingRenames.length === 0, missingRenames.map(([, a]) => a.slice(0, 60)).join(' | '));
+
+// A25.1 — every board name still on the page, with its count
+const boardCounts = BOARD_NAMES.map((n) => [n, (decode(built).split(n).length - 1)]);
+const zeroBoards = boardCounts.filter(([, n]) => n === 0);
+check(14, `every board name still present (${boardCounts.map(([n, c]) => `${n}:${c}`).join(', ')})`,
+  zeroBoards.length === 0, zeroBoards.map(([n]) => n).join(', '));
 
 // invariant 15 — anchor ids
 const missingAnchors = ANCHORS.filter((id) => !new RegExp(`id="${id}"`).test(built));

@@ -439,6 +439,19 @@ function howWeTeachSection(sec) {
 </section>`;
 }
 
+// A25.1: the hero's last paragraph was the bullet-joined board band,
+// "CBSE • IB MYP • IGCSE • ICSE • IB DP • AS & A Levels • State Board" — a
+// verbatim repeat of the prose sentence directly above it, and the first of
+// three flat rows of the same list. It is dropped. Every board name it carried
+// appears many times elsewhere on the page; only the joined line goes.
+// The guard means this can never silently drop a different paragraph.
+const HERO_BAND = 'CBSE • IB MYP • IGCSE • ICSE • IB DP • AS & A Levels • State Board';
+const heroLast = C.hero.paras[C.hero.paras.length - 1];
+if (heroLast !== HERO_BAND) {
+  throw new Error(`A25.1: the last hero paragraph is not the board band, it is ${JSON.stringify(heroLast)}`);
+}
+const HERO_PARAS = C.hero.paras.slice(0, -1);
+
 // A24/A25: the nine curricula, split into two labelled sets. "International"
 // and "Indian" are the only new words. IB PYP is added here because he teaches
 // it and /ib-pyp-tuition-hyderabad is a live page, but the chip row omitted it.
@@ -861,7 +874,7 @@ ${HEAD.clarity}
     <div class="wrap hero-inner">
       <div class="hero-text">
         <h1>${esc(C.hero.h1)}</h1>
-        ${C.hero.paras.map((p, i) => `<p class="${i === 0 ? 'lede' : i === C.hero.paras.length - 1 ? 'curricula-line' : ''}">${esc(p)}</p>`).join('')}
+        ${HERO_PARAS.map((p, i) => `<p class="${i === 0 ? 'lede' : ''}">${esc(p)}</p>`).join('')}
         <div class="hero-ctas">${C.hero.ctas.map((c, i) => `<a class="btn ${i === 0 ? 'btn-primary' : 'btn-ghost'}" href="${esc(c.href)}">${esc(c.text)}</a>`).join('')}</div>
         <div class="rating" aria-label="Rating ${esc(C.rating.value)} out of 5">
           <span class="rating-num">${esc(C.rating.value)}</span>
@@ -977,8 +990,11 @@ const a22 = wc('IB PYP');
 const a24 = wc(A24_PYP_CHIP.v);
 // A25: the two set labels and the <details> summary. Nothing else is new.
 const a25 = wc(A25.intlLabel) + wc(A25.indianLabel) + wc(A25.summary);
+// A25.1: the hero board band is gone. Every name in it survives elsewhere; only
+// the bullet-joined line goes, so the whole line's words come off the total.
+const a25_1 = -wc(HERO_BAND);
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18 + a22 + a24 + a25;
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18 + a22 + a24 + a25 + a25_1;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
@@ -987,9 +1003,10 @@ console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
 console.log(`A17: credential chips +${a17}   A18: name "${A18.name}" +${a18} (monogram removed)`);
 console.log(`A22: IB PYP option +${a22} words`);
+console.log(`A25.1: hero board band removed ${a25_1} words`);
 console.log(`A24: IB PYP chip +${a24}   A25: labels "${A25.intlLabel}"/"${A25.indianLabel}" + summary "${A25.summary}" = +${a25}`);
 console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
-console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} + A22 ${a22} + A24 ${a24} + A25 ${a25} = ${expected}`);
+console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} + A22 ${a22} + A24 ${a24} + A25 ${a25} + A25.1 ${a25_1} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 // A19: every tracking ID that must survive the rebuild, checked on the output.
 for (const [label, id, want] of [
