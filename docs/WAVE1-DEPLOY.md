@@ -494,3 +494,113 @@ ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.7
 ```
 
 Restores only that one file. Nothing else on the site is touched.
+
+---
+
+# A22 + A23 deploy — 19 September 2026
+
+Two files, one write: `index.html` and `js/contact-whatsapp.js`.
+`css/site.css` was **not** re-uploaded — its local hash already matched the
+server's (`451d14a5…`), and it kept its Sep 18 10:09 timestamp throughout.
+
+## Step 1 — backup
+
+`~/backups/public_html-pre-a22a23-20260919-075146.tar.gz`, 1.5M, 194 entries,
+verified to contain `index.html`, `js/contact-whatsapp.js` and `css/site.css`.
+
+## Steps 2 and 4 — hashes before and after
+
+| file | before | after | |
+|---|---|---|---|
+| `.htaccess` | `4587cf66…` | `4587cf66…` | unchanged |
+| `robots.txt` | `43ed0d0e…` | `43ed0d0e…` | unchanged |
+| `sitemap.xml` | `6d9d9940…` | `6d9d9940…` | unchanged |
+| `styles.css` | `c75ae294…` | `c75ae294…` | unchanged |
+| `script.js` | `1bf4f312…` | `1bf4f312…` | unchanged |
+| `css/site.css` | `451d14a5…` | `451d14a5…` | unchanged, not uploaded |
+| `index.html` | `34e1f1f1…` | **`0b01cab1…`** | changed |
+| `js/contact-whatsapp.js` | `1e48b2de…` | **`5f7ccd03…`** | changed |
+
+Both new hashes equal the local `build/production` files. Uploaded JS first,
+`index.html` last, no `--delete`.
+
+Deployed asset references:
+
+```
+href="css/site.css?v=451d14a5"
+src="js/contact-whatsapp.js?v=5f7ccd03"
+```
+
+## A23 — did the query string actually solve the edge problem?
+
+**Yes.** `mum-edge5` and `mum-edge8` are the two PoPs that served a stale asset
+through two manual purges. On the versioned URLs, both serve the current file:
+
+```
+js/contact-whatsapp.js?v=5f7ccd03      expected 5f7ccd03
+  mum-edge10  5f7ccd03 CURRENT  HIT  age=146   12237 B
+  mum-edge8   5f7ccd03 CURRENT  HIT  age=148   12237 B
+  mum-edge5   5f7ccd03 CURRENT  HIT  age=150   12237 B
+  mum-edge7   5f7ccd03 CURRENT  HIT  age=156   12237 B
+  mum-edge4   5f7ccd03 CURRENT  MISS age=none  12237 B
+  mum-edge6   5f7ccd03 CURRENT  HIT  age=155   12237 B
+  stale responses: 0
+
+css/site.css?v=451d14a5                expected 451d14a5
+  all six nodes CURRENT, including mum-edge5 and mum-edge8
+  stale responses: 0
+```
+
+Every `age` is ~150s, i.e. populated after this deploy rather than inherited
+from an old object. `index.html` is served `DYNAMIC` (never edge-cached) and
+returned `0b01cab1` from all six nodes across 10 fresh connections.
+
+**Sixteen live homepage loads with no cache-busting of any kind: 16 / 16 with
+zero console errors and all four handlers resolving.** Before A23 this was
+roughly 70%, and 1 in 6 for a full browser session.
+
+**No Hostinger cache purge is needed.** That is the result A23 was for.
+
+## Live verification, mobile UA, wa.me and all beacons blocked
+
+All four inline handlers `typeof=function`.
+
+| grade | curricula |
+|---|---|
+| blank | 9 — CBSE · IB PYP · IB MYP · IGCSE · ICSE · ISC · IB DP · AS & A Levels · State Board |
+| Grades 1-5 | 4 — CBSE · IB PYP · ICSE · State Board |
+| Grades 6-10 | 5 — CBSE · IB MYP · IGCSE · ICSE · State Board |
+| Grades 11-12 | 5 — CBSE · ISC · IB DP · AS & A Levels · State Board |
+
+Grades 1-5 + IB PYP submitted:
+
+```
+"Hi Swastik, I'd like to enquire about tuition.
+Name: Test Parent
+Phone: 9876543210
+Grade: Grades 1-5
+Curriculum: IB PYP"
+```
+
+GA4 `form_submission` 1 · dataLayer `form_submission` 1 · Ads
+`jucWCNPv3OAbEPOvruco` 1 · conversion events of any label 1 · ReferenceErrors 0.
+
+tel: link — `phone_call_click` 1, `NGIFCNbv3OAbEPOvruco` 1, any-label 1.
+wa.me link — `whatsapp_click` 1, `jucWCNPv3OAbEPOvruco` 1, any-label 1.
+CTA link — `cta_click` 1, and no Ads conversion, which is correct: the
+get-directions link is neither a `tel:` nor a `wa.me` link.
+
+Nothing fires twice anywhere.
+
+## Rollback — ready, not run
+
+```bash
+ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+  "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-a22a23-20260919-075146.tar.gz public_html/index.html public_html/js/contact-whatsapp.js && cd public_html && sha256sum index.html js/contact-whatsapp.js"
+# must print 34e1f1f1…  index.html  and  1e48b2de…  js/contact-whatsapp.js
+```
+
+Restores only those two files. `css/site.css` and everything else are untouched.
+Note that a rollback also reverts the A23 versioned references, so the old
+`js/contact-whatsapp.js` (no query string) would be served from whatever the
+edge holds — the pre-A23 behaviour.
