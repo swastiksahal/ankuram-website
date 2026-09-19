@@ -477,6 +477,9 @@
   .v2 .acc-body { padding: 0 var(--s3) 10px; }
   .v2 .areas-details > summary { font-size: var(--t-lg); padding: var(--s3); min-height: 44px; }
   .v2 .areas-body { padding: 0 var(--s3) var(--s3); }
+  /* A25: match the areas fold on phones. */
+  .v2 .curr-details > summary { font-size: 15px; padding: var(--s3); min-height: 44px; }
+  .v2 .curr-sets { padding: 0 var(--s3) var(--s3); }
   .v2 .sec-areas { padding: var(--s5) 0; }
   .v2 .region-grid { grid-template-columns: 1fr; gap: 10px; }
   .v2 .area { padding: 10px; }
@@ -792,6 +795,20 @@
 .v2 .curr-chip:hover { background: #D5E2F3; }
 .v2 .curr-chip .chip-ic { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 1.8; }
 .v2 .curr-chip .chip-arrow { width: 15px; height: 15px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* A25: the nine curricula, folded and grouped. Same disclosure pattern as the
+   A12 locality list, so the two behave identically and need no JavaScript.
+   The two sets must read as two labelled sets, not one row with a gap, so each
+   carries a heading and they are separated by a rule. */
+.v2 .curr-details { background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); }
+.v2 .curr-details > summary { cursor: pointer; padding: var(--s4) var(--s5); font-size: var(--t-lg); font-weight: 700; color: var(--ink); min-height: 44px; }
+.v2 .curr-details > summary::marker { color: var(--blue); }
+.v2 .curr-sets { padding: 0 var(--s5) var(--s5); display: grid; gap: var(--s4); }
+.v2 .curr-set + .curr-set { border-top: 1px solid var(--line); padding-top: var(--s4); }
+.v2 .curr-set-title {
+  margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
 
 /* ---- About profile block ---- */
 .v2 .about-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: var(--s6); align-items: start; }

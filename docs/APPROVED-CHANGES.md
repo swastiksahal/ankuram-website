@@ -159,3 +159,26 @@ A22 — IB PYP is added to the contact form's curriculum select, and the curricu
 A23 — css/site.css and js/contact-whatsapp.js are referenced with ?v=<first 8 hex of that file's own sha256>, computed in the build. Approved 19 Sep 2026, because two Hostinger edge PoPs (mum-edge5, mum-edge8) kept serving a stale js asset to roughly 30% of visitors through two manual purges.
   The edge keys on the query string — established by evidence, not assumed: while the bare URL returned the pre-A21 file (8194ecd3) from those two nodes, the same path with ?cachebust=<timestamp> returned the deployed bytes (1e48b2de) every time. A different query string is therefore a different cache key, so a content hash guarantees a fresh key the moment either file changes.
   Derived in scripts/make-staging-build.js, never hand-written: a hand-typed version eventually does not get bumped, and every future wave ships CSS. The build fails if the referenced hash does not match the file actually shipped.
+
+A24 — every VISIBLE enumeration of the IB programmes names all three: PYP, MYP and DP. Approved 19 Sep 2026, because he teaches PYP and /ib-pyp-tuition-hyderabad is a Tier A page, yet the homepage named only two.
+  Five visible occurrences changed, style matched, no sentence restructured:
+    1. hero lede          "IB (MYP/DP)"  -> "IB (PYP/MYP/DP)"
+    2. CTA band paragraph "IB (MYP/DP)"  -> "IB (PYP/MYP/DP)"   (same sentence as the hero lede)
+    3. "All Curricula Supported" card  "IB MYP/DP" -> "IB PYP/MYP/DP"
+    4. board card badge   "IB MYP/DP"    -> "IB PYP/MYP/DP"
+    5. visible FAQ answer "IB (MYP/DP)"  -> "IB (PYP/MYP/DP)"
+  Plus an IB PYP chip in the "Curricula We Support" list, which had eight of the nine.
+  THE JSON-LD IS UNCHANGED, frozen under invariant 3. It still says "IB MYP/DP" in the Organization description and "IB (MYP/DP)" in the FAQPage answer. The visible FAQ answer and the FAQPage JSON-LD therefore differ deliberately from now on — the same accepted state as A13's review count. The builder asserts the JSON-LD blocks are byte-identical before and after the rename and throws if any changed.
+  Four baseline strings no longer match their baseline form because the enumeration inside them changed. They are NOT deletions: each is still on the page word for word apart from the added PYP. scripts/parity.js lists all four as approved removals AND separately asserts that each reappears in its new form, so a rename can never be mistaken for a drop. Baseline strings 423/432; word count 107.7%.
+
+A25 — the curricula list is grouped and folded so the page stops reading as a flat row of equals. Approved 19 Sep 2026. Presentation only; every one of the nine names stays on the page and stays indexable. Nothing is removed and no board is demoted.
+  1. HERO CHIP BAND: NOT REMOVED — STOPPED, see below.
+  2. The nine chips are split into two labelled sets:
+       International   IB PYP, IB MYP, IB DP, IGCSE, AS & A Levels
+       Indian          CBSE, ICSE, ISC, State Board
+     "International" and "Indian" are the only new words besides the summary. The builder throws if any chip lands in neither set or if a named chip is missing.
+  3. The sets sit inside a <details> closed by default, the same pattern and CSS shape as the A12 locality fold, summary "All nine curricula: International and Indian". The section intro stays visible above it. It opens and closes with no JavaScript.
+  4. The six board cards run International first: IGCSE, IB PYP/MYP/DP, AS & A Levels, CBSE, ICSE/ISC, State Board. All six cards, all their text and all their badges are kept. The board-N class carries the badge colour, so it stays pinned to each card's ORIGINAL index and reordering does not shuffle the colours.
+  id="curricula" stays on the section holding this content.
+
+A25.1 NOT DONE — the hero chip band is still on the page. The stop condition set with the instruction was met: removing <p class="curricula-line">"CBSE • IB MYP • IGCSE • ICSE • IB DP • AS & A Levels • State Board"</p> deletes a baseline string that exists nowhere else on the page as a string. Every individual board NAME in it survives many times over (CBSE 19, ICSE 17, IGCSE 18, IB MYP 11, IB DP 6, AS & A Levels 7, State Board 13), so no board would be lost — but the band as a string would be, taking the count to 422/432. Awaiting a decision.

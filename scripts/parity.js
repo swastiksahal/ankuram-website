@@ -34,6 +34,27 @@ const APPROVED_REMOVALS = [
   'Unable to load reviews at this time.', // A15
   'See our Google reviews →',             // A15
   'View all reviews on Google →',         // A15
+  // A24 — these four are not deletions. Each is still on the page word for
+  // word except that the IB enumeration now names all three programmes, so the
+  // baseline form of the string no longer matches. The replacement is listed
+  // beside each one and is asserted below.
+  'Small‑batch classes (3–5 students) with a foundation‑first approach across CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels and State Board.',
+  'CBSE, ICSE, ISC, IGCSE, IB MYP/DP, AS & A Levels, and Telangana/Andhra State Board—taught with the right syllabus + exam approach.',
+  'IB MYP/DP',
+  'Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels, and State Board. Teaching style and practice are aligned to the curriculum.',
+];
+
+// A24: every string above must reappear with PYP added. This turns "the string
+// vanished" into "the string was renamed exactly as approved", and fails if a
+// supposed rename actually dropped content.
+const A24_RENAMES = [
+  ['Small‑batch classes (3–5 students) with a foundation‑first approach across CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels and State Board.',
+    'Small‑batch classes (3–5 students) with a foundation‑first approach across CBSE, ICSE, ISC, IGCSE, IB (PYP/MYP/DP), AS & A Levels and State Board.'],
+  ['CBSE, ICSE, ISC, IGCSE, IB MYP/DP, AS & A Levels, and Telangana/Andhra State Board—taught with the right syllabus + exam approach.',
+    'CBSE, ICSE, ISC, IGCSE, IB PYP/MYP/DP, AS & A Levels, and Telangana/Andhra State Board—taught with the right syllabus + exam approach.'],
+  ['IB MYP/DP', 'IB PYP/MYP/DP'],
+  ['Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels, and State Board. Teaching style and practice are aligned to the curriculum.',
+    'Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (PYP/MYP/DP), AS & A Levels, and State Board. Teaching style and practice are aligned to the curriculum.'],
 ];
 
 const ANCHORS = ['home', 'about', 'curricula', 'contact', 'reviews', 'hybrid-classes'];
@@ -104,6 +125,11 @@ const missingStrings = baselineStrings.filter((s) => !builtBody.includes(decode(
 const unapproved = missingStrings.filter((s) => !APPROVED_REMOVALS.includes(s));
 check(14, `baseline strings ${baselineStrings.length - missingStrings.length}/${baselineStrings.length}`, unapproved.length === 0, unapproved.join(' | '));
 check(14, `removals all approved (${missingStrings.length})`, unapproved.length === 0, missingStrings.join(' | '));
+
+// A24 — each approved rename must be present in its new form
+const missingRenames = A24_RENAMES.filter(([, after]) => !builtBody.includes(decode(after)));
+check(14, `A24 renames present in their new form (${A24_RENAMES.length})`,
+  missingRenames.length === 0, missingRenames.map(([, a]) => a.slice(0, 60)).join(' | '));
 
 // invariant 15 — anchor ids
 const missingAnchors = ANCHORS.filter((id) => !new RegExp(`id="${id}"`).test(built));

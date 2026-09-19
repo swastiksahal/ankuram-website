@@ -398,11 +398,24 @@ function howWeTeachSection(sec) {
     if (b.t === 'p') cur.desc = b.v;
     if (b.t === 'link') { cur.link = b.v; cur.href = b.href || '#'; }
   }
+  // A25: the six cards run International first, to match the grouping of the
+  // curricula list. Every card, its text and its badge are kept. The board-N
+  // class carries the badge colour, so it stays pinned to the card's ORIGINAL
+  // index — reordering must not shuffle the colours.
+  cards.forEach((c, i) => { c.idx = i + 1; });
+  const INTL_FIRST = ['IGCSE', 'IB MYP/DP', 'AS & A Levels', 'CBSE', 'ICSE/ISC', 'State Board'];
+  const ordered = INTL_FIRST.map((name) => {
+    const hit = cards.find((c) => c.name === name);
+    if (!hit) throw new Error(`A25: no board card named "${name}" (have: ${cards.map((c) => c.name).join(', ')})`);
+    return hit;
+  });
+  if (ordered.length !== cards.length) throw new Error(`A25: ${cards.length} cards but ${ordered.length} ordered`);
+
   const boardHtml = `
     <div class="boards-wrap">
     <div class="boards">
-      ${cards.map((c, i) => `
-      <article class="board-card board-${i + 1}">
+      ${ordered.map((c) => `
+      <article class="board-card board-${c.idx}">
         <span class="board-badge">${esc(c.name)}</span>
         <p class="board-desc">${esc(c.desc)}</p>
         <a class="board-link" href="${esc(c.href)}">${esc(c.link)}</a>
@@ -426,10 +439,41 @@ function howWeTeachSection(sec) {
 </section>`;
 }
 
+// A24/A25: the nine curricula, split into two labelled sets. "International"
+// and "Indian" are the only new words. IB PYP is added here because he teaches
+// it and /ib-pyp-tuition-hyderabad is a live page, but the chip row omitted it.
+const A25 = {
+  intlLabel: 'International',
+  indianLabel: 'Indian',
+  summary: 'All nine curricula: International and Indian',
+  intl: ['IB PYP', 'IB MYP', 'IB DP', 'IGCSE', 'AS & A Levels'],
+  indian: ['CBSE', 'ICSE', 'ISC', 'State Board'],
+};
+const A24_PYP_CHIP = { v: 'IB PYP', href: '/ib-pyp-tuition-hyderabad' };
+
 function curriculaSection(sec) {
   const h2 = sec.blocks.find((b) => b.t === 'h2').v;
   const intro = sec.blocks.filter((b) => (b.t === 'p' || b.t === 'text') && !isDecoration(b.v));
   const links = sec.blocks.filter((b) => b.t === 'link');
+
+  // A24: the chip row had eight of the nine. Add IB PYP.
+  if (links.some((l) => l.v === 'IB PYP')) throw new Error('A24: an IB PYP chip already exists');
+  const all = [...links, A24_PYP_CHIP];
+
+  const chip = (l) => `<a class="curr-chip" href="${esc(l.href || '#')}">${ICONS.book}<span>${esc(l.v)}</span>${ICONS.arrowR}</a>`;
+  const pick = (names) => names.map((n) => {
+    const hit = all.find((l) => l.v === n);
+    if (!hit) throw new Error(`A25: no curriculum chip named "${n}"`);
+    return hit;
+  });
+  const intl = pick(A25.intl);
+  const indian = pick(A25.indian);
+  if (intl.length + indian.length !== all.length) {
+    throw new Error(`A25: ${all.length} chips but ${intl.length + indian.length} placed — every name must be in exactly one set`);
+  }
+
+  // A25: folded behind a closed <details>, the same pattern as the A12 areas
+  // list, so the section reads as two labelled sets rather than one flat row.
   return `
 <section class="sec sec-curricula" id="curricula">
   <div class="wrap curricula-band">
@@ -437,9 +481,19 @@ function curriculaSection(sec) {
       <h2>${esc(h2)}</h2>
       ${intro.map((b) => `<p>${esc(b.v)}</p>`).join('')}
     </div>
-    <div class="curr-grid">
-      ${links.map((l) => `<a class="curr-chip" href="${esc(l.href || '#')}">${ICONS.book}<span>${esc(l.v)}</span>${ICONS.arrowR}</a>`).join('')}
-    </div>
+    <details class="curr-details">
+      <summary>${esc(A25.summary)}</summary>
+      <div class="curr-sets">
+        <div class="curr-set">
+          <h3 class="curr-set-title">${esc(A25.intlLabel)}</h3>
+          <div class="curr-grid">${intl.map(chip).join('')}</div>
+        </div>
+        <div class="curr-set">
+          <h3 class="curr-set-title">${esc(A25.indianLabel)}</h3>
+          <div class="curr-grid">${indian.map(chip).join('')}</div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>`;
 }
@@ -763,7 +817,7 @@ function footerHtml() {
   return f;
 }
 
-const page = `<!DOCTYPE html>
+let page = `<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="utf-8">
@@ -840,7 +894,38 @@ ${footerHtml()}
 `;
 
 fs.mkdirSync('design/direction-c', { recursive: true });
+page = nameAllThreeIB(page);   // must run BEFORE the write
 fs.writeFileSync('design/direction-c/index.html', page);
+
+// ======================================================================= A24
+// He teaches all three IB programmes and has a page for each, but the page
+// enumerated only two. Every VISIBLE enumeration now names all three.
+//
+// The JSON-LD is frozen under invariant 3, so it is split out first and put
+// back untouched. Its two board sentences keep saying "IB MYP/DP", which means
+// the visible FAQ answer and the FAQPage JSON-LD now differ deliberately —
+// the same accepted state as A13's review count.
+function nameAllThreeIB(html) {
+  const LD = /<script[^>]+application\/ld\+json[^>]*>[\s\S]*?<\/script>/gi;
+  const blocks = html.match(LD) || [];
+  const TOKEN = ' LD ';
+  let i = 0;
+  const shielded = html.replace(LD, () => TOKEN + (i++));
+
+  const rewritten = shielded
+    .replace(/IB \(MYP\/DP\)/g, 'IB (PYP/MYP/DP)')
+    .replace(/IB MYP\/DP/g, 'IB PYP/MYP/DP');
+
+  const out = rewritten.replace(new RegExp(TOKEN + '(\\d+)', 'g'), (_, n) => blocks[Number(n)]);
+
+  // The JSON-LD must come back byte-identical.
+  const after = out.match(LD) || [];
+  if (JSON.stringify(after) !== JSON.stringify(blocks)) throw new Error('A24: JSON-LD changed');
+  if (/IB \(MYP\/DP\)|IB MYP\/DP/.test(out.replace(LD, ' '))) throw new Error('A24: a two-programme enumeration survived outside JSON-LD');
+  const changed = (shielded.match(/IB \(MYP\/DP\)|IB MYP\/DP/g) || []).length;
+  console.log(`A24: ${changed} visible IB enumeration(s) now name all three; ${blocks.length} JSON-LD blocks untouched`);
+  return out;
+}
 
 // ==================================================================== checks
 // Entities are decoded before counting: "&amp;" is one ampersand, not a word.
@@ -887,8 +972,13 @@ const a17 = A17.chips.reduce((n, c) => n + wc(c), 0);
 const a18 = wc(A18.name);
 // A22: one added <option> — its visible text is the only new wording.
 const a22 = wc('IB PYP');
+// A24: the IB PYP chip. The renames add no words: "(MYP/DP)" and "(PYP/MYP/DP)"
+// are one token either way.
+const a24 = wc(A24_PYP_CHIP.v);
+// A25: the two set labels and the <details> summary. Nothing else is new.
+const a25 = wc(A25.intlLabel) + wc(A25.indianLabel) + wc(A25.summary);
 const ratingDelta = wc(A13.reviewCount) - wc(C.rating.reviewCount);
-const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18 + a22;
+const expected = P2_WORDS + a10 + methodTitles + methodNumerals + navDupe + a11 + a12 + ratingDelta - faqRemoved + a14 + a15 + a17 + a18 + a22 + a24 + a25;
 const actual = wc(bodyText);
 
 console.log(`head copied from live: title, description, canonical, ${HEAD.og.length} og, ${HEAD.twitter.length} twitter, ${HEAD.jsonld.length} JSON-LD`);
@@ -897,8 +987,9 @@ console.log(`A12: heading + ${AREAS.length} area links = ${a12} words`);
 console.log(`A13: review count ${JSON.stringify(C.rating.reviewCount)} -> ${JSON.stringify(A13.reviewCount)} (${ratingDelta >= 0 ? '+' : ''}${ratingDelta}); FAQ duplicate removed = -${faqRemoved} words`);
 console.log(`A17: credential chips +${a17}   A18: name "${A18.name}" +${a18} (monogram removed)`);
 console.log(`A22: IB PYP option +${a22} words`);
+console.log(`A24: IB PYP chip +${a24}   A25: labels "${A25.intlLabel}"/"${A25.indianLabel}" + summary "${A25.summary}" = +${a25}`);
 console.log(`A14: form note +${a14}   A15: button +${wc(A15.reviewsButton)} + rating repeat ${a15Repeat} - widget strings ${a15Removed} = ${a15}`);
-console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} + A22 ${a22} = ${expected}`);
+console.log(`expected ${P2_WORDS} + A10 ${a10} + titles ${methodTitles} + numerals ${methodNumerals} + nav ${navDupe} + A11 ${a11} + A12 ${a12} + A13 ${ratingDelta} - FAQdup ${faqRemoved} + A14 ${a14} + A15 ${a15} + A22 ${a22} + A24 ${a24} + A25 ${a25} = ${expected}`);
 console.log(`visible words ${actual}  ${actual === expected ? 'OK' : `MISMATCH by ${actual - expected}`}`);
 // A19: every tracking ID that must survive the rebuild, checked on the output.
 for (const [label, id, want] of [
