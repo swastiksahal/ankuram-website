@@ -36,7 +36,6 @@
   RewriteRule ^ibmyp-year-4-and-5-crash-course/?$ /ib-myp-tuition-hyderabad [L,R=301]
   RewriteRule ^ib-landing-page/?$ /ib-myp-tuition-hyderabad [L,R=301]
   RewriteRule ^study-materials/ib/?$ /ib-myp-tuition-hyderabad [L,R=301]
-  RewriteRule ^ib-pyp-tuition-hyderabad/?$ /ib-myp-tuition-hyderabad [L,R=301]
   RewriteRule ^class-12-tuition/?$ /class-11-tuition [L,R=301]
 
   # --- Class/grade pages ---
