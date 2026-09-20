@@ -1,0 +1,1426 @@
+{
+  "source": "public_html/diagnostic-assessment.html",
+  "head": {
+    "title": "<title>Diagnostic Assessment | Find Your Child's Real Gaps | ANKURAM</title>",
+    "description": "<meta name=\"description\" content=\"60-minute diagnostic assessment to find your child's real academic gaps — what they understand vs memorised. Jubilee Hills or Online.\">",
+    "canonical": "<link rel=\"canonical\" href=\"https://ankuramtuition.com/diagnostic-assessment\">",
+    "robots": "<meta name=\"robots\" content=\"index, follow\">",
+    "og": [
+      "<meta property=\"og:type\" content=\"website\">",
+      "<meta property=\"og:url\" content=\"https://ankuramtuition.com/diagnostic-assessment\">",
+      "<meta property=\"og:title\" content=\"Diagnostic Assessment | ANKURAM\">",
+      "<meta property=\"og:description\" content=\"60-minute diagnostic to find your child's real academic gaps. Jubilee Hills or Online.\">",
+      "<meta property=\"og:image\" content=\"https://ankuramtuition.com/assets/images/classroom-teaching.webp\">",
+      "<meta property=\"og:image:width\" content=\"1200\">",
+      "<meta property=\"og:image:height\" content=\"630\">",
+      "<meta property=\"og:locale\" content=\"en_IN\">",
+      "<meta property=\"og:site_name\" content=\"ANKURAM Tuition Centre\">"
+    ],
+    "twitter": [
+      "<meta name=\"twitter:card\" content=\"summary_large_image\">",
+      "<meta name=\"twitter:title\" content=\"Diagnostic Assessment | ANKURAM\">",
+      "<meta name=\"twitter:description\" content=\"60-minute diagnostic to find your child's real academic gaps. Jubilee Hills or Online.\">",
+      "<meta name=\"twitter:image\" content=\"https://ankuramtuition.com/assets/images/classroom-teaching.webp\">"
+    ],
+    "jsonld": [
+      "<script type=\"application/ld+json\">\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 1,\n          \"name\": \"Home\",\n          \"item\": \"https://ankuramtuition.com/\"\n        },\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 2,\n          \"name\": \"Diagnostic Assessment\",\n          \"item\": \"https://ankuramtuition.com/diagnostic-assessment\"\n        }\n      ]\n    }\n    </script>",
+      "<script type=\"application/ld+json\">\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Service\",\n      \"name\": \"Diagnostic Assessment\",\n      \"description\": \"60-minute diagnostic assessment to identify academic gaps in Maths and Science for Grades 6-12\",\n      \"provider\": {\n        \"@type\": \"EducationalOrganization\",\n        \"name\": \"Ankuram Tuition Centre | Math Tuition | Science Tuition\",\n        \"url\": \"https://ankuramtuition.com\"\n      },\n      \"offers\": {\n        \"@type\": \"AggregateOffer\",\n        \"lowPrice\": \"750\",\n        \"highPrice\": \"1500\",\n        \"priceCurrency\": \"INR\"\n      },\n      \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Hyderabad\"\n      }\n    }\n    </script>",
+      "<script type=\"application/ld+json\">\n    {\n      \"@context\":\"https://schema.org\",\n      \"@type\":\"FAQPage\",\n      \"mainEntity\":[\n        {\"@type\":\"Question\",\"name\":\"What if my child scores very poorly on the diagnostic?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"That's not a problem — it's the point. The diagnostic exists to find gaps, not to judge. Many students who score low have simply been moved forward without understanding. The score tells us where to start, nothing more.\"}},\n        {\"@type\":\"Question\",\"name\":\"Do you share the results with my child?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes — we solve every question together with your child during the session. They see exactly where they went wrong and why. This is part of the learning, not just an evaluation.\"}},\n        {\"@type\":\"Question\",\"name\":\"Can the diagnostic be done online?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. We conduct online diagnostics via video call. Your child writes the assessment, then we solve it together on screen. It works just as well.\"}},\n        {\"@type\":\"Question\",\"name\":\"What happens if we decide not to continue after the diagnostic?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"That's completely fine. You still walk away with a clear understanding of where your child stands. The diagnostic has value on its own.\"}},\n        {\"@type\":\"Question\",\"name\":\"How long before we get the results?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The results are discussed immediately — we solve every question together with your child during the 60-minute session. There's no waiting period.\"}},\n        {\"@type\":\"Question\",\"name\":\"Is this available for all boards?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes — CBSE, ICSE, IGCSE, IB MYP/DP, A Levels, and State Board. The diagnostic is adapted to your child's curriculum.\"}}\n      ]\n    }\n    </script>"
+    ]
+  },
+  "internalHrefs": [
+    "/",
+    "/#about",
+    "/#contact",
+    "/#curricula",
+    "/#home",
+    "//maps.googleapis.com",
+    "//www.google-analytics.com",
+    "/android-chrome-192x192.png",
+    "/android-chrome-512x512.png",
+    "/apple-touch-icon.png",
+    "/cbse-tuition-jubilee-hills",
+    "/favicon-16x16.png",
+    "/favicon-32x32.png",
+    "/favicon.ico",
+    "/how-we-teach",
+    "/ib-myp-tuition-hyderabad",
+    "/icse-tuition-hyderabad",
+    "/igcse-tuition-jubilee-hills",
+    "/online-maths-tuition",
+    "/site.webmanifest"
+  ],
+  "blocks": [
+    {
+      "t": "h1",
+      "v": "Before We Teach Your Child Anything, We Need to Understand What They Actually Know",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Before We Teach Your Child Anything, We Need to Understand What They Actually Know"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The diagnostic assessment isn't a formality. It's a 60-minute session that reveals where your child truly stands — what's genuinely understood, what was memorised without understanding, and what was skipped entirely. This changes everything about how we teach them.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The diagnostic assessment isn't a formality. It's a 60-minute session that reveals where your child truly stands — what's genuinely understood, what was memorised without understanding, and what was skipped entirely. This changes everything about how we teach them."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "From ₹750 · 60 Minutes · Jubilee Hills or Online · By Appointment",
+      "region": "main",
+      "runs": [
+        {
+          "text": "From ₹750 · 60 Minutes · Jubilee Hills or Online · By Appointment"
+        }
+      ]
+    },
+    {
+      "t": "text",
+      "v": "Book Diagnostic on WhatsApp",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Book Diagnostic on WhatsApp",
+          "href": "https://wa.me/917396669430?text=Hi%2C%20I%27d%20like%20to%20book%20a%20diagnostic%20assessment."
+        }
+      ],
+      "href": "https://wa.me/917396669430?text=Hi%2C%20I%27d%20like%20to%20book%20a%20diagnostic%20assessment."
+    },
+    {
+      "t": "text",
+      "v": "Call: 73966 69430",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Call: 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "h2",
+      "v": "What Happens in the 60 Minutes",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Happens in the 60 Minutes"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The diagnostic is a written assessment that tests concepts from your child's current grade AND previous grades. We're not checking if they can get the right answer — we're watching how they approach the problem.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The diagnostic is a written assessment that tests concepts from your child's current grade AND previous grades. We're not checking if they can get the right answer — we're watching how they approach the problem."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Do they set it up correctly? Do they know which method to use? Where exactly does the thinking break down? Is the problem in algebra, or does it go deeper — to fractions, to integers, to basic number sense?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Do they set it up correctly? Do they know which method to use? Where exactly does the thinking break down? Is the problem in algebra, or does it go deeper — to fractions, to integers, to basic number sense?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "After the written part, we solve every question together with your child. This is not a pass/fail test. It's a conversation. Your child sees exactly where they went wrong and why. They experience how we teach — patient, step-by-step, focused on understanding rather than answers.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "After the written part, we solve every question together with your child. This is not a pass/fail test. It's a conversation. Your child sees exactly where they went wrong and why. They experience how we teach — patient, step-by-step, focused on understanding rather than answers."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "By the end of the session, three things are clear:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "By the end of the session, three things are clear:"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Where exactly the gaps are — not \"weak in maths\" but specifically which concepts are missing.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Where exactly the gaps are"
+        },
+        {
+          "text": "— not \"weak in maths\" but specifically which concepts are missing."
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "What needs to happen first — the sequence of topics that need rebuilding.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What needs to happen first"
+        },
+        {
+          "text": "— the sequence of topics that need rebuilding."
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Whether we're the right fit — the diagnostic is as much for your child as it is for us.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Whether we're the right fit"
+        },
+        {
+          "text": "— the diagnostic is as much for your child as it is for us."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "What You'll Know After the Diagnostic",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What You'll Know After the Diagnostic"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Where the Gaps Actually Are",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Where the Gaps Actually Are"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Not just \"they're weak in algebra.\" We'll tell you specifically — they understand basic equations but break down when variables appear on both sides because fractions were never solid.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Not just \"they're weak in algebra.\" We'll tell you specifically — they understand basic equations but break down when variables appear on both sides because fractions were never solid."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What Needs to Happen First",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Needs to Happen First"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Foundation repair has an order. We identify exactly which concepts need to be rebuilt and in what sequence — so nothing is wasted.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Foundation repair has an order. We identify exactly which concepts need to be rebuilt and in what sequence — so nothing is wasted."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Whether This Is the Right Fit",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Whether This Is the Right Fit"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The diagnostic is as much for your child as it is for us. They experience how we teach. You see how we think. If it doesn't feel right for either side, that's completely fine.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The diagnostic is as much for your child as it is for us. They experience how we teach. You see how we think. If it doesn't feel right for either side, that's completely fine."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "What Happens After the Diagnostic",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Happens After the Diagnostic"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "If we're the right fit, here's how the first month typically looks:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "If we're the right fit, here's how the first month typically looks:"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Week 1",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Week 1"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The diagnostic. After the session, we discuss findings with you — specific gaps, recommended plan, batch timing, frequency.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The diagnostic. After the session, we discuss findings with you — specific gaps, recommended plan, batch timing, frequency."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Week 2",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Week 2"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "First classes begin. Not from the textbook, but from the foundation. We go back to exactly where things stopped making sense. This might feel slow. It isn't. This is the most important phase.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "First classes begin. Not from the textbook, but from the foundation. We go back to exactly where things stopped making sense. This might feel slow. It isn't. This is the most important phase."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Week 3",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Week 3"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Homework attempts start flowing in via WhatsApp photos. Your child comes back with specific questions — or stuck on something they couldn't crack. That's perfect. That's exactly what we want to see.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Homework attempts start flowing in via WhatsApp photos. Your child comes back with specific questions — or stuck on something they couldn't crack. That's perfect. That's exactly what we want to see."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Week 4",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Week 4"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "You'll notice something shift. \"I don't understand maths\" becomes \"I don't understand why we flip the inequality sign.\" That shift — from vague fear to precise doubt — is the first sign it's working.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "You'll notice something shift. \"I don't understand maths\" becomes \"I don't understand why we flip the inequality sign.\" That shift — from vague fear to precise doubt — is the first sign it's working."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "What the Diagnostic Report Looks Like",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What the Diagnostic Report Looks Like"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "After the 60-minute diagnostic evaluation, parents receive a detailed assessment document that goes far beyond a standard report card. Instead of basic percentages, we break down the student's mathematical foundation into specific areas:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "After the 60-minute diagnostic evaluation, parents receive a detailed assessment document that goes far beyond a standard report card. Instead of basic percentages, we break down the student's mathematical foundation into specific areas:"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Arithmetic Fluency",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Arithmetic Fluency"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Speed and accuracy with basic operations, fractions, decimals, and integers",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Speed and accuracy with basic operations, fractions, decimals, and integers"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Algebraic Manipulation",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Algebraic Manipulation"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Factorisation, simplification, equation-solving habits",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Factorisation, simplification, equation-solving habits"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Spatial Reasoning",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Spatial Reasoning"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Geometry intuition, diagram skills, coordinate understanding",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Geometry intuition, diagram skills, coordinate understanding"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Problem Solving",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Problem Solving"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Ability to translate word problems into mathematical setups",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Ability to translate word problems into mathematical setups"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The report pinpoints the exact areas where students get stuck — for example, not just saying they \"struggle with fractions,\" but showing they have trouble finding common denominators with variables. We conclude the report with a specific, week-by-week repair plan to reconstruct their base knowledge.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The report pinpoints the exact areas where students get stuck — for example, not just saying they \"struggle with fractions,\" but showing they have trouble finding common denominators with variables. We conclude the report with a specific, week-by-week repair plan to reconstruct their base knowledge."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Common Gaps We Find",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Common Gaps We Find"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Over years of teaching, incredibly consistent patterns emerge when it comes to weak basics. The rush to complete school syllabi often forces students forward before they are ready.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Over years of teaching, incredibly consistent patterns emerge when it comes to weak basics. The rush to complete school syllabi often forces students forward before they are ready."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Class 10 students",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Class 10 students"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Most CBSE and ICSE Class 10 students who struggle with advanced topics have gaps in Class 7–8 algebra — things like fractional manipulation and basic factorisation.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Most"
+        },
+        {
+          "text": "CBSE",
+          "href": "/cbse-tuition-jubilee-hills"
+        },
+        {
+          "text": "and"
+        },
+        {
+          "text": "ICSE",
+          "href": "/icse-tuition-hyderabad"
+        },
+        {
+          "text": "Class 10 students who struggle with advanced topics have gaps in Class 7–8 algebra — things like fractional manipulation and basic factorisation."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Class 9 students",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Class 9 students"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Students transitioning to rigorous physics often show an inability to transpose formulas because they memorised linear arithmetic instead of understanding mathematical logic.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Students transitioning to rigorous physics often show an inability to transpose formulas because they memorised linear arithmetic instead of understanding mathematical logic."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "International board students",
+      "region": "main",
+      "runs": [
+        {
+          "text": "International board students"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "IGCSE and IB MYP students often struggle not with the concepts themselves, but with communicating their reasoning clearly — a skill that directly affects their grades.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "IGCSE",
+          "href": "/igcse-tuition-jubilee-hills"
+        },
+        {
+          "text": "and"
+        },
+        {
+          "text": "IB MYP",
+          "href": "/ib-myp-tuition-hyderabad"
+        },
+        {
+          "text": "students often struggle not with the concepts themselves, but with communicating their reasoning clearly — a skill that directly affects their grades."
+        }
+      ],
+      "href": "/igcse-tuition-jubilee-hills"
+    },
+    {
+      "t": "p",
+      "v": "Finding and fixing these exact gaps during the diagnostic assessment prevents a total collapse of confidence later on. Read more about how we teach once we've identified the gaps.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Finding and fixing these exact gaps during the diagnostic assessment prevents a total collapse of confidence later on. Read more about"
+        },
+        {
+          "text": "how we teach",
+          "href": "/how-we-teach"
+        },
+        {
+          "text": "once we've identified the gaps."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Is the Diagnostic Right for Your Child?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Is the Diagnostic Right for Your Child?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The diagnostic is useful for any student in Grades 6–12 who:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The diagnostic is useful for any student in Grades 6–12 who:"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Scoring below potential",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Scoring below potential"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Is scoring below what they're capable of — they work hard but marks don't reflect it.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Is scoring below what they're capable of — they work hard but marks don't reflect it."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "\"I understood it in class\"",
+      "region": "main",
+      "runs": [
+        {
+          "text": "\"I understood it in class\""
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Says \"I understood it in class\" but can't solve independently at home.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Says \"I understood it in class\" but can't solve independently at home."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Multiple tuitions, no lasting change",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Multiple tuitions, no lasting change"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Has been through multiple tuitions without lasting improvement.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Has been through multiple tuitions without lasting improvement."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Board exams approaching",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Board exams approaching"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Is about to enter Class 10 or Class 12 and you want an honest assessment before boards.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Is about to enter Class 10 or Class 12 and you want an honest assessment before boards."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Recently changed boards",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Recently changed boards"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Has recently changed boards (e.g., State Board to CBSE, or CBSE to IGCSE).",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Has recently changed boards (e.g., State Board to CBSE, or CBSE to IGCSE)."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Suspected foundational gaps",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Suspected foundational gaps"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "You suspect has foundational gaps from earlier years.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "You suspect has foundational gaps from earlier years."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The diagnostic is also useful even if your child is performing well — it identifies areas of strength and hidden weaknesses before they become problems.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The diagnostic is also useful even if your child is performing well — it identifies areas of strength and hidden weaknesses before they become problems."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "How to Book",
+      "region": "main",
+      "runs": [
+        {
+          "text": "How to Book"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 1: Pay the diagnostic fee via UPI",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 1: Pay the diagnostic fee via UPI"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "UPI: 7396669430 (PhonePe/GPay)",
+      "region": "main",
+      "runs": [
+        {
+          "text": "UPI: 7396669430 (PhonePe/GPay)"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 2: Send payment screenshot on WhatsApp",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 2: Send payment screenshot on WhatsApp"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "WhatsApp: +91 73966 69430 . We'll confirm your slot within 2 hours.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "WhatsApp:"
+        },
+        {
+          "text": "+91 73966 69430",
+          "href": "https://wa.me/917396669430"
+        },
+        {
+          "text": ". We'll confirm your slot within 2 hours."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 3: Attend the diagnostic",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 3: Attend the diagnostic"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "At our Jubilee Hills centre or online via video call. Duration: 60 minutes. Bring a notebook and pen.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "At our Jubilee Hills centre or online via video call. Duration: 60 minutes. Bring a notebook and pen."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Important: The diagnostic fee is a standalone charge — it is not adjusted against future tuition fees. The diagnostic has independent value whether or not you continue with us.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Important:"
+        },
+        {
+          "text": "The diagnostic fee is a standalone charge — it is not adjusted against future tuition fees. The diagnostic has independent value whether or not you continue with us."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Learn about our teaching approach → · See online tuition plans →",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Learn about our teaching approach →",
+          "href": "/how-we-teach"
+        },
+        {
+          "text": "·"
+        },
+        {
+          "text": "See online tuition plans →",
+          "href": "/online-maths-tuition"
+        }
+      ],
+      "href": "/how-we-teach"
+    },
+    {
+      "t": "h2",
+      "v": "Frequently Asked Questions",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Frequently Asked Questions"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What if my child scores very poorly on the diagnostic?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What if my child scores very poorly on the diagnostic?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "That's not a problem — it's the point. The diagnostic exists to find gaps, not to judge. Many students who score low have simply been moved forward without understanding. The score tells us where to start, nothing more.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "That's not a problem — it's the point. The diagnostic exists to find gaps, not to judge. Many students who score low have simply been moved forward without understanding. The score tells us where to start, nothing more."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Do you share the results with my child?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Do you share the results with my child?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Yes — we solve every question together with your child during the session. They see exactly where they went wrong and why. This is part of the learning, not just an evaluation.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Yes — we solve every question together with your child during the session. They see exactly where they went wrong and why. This is part of the learning, not just an evaluation."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Can the diagnostic be done online?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Can the diagnostic be done online?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Yes. We conduct online diagnostics via video call. Your child writes the assessment, then we solve it together on screen. It works just as well.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Yes. We conduct online diagnostics via video call. Your child writes the assessment, then we solve it together on screen. It works just as well."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What happens if we decide not to continue after the diagnostic?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What happens if we decide not to continue after the diagnostic?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "That's completely fine. You still walk away with a clear understanding of where your child stands. The diagnostic has value on its own.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "That's completely fine. You still walk away with a clear understanding of where your child stands. The diagnostic has value on its own."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "How long before we get the results?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "How long before we get the results?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The results are discussed immediately — we solve every question together with your child during the 60-minute session. There's no waiting period.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The results are discussed immediately — we solve every question together with your child during the 60-minute session. There's no waiting period."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Is this available for all boards?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Is this available for all boards?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Yes — CBSE, ICSE, IGCSE, IB MYP/DP, A Levels, and State Board. The diagnostic is adapted to your child's curriculum.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Yes — CBSE, ICSE, IGCSE, IB MYP/DP, A Levels, and State Board. The diagnostic is adapted to your child's curriculum."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Book a Diagnostic Assessment",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Book a Diagnostic Assessment"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "60 minutes · Jubilee Hills or Online",
+      "region": "main",
+      "runs": [
+        {
+          "text": "60 minutes · Jubilee Hills or Online"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "CBSE / ICSE, Classes 6–10 · ₹750",
+      "region": "main",
+      "runs": [
+        {
+          "text": "CBSE / ICSE, Classes 6–10 · ₹750"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "CBSE / ISC, Classes 11–12 · ₹1,000",
+      "region": "main",
+      "runs": [
+        {
+          "text": "CBSE / ISC, Classes 11–12 · ₹1,000"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "IGCSE, all years · ₹1,000",
+      "region": "main",
+      "runs": [
+        {
+          "text": "IGCSE, all years · ₹1,000"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "IB MYP, all years · ₹1,000",
+      "region": "main",
+      "runs": [
+        {
+          "text": "IB MYP, all years · ₹1,000"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "IB Diploma · ₹1,500",
+      "region": "main",
+      "runs": [
+        {
+          "text": "IB Diploma · ₹1,500"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad – 500096",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Plot 229, Road No. 72, Prashasan Nagar, Jubilee Hills, Hyderabad – 500096"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Available: In-person or online via video call",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Available: In-person or online via video call"
+        }
+      ]
+    },
+    {
+      "t": "text",
+      "v": "Book on WhatsApp",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Book on WhatsApp",
+          "href": "https://wa.me/917396669430?text=Hi%2C%20I%27d%20like%20to%20book%20a%20diagnostic%20assessment."
+        }
+      ],
+      "href": "https://wa.me/917396669430?text=Hi%2C%20I%27d%20like%20to%20book%20a%20diagnostic%20assessment."
+    },
+    {
+      "t": "text",
+      "v": "Call: 73966 69430",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Call: 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "text",
+      "v": "Call Now",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Call Now",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "text",
+      "v": "WhatsApp",
+      "region": "main",
+      "runs": [
+        {
+          "text": "WhatsApp",
+          "href": "https://wa.me/917396669430"
+        }
+      ],
+      "href": "https://wa.me/917396669430"
+    }
+  ],
+  "nav": [
+    {
+      "t": "text",
+      "v": "Home",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Home",
+          "href": "/#home"
+        }
+      ],
+      "href": "/#home"
+    },
+    {
+      "t": "text",
+      "v": "How We Teach",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "How We Teach",
+          "href": "/how-we-teach"
+        }
+      ],
+      "href": "/how-we-teach"
+    },
+    {
+      "t": "text",
+      "v": "Online Classes",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Online Classes",
+          "href": "/online-maths-tuition"
+        }
+      ],
+      "href": "/online-maths-tuition"
+    },
+    {
+      "t": "text",
+      "v": "Curricula",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Curricula",
+          "href": "/#curricula"
+        }
+      ],
+      "href": "/#curricula"
+    },
+    {
+      "t": "text",
+      "v": "About",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "About",
+          "href": "/#about"
+        }
+      ],
+      "href": "/#about"
+    },
+    {
+      "t": "text",
+      "v": "Contact",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Contact",
+          "href": "/#contact"
+        }
+      ],
+      "href": "/#contact"
+    },
+    {
+      "t": "text",
+      "v": "+91 73966 69430",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "text",
+      "v": "Home",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Home",
+          "href": "/#home"
+        }
+      ],
+      "href": "/#home"
+    },
+    {
+      "t": "text",
+      "v": "How We Teach",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "How We Teach",
+          "href": "/how-we-teach"
+        }
+      ],
+      "href": "/how-we-teach"
+    },
+    {
+      "t": "text",
+      "v": "Online Classes",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Online Classes",
+          "href": "/online-maths-tuition"
+        }
+      ],
+      "href": "/online-maths-tuition"
+    },
+    {
+      "t": "text",
+      "v": "Curricula",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Curricula",
+          "href": "/#curricula"
+        }
+      ],
+      "href": "/#curricula"
+    },
+    {
+      "t": "text",
+      "v": "About",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "About",
+          "href": "/#about"
+        }
+      ],
+      "href": "/#about"
+    },
+    {
+      "t": "text",
+      "v": "Contact",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Contact",
+          "href": "/#contact"
+        }
+      ],
+      "href": "/#contact"
+    },
+    {
+      "t": "text",
+      "v": "+91 73966 69430",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    }
+  ],
+  "footer": [
+    {
+      "t": "h3",
+      "v": "Ankuram Tuition Centre | Math Tuition | Science Tuition",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Ankuram Tuition Centre | Math Tuition | Science Tuition"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Expert tuition for Grades 1-12 in Jubilee Hills, Hyderabad.",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Expert tuition for Grades 1-12 in Jubilee Hills, Hyderabad."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Quick Links",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Quick Links"
+        }
+      ]
+    },
+    {
+      "t": "text",
+      "v": "Home",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Home",
+          "href": "/"
+        }
+      ],
+      "href": "/"
+    },
+    {
+      "t": "text",
+      "v": "Curricula",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Curricula",
+          "href": "/#curricula"
+        }
+      ],
+      "href": "/#curricula"
+    },
+    {
+      "t": "text",
+      "v": "About",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "About",
+          "href": "/#about"
+        }
+      ],
+      "href": "/#about"
+    },
+    {
+      "t": "text",
+      "v": "Contact",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Contact",
+          "href": "/#contact"
+        }
+      ],
+      "href": "/#contact"
+    },
+    {
+      "t": "h3",
+      "v": "Contact",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Contact"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "+91 73966 69430",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "p",
+      "v": "Plot 229, Rd Number 72 Prashasan Nagar, Jubilee Hills Hyderabad, Telangana 500096",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Plot 229, Rd Number 72"
+        },
+        {
+          "text": "Prashasan Nagar, Jubilee Hills"
+        },
+        {
+          "text": "Hyderabad, Telangana 500096"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "© 2026 Ankuram Tuition Centre. All rights reserved.",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "© 2026 Ankuram Tuition Centre. All rights reserved."
+        }
+      ]
+    }
+  ]
+}

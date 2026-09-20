@@ -1041,3 +1041,41 @@
   .v2 .boards, .v2 .diag-cols { padding-bottom: 4px; }
   .v2 .swipe-dots, .v2 .swipe-rail { margin-top: 6px; }
 }
+
+/* =========================================================================
+   WAVE 2 — scoped to .w2, which the homepage does not carry.
+   css/site.css is shared with the live homepage, so every rule below is
+   prefixed .w2 and therefore cannot match <body class="v2">. Wave 2 pages are
+   <body class="v2 w2">: .v2 gives them the design system and the four shared
+   blocks (header, hero, FAQ accordion, footer) already styled; .w2 adds only
+   the page-body layout those blocks do not cover.
+   Nothing here changes, overrides or reorders an existing .v2 rule.
+   ========================================================================= */
+.v2.w2 .w2-sec { padding: var(--s7) 0; border-top: 1px solid var(--line); }
+.v2.w2 .w2-sec:first-of-type { border-top: 0; }
+.v2.w2 .w2-sec > .wrap > h2 { margin: 0 0 var(--s4); }
+.v2.w2 .w2-prose { max-width: 68ch; }
+.v2.w2 .w2-prose p { margin: 0 0 var(--s3); }
+.v2.w2 .w2-prose p:last-child { margin-bottom: 0; }
+.v2.w2 .w2-list { margin: 0 0 var(--s3); padding-left: var(--s4); }
+.v2.w2 .w2-list li { margin: 0 0 6px; }
+
+.v2.w2 .w2-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); margin-top: var(--s5); }
+.v2.w2 .w2-card {
+  background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--s4); display: grid; gap: 10px; align-content: start;
+}
+.v2.w2 .w2-card h3 { margin: 0; font-size: var(--t-base); color: var(--blue-deep); }
+.v2.w2 .w2-card p { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+.v2.w2 .w2-card .w2-list { margin: 0; }
+
+.v2.w2 .w2-sec .accordion { max-width: 760px; }
+
+@media (max-width: 900px) {
+  .v2.w2 .w2-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .v2.w2 .w2-sec { padding: var(--s5) 0; }
+  .v2.w2 .w2-cards { grid-template-columns: 1fr; gap: var(--s3); margin-top: var(--s4); }
+  .v2.w2 .w2-card h3 { font-size: 15px; }
+}
