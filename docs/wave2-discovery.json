@@ -1,0 +1,635 @@
+[
+  {
+    "url": "/about/",
+    "file": "public_html/about/index.html",
+    "tier": "B",
+    "clicks": 0,
+    "impr": 14,
+    "words": 346,
+    "h1": [
+      "Small-batch teaching for students who need clarity, not crowding"
+    ],
+    "h2": [
+      "Meet Swastik Sahal",
+      "The Ankuram Approach",
+      "Boards and Subjects"
+    ],
+    "h3": [
+      "Why Swastik Left Amazon to Teach",
+      "Ankuram Tuition Centre",
+      "Explore",
+      "Location"
+    ],
+    "canonical": "https://ankuramtuition.com/about/",
+    "robots": "index, follow",
+    "jsonLd": 0,
+    "title": "About Ankuram Tuition Centre — Small-Batch Tutoring in Hyderabad",
+    "blocks": [
+      "header + nav",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-KHP2PBXF6X"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 7567
+  },
+  {
+    "url": "/contact/",
+    "file": "public_html/contact/index.html",
+    "tier": "B",
+    "clicks": 0,
+    "impr": 41,
+    "words": 190,
+    "h1": [
+      "Contact Ankuram Tuition Centre"
+    ],
+    "h2": [
+      "Get in Touch",
+      "Visit Us",
+      "For the Fastest Response"
+    ],
+    "h3": [
+      "Ankuram Tuition Centre",
+      "Explore",
+      "Location"
+    ],
+    "canonical": "https://ankuramtuition.com/contact/",
+    "robots": "index, follow",
+    "jsonLd": 0,
+    "title": "Contact Ankuram Tuition Centre | Jubilee Hills, Hyderabad",
+    "blocks": [
+      "header + nav",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-KHP2PBXF6X"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 6643
+  },
+  {
+    "url": "/how-we-teach",
+    "file": "public_html/how-we-teach.html",
+    "tier": "B",
+    "clicks": 0,
+    "impr": 285,
+    "words": 2037,
+    "h1": [
+      "How We Teach — And Why It Actually Works"
+    ],
+    "h2": [
+      "We Don't Start With the Syllabus. We Start With the Truth.",
+      "What Happens in a Typical Session",
+      "Sometimes the Fastest Way Forward Is to Go Back",
+      "3–5 Students Per Batch. Not 15. Not 30.",
+      "Inside the Ankuram Method",
+      "Signs to Watch for in the First 4–6 Weeks",
+      "Online Maths Tuition That Actually Works",
+      "What Parents Often Ask Us Before Joining",
+      "Frequently Asked Questions",
+      "Start With a Diagnostic Assessment"
+    ],
+    "h3": [
+      "Step 1 — Quick Recall (5–10 minutes)",
+      "Step 2 — Concept + Guided Practice (30–40 minutes)",
+      "Step 3 — The WhatsApp Photo System (Throughout the session)",
+      "Step 4 — Exit Check + Homework (10–15 minutes)",
+      "Without Foundation Repair",
+      "With Foundation Repair",
+      "A Typical Week at Ankuram",
+      "What Online Sessions Actually Look Like",
+      "What Happens in the First Month",
+      "Their questions get more specific",
+      "They attempt problems before giving up",
+      "They talk about what they're learning",
+      "Homework gets done without a fight",
+      "The teacher gives you honest updates",
+      "\"My child already has school + coaching — adding more will be overwhelming\"",
+      "\"Online tuition won't be as effective as in-person\"",
+      "\"How is this different from the large online platforms?\"",
+      "\"My child needs to finish the syllabus fast, not go back to basics\"",
+      "What if my child has major gaps from earlier classes?",
+      "How is this different from regular tuition?",
+      "Do you offer online classes?",
+      "What's the batch size?",
+      "Which curricula do you support?",
+      "Is the diagnostic test ₹750 adjusted against future fees?",
+      "What subjects do you teach?",
+      "Ankuram Tuition Centre | Math Tuition | Science Tuition",
+      "Quick Links",
+      "Contact"
+    ],
+    "canonical": "https://ankuramtuition.com/how-we-teach",
+    "robots": "index, follow",
+    "jsonLd": 2,
+    "title": "How We Teach | Diagnostic-First, Small-Batch Approach | ANKURAM Tuition Centre",
+    "blocks": [
+      "header + nav",
+      "hero",
+      "FAQ accordion",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-MQRSS8DKLE"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 31807
+  },
+  {
+    "url": "/diagnostic-assessment",
+    "file": "public_html/diagnostic-assessment.html",
+    "tier": "B",
+    "clicks": 0,
+    "impr": 24,
+    "words": 1317,
+    "h1": [
+      "Before We Teach Your Child Anything, We Need to Understand What They Actually Know"
+    ],
+    "h2": [
+      "What Happens in the 60 Minutes",
+      "What You'll Know After the Diagnostic",
+      "What Happens After the Diagnostic",
+      "What the Diagnostic Report Looks Like",
+      "Common Gaps We Find",
+      "Is the Diagnostic Right for Your Child?",
+      "How to Book",
+      "Frequently Asked Questions",
+      "Book a Diagnostic Assessment"
+    ],
+    "h3": [
+      "Where the Gaps Actually Are",
+      "What Needs to Happen First",
+      "Whether This Is the Right Fit",
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Arithmetic Fluency",
+      "Algebraic Manipulation",
+      "Spatial Reasoning",
+      "Problem Solving",
+      "Class 10 students",
+      "Class 9 students",
+      "International board students",
+      "Scoring below potential",
+      "\"I understood it in class\"",
+      "Multiple tuitions, no lasting change",
+      "Board exams approaching",
+      "Recently changed boards",
+      "Suspected foundational gaps",
+      "Step 1: Pay the diagnostic fee via UPI",
+      "Step 2: Send payment screenshot on WhatsApp",
+      "Step 3: Attend the diagnostic",
+      "What if my child scores very poorly on the diagnostic?",
+      "Do you share the results with my child?",
+      "Can the diagnostic be done online?",
+      "What happens if we decide not to continue after the diagnostic?",
+      "How long before we get the results?",
+      "Is this available for all boards?",
+      "Ankuram Tuition Centre | Math Tuition | Science Tuition",
+      "Quick Links",
+      "Contact"
+    ],
+    "canonical": "https://ankuramtuition.com/diagnostic-assessment",
+    "robots": "index, follow",
+    "jsonLd": 3,
+    "title": "Diagnostic Assessment | Find Your Child's Real Gaps | ANKURAM",
+    "blocks": [
+      "header + nav",
+      "hero",
+      "FAQ accordion",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-MQRSS8DKLE"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 27792
+  },
+  {
+    "url": "/hybrid-tuition-hyderabad",
+    "file": "public_html/hybrid-tuition-hyderabad.html",
+    "tier": "A",
+    "clicks": 1,
+    "impr": 45,
+    "words": 1138,
+    "h1": [
+      "Hybrid Tuition in Hyderabad (Online + Offline at Jubilee Hills)"
+    ],
+    "h2": [
+      "What is Hybrid Tuition?",
+      "Benefits of Our Hybrid Model",
+      "Areas We Serve (Online/Hybrid)",
+      "How Hybrid Works",
+      "Frequently Asked Questions",
+      "Ready to Experience Hybrid Tuition?",
+      "Contact Us",
+      "Explore Other Classes & Curricula",
+      "Areas We Serve Across Hyderabad",
+      "Schools Our Students Attend",
+      "Getting to Our Centre"
+    ],
+    "h3": [
+      "Regular Online Classes",
+      "Periodic Centre Visits",
+      "Same Teacher, Same Quality",
+      "Ideal for Far Areas",
+      "No Daily Commute",
+      "Access Expert Coaching",
+      "Face-to-Face Interaction",
+      "Recorded Sessions",
+      "Flexible Schedule",
+      "Cost Effective",
+      "Important: Service Clarification",
+      "Within 5km (10-15 min drive)",
+      "5-10km (15-25 min drive)",
+      "International Curriculum",
+      "CBSE/ICSE Schools",
+      "Landmarks",
+      "By Metro",
+      "By Bus",
+      "Important Note",
+      "ANKURAM",
+      "Curricula",
+      "Classes",
+      "Subjects",
+      "Quick Links"
+    ],
+    "canonical": "https://ankuramtuition.com/hybrid-tuition-hyderabad",
+    "robots": "index, follow",
+    "jsonLd": 4,
+    "title": "Hybrid Tuition in Hyderabad | Online + Offline | Ankuram",
+    "blocks": [
+      "header + nav",
+      "hero",
+      "FAQ accordion",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-MQRSS8DKLE"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [
+      "gtag",
+      "rgba",
+      "translateY"
+    ],
+    "atRisk": [
+      "gtag"
+    ],
+    "externallyDefined": [
+      "rgba",
+      "translateY"
+    ],
+    "bytes": 58653
+  },
+  {
+    "url": "/home-tuition-hyderabad",
+    "file": "public_html/home-tuition-hyderabad.html",
+    "tier": "A",
+    "clicks": 3,
+    "impr": 236,
+    "words": 578,
+    "h1": [
+      "Home Tuition in Hyderabad (Grades 1–12)"
+    ],
+    "h2": [
+      "Why choose home tuition",
+      "Home tuition options",
+      "Areas we serve",
+      "Benefits of home tuition",
+      "Get started",
+      "Frequently Asked Questions",
+      "Explore more",
+      "Interested in home tuition?"
+    ],
+    "h3": [
+      "Flexible scheduling",
+      "Personalized attention",
+      "Comfort of home",
+      "All curricula supported",
+      "One-on-One Tuition",
+      "Small Group Sessions",
+      "Subject-Specific Focus",
+      "Do you offer home tuition in Hyderabad?",
+      "What is the difference between centre classes and home tuition?",
+      "Which areas do you cover for home tuition?",
+      "What curricula do you support for home tuition?",
+      "Ankuram Tuition Centre",
+      "online maths tuition",
+      "maths tuition",
+      "ANKURAM",
+      "Quick Links",
+      "Contact"
+    ],
+    "canonical": "https://ankuramtuition.com/home-tuition-hyderabad",
+    "robots": "index, follow",
+    "jsonLd": 2,
+    "title": "Home Tuition in Hyderabad | Personalised Learning | ANKURAM",
+    "blocks": [
+      "header + nav",
+      "hero",
+      "FAQ accordion",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [],
+      "ads": [],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 0,
+    "defined": [],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 19712
+  },
+  {
+    "url": "/home-tutor-hyderabad/",
+    "file": "public_html/home-tutor-hyderabad/index.html",
+    "tier": "C",
+    "clicks": 0,
+    "impr": 0,
+    "words": 1391,
+    "h1": [
+      "Looking for a Home Tutor in Hyderabad? Here's Something Better."
+    ],
+    "h2": [
+      "Home Tutor vs. Small-Batch Tuition",
+      "How Home Tuition Works at ANKURAM",
+      "Home Tuition for Every Board",
+      "This Home Tuition Is For Parents Who…",
+      "Home Tuition FAQs",
+      "Better Than a Home Tutor. More Personal Than a Coaching Class."
+    ],
+    "h3": [
+      "What a home tutor can't give you.",
+      "Diagnostic Test",
+      "Personalised Plan",
+      "Consistent Classes",
+      "Want more than homework help",
+      "Have tried home tutors that didn't last",
+      "Know their child needs personal attention",
+      "Value small groups over 1-on-1"
+    ],
+    "canonical": "https://ankuramtuition.com/home-tutor-hyderabad/",
+    "robots": "noindex, nofollow",
+    "jsonLd": 1,
+    "title": "Home Tutor in Jubilee Hills, Hyderabad | Small-Batch Home Tuition | ANKURAM",
+    "blocks": [
+      "header + nav",
+      "hero",
+      "rating / reviews strip",
+      "curricula chips",
+      "FAQ accordion",
+      "CTA band",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-MQRSS8DKLE"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [
+        "AW-10954184691/jucWCNPv3OAbEPOvruco",
+        "AW-10954184691/NGIFCNbv3OAbEPOvruco"
+      ],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag",
+      "trackPhoneClick",
+      "trackWhatsAppClick"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 61308
+  },
+  {
+    "url": "/privacy-policy/",
+    "file": "public_html/privacy-policy/index.html",
+    "tier": "B",
+    "clicks": 0,
+    "impr": 10,
+    "words": 795,
+    "h1": [
+      "Privacy Policy"
+    ],
+    "h2": [
+      "Data we collect",
+      "Purpose of data collection",
+      "Consent",
+      "Third-party tools and processors",
+      "Your rights under the DPDP Act, 2023",
+      "Grievance Officer",
+      "Children’s data",
+      "Data retention",
+      "Security",
+      "Updates to this policy"
+    ],
+    "h3": [
+      "Ankuram Tuition Centre",
+      "Explore",
+      "Location"
+    ],
+    "canonical": "https://ankuramtuition.com/privacy-policy/",
+    "robots": "index, follow",
+    "jsonLd": 0,
+    "title": "Privacy Policy | Ankuram Tuition Centre",
+    "blocks": [
+      "header + nav",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-KHP2PBXF6X"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 10854
+  },
+  {
+    "url": "/terms/",
+    "file": "public_html/terms/index.html",
+    "tier": "A",
+    "clicks": 1,
+    "impr": 5,
+    "words": 444,
+    "h1": [
+      "Terms of Service"
+    ],
+    "h2": [
+      "Business identity",
+      "Diagnostic test",
+      "Tuition fees",
+      "Cancellation",
+      "No guaranteed outcomes",
+      "Intellectual property",
+      "Limitation of liability",
+      "Governing law"
+    ],
+    "h3": [],
+    "canonical": "https://ankuramtuition.com/terms/",
+    "robots": "index, follow",
+    "jsonLd": 0,
+    "title": "Terms of Service | Ankuram Tuition Centre",
+    "blocks": [
+      "header + nav",
+      "footer"
+    ],
+    "tracking": {
+      "ga4": [
+        "G-KHP2PBXF6X"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [],
+      "gtm": []
+    },
+    "inlineScripts": 2,
+    "defined": [
+      "gtag"
+    ],
+    "called": [],
+    "atRisk": [],
+    "externallyDefined": [],
+    "bytes": 8494
+  },
+  {
+    "url": "/thank-you",
+    "file": "public_html/thank-you.html",
+    "tier": "—",
+    "clicks": 0,
+    "impr": 0,
+    "words": 61,
+    "h1": [
+      "Thank You!"
+    ],
+    "h2": [
+      "Need Immediate Assistance?"
+    ],
+    "h3": [],
+    "canonical": null,
+    "robots": "noindex, nofollow",
+    "jsonLd": 1,
+    "title": "Thank You - Ankuram Tuition Centre",
+    "blocks": [],
+    "tracking": {
+      "ga4": [
+        "G-MQRSS8DKLE"
+      ],
+      "ads": [
+        "AW-10954184691"
+      ],
+      "clarity": [],
+      "labels": [
+        "AW-10954184691/form_submit"
+      ],
+      "gtm": []
+    },
+    "inlineScripts": 1,
+    "defined": [
+      "gtag"
+    ],
+    "called": [
+      "gtag",
+      "now"
+    ],
+    "atRisk": [
+      "gtag"
+    ],
+    "externallyDefined": [
+      "now"
+    ],
+    "bytes": 5482
+  }
+]
