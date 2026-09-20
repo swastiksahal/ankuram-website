@@ -18,6 +18,32 @@ A supervisor (Claude, in the project chat) reviews every phase before anything g
 - After every deploy, Swastik clears the Hostinger cache (hPanel → Clear cache).
 - Verify on the server with grep, not over HTTP (the CDN caches).
 
+## Wave roadmap
+Do not infer the next step from conversation memory. Read this roadmap.
+
+  Wave 1  DONE  the homepage, through A25.2, live and verified
+  Wave 2  ~11   core pages: /about/, /contact/, /how-we-teach,
+                /diagnostic-assessment, /curriculums, /hybrid-tuition-hyderabad,
+                /home-tuition-hyderabad, /home-tutor-hyderabad/,
+                /privacy-policy/, /terms/, /thank-you
+  Wave 3  24    /areas/*
+  Wave 4  ~28   board pages: IB PYP/MYP/DP, IGCSE, ICSE, ISC, A-Level, CBSE,
+                State Board
+  Wave 5  ~28   class/grade pages, Class 8-12 maths / science / physics
+  Wave 6  ~16   locality pages: Jubilee Hills, Saroornagar, "near me",
+                "best tuition centre in ..."
+  Wave 7  ~12   articles and topics: /blog/*, /topics/*, electrochemistry,
+                basic-vs-standard, study materials
+  Wave 8  4     PAID PAGES, LAST, one at a time, explicit approval each:
+                8.1 /online-science-tuition-class-10-cbse/
+                8.2 /online-maths-tuition-class-10-cbse/
+                8.3 /online-tuition-class-10-cbse/
+                8.4 /cbse-class-10/
+
+Never start a later wave before the earlier ones are done. Inside each wave,
+the highest-traffic page goes first for review but is built AFTER the template
+is proven on a low-traffic page in the same wave.
+
 ## URL and SEO invariants — breaking any of these is a failed build
 1. No URL changes. Every existing URL returns 200 with the same path, including
    extension-less URLs served from .html files by .htaccess.
