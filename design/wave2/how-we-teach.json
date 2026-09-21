@@ -1,0 +1,1432 @@
+{
+  "source": "public_html/how-we-teach.html",
+  "head": {
+    "title": "<title>How We Teach | Diagnostic-First, Small-Batch Approach | ANKURAM Tuition Centre</title>",
+    "description": "<meta name=\"description\" content=\"How ANKURAM teaches differently — diagnostic-first approach, real-time WhatsApp corrections, small batches of 3–5 students. Online and offline.\">",
+    "canonical": "<link rel=\"canonical\" href=\"https://ankuramtuition.com/how-we-teach\">",
+    "robots": "<meta name=\"robots\" content=\"index, follow\">",
+    "og": [
+      "<meta property=\"og:type\" content=\"website\">",
+      "<meta property=\"og:url\" content=\"https://ankuramtuition.com/how-we-teach\">",
+      "<meta property=\"og:title\" content=\"How We Teach | Diagnostic-First Approach | ANKURAM\">",
+      "<meta property=\"og:description\" content=\"Diagnostic-first teaching, real-time WhatsApp corrections, small batches of 3–5 students. Online and offline maths tuition.\">",
+      "<meta property=\"og:image\" content=\"https://ankuramtuition.com/assets/images/classroom-teaching.webp\">",
+      "<meta property=\"og:image:width\" content=\"1200\">",
+      "<meta property=\"og:image:height\" content=\"630\">",
+      "<meta property=\"og:locale\" content=\"en_IN\">",
+      "<meta property=\"og:site_name\" content=\"ANKURAM Tuition Centre\">"
+    ],
+    "twitter": [
+      "<meta name=\"twitter:card\" content=\"summary_large_image\">",
+      "<meta name=\"twitter:title\" content=\"How We Teach | Diagnostic-First Approach | ANKURAM\">",
+      "<meta name=\"twitter:description\" content=\"Diagnostic-first teaching, real-time corrections, small batches of 3–5 students.\">",
+      "<meta name=\"twitter:image\" content=\"https://ankuramtuition.com/assets/images/classroom-teaching.webp\">"
+    ],
+    "jsonld": [
+      "<script type=\"application/ld+json\">\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 1,\n          \"name\": \"Home\",\n          \"item\": \"https://ankuramtuition.com/\"\n        },\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 2,\n          \"name\": \"How We Teach\",\n          \"item\": \"https://ankuramtuition.com/how-we-teach\"\n        }\n      ]\n    }\n    </script>",
+      "<script type=\"application/ld+json\">\n    {\n      \"@context\":\"https://schema.org\",\n      \"@type\":\"FAQPage\",\n      \"mainEntity\":[\n        {\"@type\":\"Question\",\"name\":\"What if my child has major gaps from earlier classes?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"This is common and exactly why we do the diagnostic. We'll spend time fixing foundational gaps before current syllabus — even if it means revisiting Class 7 or 8 concepts. This isn't going backward. It's building properly.\"}},\n        {\"@type\":\"Question\",\"name\":\"How is this different from regular tuition?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Regular tuition starts teaching the current chapter. We start by finding out WHY the current chapter isn't making sense. The diagnostic identifies gaps — often from years earlier — and we fix those first. Once the foundation is solid, the current syllabus moves faster.\"}},\n        {\"@type\":\"Question\",\"name\":\"Do you offer online classes?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. Live small-batch sessions (3–5 students) with the same WhatsApp photo correction system. Available to students anywhere in India. Online Class 10 maths tuition is ₹10,000/month for 3 sessions a week, ₹12,000 for 4 and ₹15,000 for 5 (CBSE and ICSE).\"}},\n        {\"@type\":\"Question\",\"name\":\"What's the batch size?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Maximum 3–5 students. This ensures every student gets individual attention, can ask questions freely, and receives real-time correction on their work.\"}},\n        {\"@type\":\"Question\",\"name\":\"Which curricula do you support?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"CBSE, ICSE, IGCSE, IB MYP/DP, AS & A Levels, and State Board. The teaching method is the same — the syllabus and exam pattern are adapted to your child's board.\"}},\n        {\"@type\":\"Question\",\"name\":\"Is the diagnostic test ₹750 adjusted against future fees?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. The diagnostic is a standalone session with independent value. You walk away with complete clarity on your child's academic position — whether or not you continue with us.\"}},\n        {\"@type\":\"Question\",\"name\":\"What subjects do you teach?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Maths is our primary subject across all grades. Science (Physics, Chemistry, Biology) is available for Grades 6–10. Physics, Chemistry, and Maths for Grades 11–12.\"}}\n      ]\n    }\n    </script>"
+    ]
+  },
+  "internalHrefs": [
+    "/",
+    "/#about",
+    "/#contact",
+    "/#curricula",
+    "/#home",
+    "//maps.googleapis.com",
+    "//www.google-analytics.com",
+    "/a-level-tuition-hyderabad",
+    "/android-chrome-192x192.png",
+    "/android-chrome-512x512.png",
+    "/apple-touch-icon.png",
+    "/cbse-tuition-jubilee-hills",
+    "/diagnostic-assessment",
+    "/favicon-16x16.png",
+    "/favicon-32x32.png",
+    "/favicon.ico",
+    "/how-we-teach",
+    "/ib-dp-tuition-hyderabad",
+    "/icse-tuition-hyderabad",
+    "/igcse-tuition-jubilee-hills",
+    "/online-class-10-tuition",
+    "/online-maths-tuition",
+    "/site.webmanifest"
+  ],
+  "blocks": [
+    {
+      "t": "h1",
+      "v": "How We Teach — And Why It Actually Works",
+      "region": "main",
+      "runs": [
+        {
+          "text": "How We Teach — And Why It Actually Works"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Most tuition starts from wherever the school syllabus is. If your child is in Class 10 Chapter 5, that's where tuition begins. But what if the real problem is a Class 7 concept that was never properly understood? Traditional tuition treats the symptom. We treat the cause.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Most tuition starts from wherever the school syllabus is. If your child is in Class 10 Chapter 5, that's where tuition begins. But what if the real problem is a Class 7 concept that was never properly understood? Traditional tuition treats the symptom. We treat the cause."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "We Don't Start With the Syllabus. We Start With the Truth.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "We Don't Start With the Syllabus. We Start With the Truth."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Before we teach your child anything, we need to understand what they actually know. Not what marks they got last exam — but what they genuinely understand versus what was memorised, rushed through, or skipped entirely.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Before we teach your child anything, we need to understand what they actually know. Not what marks they got last exam — but what they genuinely understand versus what was memorised, rushed through, or skipped entirely."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "That's why every student at ANKURAM begins with a diagnostic assessment. It's a 60-minute session where we test concepts from the current grade AND previous grades. We're not checking if they get the right answer — we're watching how they approach the problem. Do they set it up correctly? Do they know which method to use? Where exactly does the thinking break down?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "That's why every student at ANKURAM begins with a diagnostic assessment. It's a 60-minute session where we test concepts from the current grade AND previous grades. We're not checking if they get the right answer — we're watching how they approach the problem. Do they set it up correctly? Do they know which method to use? Where exactly does the thinking break down?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "After the assessment, we solve every question together with the student. They see exactly where they went wrong and why. By the end, we know precisely where they stand — and they've already experienced how we teach.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "After the assessment, we solve every question together with the student. They see exactly where they went wrong and why. By the end, we know precisely where they stand — and they've already experienced how we teach."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "This diagnostic costs ₹750 and is valuable whether or not you continue with us. You walk away with complete clarity on your child's actual academic position. Learn more about the diagnostic assessment →",
+      "region": "main",
+      "runs": [
+        {
+          "text": "This diagnostic costs"
+        },
+        {
+          "text": "₹750",
+          "href": "/diagnostic-assessment"
+        },
+        {
+          "text": "and is valuable whether or not you continue with us. You walk away with complete clarity on your child's actual academic position."
+        },
+        {
+          "text": "Learn more about the diagnostic assessment →",
+          "href": "/diagnostic-assessment"
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "What Happens in a Typical Session",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Happens in a Typical Session"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Our classes are 60 minutes, with 3–5 students per batch. Here's what a session actually looks like:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Our classes are 60 minutes, with 3–5 students per batch. Here's what a session actually looks like:"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 1 — Quick Recall (5–10 minutes)",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 1 — Quick Recall (5–10 minutes)"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Every session starts with retrieval practice on previous topics. This isn't revision — it's deliberate practice to keep old concepts active. A student who learned quadratic equations last week should still be able to factorise next month.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Every session starts with retrieval practice on previous topics. This isn't revision — it's deliberate practice to keep old concepts active. A student who learned quadratic equations last week should still be able to factorise next month."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 2 — Concept + Guided Practice (30–40 minutes)",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 2 — Concept + Guided Practice (30–40 minutes)"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The teacher explains the concept step-by-step, then students solve problems in their notebook while the teacher guides them live. This isn't a lecture — students are actively working through problems with real-time support.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The teacher explains the concept step-by-step, then students solve problems in their notebook while the teacher guides them live. This isn't a lecture — students are actively working through problems with real-time support."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 3 — The WhatsApp Photo System (Throughout the session)",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 3 — The WhatsApp Photo System (Throughout the session)"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Here's what makes our classes different from any other online or offline tuition:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Here's what makes our classes different from any other online or offline tuition:"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "During the session, students solve a problem in their notebook, photograph their work, and share it on the class WhatsApp group. The teacher checks every solution in real time — not after class, not the next day, but right there, in the moment.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "During the session, students solve a problem in their notebook, photograph their work, and share it on the class WhatsApp group. The teacher checks every solution in real time — not after class, not the next day, but right there, in the moment."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "A correct answer tells us almost nothing. But a wrong solution? That tells us exactly where the thinking broke down. Was the setup correct but the algebra wrong? Did they identify the right method but apply it to the wrong part? Did they attempt it at all?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "A correct answer tells us almost nothing. But a wrong solution? That tells us exactly where the thinking broke down. Was the setup correct but the algebra wrong? Did they identify the right method but apply it to the wrong part? Did they attempt it at all?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "This isn't homework submission. It's a live thinking transcript. Every photo gives us a window into how your child is actually processing the problem. And because we see it immediately, we correct the mistake before it becomes a habit.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "This isn't homework submission. It's a live thinking transcript. Every photo gives us a window into how your child is actually processing the problem. And because we see it immediately, we correct the mistake before it becomes a habit."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "This system works identically whether the student is sitting in our Jubilee Hills classroom or attending online from anywhere in India.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "This system works identically whether the student is sitting in our Jubilee Hills classroom or attending online from anywhere in India."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Step 4 — Exit Check + Homework (10–15 minutes)",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Step 4 — Exit Check + Homework (10–15 minutes)"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The session ends with a quick check — can the student solve the type of problem we just practised, independently? Homework is given — and the same photo system applies. Students photograph their home attempts and send them before the next session. We review the working, not just the answer.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The session ends with a quick check — can the student solve the type of problem we just practised, independently? Homework is given — and the same photo system applies. Students photograph their home attempts and send them before the next session. We review the working, not just the answer."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Sometimes the Fastest Way Forward Is to Go Back",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Sometimes the Fastest Way Forward Is to Go Back"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "A Class 10 student struggling with quadratic equations might actually have a gap in Class 7 algebraic expressions. A student who can't handle trigonometry might never have properly understood fractions and ratios.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "A Class 10 student struggling with quadratic equations might actually have a gap in Class 7 algebraic expressions. A student who can't handle trigonometry might never have properly understood fractions and ratios."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Teaching quadratics without fixing that foundation is like building a house on sand. It might look fine for a week. Then it collapses on the exam paper.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Teaching quadratics without fixing that foundation is like building a house on sand. It might look fine for a week. Then it collapses on the exam paper."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "At ANKURAM, if a Class 10 student needs Class 7 or Class 8 concepts, we go there — without shame, without judgement. That's not going backward. That's catching up properly.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "At ANKURAM, if a Class 10 student needs Class 7 or Class 8 concepts, we go there — without shame, without judgement. That's not going backward. That's catching up properly."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Without Foundation Repair",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Without Foundation Repair"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Memorises formulas, forgets in exams",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Memorises formulas, forgets in exams"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Each new chapter feels disconnected",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Each new chapter feels disconnected"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Needs re-teaching every few weeks",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Needs re-teaching every few weeks"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Confidence keeps dropping",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Confidence keeps dropping"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Board exam feels overwhelming",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Board exam feels overwhelming"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "With Foundation Repair",
+      "region": "main",
+      "runs": [
+        {
+          "text": "With Foundation Repair"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Understands why formulas work",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Understands why formulas work"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Connects chapters naturally",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Connects chapters naturally"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Builds on previous understanding",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Builds on previous understanding"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Confidence grows with each topic",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Confidence grows with each topic"
+        }
+      ]
+    },
+    {
+      "t": "li",
+      "v": "Board exam confirms what they know",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Board exam confirms what they know"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Parents sometimes worry that going back means falling further behind the syllabus. The opposite happens. Once the foundation is solid, everything above it clicks faster. A student who truly understands linear equations will pick up quadratic equations in half the time.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Parents sometimes worry that going back means falling further behind the syllabus. The opposite happens. Once the foundation is solid, everything above it clicks faster. A student who truly understands linear equations will pick up quadratic equations in half the time."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "3–5 Students Per Batch. Not 15. Not 30.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "3–5 Students Per Batch. Not 15. Not 30."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "In a classroom of 30 students, your child can hide. They can nod along, copy from the board, and leave without understanding anything. Nobody notices.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "In a classroom of 30 students, your child can hide. They can nod along, copy from the board, and leave without understanding anything. Nobody notices."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "In a batch of 3–5, that's impossible. Every student solves. Every student shares their working. Every mistake is caught and corrected in real time.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "In a batch of 3–5, that's impossible. Every student solves. Every student shares their working. Every mistake is caught and corrected in real time."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "This isn't a feature we advertise for marketing. It's the only way our teaching method works. The WhatsApp photo system, the real-time corrections, the error tracking — none of it is possible with 15 students. It requires seeing each student's work individually, every session.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "This isn't a feature we advertise for marketing. It's the only way our teaching method works. The WhatsApp photo system, the real-time corrections, the error tracking — none of it is possible with 15 students. It requires seeing each student's work individually, every session."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Inside the Ankuram Method",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Inside the Ankuram Method"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "A Typical Week at Ankuram",
+      "region": "main",
+      "runs": [
+        {
+          "text": "A Typical Week at Ankuram"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "A student's weekly rhythm at Ankuram is a structured cycle of assessment, instruction, and practice designed to eliminate weak basics. The week starts with a focused evaluation of the previous module to ensure long-term retention. Following this, new material is introduced through interactive dialogue — something only possible in our 3–5 student batches. Mid-week is dedicated to supervised practice where the teacher oversees live problem-solving, catching errors exactly where students get stuck. The week concludes with a synthesis session where students must explain the concepts back — proving they truly understand the logic, not just the steps.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "A student's weekly rhythm at Ankuram is a structured cycle of assessment, instruction, and practice designed to eliminate weak basics. The week starts with a focused evaluation of the previous module to ensure long-term retention. Following this, new material is introduced through interactive dialogue — something only possible in our 3–5 student batches. Mid-week is dedicated to supervised practice where the teacher oversees live problem-solving, catching errors exactly where students get stuck. The week concludes with a synthesis session where students must explain the concepts back — proving they truly understand the logic, not just the steps."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What Online Sessions Actually Look Like",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Online Sessions Actually Look Like"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Our online sessions are fundamentally different from passive video calls. A standard 60-minute class is anchored entirely by our WhatsApp photo correction method. After the teacher deconstructs a topic on the digital whiteboard, a problem is assigned. Students must physically solve it on paper in real-time. They immediately capture a photo and submit it via WhatsApp. The teacher receives it instantly and dissects their handwritten logic live on screen. This immediate feedback catches dropped negative signs and spatial reasoning errors the second they occur — enforcing physical rigour and total engagement. Whether your child is doing CBSE , ICSE , or IGCSE , the process works identically.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Our online sessions are fundamentally different from passive video calls. A standard 60-minute class is anchored entirely by our WhatsApp photo correction method. After the teacher deconstructs a topic on the digital whiteboard, a problem is assigned. Students must physically solve it on paper in real-time. They immediately capture a photo and submit it via WhatsApp. The teacher receives it instantly and dissects their handwritten logic live on screen. This immediate feedback catches dropped negative signs and spatial reasoning errors the second they occur — enforcing physical rigour and total engagement. Whether your child is doing"
+        },
+        {
+          "text": "CBSE",
+          "href": "/cbse-tuition-jubilee-hills"
+        },
+        {
+          "text": ","
+        },
+        {
+          "text": "ICSE",
+          "href": "/icse-tuition-hyderabad"
+        },
+        {
+          "text": ", or"
+        },
+        {
+          "text": "IGCSE",
+          "href": "/igcse-tuition-jubilee-hills"
+        },
+        {
+          "text": ", the process works identically."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What Happens in the First Month",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Happens in the First Month"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The first thirty days at Ankuram represent an adjustment period of trust-building and foundational repair. It begins with the 90-minute diagnostic assessment to map the student's exact mathematical foundation. This raw data generates a customised gap-analysis report. For the next three weeks, instruction focuses heavily on fixing weak basics before tackling the high-pressure school syllabus. By the end of month one, we conduct the first formal progress check — tangibly demonstrating that true conceptual mastery is replacing academic anxiety.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The first thirty days at Ankuram represent an adjustment period of trust-building and foundational repair. It begins with the"
+        },
+        {
+          "text": "90-minute diagnostic assessment",
+          "href": "/diagnostic-assessment"
+        },
+        {
+          "text": "to map the student's exact mathematical foundation. This raw data generates a customised gap-analysis report. For the next three weeks, instruction focuses heavily on fixing weak basics before tackling the high-pressure school syllabus. By the end of month one, we conduct the first formal progress check — tangibly demonstrating that true conceptual mastery is replacing academic anxiety."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Signs to Watch for in the First 4–6 Weeks",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Signs to Watch for in the First 4–6 Weeks"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "You won't need to wait for a report card. Watch for these changes:",
+      "region": "main",
+      "runs": [
+        {
+          "text": "You won't need to wait for a report card. Watch for these changes:"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Their questions get more specific",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Their questions get more specific"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "\"I don't get maths\" becomes \"I understand this part but not that part.\" Specific doubt means real thinking is happening.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "\"I don't get maths\" becomes \"I understand this part but not that part.\" Specific doubt means real thinking is happening."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "They attempt problems before giving up",
+      "region": "main",
+      "runs": [
+        {
+          "text": "They attempt problems before giving up"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Students who previously left blanks start writing something — even if wrong. That's progress. A wrong attempt shows they're engaging with the problem.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Students who previously left blanks start writing something — even if wrong. That's progress. A wrong attempt shows they're engaging with the problem."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "They talk about what they're learning",
+      "region": "main",
+      "runs": [
+        {
+          "text": "They talk about what they're learning"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Not just what marks they got. When your child explains a concept at dinner unprompted, the understanding is real.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Not just what marks they got. When your child explains a concept at dinner unprompted, the understanding is real."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Homework gets done without a fight",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Homework gets done without a fight"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Not because it's easy — because they know how to start. The biggest homework battle isn't discipline. It's confusion.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Not because it's easy — because they know how to start. The biggest homework battle isn't discipline. It's confusion."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "The teacher gives you honest updates",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The teacher gives you honest updates"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "We tell you what's improving AND what still needs work. Regular feedback to parents — not just at report card time.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "We tell you what's improving AND what still needs work. Regular feedback to parents — not just at report card time."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Online Maths Tuition That Actually Works",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Online Maths Tuition That Actually Works"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Our online classes are not recordings. They're not webinars. They're the same live, small-batch, interactive sessions — just without the commute.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Our online classes are not recordings. They're not webinars. They're the same live, small-batch, interactive sessions — just without the commute."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The WhatsApp photo system works identically online. Students solve in their notebook, photograph their working, share it on the group — teacher checks and corrects in real time. The only difference is your child is sitting at home instead of in our classroom.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The WhatsApp photo system works identically online. Students solve in their notebook, photograph their working, share it on the group — teacher checks and corrects in real time. The only difference is your child is sitting at home instead of in our classroom."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Students from across Hyderabad and other cities in India attend our online classes. All they need is a phone or laptop, a notebook, and a stable internet connection.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Students from across Hyderabad and other cities in India attend our online classes. All they need is a phone or laptop, a notebook, and a stable internet connection."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Online Class 10 Maths Tuition is ₹10,000/month (3 sessions/week), ₹12,000/month (4 sessions/week) or ₹15,000/month (5 sessions/week, intensive) for CBSE and ICSE. IGCSE ₹10,000 / ₹13,000 / ₹16,000. IB MYP ₹12,000 / ₹15,000 / ₹18,000.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Online Class 10 Maths Tuition is ₹10,000/month (3 sessions/week), ₹12,000/month (4 sessions/week) or ₹15,000/month (5 sessions/week, intensive) for CBSE and ICSE. IGCSE ₹10,000 / ₹13,000 / ₹16,000. IB MYP ₹12,000 / ₹15,000 / ₹18,000."
+        }
+      ]
+    },
+    {
+      "t": "text",
+      "v": "See Online Maths Tuition Plans",
+      "region": "main",
+      "runs": [
+        {
+          "text": "See Online Maths Tuition Plans",
+          "href": "/online-maths-tuition"
+        }
+      ],
+      "href": "/online-maths-tuition"
+    },
+    {
+      "t": "text",
+      "v": "Online Class 10 Plans",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Online Class 10 Plans",
+          "href": "/online-class-10-tuition"
+        }
+      ],
+      "href": "/online-class-10-tuition"
+    },
+    {
+      "t": "h2",
+      "v": "What Parents Often Ask Us Before Joining",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What Parents Often Ask Us Before Joining"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "\"My child already has school + coaching — adding more will be overwhelming\"",
+      "region": "main",
+      "runs": [
+        {
+          "text": "\"My child already has school + coaching — adding more will be overwhelming\""
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Ankuram isn't an add-on; it's designed to replace the need for crowded coaching factories. In our 3–5 student batches, we focus on quality over quantity. Ninety minutes of focused work here achieves more than hours sitting passively in a large hall.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Ankuram isn't an add-on; it's designed to replace the need for crowded coaching factories. In our 3–5 student batches, we focus on quality over quantity. Ninety minutes of focused work here achieves more than hours sitting passively in a large hall."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "\"Online tuition won't be as effective as in-person\"",
+      "region": "main",
+      "runs": [
+        {
+          "text": "\"Online tuition won't be as effective as in-person\""
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Our online sessions use the WhatsApp photo correction method — students physically solve problems on paper and send photos in real-time. The teacher corrects their work live on screen, catching errors the moment they happen. It's more interactive than most physical classrooms.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Our online sessions use the WhatsApp photo correction method — students physically solve problems on paper and send photos in real-time. The teacher corrects their work live on screen, catching errors the moment they happen. It's more interactive than most physical classrooms."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "\"How is this different from the large online platforms?\"",
+      "region": "main",
+      "runs": [
+        {
+          "text": "\"How is this different from the large online platforms?\""
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Large ed-tech platforms focus on volume and a revolving door of tutors. At Ankuram, your child works with the same teacher every single time. By strictly capping batches at 3–5 students, we build a genuine relationship and total accountability.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Large ed-tech platforms focus on volume and a revolving door of tutors. At Ankuram, your child works with the same teacher every single time. By strictly capping batches at 3–5 students, we build a genuine relationship and total accountability."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "\"My child needs to finish the syllabus fast, not go back to basics\"",
+      "region": "main",
+      "runs": [
+        {
+          "text": "\"My child needs to finish the syllabus fast, not go back to basics\""
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Rushing advanced topics when a student has weak basics is the leading cause of exam panic. You can't master trigonometry if basic algebra is shaky. Once the foundation is solid, we move through the syllabus much faster. Students studying IB DP or A Levels see this benefit most clearly.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Rushing advanced topics when a student has weak basics is the leading cause of exam panic. You can't master trigonometry if basic algebra is shaky. Once the foundation is solid, we move through the syllabus much faster. Students studying"
+        },
+        {
+          "text": "IB DP",
+          "href": "/ib-dp-tuition-hyderabad"
+        },
+        {
+          "text": "or"
+        },
+        {
+          "text": "A Levels",
+          "href": "/a-level-tuition-hyderabad"
+        },
+        {
+          "text": "see this benefit most clearly."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Frequently Asked Questions",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Frequently Asked Questions"
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What if my child has major gaps from earlier classes?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What if my child has major gaps from earlier classes?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "This is common and exactly why we do the diagnostic. We'll spend time fixing foundational gaps before current syllabus — even if it means revisiting Class 7 or 8 concepts. This isn't going backward. It's building properly.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "This is common and exactly why we do the diagnostic. We'll spend time fixing foundational gaps before current syllabus — even if it means revisiting Class 7 or 8 concepts. This isn't going backward. It's building properly."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "How is this different from regular tuition?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "How is this different from regular tuition?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Regular tuition starts teaching the current chapter. We start by finding out WHY the current chapter isn't making sense. The diagnostic identifies gaps — often from years earlier — and we fix those first. Once the foundation is solid, the current syllabus moves faster.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Regular tuition starts teaching the current chapter. We start by finding out WHY the current chapter isn't making sense. The diagnostic identifies gaps — often from years earlier — and we fix those first. Once the foundation is solid, the current syllabus moves faster."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Do you offer online classes?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Do you offer online classes?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Yes. Live small-batch sessions (3–5 students) with the same WhatsApp photo correction system. Available to students anywhere in India. Online Class 10 maths tuition is ₹10,000/month for 3 sessions a week, ₹12,000 for 4 and ₹15,000 for 5 (CBSE and ICSE).",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Yes. Live small-batch sessions (3–5 students) with the same WhatsApp photo correction system. Available to students anywhere in India. Online Class 10 maths tuition is ₹10,000/month for 3 sessions a week, ₹12,000 for 4 and ₹15,000 for 5 (CBSE and ICSE)."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What's the batch size?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What's the batch size?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Maximum 3–5 students. This ensures every student gets individual attention, can ask questions freely, and receives real-time correction on their work.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Maximum 3–5 students. This ensures every student gets individual attention, can ask questions freely, and receives real-time correction on their work."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Which curricula do you support?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Which curricula do you support?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "CBSE, ICSE, IGCSE, IB MYP/DP, AS & A Levels, and State Board. The teaching method is the same — the syllabus and exam pattern are adapted to your child's board.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "CBSE, ICSE, IGCSE, IB MYP/DP, AS & A Levels, and State Board. The teaching method is the same — the syllabus and exam pattern are adapted to your child's board."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Is the diagnostic test ₹750 adjusted against future fees?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Is the diagnostic test ₹750 adjusted against future fees?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "No. The diagnostic is a standalone session with independent value. You walk away with complete clarity on your child's academic position — whether or not you continue with us.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "No. The diagnostic is a standalone session with independent value. You walk away with complete clarity on your child's academic position — whether or not you continue with us."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "What subjects do you teach?",
+      "region": "main",
+      "runs": [
+        {
+          "text": "What subjects do you teach?"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Maths is our primary subject across all grades. Science (Physics, Chemistry, Biology) is available for Grades 6–10. Physics, Chemistry, and Maths for Grades 11–12.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Maths is our primary subject across all grades. Science (Physics, Chemistry, Biology) is available for Grades 6–10. Physics, Chemistry, and Maths for Grades 11–12."
+        }
+      ]
+    },
+    {
+      "t": "h2",
+      "v": "Start With a Diagnostic Assessment",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Start With a Diagnostic Assessment"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "The first step is understanding where your child actually stands. Book a 60-minute diagnostic — ₹750.",
+      "region": "main",
+      "runs": [
+        {
+          "text": "The first step is understanding where your child actually stands. Book a 60-minute diagnostic — ₹750."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Plot 229, Road No. 72, Prashashan Nagar, Jubilee Hills, Hyderabad – 500096",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Plot 229, Road No. 72, Prashashan Nagar, Jubilee Hills, Hyderabad – 500096"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Available: In-person at Jubilee Hills or Online",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Available: In-person at Jubilee Hills or Online"
+        }
+      ]
+    },
+    {
+      "t": "text",
+      "v": "Book on WhatsApp",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Book on WhatsApp",
+          "href": "https://wa.me/917396669430?text=Hi%2C%20I%27d%20like%20to%20book%20a%20diagnostic%20test%20for%20my%20child."
+        }
+      ],
+      "href": "https://wa.me/917396669430?text=Hi%2C%20I%27d%20like%20to%20book%20a%20diagnostic%20test%20for%20my%20child."
+    },
+    {
+      "t": "text",
+      "v": "Call: 73966 69430",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Call: 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "text",
+      "v": "Call Now",
+      "region": "main",
+      "runs": [
+        {
+          "text": "Call Now",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "text",
+      "v": "WhatsApp",
+      "region": "main",
+      "runs": [
+        {
+          "text": "WhatsApp",
+          "href": "https://wa.me/917396669430"
+        }
+      ],
+      "href": "https://wa.me/917396669430"
+    }
+  ],
+  "nav": [
+    {
+      "t": "text",
+      "v": "Home",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Home",
+          "href": "/#home"
+        }
+      ],
+      "href": "/#home"
+    },
+    {
+      "t": "text",
+      "v": "How We Teach",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "How We Teach",
+          "href": "/how-we-teach"
+        }
+      ],
+      "href": "/how-we-teach"
+    },
+    {
+      "t": "text",
+      "v": "Online Classes",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Online Classes",
+          "href": "/online-maths-tuition"
+        }
+      ],
+      "href": "/online-maths-tuition"
+    },
+    {
+      "t": "text",
+      "v": "Curricula",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Curricula",
+          "href": "/#curricula"
+        }
+      ],
+      "href": "/#curricula"
+    },
+    {
+      "t": "text",
+      "v": "About",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "About",
+          "href": "/#about"
+        }
+      ],
+      "href": "/#about"
+    },
+    {
+      "t": "text",
+      "v": "Contact",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Contact",
+          "href": "/#contact"
+        }
+      ],
+      "href": "/#contact"
+    },
+    {
+      "t": "text",
+      "v": "+91 73966 69430",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "text",
+      "v": "Home",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Home",
+          "href": "/#home"
+        }
+      ],
+      "href": "/#home"
+    },
+    {
+      "t": "text",
+      "v": "How We Teach",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "How We Teach",
+          "href": "/how-we-teach"
+        }
+      ],
+      "href": "/how-we-teach"
+    },
+    {
+      "t": "text",
+      "v": "Online Classes",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Online Classes",
+          "href": "/online-maths-tuition"
+        }
+      ],
+      "href": "/online-maths-tuition"
+    },
+    {
+      "t": "text",
+      "v": "Curricula",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Curricula",
+          "href": "/#curricula"
+        }
+      ],
+      "href": "/#curricula"
+    },
+    {
+      "t": "text",
+      "v": "About",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "About",
+          "href": "/#about"
+        }
+      ],
+      "href": "/#about"
+    },
+    {
+      "t": "text",
+      "v": "Contact",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "Contact",
+          "href": "/#contact"
+        }
+      ],
+      "href": "/#contact"
+    },
+    {
+      "t": "text",
+      "v": "+91 73966 69430",
+      "region": "nav",
+      "runs": [
+        {
+          "text": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    }
+  ],
+  "footer": [
+    {
+      "t": "h3",
+      "v": "Ankuram Tuition Centre | Math Tuition | Science Tuition",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Ankuram Tuition Centre | Math Tuition | Science Tuition"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "Expert tuition for Grades 1-12 in Jubilee Hills, Hyderabad.",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Expert tuition for Grades 1-12 in Jubilee Hills, Hyderabad."
+        }
+      ]
+    },
+    {
+      "t": "h3",
+      "v": "Quick Links",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Quick Links"
+        }
+      ]
+    },
+    {
+      "t": "text",
+      "v": "Home",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Home",
+          "href": "/"
+        }
+      ],
+      "href": "/"
+    },
+    {
+      "t": "text",
+      "v": "How We Teach",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "How We Teach",
+          "href": "/how-we-teach"
+        }
+      ],
+      "href": "/how-we-teach"
+    },
+    {
+      "t": "text",
+      "v": "Curricula",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Curricula",
+          "href": "/#curricula"
+        }
+      ],
+      "href": "/#curricula"
+    },
+    {
+      "t": "text",
+      "v": "About",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "About",
+          "href": "/#about"
+        }
+      ],
+      "href": "/#about"
+    },
+    {
+      "t": "text",
+      "v": "Contact",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Contact",
+          "href": "/#contact"
+        }
+      ],
+      "href": "/#contact"
+    },
+    {
+      "t": "h3",
+      "v": "Contact",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Contact"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "+91 73966 69430",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "+91 73966 69430",
+          "href": "tel:+917396669430"
+        }
+      ],
+      "href": "tel:+917396669430"
+    },
+    {
+      "t": "p",
+      "v": "Plot 229, Rd Number 72 Prashasan Nagar, Jubilee Hills Hyderabad, Telangana 500096",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "Plot 229, Rd Number 72"
+        },
+        {
+          "text": "Prashasan Nagar, Jubilee Hills"
+        },
+        {
+          "text": "Hyderabad, Telangana 500096"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "v": "© 2026 Ankuram Tuition Centre. All rights reserved.",
+      "region": "footer",
+      "runs": [
+        {
+          "text": "© 2026 Ankuram Tuition Centre. All rights reserved."
+        }
+      ]
+    }
+  ]
+}

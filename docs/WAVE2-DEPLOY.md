@@ -116,3 +116,20 @@ so the IB PYP chip added to the homepage in A22/A24 resolves to the IB MYP page.
 `ib-pyp-tuition-hyderabad.html` among unreachable files. I should have caught
 this when adding the chip. Fixing it means either removing that rewrite, which
 is an unapproved `.htaccess` change, or repointing the chip. Needs a decision.
+
+---
+
+## W2.2 /how-we-teach — 21 September 2026 — NOT DEPLOYED
+
+The staging candidate is built and locally verified. Full evidence and the
+resume commands are in [W2.2-REPORT.md](W2.2-REPORT.md).
+
+- Flat `how-we-teach.html`; live slashless 200 and both `.html`/slash 301s checked.
+- 10/10 H2, 28/28 H3, 14/14 internal href destinations, 27/27 occurrences.
+- Words 2,036 / 2,037 (99.95%); no new body copy; both JSON-LD blocks unchanged.
+- All four homepage/diagnostic 390/1440 live comparisons: 0 changed pixels.
+- CSS +43/-0 lines; original bytes unchanged. A23 CSS ef951be3, JS 5f7ccd03.
+- Lighthouse mobile/desktop 99/100; a11y 100/100; SEO 100/100; CLS 0/0.
+- Six-width overflow 0, console errors 0, runtime inline-handler checks PASS.
+- Deployment stopped at the first read-only SSH operation: Network is unreachable.
+  No staging or production write occurred. Current staging entrances both 401.

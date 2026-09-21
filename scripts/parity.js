@@ -19,6 +19,13 @@
 
 const fs = require('fs');
 
+// An explicit flat-page URL enables Wave 2 checks without applying homepage
+// wording exceptions or homepage anchor requirements to another page.
+if (process.argv[3] && process.argv[3] !== '/') {
+  process.exitCode = require('./wave2-parity')(process.argv[2], process.argv[3]);
+  return;
+}
+
 const page = process.argv[2] || 'design/direction-c/index.html';
 const LIVE = 'public_html/index.html';
 const CONTENT = 'design/home-content.json';

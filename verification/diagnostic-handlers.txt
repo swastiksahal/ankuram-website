@@ -1,0 +1,7 @@
+../../../../tmp/w22-handlers-XilxB0: 1 function(s) referenced by inline on* attributes
+
+  OK       window.trackPhoneClick  typeof=function
+
+page errors on load: none
+
+PASS — every inline handler resolves at runtime

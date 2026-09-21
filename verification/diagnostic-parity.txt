@@ -1,0 +1,17 @@
+PASS head title
+PASS head description
+PASS head canonical
+PASS head robots
+PASS head og
+PASS head twitter
+PASS head jsonld
+PASS h1 retained as h1 (1), missing 0
+PASS h2 retained as h2 (9), missing 0
+PASS h3 retained as h3 (32), missing 0
+PASS word count 1318/1317 (100.08%)
+PASS internal destinations 11/11 with hrefs
+PASS internal link occurrences 23, missing href occurrences 0
+NOTE anchor-label differences (hrefs checked above): ["Home","/"]
+PASS every main-content block retained word for word
+PASS FAQ questions retain nested h3 (6)
+ALL PASS

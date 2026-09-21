@@ -1,0 +1,118 @@
+{
+  "browser": "153.0.8010.0",
+  "regression": [
+    {
+      "page": "home",
+      "width": 390,
+      "pixels": 0,
+      "height": 13571,
+      "liveSha": "4f59e53b07a3c6b54dcf654494aaefc96a7c58d16512792aea80ee46a83eb0d1",
+      "candidateSha": "4f59e53b07a3c6b54dcf654494aaefc96a7c58d16512792aea80ee46a83eb0d1"
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "pixels": 0,
+      "height": 13443,
+      "liveSha": "64fca42bff8738d1b838c412d2be5988d926649ff01bce4ff31d43df9a677a40",
+      "candidateSha": "64fca42bff8738d1b838c412d2be5988d926649ff01bce4ff31d43df9a677a40"
+    },
+    {
+      "page": "diagnostic",
+      "width": 390,
+      "pixels": 0,
+      "height": 8033,
+      "liveSha": "440fe7cf92f54213f4354c6cd8075ac675de97bd7fbe762b7492dec9de0a3dad",
+      "candidateSha": "440fe7cf92f54213f4354c6cd8075ac675de97bd7fbe762b7492dec9de0a3dad"
+    },
+    {
+      "page": "diagnostic",
+      "width": 1440,
+      "pixels": 0,
+      "height": 6194,
+      "liveSha": "be320b4ce1c2715940c253958d2668d8f3b9ab76f36bc6ce92850b76c69b0a91",
+      "candidateSha": "be320b4ce1c2715940c253958d2668d8f3b9ab76f36bc6ce92850b76c69b0a91"
+    }
+  ],
+  "render": [
+    {
+      "width": 360,
+      "overflow": 0,
+      "headings": {
+        "h2": 10,
+        "h3": 28
+      },
+      "openOverflow": 0,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "headings": {
+        "h2": 10,
+        "h3": 28
+      },
+      "openOverflow": 0,
+      "errors": []
+    },
+    {
+      "width": 768,
+      "overflow": 0,
+      "headings": {
+        "h2": 10,
+        "h3": 28
+      },
+      "openOverflow": 0,
+      "errors": []
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "headings": {
+        "h2": 10,
+        "h3": 28
+      },
+      "openOverflow": 0,
+      "errors": []
+    },
+    {
+      "width": 1280,
+      "overflow": 0,
+      "headings": {
+        "h2": 10,
+        "h3": 28
+      },
+      "openOverflow": 0,
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "overflow": 0,
+      "headings": {
+        "h2": 10,
+        "h3": 28
+      },
+      "openOverflow": 0,
+      "errors": []
+    }
+  ],
+  "lighthouse": {
+    "mobile": {
+      "performance": 99,
+      "accessibility": 100,
+      "seo": 100,
+      "cls": 0
+    },
+    "desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "cls": 0
+    }
+  },
+  "faq": {
+    "noJsOpen": true,
+    "noJsClose": true
+  },
+  "failures": []
+}

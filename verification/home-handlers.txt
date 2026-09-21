@@ -1,0 +1,10 @@
+../../../../tmp/w22-handlers-FqwH4T: 4 function(s) referenced by inline on* attributes
+
+  OK       window.trackCTAClick  typeof=function
+  OK       window.trackFormSubmission  typeof=function
+  OK       window.trackPhoneClick  typeof=function
+  OK       window.trackWhatsAppClick  typeof=function
+
+page errors on load: none
+
+PASS — every inline handler resolves at runtime

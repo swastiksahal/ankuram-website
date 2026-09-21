@@ -147,7 +147,10 @@ for (const r of levelReport) {
 }
 
 console.log('\ntracking:\n');
-for (const r of t) {
+// Explicit mode for head/heading regression comparisons of Wave 2 pages.
+// Runtime handler checks run separately; the original default remains strict.
+if (process.argv.includes('--head-only')) console.log('  NOT RUN (--head-only): tracking/runtime checks are separate');
+for (const r of (process.argv.includes('--head-only') ? [] : t)) {
   if (!r.ok) failed++;
   console.log(`  ${r.ok ? 'PASS' : 'FAIL'}  ${r.name}  (${r.detail})`);
 }

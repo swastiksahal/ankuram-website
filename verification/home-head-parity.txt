@@ -1,0 +1,44 @@
+head parity: verification/home-fp.json vs baseline "/"
+
+  PASS  title
+  PASS  titleHash
+  PASS  metaDescription
+  PASS  canonical
+  PASS  metaRobots
+  PASS  hreflang
+  PASS  H1 text
+  PASS  og: tag names
+  PASS  og  og:description
+  PASS  og  og:image
+  PASS  og  og:image:height
+  PASS  og  og:image:width
+  PASS  og  og:locale
+  PASS  og  og:site_name
+  PASS  og  og:title
+  PASS  og  og:type
+  PASS  og  og:url
+  PASS  twitter: tag names
+  PASS  tw  twitter:card
+  PASS  tw  twitter:description
+  PASS  tw  twitter:image
+  PASS  tw  twitter:title
+  PASS  JSON-LD block count
+  PASS  JSON-LD @type, in order
+  PASS  JSON-LD hashes, in order
+  PASS  every live h2 present (13 unique) — text retained
+  PASS  every live h2 present — present AS A HEADING
+  PASS  every live h3 present (50 unique) — text retained
+  PASS  every live h3 present — present AS A HEADING
+
+heading levels (invariant 4 pins the text, not the level — reported, not failed):
+
+  every live h2 present: 12/13 at the same level, 1 at a different level
+      -> <h3>: 1
+           "Students From Across Hyderabad"
+  every live h3 present: 50/50 at the same level, 0 at a different level
+
+tracking:
+
+  NOT RUN (--head-only): tracking/runtime checks are separate
+
+ALL PASS

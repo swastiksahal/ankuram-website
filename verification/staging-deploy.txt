@@ -1,0 +1,6 @@
+source : build/staging
+target : u879191658@145.79.212.4:~/domains/ankuramtuition.com/public_html/staging
+auth   : /home/u879191658/domains/ankuramtuition.com/.htpasswd-staging (referenced only, never read)
+
+== 1. live config fingerprint BEFORE
+ssh: connect to host 145.79.212.4 port 65002: Network is unreachable

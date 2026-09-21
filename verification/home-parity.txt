@@ -1,0 +1,20 @@
+parity: build/staging/index.html
+
+  PASS  inv  3  title
+  PASS  inv  3  meta description
+  PASS  inv  3  canonical
+  PASS  inv  3  JSON-LD (5 blocks)
+  PASS  inv  3  og:9 twitter:4
+  PASS  inv  4  H1 text identical
+  PASS  inv  4  every baseline H2/H3 present (59)
+  PASS  inv  5  word count 3464 vs live 3226 = 107.4%
+  PASS  inv 14  baseline strings 422/432
+  PASS  inv 14  removals all approved (10)
+  PASS  inv 14  A24 renames present in their new form (4)
+  PASS  inv 14  every board name still present (CBSE:18, ICSE:16, ISC:10, IGCSE:17, IB PYP:5, IB MYP:8, IB DP:5, AS & A Levels:9, State Board:12)
+  PASS  inv 15  anchor ids (6)
+
+word-count parity: 107.4% of live (floor 95%)
+approved removals: 10 (Small‑batch classes (3–5 students) with a foundation‑first approach across CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels and State Board., CBSE • IB MYP • IGCSE • ICSE • IB DP • AS & A Levels • State Board, 516 Reviews, CBSE, ICSE, ISC, IGCSE, IB MYP/DP, AS & A Levels, and Telangana/Andhra State Board—taught with the right syllabus + exam approach., IB MYP/DP, Loading reviews..., Unable to load reviews at this time., See our Google reviews →, View all reviews on Google →, Yes. ANKURAM supports CBSE, ICSE, ISC, IGCSE, IB (MYP/DP), AS & A Levels, and State Board. Teaching style and practice are aligned to the curriculum.)
+
+ALL PASS

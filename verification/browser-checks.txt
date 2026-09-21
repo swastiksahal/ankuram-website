@@ -1,0 +1,9 @@
+Reusing four passing live screenshot comparisons; target markup only changed.
+how-we-teach 360: overflow 0, open FAQ overflow 0, console errors 0
+how-we-teach 390: overflow 0, open FAQ overflow 0, console errors 0
+how-we-teach 768: overflow 0, open FAQ overflow 0, console errors 0
+how-we-teach 1024: overflow 0, open FAQ overflow 0, console errors 0
+how-we-teach 1280: overflow 0, open FAQ overflow 0, console errors 0
+how-we-teach 1440: overflow 0, open FAQ overflow 0, console errors 0
+Lighthouse mobile: {"performance":99,"accessibility":100,"seo":100,"cls":0}
+Lighthouse desktop: {"performance":100,"accessibility":100,"seo":100,"cls":0}

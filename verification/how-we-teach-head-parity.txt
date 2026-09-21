@@ -1,0 +1,42 @@
+head parity: verification/how-we-teach-fp.json vs baseline "/how-we-teach"
+
+  PASS  title
+  PASS  titleHash
+  PASS  metaDescription
+  PASS  canonical
+  PASS  metaRobots
+  PASS  hreflang
+  PASS  H1 text
+  PASS  og: tag names
+  PASS  og  og:description
+  PASS  og  og:image
+  PASS  og  og:image:height
+  PASS  og  og:image:width
+  PASS  og  og:locale
+  PASS  og  og:site_name
+  PASS  og  og:title
+  PASS  og  og:type
+  PASS  og  og:url
+  PASS  twitter: tag names
+  PASS  tw  twitter:card
+  PASS  tw  twitter:description
+  PASS  tw  twitter:image
+  PASS  tw  twitter:title
+  PASS  JSON-LD block count
+  PASS  JSON-LD @type, in order
+  PASS  JSON-LD hashes, in order
+  PASS  every live h2 present (10 unique) — text retained
+  PASS  every live h2 present — present AS A HEADING
+  PASS  every live h3 present (28 unique) — text retained
+  PASS  every live h3 present — present AS A HEADING
+
+heading levels (invariant 4 pins the text, not the level — reported, not failed):
+
+  every live h2 present: 10/10 at the same level, 0 at a different level
+  every live h3 present: 28/28 at the same level, 0 at a different level
+
+tracking:
+
+  NOT RUN (--head-only): tracking/runtime checks are separate
+
+ALL PASS
