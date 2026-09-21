@@ -1079,3 +1079,46 @@
   .v2.w2 .w2-cards { grid-template-columns: 1fr; gap: var(--s3); margin-top: var(--s4); }
   .v2.w2 .w2-card h3 { font-size: 15px; }
 }
+
+/* W2.2 /how-we-teach body layouts. Append only; every selector also requires
+   a new w2-teach-* class, so the existing diagnostic page cannot match. */
+.v2.w2 .w2-teach-intro > .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4) var(--s8); }
+.v2.w2 .w2-teach-intro h2 { grid-column: 1 / -1; }
+.v2.w2 .w2-teach-lead { font-size: var(--t-xl); line-height: 1.5; }
+.v2.w2 .w2-teach-lead p { color: var(--blue-deep); }
+.v2.w2 .w2-teach-prose { max-width: 68ch; }
+.v2.w2 .w2-teach-timeline { margin-top: var(--s6); padding-left: var(--s5); border-left: 2px solid var(--blue-line); max-width: 85ch; }
+.v2.w2 .w2-teach-step { position: relative; padding-bottom: var(--s5); }
+.v2.w2 .w2-teach-step:last-child { padding-bottom: 0; }
+.v2.w2 .w2-teach-step::before { content: ''; position: absolute; width: var(--s3); height: var(--s3); border-radius: 50%; background: var(--blue); left: calc(-1 * var(--s5) - 7px); top: 5px; }
+.v2.w2 .w2-teach-step h3 { color: var(--blue-deep); }
+.v2.w2 .w2-teach-step p:last-child { margin-bottom: 0; }
+.v2.w2 .w2-teach-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); margin-top: var(--s5); max-width: 85ch; }
+.v2.w2 .w2-teach-compare > :last-child { background: var(--blue-soft); border-color: var(--blue-line); }
+.v2.w2 .w2-teach-after { margin-top: var(--s5); }
+.v2.w2 .w2-teach-batch { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6); background: var(--blue-soft); border-radius: var(--radius); padding: var(--s5); }
+.v2.w2 .w2-teach-batch > :first-child { font-size: var(--t-xl); }
+.v2.w2 .w2-teach-batch p:last-child { margin-bottom: 0; }
+.v2.w2 .w2-teach-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--s6); padding: var(--s5) 0; border-bottom: 1px solid var(--line); }
+.v2.w2 .w2-teach-row:first-child { padding-top: 0; }
+.v2.w2 .w2-teach-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.v2.w2 .w2-teach-row h3 { color: var(--blue-deep); max-width: 24ch; }
+.v2.w2 .w2-teach-row p:last-child { margin-bottom: 0; }
+.v2.w2 .w2-teach-online { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: start; }
+.v2.w2 .w2-teach-plans { padding: var(--s5); border: 1px solid var(--blue-line); border-radius: var(--radius); background: var(--sheet); }
+.v2.w2 .w2-teach-plans p:last-child { margin-bottom: 0; }
+.v2.w2 .w2-teach-parents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); }
+.v2.w2 .w2-teach-parents .w2-card p + p { margin-top: var(--s3); }
+.v2.w2 .w2-teach-cta-links { display: flex; flex-wrap: wrap; gap: var(--s3); justify-content: center; }
+@media (max-width: 600px) {
+  .v2.w2 .w2-teach-intro > .wrap,
+  .v2.w2 .w2-teach-compare,
+  .v2.w2 .w2-teach-batch,
+  .v2.w2 .w2-teach-row,
+  .v2.w2 .w2-teach-online,
+  .v2.w2 .w2-teach-parents { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+  .v2.w2 .w2-teach-lead, .v2.w2 .w2-teach-batch > :first-child { font-size: var(--t-lg); }
+  .v2.w2 .w2-teach-row h3 { max-width: none; margin-bottom: 0; }
+  .v2.w2 .w2-teach-timeline { margin-top: var(--s5); padding-left: var(--s4); }
+  .v2.w2 .w2-teach-step::before { left: calc(-1 * var(--s4) - 7px); }
+}

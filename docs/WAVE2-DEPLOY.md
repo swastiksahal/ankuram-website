@@ -225,3 +225,109 @@ d3d2b66e…  how-we-teach.html           unchanged, still the OLD page
 ```
 
 Screenshots: `design/screens/how-we-teach-390.png`, `how-we-teach-1440.png`.
+
+---
+
+# W2.2 /how-we-teach — DEPLOYED TO PRODUCTION 21 September 2026
+
+Single session confirmed before starting: local and origin both at `ad964f5`,
+no divergence, clean tree.
+
+## The file list — four files, worked out and stated before uploading
+
+`css/site.css` gained 43 lines for this page, moving its content hash. Under A23
+every page referencing it embeds that hash, so all three HTML pages had to ship
+with the stylesheet or they would request a version string that no longer
+describes it. Confirmed by grepping production: `index.html` and
+`diagnostic-assessment.html` both carried `?v=74f43a22`.
+
+| file | before | after |
+|---|---|---|
+| `css/site.css` | `74f43a22a6357fbf…` | `ef951be3698a6da6…` |
+| `index.html` | `8c7ac696f107118c…` | `e41b3f39818c2f5b…` |
+| `diagnostic-assessment.html` | `d67f598b0043e734…` | `ef6521184ea16a09…` |
+| `how-we-teach.html` | `d3d2b66e30f02fe5…` | `c303adb5efad147e…` |
+
+Not uploaded, and byte-identical after: `js/contact-whatsapp.js` (`5f7ccd03…`),
+`.htaccess`, `robots.txt`, `sitemap.xml`, `styles.css`, `script.js`.
+
+All three pages reference `css/site.css?v=ef951be3`. The A23 guard earned its
+keep during the build: it refused to produce `diagnostic-assessment.html` while
+it still carried `?v=74f43a22`, forcing the rebuild rather than shipping a stale
+version string.
+
+Backup: `~/backups/public_html-pre-w22-20260921-143342.tar.gz`, 1.5M, 196
+entries, verified to contain all four files. Uploaded stylesheet first, then
+how-we-teach, then diagnostic, then index.html. No delete flag.
+
+## The two pages already live — zero pixel delta
+
+The 43 new CSS rules each require a `w2-teach-*` class. `index.html` and
+`diagnostic-assessment.html` contain **0** such classes; only the new page uses
+them, 23 distinct. Proven by rendering, not by reading:
+
+The pre-W2.2 state was reconstructed from git (`ad964f5` artifacts + `876cfd5`
+stylesheet) and verified to match the hashes that were live: diagnostic
+`d67f598b`, index `8c7ac696`, css `74f43a22`. Rendered locally, then diffed
+against the live pages now:
+
+```
+homepage               390px    3dfd0bf322406623c998cf0c  /  3dfd0bf322406623c998cf0c   ZERO
+homepage              1440px    7eeb410e2680752c1ccc8f40  /  7eeb410e2680752c1ccc8f40   ZERO
+diagnostic-assessment  390px    5bdfabbd58a0001fd74f3c37  /  5bdfabbd58a0001fd74f3c37   ZERO
+diagnostic-assessment 1440px    a65c0c5c09b7d7713dc664b4  /  a65c0c5c09b7d7713dc664b4   ZERO
+```
+
+Homepage `parity.js` ALL PASS 107.4%, head parity ALL PASS. Diagnostic wave-2
+parity ALL PASS: 32 h3 retained, 1318/1317 words, 11/11 destinations, 23 link
+occurrences, FAQ h3 nested.
+
+## Edge, under A23
+
+```
+css/site.css?v=ef951be3     expected ef951be3
+  mum-edge10 ef951be3 CURRENT MISS      mum-edge6 ef951be3 CURRENT HIT age=12
+  mum-edge8  ef951be3 CURRENT HIT age=11 mum-edge9 ef951be3 CURRENT MISS
+  mum-edge5  ef951be3 CURRENT MISS      mum-edge7 ef951be3 CURRENT MISS
+  6 nodes, stale: 0
+```
+
+16/16 clean loads of each of the three live pages, no cache-busting.
+**No purge is needed and none was performed.**
+
+## The new page, live
+
+`/how-we-teach` 200 with 0 redirect hops; `.html` and trailing-slash forms 301
+to it. No `how-we-teach/` directory exists, so nothing shadows the flat file.
+
+Head byte-identical to baseline: title, description, canonical, robots, 9 og,
+4 twitter, **both JSON-LD blocks**. All 10 live H2s and all 28 live H3s present
+as headings, 0 missing. All 14 internal destinations present.
+
+**Link occurrences: 28, not 27.** The old live page also has 28, across the same
+14 destinations, and a per-destination comparison shows no difference at all.
+The 27 in the brief was one short; nothing was lost.
+
+FAQ, 7 `<details>`: starts closed, opens, closes, `<h3>` inside the `<summary>`,
+tap target 356x65 — with JavaScript **enabled and disabled**, no errors either
+way. `check-inline-handlers` passes against the live URL: `trackPhoneClick`
+resolves. No console errors.
+
+## Rollback — ready, not run. All four together.
+
+```bash
+ssh -4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+  "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-w22-20260921-143342.tar.gz \
+     public_html/css/site.css public_html/index.html public_html/diagnostic-assessment.html public_html/how-we-teach.html \
+   && cd public_html && sha256sum css/site.css index.html diagnostic-assessment.html how-we-teach.html"
+# 74f43a22…  css/site.css
+# 8c7ac696…  index.html
+# d67f598b…  diagnostic-assessment.html
+# d3d2b66e…  how-we-teach.html
+```
+
+They must be restored TOGETHER. The stylesheet and the three pages are bound by
+the A23 version string: restoring the CSS alone would leave three pages asking
+for `?v=ef951be3`, and restoring a page alone would leave it asking for
+`?v=74f43a22`. Either half-rollback serves a version string that does not
+describe the stylesheet on disk.
