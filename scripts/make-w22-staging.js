@@ -26,13 +26,21 @@ for (const [src, dest] of pages) {
     html = html.replace(re, `${f}?v=${hash(f)}`);
     if (hash(path.join(out, f)) !== hash(f)) throw Error(`Asset mismatch ${f}`);
   }
+  // Staging carries the meta noindex as well as the HTTP header and basic auth.
+  // The header and the 401 are the real protection, but every earlier staging
+  // build has carried the meta too, and make-staging-build.js asserts it. Losing
+  // a layer silently is how a page ends up indexed the one time auth lapses.
+  const liveRobots = /<meta name="robots" content="index, follow">/;
+  if (!liveRobots.test(html)) throw Error(`${dest}: expected the live robots meta`);
+  html = html.replace(liveRobots,
+    '<!-- STAGING ONLY: the live page is "index, follow". Staging must never be indexed. -->\n<meta name="robots" content="noindex, nofollow">');
+  if (!/content="noindex, nofollow"/.test(html)) throw Error(`${dest}: staging robots meta missing`);
+
   fs.writeFileSync(path.join(out, dest), html);
-  console.log(`${out}/${dest}: css ${hash(assets[0])}, js ${hash(assets[1])}`);
+  console.log(`${out}/${dest}: css ${hash(assets[0])}, js ${hash(assets[1])}, robots noindex`);
 }
-// Older staging has a diagnostic directory. Keep its existing route rendering
-// identically while adding the canonical flat-file candidate alongside it.
-let diagnostic = fs.readFileSync(path.join(out, 'diagnostic-assessment.html'), 'utf8')
-  .replace(/(href|src)="(css|js)\//g, '$1="../$2/');
-fs.mkdirSync(path.join(out, 'diagnostic-assessment'), { recursive: true });
-fs.writeFileSync(path.join(out, 'diagnostic-assessment/index.html'), diagnostic);
-console.log('Three staging pages assembled. HTTP auth/noindex must remain enabled.');
+// Staging is a flat-file mirror of production: /<slug> is served from
+// <slug>.html by the extension-less rewrite. A <slug>/ directory must NOT
+// exist, because mod_dir then 301s /<slug> to /<slug>/ and staging stops
+// matching the production route it is meant to prove. Verified on the server.
+console.log('Three staging pages assembled, flat files only. HTTP auth/noindex must remain enabled.');

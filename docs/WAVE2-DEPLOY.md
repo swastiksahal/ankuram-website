@@ -133,3 +133,95 @@ resume commands are in [W2.2-REPORT.md](W2.2-REPORT.md).
 - Six-width overflow 0, console errors 0, runtime inline-handler checks PASS.
 - Deployment stopped at the first read-only SSH operation: Network is unreachable.
   No staging or production write occurred. Current staging entrances both 401.
+
+---
+
+# W2.2 /how-we-teach — DEPLOYED TO STAGING 21 September 2026
+
+Built in a previous session, which was blocked at the first server write by the
+SSH IPv6 failure. That is now fixed (`-4`), and this session deployed the build.
+
+## Live path, confirmed before uploading
+
+`public_html/how-we-teach.html`, a flat file at the web root. `/how-we-teach`
+returns 200 directly; `/how-we-teach.html` and `/how-we-teach/` both 301 to it.
+**Assets resolve relative to the WEB ROOT** (`css/site.css`), not to a
+subdirectory — the same shape as `/diagnostic-assessment`. The URL does not
+change. The only `.htaccess` line naming the page is an unrelated legacy 301
+from a long slug, untouched.
+
+## The one-word difference: 2036 vs a baseline of 2037
+
+The extra word in the baseline is **the literal string `&rarr;`**, and it is not
+a word.
+
+`public_html/how-we-teach.html` contains, once:
+`<a href="/diagnostic-assessment">Learn more about the diagnostic assessment &rarr;</a>`
+
+`scripts/fingerprint.js` has no `rarr` in its `ENTITIES` table, so its text
+extraction leaves the raw `&rarr;` in place. The token contains letters, so its
+word counter counts it. The baseline 2037 therefore includes one token that is
+an un-decoded HTML entity.
+
+The rebuild decodes it to the actual arrow character: 0 occurrences of `&rarr;`,
+1 of `→`. `→` has no letters or digits, so the same counter correctly skips it.
+**2036 is the right number and the baseline was one too high. No content was
+lost.** Confirmed by running the real `fingerprint.js` on the byte-identical
+file (31965 bytes, sha256 `d3d2b66e…`, unchanged since the 16 Sep snapshot) and
+by a token-level diff.
+
+The other token deltas are the shared header chrome, as on W2.1: the build adds
+"Skip to content", "ANKURAM", "Menu" and drops one "Call Now" plus one phone
+repetition, the latter from the sticky `mobile-cta-bar` that A6 removes on all
+non-paid pages. The phone survives 3 times with 3 `tel:` links.
+
+## Two corrections made to the inherited build
+
+1. **Staging pages carried `index, follow`.** The W2.2 assembler builds staging
+   from the production artifacts, so all three pages, including the homepage,
+   lost the staging `noindex` meta they previously had. The 401 and the
+   `X-Robots-Tag` header are the real protection, but `make-staging-build.js`
+   asserts the meta and every earlier staging build carried it. The assembler
+   now rewrites it to `noindex, nofollow` and throws if it cannot.
+2. **A stale `diagnostic-assessment/` directory shadowed the flat file.** With
+   both present, mod_dir 301s `/diagnostic-assessment` to
+   `/diagnostic-assessment/`, so staging returned 301 where production returns
+   200 — staging stopped mirroring the route it exists to prove. Verified on the
+   server, then the directory was removed from staging and the assembler no
+   longer creates it.
+
+## Verification
+
+Head parity against the live page: title, description, canonical byte-identical;
+9 og, 4 twitter, **both JSON-LD blocks** byte-identical. All 10 live H2s and all
+28 live H3s present **as headings**, 0 missing. All 14 baseline internal links
+present.
+
+Three staging pages render, overflow 0 at 390 and 1440, all four inline handlers
+`typeof=function`, **zero console errors** on every page:
+
+| page | 390 | 1440 |
+|---|---|---|
+| homepage | 12743px | 13059px |
+| /diagnostic-assessment | 7465px | 5903px |
+| /how-we-teach | 9233px | 7006px |
+
+FAQ accordion on /how-we-teach, 7 `<details>`: starts closed, opens, closes,
+`<h3>` inside the `<summary>`, tap target 356x65 — **with JavaScript enabled and
+disabled**, no errors either way.
+
+Staging entrances 401 across three passes, and both new pages 401.
+
+**Production untouched**, proven by hash:
+
+```
+8c7ac696…  index.html                  unchanged
+d67f598b…  diagnostic-assessment.html  unchanged
+d3d2b66e…  how-we-teach.html           unchanged, still the OLD page
+74f43a22…  css/site.css                unchanged
+48cfc005…  .htaccess                   unchanged
+43ed0d0e…  robots.txt                  unchanged
+9f13ea4f…  sitemap.xml                 unchanged
+```
+
+Screenshots: `design/screens/how-we-teach-390.png`, `how-we-teach-1440.png`.
