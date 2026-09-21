@@ -53,7 +53,7 @@ created by step 3.
 Per CLAUDE.md. No password appears in this file or in any chat.
 
 ```bash
-SSH_OPTS="-p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3"
+SSH_OPTS="-4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3"   # -4: no IPv6 route on this Mac
 SSH_HOST="u879191658@145.79.212.4"
 SITE="domains/ankuramtuition.com"
 ```
@@ -488,7 +488,7 @@ past the stale edge copy; they must be re-run without it after the purge.
 ## Step 7 — rollback, ready, not run
 
 ```bash
-ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+ssh -4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
   "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-a21-20260918-125111.tar.gz public_html/js/contact-whatsapp.js && cd public_html && sha256sum js/contact-whatsapp.js"
 # must print 8194ecd351ce7ba6815014c267a5949cf444219d5d84b13d197bbfae93eb0981
 ```
@@ -595,7 +595,7 @@ Nothing fires twice anywhere.
 ## Rollback — ready, not run
 
 ```bash
-ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+ssh -4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
   "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-a22a23-20260919-075146.tar.gz public_html/index.html public_html/js/contact-whatsapp.js && cd public_html && sha256sum index.html js/contact-whatsapp.js"
 # must print 34e1f1f1…  index.html  and  1e48b2de…  js/contact-whatsapp.js
 ```
@@ -634,7 +634,7 @@ node has seen, so the stylesheet cannot be served stale.
 ## Steps
 
 ```bash
-SSH_OPTS="-p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3"
+SSH_OPTS="-4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3"   # -4: no IPv6 route on this Mac
 SSH_HOST="u879191658@145.79.212.4"
 SITE="domains/ankuramtuition.com"
 
@@ -746,7 +746,7 @@ Nothing fires twice.
 ## Rollback — ready, not run
 
 ```bash
-ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+ssh -4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
   "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-a24a25-20260919-170647.tar.gz public_html/index.html public_html/css/site.css && cd public_html && sha256sum index.html css/site.css"
 # must print 0b01cab1…  index.html  and  451d14a5…  css/site.css
 ```

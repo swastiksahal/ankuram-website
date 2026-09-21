@@ -34,7 +34,9 @@ SRC="${1:?usage: bash scripts/deploy-staging.sh <local-build-dir>}"
 
 SSH_PORT=65002
 SSH_HOST="u879191658@145.79.212.4"
-SSH_OPTS="-p ${SSH_PORT} -o ServerAliveInterval=15 -o ServerAliveCountMax=3"
+# -4 is REQUIRED: this Mac has no IPv6 route, so without it ssh tries the AAAA
+# record first and fails with "Network is unreachable".
+SSH_OPTS="-4 -p ${SSH_PORT} -o ServerAliveInterval=15 -o ServerAliveCountMax=3"
 
 SITE_DIR="domains/ankuramtuition.com"
 REMOTE_ROOT="${SITE_DIR}/public_html/staging"

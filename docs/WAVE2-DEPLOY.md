@@ -95,7 +95,7 @@ resolves.
 ## Rollback — ready, not run. All three files together.
 
 ```bash
-ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
+ssh -4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4 \
   "cd ~/domains/ankuramtuition.com && tar -xzf ~/backups/public_html-pre-w2-20260920-061825.tar.gz public_html/index.html public_html/css/site.css public_html/diagnostic-assessment.html && cd public_html && sha256sum index.html css/site.css diagnostic-assessment.html"
 # cfe08857…  index.html
 # ca460165…  css/site.css

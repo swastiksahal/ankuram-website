@@ -8,7 +8,10 @@ Goal: a complete visual redesign with ZERO loss of rankings, tracking or convers
 A supervisor (Claude, in the project chat) reviews every phase before anything goes live.
 
 ## Server
-- SSH: ssh -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4
+- SSH: ssh -4 -p 65002 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 u879191658@145.79.212.4
+- The -4 is REQUIRED: this Mac has no IPv6 route, so without it ssh tries the
+  AAAA record first and fails with "Network is unreachable". Every ssh, scp and
+  rsync -e in this repo carries it.
 - Web root: ~/domains/ankuramtuition.com/public_html
 - Server has bash, no python, no ImageMagick (gm exists). Process substitution <(...) fails silently.
 - Always `cd <dir> && <cmd>`. One command at a time.

@@ -63,7 +63,7 @@ the password** (steps 3 and 4). Run those in a plain terminal window.
 1. Connect:
 
    ```
-   ssh -p 65002 u879191658@145.79.212.4
+   ssh -4 -p 65002 u879191658@145.79.212.4
    ```
 
 2. Check whether `htpasswd` is available:
